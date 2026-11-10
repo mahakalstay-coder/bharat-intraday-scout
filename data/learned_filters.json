@@ -1,13 +1,126 @@
 {
-  "updated_at": null,
-  "mode": "warmup",
-  "total_resolved": 0,
-  "score_bump": 0,
-  "min_rvol": null,
+  "updated_at": "2026-11-10T10:50:02.651248+05:30",
+  "mode": "proven",
+  "total_resolved": 24,
+  "score_bump": 3,
+  "min_rvol": 1.2,
   "blocked": {},
   "boosted": {},
-  "stats": {},
+  "stats": {
+    "side:BUY": {
+      "n": 12,
+      "avg_r": 0.049,
+      "win": 41.7
+    },
+    "tier:TIER-1": {
+      "n": 19,
+      "avg_r": -0.038,
+      "win": 42.1
+    },
+    "window:AFTER_2PM": {
+      "n": 6,
+      "avg_r": 0.511,
+      "win": 50.0
+    },
+    "side_window:BUY|AFTER_2PM": {
+      "n": 2,
+      "avg_r": 0.6,
+      "win": 50.0
+    },
+    "side:SELL": {
+      "n": 12,
+      "avg_r": 0.068,
+      "win": 41.7
+    },
+    "tier:TIER-2": {
+      "n": 5,
+      "avg_r": 0.427,
+      "win": 40.0
+    },
+    "side_window:SELL|AFTER_2PM": {
+      "n": 4,
+      "avg_r": 0.466,
+      "win": 50.0
+    },
+    "window:BEFORE_10AM": {
+      "n": 8,
+      "avg_r": 0.386,
+      "win": 50.0
+    },
+    "side_window:BUY|BEFORE_10AM": {
+      "n": 5,
+      "avg_r": 0.28,
+      "win": 40.0
+    },
+    "side_window:SELL|BEFORE_10AM": {
+      "n": 3,
+      "avg_r": 0.562,
+      "win": 66.7
+    },
+    "window:10AM_TO_1PM": {
+      "n": 8,
+      "avg_r": -0.535,
+      "win": 25.0
+    },
+    "side_window:SELL|10AM_TO_1PM": {
+      "n": 3,
+      "avg_r": -0.756,
+      "win": 0.0
+    },
+    "side_window:BUY|10AM_TO_1PM": {
+      "n": 5,
+      "avg_r": -0.403,
+      "win": 40.0
+    },
+    "window:1PM_TO_2PM": {
+      "n": 2,
+      "avg_r": -0.233,
+      "win": 50.0
+    },
+    "side_window:SELL|1PM_TO_2PM": {
+      "n": 2,
+      "avg_r": -0.233,
+      "win": 50.0
+    },
+    "formula:SELL|F1_BB_KELTNER_SQUEEZE_5M": {
+      "n": 1,
+      "avg_r": 0.864,
+      "win": 100.0
+    },
+    "formula:SELL|F2_ORB_15M_RVOL_IGNITION": {
+      "n": 1,
+      "avg_r": 0.864,
+      "win": 100.0
+    },
+    "formula:SELL|F3_VWAP_MFI_ACCUMULATION": {
+      "n": 1,
+      "avg_r": 0.864,
+      "win": 100.0
+    },
+    "formula:SELL|F6_MULTIDAY_CHANNEL_BREAK": {
+      "n": 1,
+      "avg_r": 0.864,
+      "win": 100.0
+    }
+  },
   "levels": {},
-  "recent": {},
-  "changes": []
+  "recent": {
+    "n": 20,
+    "avg_r": -0.05,
+    "win": 40.0
+  },
+  "changes": [
+    {
+      "at": "2026-11-10T10:50:02.651238+05:30",
+      "items": [
+        "\ud83d\udd01 MODE warmup \u2192 proven",
+        "\ud83d\udcca Min 5m RVOL \u2192 1.2 (was None)",
+        "\ud83c\udf9a Score threshold +3 (was +0)"
+      ]
+    }
+  ],
+  "mover_capture": {
+    "movers": 20,
+    "caught": 0
+  }
 }
