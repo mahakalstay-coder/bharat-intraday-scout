@@ -1,0 +1,11 @@
+# Local Python files
+.venv/
+__pycache__/
+*.py[cod]
+.cache/
+.cache/huggingface/
+vendor/
+.env
+*.log
+# Do not ignore runtime/bis20.sqlite3 or data/liquid_universe.json;
+# those two files persist dedupe state and the liquid NSE universe in the private repo.
