@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-11-10T22:41:52.865314+05:30",
+  "activation": {
+    "status": "RESEARCH_ONLY",
+    "sessions": 0,
+    "completed_costed_trades": 0,
+    "holdout_trades": 0,
+    "holdout_mean_net_r": null,
+    "holdout_win_rate_pct": null,
+    "kronos_evaluated": 0,
+    "kronos_direction_accuracy_pct": null,
+    "kronos_mae_pct": null,
+    "checks": {
+      "min_sessions": false,
+      "min_trades": false,
+      "holdout_size": false,
+      "holdout_net_expectancy": false,
+      "holdout_win_rate": false,
+      "kronos_evidence": false
+    },
+    "notes": "Paper evidence, not certainty. 10-14 trading days is a review milestone, not a guaranteed activation."
+  },
+  "graded_watch_today": [],
+  "graded_kronos_today": [],
+  "watch_totals": {},
+  "indicator_scorecard": {},
+  "latest_trade_explanations": [],
+  "disclaimer": "Research/paper data only. Observed associations do not establish why market prices moved."
+}
