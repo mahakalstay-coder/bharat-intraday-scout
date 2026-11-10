@@ -20,7 +20,8 @@ on:
           - scan
           - daily-learn
           - backtest-learn
-          - reset-today-quota
+          - report
+          - refresh-metadata
           - dry-run-v2
           - refresh-universe
           - test-telegram
@@ -46,6 +47,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
+      MIN_SCORE_TIER1: "72"
+      MIN_SCORE_TIER2: "65"
+      OBSERVATION_MIN_SESSIONS: "12"
+      ACTIVATION_MIN_TRADES: "35"
+      ACTIVATION_MIN_HOLDOUT: "12"
+      ACTIVATION_MIN_KRONOS: "15"
       PYTHONUNBUFFERED: '1'
       HF_HOME: ${{ github.workspace }}/.cache/huggingface
       HF_HUB_DISABLE_PROGRESS_BARS: '1'
@@ -53,7 +60,7 @@ jobs:
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       TAURIC_API_KEY: ${{ secrets.TAURIC_API_KEY }}
       TARGET_SYMBOL: ${{ inputs.target_symbol }}
-      PRICE_FLOOR: '50'
+      PRICE_FLOOR: '60'
       MIN_AVG_TURNOVER_INR: '50000000'
       INTRADAY_UNIVERSE_SIZE: '200'
       MIN_DAY_MOVE_PCT: '0.4'
@@ -151,6 +158,11 @@ jobs:
           rm -rf vendor/Kronos
           git clone --depth 1 https://github.com/shiyu-coder/Kronos.git vendor/Kronos || echo "Warning: Kronos clone failed; running technical strategy."
 
+      - name: Refresh sector and industry metadata (bounded batch)
+        if: steps.task.outputs.skip_outside_hours != 'true' && steps.task.outputs.name == 'scan'
+        continue-on-error: true
+        run: .venv/bin/python scanner.py --task refresh-metadata
+
       - name: Run Bharat Intraday Scout (Tri-Engine + Self-Learning Backtester)
         if: steps.task.outputs.skip_outside_hours != 'true'
         env:
@@ -169,27 +181,18 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
-      - name: Commit scanner state and learned strategy weights
-        if: always() && steps.task.outputs.skip_outside_hours != 'true' && steps.task.outputs.name != 'dry-run-v2'
-        shell: bash
-        run: |
-          cp runtime/bis20.sqlite3 /tmp/bis20.sqlite3.bak 2>/dev/null || true
-          cp data/liquid_universe.json /tmp/liquid_universe.json.bak 2>/dev/null || true
-          cp data/learned_strategy_weights.json /tmp/learned_strategy_weights.json.bak 2>/dev/null || true
-          cp data/learned_filters.json /tmp/learned_filters.json.bak 2>/dev/null || true
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin main || true
-          git reset --hard origin/main || true
-          cp /tmp/bis20.sqlite3.bak runtime/bis20.sqlite3 2>/dev/null || true
-          cp /tmp/liquid_universe.json.bak data/liquid_universe.json 2>/dev/null || true
-          cp /tmp/learned_strategy_weights.json.bak data/learned_strategy_weights.json 2>/dev/null || true
-          cp /tmp/learned_filters.json.bak data/learned_filters.json 2>/dev/null || true
-          git add runtime/bis20.sqlite3 data/liquid_universe.json data/learned_strategy_weights.json data/learned_filters.json 2>/dev/null || true
-          if ! git diff --cached --quiet; then
-            git commit -m "BIS 2.0: persist scanner state & learned weights [skip ci]" || true
-            git push origin HEAD:main || true
-          else
-            echo "No state/cache changes to commit."
-          fi
+      - name: Persist scanner state
+        if: always() && steps.task.outputs.skip_outside_hours != 'true'
+        run: .venv/bin/python -c "import scanner; scanner.persist_state_to_git()"
 
+      - name: Retain heatmap, ledger and recovery state
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: market-and-paper-learning
+          path: |
+            reports/
+            runtime/bis20.sqlite3
+            data/validated_weights.json
+            data/classifications.json
+          retention-days: 30
