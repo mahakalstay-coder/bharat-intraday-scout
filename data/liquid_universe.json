@@ -1,0 +1,1807 @@
+{
+  "refreshed_at": "2026-11-08T15:13:53.099971+05:30",
+  "source_symbol_count": 2398,
+  "eligible_count": 1082,
+  "scan_symbols": [
+    {
+      "symbol": "RELIANCE",
+      "price": 1320.0,
+      "avg_turnover": 26020508828.398773,
+      "daily_ema20": 1239.0256863488994,
+      "daily_ema50": 1250.8258338454507,
+      "previous_close": 1320.0,
+      "avg_daily_range_pct": 2.49
+    },
+    {
+      "symbol": "HDFCBANK",
+      "price": 788.25,
+      "avg_turnover": 24639350406.65877,
+      "daily_ema20": 718.9390453241471,
+      "daily_ema50": 716.548195833544,
+      "previous_close": 788.25,
+      "avg_daily_range_pct": 2.15
+    },
+    {
+      "symbol": "ICICIBANK",
+      "price": 1571.199951171875,
+      "avg_turnover": 21587186221.303017,
+      "daily_ema20": 1413.4889484646174,
+      "daily_ema50": 1400.3446392050034,
+      "previous_close": 1571.199951171875,
+      "avg_daily_range_pct": 2.12
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "price": 2107.199951171875,
+      "avg_turnover": 19949810391.486122,
+      "daily_ema20": 1957.4433918177253,
+      "daily_ema50": 1913.7855371565865,
+      "previous_close": 2107.199951171875,
+      "avg_daily_range_pct": 2.45
+    },
+    {
+      "symbol": "INFY",
+      "price": 1181.4000244140625,
+      "avg_turnover": 19122343908.464184,
+      "daily_ema20": 1132.3866228454124,
+      "daily_ema50": 1116.7663882361614,
+      "previous_close": 1181.4000244140625,
+      "avg_daily_range_pct": 3.45
+    },
+    {
+      "symbol": "TCS",
+      "price": 2498.5,
+      "avg_turnover": 14879599632.16515,
+      "daily_ema20": 2421.29018339654,
+      "daily_ema50": 2349.755734882077,
+      "previous_close": 2498.5,
+      "avg_daily_range_pct": 2.88
+    },
+    {
+      "symbol": "BSE",
+      "price": 3800.0,
+      "avg_turnover": 13203599874.42489,
+      "daily_ema20": 3486.728820409312,
+      "daily_ema50": 3398.7046325423344,
+      "previous_close": 3800.0,
+      "avg_daily_range_pct": 3.08
+    },
+    {
+      "symbol": "SBIN",
+      "price": 1018.5,
+      "avg_turnover": 11136039308.074743,
+      "daily_ema20": 976.1635233401007,
+      "daily_ema50": 994.9079256060188,
+      "previous_close": 1018.5,
+      "avg_daily_range_pct": 2.15
+    },
+    {
+      "symbol": "KOTAKBANK",
+      "price": 480.0,
+      "avg_turnover": 10467841092.26883,
+      "daily_ema20": 449.8578025892813,
+      "daily_ema50": 431.1161222009867,
+      "previous_close": 480.0,
+      "avg_daily_range_pct": 2.14
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "price": 1087.75,
+      "avg_turnover": 9327283696.069647,
+      "daily_ema20": 979.9919614043648,
+      "daily_ema50": 1005.8614278528324,
+      "previous_close": 1087.75,
+      "avg_daily_range_pct": 3.02
+    },
+    {
+      "symbol": "ETERNAL",
+      "price": 363.1499938964844,
+      "avg_turnover": 9262511566.048061,
+      "daily_ema20": 336.36566874386324,
+      "daily_ema50": 329.3764917076869,
+      "previous_close": 363.1499938964844,
+      "avg_daily_range_pct": 3.13
+    },
+    {
+      "symbol": "LT",
+      "price": 4117.7001953125,
+      "avg_turnover": 8751350747.006176,
+      "daily_ema20": 3844.1168806269807,
+      "daily_ema50": 3878.5956101292645,
+      "previous_close": 4117.7001953125,
+      "avg_daily_range_pct": 2.12
+    },
+    {
+      "symbol": "AXISBANK",
+      "price": 1322.9000244140625,
+      "avg_turnover": 8739012309.873724,
+      "daily_ema20": 1243.1542317166154,
+      "daily_ema50": 1240.4176409297324,
+      "previous_close": 1322.9000244140625,
+      "avg_daily_range_pct": 2.15
+    },
+    {
+      "symbol": "M&M",
+      "price": 3287.199951171875,
+      "avg_turnover": 8554019496.630213,
+      "daily_ema20": 2953.494182086466,
+      "daily_ema50": 3058.434865010105,
+      "previous_close": 3287.199951171875,
+      "avg_daily_range_pct": 2.48
+    },
+    {
+      "symbol": "GROWW",
+      "price": 215.0800018310547,
+      "avg_turnover": 7492639009.491425,
+      "daily_ema20": 198.44067560763918,
+      "daily_ema50": 195.02879190873116,
+      "previous_close": 215.0800018310547,
+      "avg_daily_range_pct": 3.54
+    },
+    {
+      "symbol": "TECHM",
+      "price": 1831.0,
+      "avg_turnover": 7439343725.692157,
+      "daily_ema20": 1743.0981948416365,
+      "daily_ema50": 1672.341711380044,
+      "previous_close": 1831.0,
+      "avg_daily_range_pct": 2.95
+    },
+    {
+      "symbol": "NETWEB",
+      "price": 3771.39990234375,
+      "avg_turnover": 7054766718.340808,
+      "daily_ema20": 4335.483688938951,
+      "daily_ema50": 4641.4103739327165,
+      "previous_close": 3771.39990234375,
+      "avg_daily_range_pct": 4.57
+    },
+    {
+      "symbol": "MCX",
+      "price": 3528.0,
+      "avg_turnover": 7043508090.410047,
+      "daily_ema20": 3276.632743001468,
+      "daily_ema50": 3220.4041121962796,
+      "previous_close": 3528.0,
+      "avg_daily_range_pct": 3.65
+    },
+    {
+      "symbol": "HCLTECH",
+      "price": 1440.0,
+      "avg_turnover": 6827445774.865039,
+      "daily_ema20": 1385.3543353922475,
+      "daily_ema50": 1343.5526043308876,
+      "previous_close": 1440.0,
+      "avg_daily_range_pct": 2.86
+    },
+    {
+      "symbol": "ADANIPORTS",
+      "price": 1936.5999755859375,
+      "avg_turnover": 6625536887.421771,
+      "daily_ema20": 1819.5600008013778,
+      "daily_ema50": 1769.0703946692502,
+      "previous_close": 1936.5999755859375,
+      "avg_daily_range_pct": 2.8
+    },
+    {
+      "symbol": "DIVISLAB",
+      "price": 10320.5,
+      "avg_turnover": 6511778801.775,
+      "daily_ema20": 9649.320162780037,
+      "daily_ema50": 9344.236929374838,
+      "previous_close": 10320.5,
+      "avg_daily_range_pct": 2.55
+    },
+    {
+      "symbol": "MARUTI",
+      "price": 12750.0,
+      "avg_turnover": 6056462307.85,
+      "daily_ema20": 11799.54200442184,
+      "daily_ema50": 12250.186549359078,
+      "previous_close": 12750.0,
+      "avg_daily_range_pct": 2.26
+    },
+    {
+      "symbol": "ATHERENERG",
+      "price": 1821.699951171875,
+      "avg_turnover": 6030562448.325903,
+      "daily_ema20": 1646.0197777192486,
+      "daily_ema50": 1583.3881810796904,
+      "previous_close": 1821.699951171875,
+      "avg_daily_range_pct": 4.56
+    },
+    {
+      "symbol": "BHEL",
+      "price": 418.79998779296875,
+      "avg_turnover": 5569207513.169899,
+      "daily_ema20": 413.124510402801,
+      "daily_ema50": 416.9213416465061,
+      "previous_close": 418.79998779296875,
+      "avg_daily_range_pct": 3.58
+    },
+    {
+      "symbol": "COFORGE",
+      "price": 2076.0,
+      "avg_turnover": 5465258191.842029,
+      "daily_ema20": 1983.9113352178806,
+      "daily_ema50": 1920.645337497975,
+      "previous_close": 2076.0,
+      "avg_daily_range_pct": 3.42
+    },
+    {
+      "symbol": "SHRIRAMFIN",
+      "price": 961.1500244140625,
+      "avg_turnover": 5426197343.148822,
+      "daily_ema20": 908.759376103817,
+      "daily_ema50": 971.0758791904991,
+      "previous_close": 961.1500244140625,
+      "avg_daily_range_pct": 3.58
+    },
+    {
+      "symbol": "ITC",
+      "price": 283.1499938964844,
+      "avg_turnover": 5399749540.839124,
+      "daily_ema20": 268.2067412332597,
+      "daily_ema50": 267.424328716133,
+      "previous_close": 283.1499938964844,
+      "avg_daily_range_pct": 2.43
+    },
+    {
+      "symbol": "PAYTM",
+      "price": 1794.4000244140625,
+      "avg_turnover": 5217055282.818792,
+      "daily_ema20": 1697.0137664827812,
+      "daily_ema50": 1678.8338390939575,
+      "previous_close": 1794.4000244140625,
+      "avg_daily_range_pct": 3.57
+    },
+    {
+      "symbol": "CUPID",
+      "price": 338.8999938964844,
+      "avg_turnover": 5019500888.239569,
+      "daily_ema20": 328.8882906441264,
+      "daily_ema50": 308.0818785834877,
+      "previous_close": 338.8999938964844,
+      "avg_daily_range_pct": 4.71
+    },
+    {
+      "symbol": "APOLLO",
+      "price": 413.6499938964844,
+      "avg_turnover": 5006206948.805509,
+      "daily_ema20": 410.8338297687974,
+      "daily_ema50": 402.47044899182464,
+      "previous_close": 413.6499938964844,
+      "avg_daily_range_pct": 5.4
+    },
+    {
+      "symbol": "LAURUSLABS",
+      "price": 2340.0,
+      "avg_turnover": 4954258568.186414,
+      "daily_ema20": 2189.149487597266,
+      "daily_ema50": 2053.8174609987564,
+      "previous_close": 2340.0,
+      "avg_daily_range_pct": 3.27
+    },
+    {
+      "symbol": "INDHOTEL",
+      "price": 888.0,
+      "avg_turnover": 4860636642.861124,
+      "daily_ema20": 803.4836441480264,
+      "daily_ema50": 765.6618765517977,
+      "previous_close": 888.0,
+      "avg_daily_range_pct": 2.7
+    },
+    {
+      "symbol": "PERSISTENT",
+      "price": 6053.5,
+      "avg_turnover": 4832395424.125,
+      "daily_ema20": 5881.352048878712,
+      "daily_ema50": 5716.485664498815,
+      "previous_close": 6053.5,
+      "avg_daily_range_pct": 3.24
+    },
+    {
+      "symbol": "APOLLOHOSP",
+      "price": 8446.0,
+      "avg_turnover": 4798304593.275,
+      "daily_ema20": 8212.172039970323,
+      "daily_ema50": 8405.147907145301,
+      "previous_close": 8446.0,
+      "avg_daily_range_pct": 2.8
+    },
+    {
+      "symbol": "DIXON",
+      "price": 12625.0,
+      "avg_turnover": 4465013975.1,
+      "daily_ema20": 12190.632231493804,
+      "daily_ema50": 12904.759455378338,
+      "previous_close": 12625.0,
+      "avg_daily_range_pct": 3.47
+    },
+    {
+      "symbol": "SWIGGY",
+      "price": 191.1699981689453,
+      "avg_turnover": 4373254359.398106,
+      "daily_ema20": 201.95472799441586,
+      "daily_ema50": 233.7357224384416,
+      "previous_close": 191.1699981689453,
+      "avg_daily_range_pct": 4.58
+    },
+    {
+      "symbol": "BEL",
+      "price": 396.0,
+      "avg_turnover": 4145265370.75558,
+      "daily_ema20": 380.5001883396131,
+      "daily_ema50": 388.7240650110626,
+      "previous_close": 396.0,
+      "avg_daily_range_pct": 2.32
+    },
+    {
+      "symbol": "HINDALCO",
+      "price": 958.4000244140625,
+      "avg_turnover": 4120277808.9974885,
+      "daily_ema20": 916.5946644786741,
+      "daily_ema50": 954.5096073715774,
+      "previous_close": 958.4000244140625,
+      "avg_daily_range_pct": 2.6
+    },
+    {
+      "symbol": "INDIGO",
+      "price": 5476.0,
+      "avg_turnover": 4106011827.899072,
+      "daily_ema20": 4939.415449072338,
+      "daily_ema50": 4971.97934585922,
+      "previous_close": 5476.0,
+      "avg_daily_range_pct": 2.63
+    },
+    {
+      "symbol": "TITAN",
+      "price": 5000.0,
+      "avg_turnover": 4041065594.5973144,
+      "daily_ema20": 4577.041568228131,
+      "daily_ema50": 4723.185316968064,
+      "previous_close": 5000.0,
+      "avg_daily_range_pct": 2.41
+    },
+    {
+      "symbol": "WIPRO",
+      "price": 198.0,
+      "avg_turnover": 4026041914.6564436,
+      "daily_ema20": 187.14818469952905,
+      "daily_ema50": 181.11373060529507,
+      "previous_close": 198.0,
+      "avg_daily_range_pct": 2.83
+    },
+    {
+      "symbol": "POWERINDIA",
+      "price": 27800.0,
+      "avg_turnover": 4004195623.0,
+      "daily_ema20": 28604.477032379204,
+      "daily_ema50": 30353.775765086375,
+      "previous_close": 27800.0,
+      "avg_daily_range_pct": 3.77
+    },
+    {
+      "symbol": "TATASTEEL",
+      "price": 186.3000030517578,
+      "avg_turnover": 3902495159.590233,
+      "daily_ema20": 176.4982155627639,
+      "daily_ema50": 179.80123901194997,
+      "previous_close": 186.3000030517578,
+      "avg_daily_range_pct": 2.49
+    },
+    {
+      "symbol": "LENSKART",
+      "price": 724.75,
+      "avg_turnover": 3833505156.969748,
+      "daily_ema20": 676.2933514338113,
+      "daily_ema50": 664.1802999981369,
+      "previous_close": 724.75,
+      "avg_daily_range_pct": 3.41
+    },
+    {
+      "symbol": "HAL",
+      "price": 4980.0,
+      "avg_turnover": 3746818349.0781736,
+      "daily_ema20": 4892.44360716936,
+      "daily_ema50": 4874.2444751306675,
+      "previous_close": 4980.0,
+      "avg_daily_range_pct": 2.47
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "price": 1860.0,
+      "avg_turnover": 3738671759.113684,
+      "daily_ema20": 1786.008537565949,
+      "daily_ema50": 1826.8845868980666,
+      "previous_close": 1860.0,
+      "avg_daily_range_pct": 2.24
+    },
+    {
+      "symbol": "ADANIPOWER",
+      "price": 204.2899932861328,
+      "avg_turnover": 3711149703.6654053,
+      "daily_ema20": 195.0813601025381,
+      "daily_ema50": 198.9006663307776,
+      "previous_close": 204.2899932861328,
+      "avg_daily_range_pct": 3.21
+    },
+    {
+      "symbol": "MEESHO",
+      "price": 233.47999572753906,
+      "avg_turnover": 3659226752.065683,
+      "daily_ema20": 225.4234136692009,
+      "daily_ema50": 218.180268935835,
+      "previous_close": 233.47999572753906,
+      "avg_daily_range_pct": 4.03
+    },
+    {
+      "symbol": "CUMMINSIND",
+      "price": 4048.800048828125,
+      "avg_turnover": 3655014865.5971313,
+      "daily_ema20": 4530.146705827911,
+      "daily_ema50": 4796.583130384383,
+      "previous_close": 4048.800048828125,
+      "avg_daily_range_pct": 2.98
+    },
+    {
+      "symbol": "CHENNPETRO",
+      "price": 1441.800048828125,
+      "avg_turnover": 3599848634.444055,
+      "daily_ema20": 1486.9811204425216,
+      "daily_ema50": 1453.2030263423958,
+      "previous_close": 1441.800048828125,
+      "avg_daily_range_pct": 5.6
+    },
+    {
+      "symbol": "MAXHEALTH",
+      "price": 934.0,
+      "avg_turnover": 3533605083.6180663,
+      "daily_ema20": 890.340685247868,
+      "daily_ema50": 938.2266338767488,
+      "previous_close": 934.0,
+      "avg_daily_range_pct": 3.15
+    },
+    {
+      "symbol": "ADANIENT",
+      "price": 2745.800048828125,
+      "avg_turnover": 3532478255.229492,
+      "daily_ema20": 2662.255041552294,
+      "daily_ema50": 2789.52134012587,
+      "previous_close": 2745.800048828125,
+      "avg_daily_range_pct": 2.74
+    },
+    {
+      "symbol": "GVT&D",
+      "price": 4018.0,
+      "avg_turnover": 3484354431.7377443,
+      "daily_ema20": 4074.0268488409706,
+      "daily_ema50": 4169.726341434615,
+      "previous_close": 4018.0,
+      "avg_daily_range_pct": 3.8
+    },
+    {
+      "symbol": "BAJAJ-AUTO",
+      "price": 10900.0,
+      "avg_turnover": 3465851084.65,
+      "daily_ema20": 10491.040923379012,
+      "daily_ema50": 10920.135437009256,
+      "previous_close": 10900.0,
+      "avg_daily_range_pct": 2.62
+    },
+    {
+      "symbol": "MRPL",
+      "price": 175.6699981689453,
+      "avg_turnover": 3402592578.8783097,
+      "daily_ema20": 175.6429735487487,
+      "daily_ema50": 173.83226756531724,
+      "previous_close": 175.6699981689453,
+      "avg_daily_range_pct": 5.39
+    },
+    {
+      "symbol": "POLYCAB",
+      "price": 7871.0,
+      "avg_turnover": 3349224063.325,
+      "daily_ema20": 7925.277104451605,
+      "daily_ema50": 8267.534801709098,
+      "previous_close": 7871.0,
+      "avg_daily_range_pct": 3.46
+    },
+    {
+      "symbol": "AEROFLEX",
+      "price": 482.70001220703125,
+      "avg_turnover": 3334383473.373538,
+      "daily_ema20": 515.7259279563524,
+      "daily_ema50": 510.78655236056255,
+      "previous_close": 482.70001220703125,
+      "avg_daily_range_pct": 7.94
+    },
+    {
+      "symbol": "ULTRACEMCO",
+      "price": 12450.0,
+      "avg_turnover": 3286523515.65,
+      "daily_ema20": 11364.755475348267,
+      "daily_ema50": 11297.120594152311,
+      "previous_close": 12450.0,
+      "avg_daily_range_pct": 2.48
+    },
+    {
+      "symbol": "CHOLAFIN",
+      "price": 1785.0,
+      "avg_turnover": 3252873046.9790955,
+      "daily_ema20": 1625.4073228821876,
+      "daily_ema50": 1697.519180855525,
+      "previous_close": 1785.0,
+      "avg_daily_range_pct": 3.21
+    },
+    {
+      "symbol": "ACUTAAS",
+      "price": 3786.60009765625,
+      "avg_turnover": 3249135345.6285276,
+      "daily_ema20": 3583.837651174708,
+      "daily_ema50": 3417.487847640564,
+      "previous_close": 3786.60009765625,
+      "avg_daily_range_pct": 4.98
+    },
+    {
+      "symbol": "JIOFIN",
+      "price": 231.1999969482422,
+      "avg_turnover": 3223346376.7332587,
+      "daily_ema20": 216.72152898981668,
+      "daily_ema50": 224.78743831834288,
+      "previous_close": 231.1999969482422,
+      "avg_daily_range_pct": 2.48
+    },
+    {
+      "symbol": "CGPOWER",
+      "price": 773.0,
+      "avg_turnover": 3216431593.0557923,
+      "daily_ema20": 829.2763094697865,
+      "daily_ema50": 854.8394022234604,
+      "previous_close": 773.0,
+      "avg_daily_range_pct": 3.67
+    },
+    {
+      "symbol": "WELCORP",
+      "price": 2204.89990234375,
+      "avg_turnover": 3206466263.8327026,
+      "daily_ema20": 2445.3375835791458,
+      "daily_ema50": 2423.7654443308174,
+      "previous_close": 2204.89990234375,
+      "avg_daily_range_pct": 5.61
+    },
+    {
+      "symbol": "EICHERMOT",
+      "price": 7669.5,
+      "avg_turnover": 3203309599.75,
+      "daily_ema20": 7327.0639540787515,
+      "daily_ema50": 7482.336732031063,
+      "previous_close": 7669.5,
+      "avg_daily_range_pct": 2.41
+    },
+    {
+      "symbol": "HINDUNILVR",
+      "price": 1998.4000244140625,
+      "avg_turnover": 3194563596.403479,
+      "daily_ema20": 1902.5209661495146,
+      "daily_ema50": 1931.146414205794,
+      "previous_close": 1998.4000244140625,
+      "avg_daily_range_pct": 2.5
+    },
+    {
+      "symbol": "COALINDIA",
+      "price": 400.0,
+      "avg_turnover": 3068782597.14655,
+      "daily_ema20": 403.7942132076565,
+      "daily_ema50": 408.274070339084,
+      "previous_close": 400.0,
+      "avg_daily_range_pct": 2.25
+    },
+    {
+      "symbol": "TVSMOTOR",
+      "price": 4491.7001953125,
+      "avg_turnover": 3028165623.807654,
+      "daily_ema20": 4196.823233463697,
+      "daily_ema50": 4197.106383588217,
+      "previous_close": 4491.7001953125,
+      "avg_daily_range_pct": 2.91
+    },
+    {
+      "symbol": "KALYANKJIL",
+      "price": 590.75,
+      "avg_turnover": 3008803064.4946413,
+      "daily_ema20": 539.1368998499811,
+      "daily_ema50": 561.4291993418371,
+      "previous_close": 590.75,
+      "avg_daily_range_pct": 3.47
+    },
+    {
+      "symbol": "NTPC",
+      "price": 323.45001220703125,
+      "avg_turnover": 3000016871.0756836,
+      "daily_ema20": 315.08223150569927,
+      "daily_ema50": 321.60284674908087,
+      "previous_close": 323.45001220703125,
+      "avg_daily_range_pct": 2.51
+    },
+    {
+      "symbol": "UNIONBANK",
+      "price": 187.0,
+      "avg_turnover": 2979856681.2346315,
+      "daily_ema20": 181.92617697559808,
+      "daily_ema50": 181.68669649921907,
+      "previous_close": 187.0,
+      "avg_daily_range_pct": 2.6
+    },
+    {
+      "symbol": "APARINDS",
+      "price": 14106.0,
+      "avg_turnover": 2975263784.35,
+      "daily_ema20": 15857.704691693254,
+      "daily_ema50": 16505.232506930923,
+      "previous_close": 14106.0,
+      "avg_daily_range_pct": 5.11
+    },
+    {
+      "symbol": "HEROMOTOCO",
+      "price": 5513.0,
+      "avg_turnover": 2958031983.6,
+      "daily_ema20": 5259.474150173432,
+      "daily_ema50": 5338.934654961726,
+      "previous_close": 5513.0,
+      "avg_daily_range_pct": 2.86
+    },
+    {
+      "symbol": "CANBK",
+      "price": 122.93000030517578,
+      "avg_turnover": 2953180042.3111796,
+      "daily_ema20": 119.85735541929725,
+      "daily_ema50": 122.55018412025741,
+      "previous_close": 122.93000030517578,
+      "avg_daily_range_pct": 2.68
+    },
+    {
+      "symbol": "SOLARINDS",
+      "price": 18608.0,
+      "avg_turnover": 2915888235.25,
+      "daily_ema20": 19280.939863034197,
+      "daily_ema50": 19609.530744685097,
+      "previous_close": 18608.0,
+      "avg_daily_range_pct": 3.25
+    },
+    {
+      "symbol": "ASHOKLEY",
+      "price": 172.08999633789062,
+      "avg_turnover": 2910790490.374942,
+      "daily_ema20": 152.97644653478534,
+      "daily_ema50": 158.54382692556402,
+      "previous_close": 172.08999633789062,
+      "avg_daily_range_pct": 2.91
+    },
+    {
+      "symbol": "SONACOMS",
+      "price": 900.0,
+      "avg_turnover": 2903842259.196695,
+      "daily_ema20": 851.9093777813175,
+      "daily_ema50": 826.7526183814055,
+      "previous_close": 900.0,
+      "avg_daily_range_pct": 3.29
+    },
+    {
+      "symbol": "NESTLEIND",
+      "price": 1282.0999755859375,
+      "avg_turnover": 2898192786.8959227,
+      "daily_ema20": 1248.3744601408657,
+      "daily_ema50": 1322.6946230850203,
+      "previous_close": 1282.0999755859375,
+      "avg_daily_range_pct": 3.06
+    },
+    {
+      "symbol": "VEDL",
+      "price": 261.75,
+      "avg_turnover": 2887126342.3500314,
+      "daily_ema20": 248.3444902832986,
+      "daily_ema50": 256.5274464995937,
+      "previous_close": 261.75,
+      "avg_daily_range_pct": 3.02
+    },
+    {
+      "symbol": "FEDERALBNK",
+      "price": 340.1000061035156,
+      "avg_turnover": 2876711172.542079,
+      "daily_ema20": 338.1109920005656,
+      "daily_ema50": 340.95090984520556,
+      "previous_close": 340.1000061035156,
+      "avg_daily_range_pct": 2.79
+    },
+    {
+      "symbol": "DRREDDY",
+      "price": 1373.0,
+      "avg_turnover": 2874441048.31264,
+      "daily_ema20": 1303.7846602710154,
+      "daily_ema50": 1246.1417435486142,
+      "previous_close": 1373.0,
+      "avg_daily_range_pct": 2.28
+    },
+    {
+      "symbol": "TRENT",
+      "price": 3079.0,
+      "avg_turnover": 2874252474.4803224,
+      "daily_ema20": 2933.916435146601,
+      "daily_ema50": 2891.4203323000547,
+      "previous_close": 3079.0,
+      "avg_daily_range_pct": 2.57
+    },
+    {
+      "symbol": "PFC",
+      "price": 328.79998779296875,
+      "avg_turnover": 2850838589.4413757,
+      "daily_ema20": 325.6496259326991,
+      "daily_ema50": 338.99426626875174,
+      "previous_close": 328.79998779296875,
+      "avg_daily_range_pct": 2.61
+    },
+    {
+      "symbol": "LICI",
+      "price": 394.0,
+      "avg_turnover": 2828010605.51976,
+      "daily_ema20": 394.3967661892835,
+      "daily_ema50": 399.34090065249285,
+      "previous_close": 394.0,
+      "avg_daily_range_pct": 2.31
+    },
+    {
+      "symbol": "TDPOWERSYS",
+      "price": 576.5,
+      "avg_turnover": 2819573465.9548583,
+      "daily_ema20": 707.0646456890711,
+      "daily_ema50": 724.2381127633422,
+      "previous_close": 576.5,
+      "avg_daily_range_pct": 5.81
+    },
+    {
+      "symbol": "TMCV",
+      "price": 425.5,
+      "avg_turnover": 2812176889.9715652,
+      "daily_ema20": 412.4337408017151,
+      "daily_ema50": 429.60617017539175,
+      "previous_close": 425.5,
+      "avg_daily_range_pct": 3.35
+    },
+    {
+      "symbol": "POWERGRID",
+      "price": 259.8999938964844,
+      "avg_turnover": 2792209482.0291834,
+      "daily_ema20": 257.38531843518024,
+      "daily_ema50": 260.54186301862705,
+      "previous_close": 259.8999938964844,
+      "avg_daily_range_pct": 2.41
+    },
+    {
+      "symbol": "HBLENGINE",
+      "price": 839.25,
+      "avg_turnover": 2755108099.149869,
+      "daily_ema20": 798.3944952388686,
+      "daily_ema50": 759.7609815699072,
+      "previous_close": 839.25,
+      "avg_daily_range_pct": 4.26
+    },
+    {
+      "symbol": "GALLANTT",
+      "price": 534.4000244140625,
+      "avg_turnover": 2746721080.406668,
+      "daily_ema20": 547.2062259838164,
+      "daily_ema50": 556.0365956302252,
+      "previous_close": 534.4000244140625,
+      "avg_daily_range_pct": 6.31
+    },
+    {
+      "symbol": "JSWSTEEL",
+      "price": 1357.0999755859375,
+      "avg_turnover": 2740209092.6616335,
+      "daily_ema20": 1275.1444611615566,
+      "daily_ema50": 1274.8465219430896,
+      "previous_close": 1357.0999755859375,
+      "avg_daily_range_pct": 2.71
+    },
+    {
+      "symbol": "PNB",
+      "price": 126.55000305175781,
+      "avg_turnover": 2714048744.4383616,
+      "daily_ema20": 121.169099739429,
+      "daily_ema50": 118.76729390231331,
+      "previous_close": 126.55000305175781,
+      "avg_daily_range_pct": 2.47
+    },
+    {
+      "symbol": "POLICYBZR",
+      "price": 967.0,
+      "avg_turnover": 2698078160.8727264,
+      "daily_ema20": 1037.1919413080673,
+      "daily_ema50": 1309.8386480036734,
+      "previous_close": 967.0,
+      "avg_daily_range_pct": 3.94
+    },
+    {
+      "symbol": "SAIL",
+      "price": 171.60000610351562,
+      "avg_turnover": 2679869640.5456314,
+      "daily_ema20": 169.5900514328856,
+      "daily_ema50": 174.42046506784106,
+      "previous_close": 171.60000610351562,
+      "avg_daily_range_pct": 3.31
+    },
+    {
+      "symbol": "LTTS",
+      "price": 4259.7001953125,
+      "avg_turnover": 2660423140.1155763,
+      "daily_ema20": 3959.391009172105,
+      "daily_ema50": 3723.6260101625694,
+      "previous_close": 4259.7001953125,
+      "avg_daily_range_pct": 4.07
+    },
+    {
+      "symbol": "PINELABS",
+      "price": 162.4499969482422,
+      "avg_turnover": 2629890441.434209,
+      "daily_ema20": 161.8246744265339,
+      "daily_ema50": 165.3010967371909,
+      "previous_close": 162.4499969482422,
+      "avg_daily_range_pct": 4.8
+    },
+    {
+      "symbol": "PPLPHARMA",
+      "price": 239.32000732421875,
+      "avg_turnover": 2577325398.8431273,
+      "daily_ema20": 219.52817102164485,
+      "daily_ema50": 213.91606683980726,
+      "previous_close": 239.32000732421875,
+      "avg_daily_range_pct": 3.98
+    },
+    {
+      "symbol": "INDUSINDBK",
+      "price": 910.25,
+      "avg_turnover": 2541570238.026007,
+      "daily_ema20": 873.4162298323071,
+      "daily_ema50": 918.0422950573569,
+      "previous_close": 910.25,
+      "avg_daily_range_pct": 2.9
+    },
+    {
+      "symbol": "SYRMA",
+      "price": 1459.300048828125,
+      "avg_turnover": 2524530431.0263977,
+      "daily_ema20": 1559.6979806126205,
+      "daily_ema50": 1556.915155853712,
+      "previous_close": 1459.300048828125,
+      "avg_daily_range_pct": 4.92
+    },
+    {
+      "symbol": "WELSPUNLIV",
+      "price": 241.3000030517578,
+      "avg_turnover": 2481381296.387628,
+      "daily_ema20": 230.45839907795548,
+      "daily_ema50": 214.69213987738306,
+      "previous_close": 241.3000030517578,
+      "avg_daily_range_pct": 5.57
+    },
+    {
+      "symbol": "DMART",
+      "price": 3425.0,
+      "avg_turnover": 2469929663.8611083,
+      "daily_ema20": 3358.4895158470563,
+      "daily_ema50": 3557.0071943064763,
+      "previous_close": 3425.0,
+      "avg_daily_range_pct": 2.26
+    },
+    {
+      "symbol": "ONGC",
+      "price": 231.75999450683594,
+      "avg_turnover": 2391663872.245021,
+      "daily_ema20": 228.84853399143853,
+      "daily_ema50": 231.14468047285837,
+      "previous_close": 231.75999450683594,
+      "avg_daily_range_pct": 1.82
+    },
+    {
+      "symbol": "KEI",
+      "price": 3988.0,
+      "avg_turnover": 2386427568.840869,
+      "daily_ema20": 4110.840290767579,
+      "daily_ema50": 4558.968063780091,
+      "previous_close": 3988.0,
+      "avg_daily_range_pct": 3.75
+    },
+    {
+      "symbol": "TATAELXSI",
+      "price": 3855.0,
+      "avg_turnover": 2380080398.963196,
+      "daily_ema20": 3689.348034373278,
+      "daily_ema50": 3608.498945832084,
+      "previous_close": 3855.0,
+      "avg_daily_range_pct": 3.47
+    },
+    {
+      "symbol": "MOTHERSON",
+      "price": 158.5500030517578,
+      "avg_turnover": 2369583267.7699685,
+      "daily_ema20": 159.2979968957878,
+      "daily_ema50": 161.26805505479712,
+      "previous_close": 158.5500030517578,
+      "avg_daily_range_pct": 3.21
+    },
+    {
+      "symbol": "ASIANPAINT",
+      "price": 2546.0,
+      "avg_turnover": 2367161635.981372,
+      "daily_ema20": 2389.012869762873,
+      "daily_ema50": 2454.2159571044767,
+      "previous_close": 2546.0,
+      "avg_daily_range_pct": 2.4
+    },
+    {
+      "symbol": "MARICO",
+      "price": 897.75,
+      "avg_turnover": 2329568474.3617616,
+      "daily_ema20": 821.8043885907014,
+      "daily_ema50": 820.040702895241,
+      "previous_close": 897.75,
+      "avg_daily_range_pct": 2.3
+    },
+    {
+      "symbol": "RBLBANK",
+      "price": 379.0,
+      "avg_turnover": 2308562484.4325776,
+      "daily_ema20": 370.06134766437344,
+      "daily_ema50": 381.97601307709107,
+      "previous_close": 379.0,
+      "avg_daily_range_pct": 3.28
+    },
+    {
+      "symbol": "MVELECTRO",
+      "price": 733.3499755859375,
+      "avg_turnover": 2285472650.7662354,
+      "daily_ema20": 790.6679153475837,
+      "daily_ema50": 764.1854309983127,
+      "previous_close": 733.3499755859375,
+      "avg_daily_range_pct": 6.7
+    },
+    {
+      "symbol": "TARIL",
+      "price": 306.54998779296875,
+      "avg_turnover": 2246264393.6843734,
+      "daily_ema20": 307.833942141377,
+      "daily_ema50": 301.3984753336297,
+      "previous_close": 306.54998779296875,
+      "avg_daily_range_pct": 4.89
+    },
+    {
+      "symbol": "AUBANK",
+      "price": 931.7999877929688,
+      "avg_turnover": 2234456743.6637206,
+      "daily_ema20": 930.430866833653,
+      "daily_ema50": 987.6402805531316,
+      "previous_close": 931.7999877929688,
+      "avg_daily_range_pct": 2.97
+    },
+    {
+      "symbol": "TMPV",
+      "price": 292.0,
+      "avg_turnover": 2232906230.0388703,
+      "daily_ema20": 278.95870754040953,
+      "daily_ema50": 292.82496353154096,
+      "previous_close": 292.0,
+      "avg_daily_range_pct": 2.39
+    },
+    {
+      "symbol": "VBL",
+      "price": 438.0,
+      "avg_turnover": 2231123833.6098433,
+      "daily_ema20": 418.5823690511097,
+      "daily_ema50": 420.812079881906,
+      "previous_close": 438.0,
+      "avg_daily_range_pct": 3.05
+    },
+    {
+      "symbol": "TFCILTD",
+      "price": 160.5,
+      "avg_turnover": 2227415647.3308897,
+      "daily_ema20": 155.3501874626283,
+      "daily_ema50": 146.07942847281296,
+      "previous_close": 160.5,
+      "avg_daily_range_pct": 3.96
+    },
+    {
+      "symbol": "HDFCAMC",
+      "price": 2649.800048828125,
+      "avg_turnover": 2215259403.574109,
+      "daily_ema20": 2404.2125253421605,
+      "daily_ema50": 2424.770223409417,
+      "previous_close": 2649.800048828125,
+      "avg_daily_range_pct": 3.06
+    },
+    {
+      "symbol": "CARTRADE",
+      "price": 2700.0,
+      "avg_turnover": 2212445785.494287,
+      "daily_ema20": 2679.310370942313,
+      "daily_ema50": 2806.362749192756,
+      "previous_close": 2700.0,
+      "avg_daily_range_pct": 6.89
+    },
+    {
+      "symbol": "MPHASIS",
+      "price": 2520.0,
+      "avg_turnover": 2206467491.3371096,
+      "daily_ema20": 2485.7740414406467,
+      "daily_ema50": 2444.3829790677996,
+      "previous_close": 2520.0,
+      "avg_daily_range_pct": 3.62
+    },
+    {
+      "symbol": "AEGISLOG",
+      "price": 1141.0999755859375,
+      "avg_turnover": 2197285741.6657534,
+      "daily_ema20": 1241.6504402221626,
+      "daily_ema50": 1285.8500125497417,
+      "previous_close": 1141.0999755859375,
+      "avg_daily_range_pct": 6.56
+    },
+    {
+      "symbol": "ADANIGREEN",
+      "price": 1424.0999755859375,
+      "avg_turnover": 2191452786.766693,
+      "daily_ema20": 1320.9809293217818,
+      "daily_ema50": 1307.5216037146815,
+      "previous_close": 1424.0999755859375,
+      "avg_daily_range_pct": 3.19
+    },
+    {
+      "symbol": "SKYGOLD",
+      "price": 951.9500122070312,
+      "avg_turnover": 2190331700.955316,
+      "daily_ema20": 922.571864005668,
+      "daily_ema50": 871.8828076271205,
+      "previous_close": 951.9500122070312,
+      "avg_daily_range_pct": 7.31
+    },
+    {
+      "symbol": "VAML",
+      "price": 376.04998779296875,
+      "avg_turnover": 2169922906.251756,
+      "daily_ema20": 370.9566154510908,
+      "daily_ema50": 398.40247700746477,
+      "previous_close": 376.04998779296875,
+      "avg_daily_range_pct": 3.85
+    },
+    {
+      "symbol": "SBILIFE",
+      "price": 1784.0,
+      "avg_turnover": 2165169806.0224485,
+      "daily_ema20": 1690.6153104303535,
+      "daily_ema50": 1715.3955633402534,
+      "previous_close": 1784.0,
+      "avg_daily_range_pct": 2.4
+    },
+    {
+      "symbol": "SHANTIGOLD",
+      "price": 272.1499938964844,
+      "avg_turnover": 1181606917.758374,
+      "daily_ema20": 319.8165856370181,
+      "daily_ema50": 298.7993305045728,
+      "previous_close": 272.1499938964844,
+      "avg_daily_range_pct": 8.11
+    },
+    {
+      "symbol": "SHRINGARMS",
+      "price": 309.45001220703125,
+      "avg_turnover": 1990959160.383246,
+      "daily_ema20": 281.6062156205114,
+      "daily_ema50": 255.26720982149791,
+      "previous_close": 309.45001220703125,
+      "avg_daily_range_pct": 7.7
+    },
+    {
+      "symbol": "WSTCSTPAPR",
+      "price": 738.1500244140625,
+      "avg_turnover": 1007649764.8987732,
+      "daily_ema20": 797.8211516894812,
+      "daily_ema50": 740.4097296622473,
+      "previous_close": 738.1500244140625,
+      "avg_daily_range_pct": 7.67
+    },
+    {
+      "symbol": "PNGSREVA",
+      "price": 603.1500244140625,
+      "avg_turnover": 575671529.0228546,
+      "daily_ema20": 616.3414485441687,
+      "daily_ema50": 583.9222946908021,
+      "previous_close": 603.1500244140625,
+      "avg_daily_range_pct": 7.63
+    },
+    {
+      "symbol": "AGIIL",
+      "price": 300.92999267578125,
+      "avg_turnover": 603142816.0274856,
+      "daily_ema20": 253.18696747583795,
+      "daily_ema50": 263.31700630708997,
+      "previous_close": 300.92999267578125,
+      "avg_daily_range_pct": 7.27
+    },
+    {
+      "symbol": "PARACABLES",
+      "price": 64.12999725341797,
+      "avg_turnover": 438928416.5992134,
+      "daily_ema20": 62.25066353853998,
+      "daily_ema50": 62.4811866943788,
+      "previous_close": 64.12999725341797,
+      "avg_daily_range_pct": 7.17
+    },
+    {
+      "symbol": "EMUDHRA",
+      "price": 369.54998779296875,
+      "avg_turnover": 500288525.3717667,
+      "daily_ema20": 415.5704212332713,
+      "daily_ema50": 479.46960075690794,
+      "previous_close": 369.54998779296875,
+      "avg_daily_range_pct": 7.03
+    },
+    {
+      "symbol": "SMCGLOBAL",
+      "price": 93.79000091552734,
+      "avg_turnover": 850470118.2636029,
+      "daily_ema20": 96.20663367884143,
+      "daily_ema50": 91.26446705495007,
+      "previous_close": 93.79000091552734,
+      "avg_daily_range_pct": 7.01
+    },
+    {
+      "symbol": "INDIAGLYCO",
+      "price": 294.54998779296875,
+      "avg_turnover": 657256007.7856185,
+      "daily_ema20": 324.6205232744691,
+      "daily_ema50": 484.083809280705,
+      "previous_close": 294.54998779296875,
+      "avg_daily_range_pct": 6.92
+    },
+    {
+      "symbol": "CYIENTDLM",
+      "price": 772.2999877929688,
+      "avg_turnover": 685736978.7821747,
+      "daily_ema20": 809.6185825217012,
+      "daily_ema50": 817.7773586798501,
+      "previous_close": 772.2999877929688,
+      "avg_daily_range_pct": 6.66
+    },
+    {
+      "symbol": "MARSONS",
+      "price": 153.10000610351562,
+      "avg_turnover": 890986932.460727,
+      "daily_ema20": 136.6843061892207,
+      "daily_ema50": 127.94424033218408,
+      "previous_close": 153.10000610351562,
+      "avg_daily_range_pct": 6.61
+    },
+    {
+      "symbol": "SHUKRAPHAR",
+      "price": 79.87999725341797,
+      "avg_turnover": 569931322.5616783,
+      "daily_ema20": 72.30887031168973,
+      "daily_ema50": 62.22562802679692,
+      "previous_close": 79.87999725341797,
+      "avg_daily_range_pct": 6.6
+    },
+    {
+      "symbol": "KROSS",
+      "price": 291.0,
+      "avg_turnover": 940710751.1780288,
+      "daily_ema20": 279.4252694005154,
+      "daily_ema50": 255.65526432956366,
+      "previous_close": 291.0,
+      "avg_daily_range_pct": 6.53
+    },
+    {
+      "symbol": "INOXGREEN",
+      "price": 120.86000061035156,
+      "avg_turnover": 830221477.0204971,
+      "daily_ema20": 121.25750814725004,
+      "daily_ema50": 143.0502723313559,
+      "previous_close": 120.86000061035156,
+      "avg_daily_range_pct": 6.52
+    },
+    {
+      "symbol": "SSWL",
+      "price": 540.25,
+      "avg_turnover": 1996501854.5989914,
+      "daily_ema20": 478.75604812356084,
+      "daily_ema50": 416.39161092289964,
+      "previous_close": 540.25,
+      "avg_daily_range_pct": 6.49
+    },
+    {
+      "symbol": "MARINE",
+      "price": 391.29998779296875,
+      "avg_turnover": 550155516.2721115,
+      "daily_ema20": 422.30128540162843,
+      "daily_ema50": 410.8588547127522,
+      "previous_close": 391.29998779296875,
+      "avg_daily_range_pct": 6.42
+    },
+    {
+      "symbol": "ANTELOPUS",
+      "price": 888.5999755859375,
+      "avg_turnover": 450147095.07828367,
+      "daily_ema20": 1015.7539447097972,
+      "daily_ema50": 995.5879107255386,
+      "previous_close": 888.5999755859375,
+      "avg_daily_range_pct": 6.4
+    },
+    {
+      "symbol": "MOLBIO",
+      "price": 1339.300048828125,
+      "avg_turnover": 1628093745.0929382,
+      "daily_ema20": 1346.5342613353355,
+      "daily_ema50": 1295.0235569511306,
+      "previous_close": 1339.300048828125,
+      "avg_daily_range_pct": 6.38
+    },
+    {
+      "symbol": "V2RETAIL",
+      "price": 173.5,
+      "avg_turnover": 1389158412.2793021,
+      "daily_ema20": 165.99244119154756,
+      "daily_ema50": 186.87650467188993,
+      "previous_close": 173.5,
+      "avg_daily_range_pct": 6.33
+    },
+    {
+      "symbol": "PARAGMILK",
+      "price": 327.9200134277344,
+      "avg_turnover": 956981045.0380447,
+      "daily_ema20": 273.1153567641011,
+      "daily_ema50": 259.98368046443187,
+      "previous_close": 327.9200134277344,
+      "avg_daily_range_pct": 6.26
+    },
+    {
+      "symbol": "GANDHAR",
+      "price": 251.47999572753906,
+      "avg_turnover": 419096532.15425414,
+      "daily_ema20": 272.9701505509819,
+      "daily_ema50": 269.0720142929202,
+      "previous_close": 251.47999572753906,
+      "avg_daily_range_pct": 6.25
+    },
+    {
+      "symbol": "AVALON",
+      "price": 1893.5999755859375,
+      "avg_turnover": 673022701.5614746,
+      "daily_ema20": 2078.4545643583124,
+      "daily_ema50": 2135.4679646596746,
+      "previous_close": 1893.5999755859375,
+      "avg_daily_range_pct": 6.07
+    },
+    {
+      "symbol": "RAYMOND",
+      "price": 1082.0,
+      "avg_turnover": 886790700.4742676,
+      "daily_ema20": 1112.2672647259815,
+      "daily_ema50": 985.5404060362665,
+      "previous_close": 1082.0,
+      "avg_daily_range_pct": 5.94
+    },
+    {
+      "symbol": "NEOGEN",
+      "price": 2548.60009765625,
+      "avg_turnover": 532181390.46065676,
+      "daily_ema20": 2322.8478160011227,
+      "daily_ema50": 2289.673328659848,
+      "previous_close": 2548.60009765625,
+      "avg_daily_range_pct": 5.91
+    },
+    {
+      "symbol": "EBGNG",
+      "price": 584.3499755859375,
+      "avg_turnover": 824058438.8249512,
+      "daily_ema20": 684.83767389732,
+      "daily_ema50": 661.653318799814,
+      "previous_close": 584.3499755859375,
+      "avg_daily_range_pct": 5.88
+    },
+    {
+      "symbol": "63MOONS",
+      "price": 896.0,
+      "avg_turnover": 561829531.2611145,
+      "daily_ema20": 902.7807244565927,
+      "daily_ema50": 867.951165126774,
+      "previous_close": 896.0,
+      "avg_daily_range_pct": 5.88
+    },
+    {
+      "symbol": "SGFIN",
+      "price": 696.9500122070312,
+      "avg_turnover": 416288744.4514618,
+      "daily_ema20": 673.8851576166583,
+      "daily_ema50": 666.0719363741504,
+      "previous_close": 696.9500122070312,
+      "avg_daily_range_pct": 5.88
+    },
+    {
+      "symbol": "GOODLUCK",
+      "price": 540.5499877929688,
+      "avg_turnover": 806891255.3415222,
+      "daily_ema20": 534.4038371760234,
+      "daily_ema50": 514.1298271236303,
+      "previous_close": 540.5499877929688,
+      "avg_daily_range_pct": 5.74
+    },
+    {
+      "symbol": "HEGAM",
+      "price": 293.8699951171875,
+      "avg_turnover": 818572229.9257904,
+      "daily_ema20": 253.11555888657097,
+      "daily_ema50": 358.05776004945983,
+      "previous_close": 293.8699951171875,
+      "avg_daily_range_pct": 5.73
+    },
+    {
+      "symbol": "PFOCUS",
+      "price": 285.20001220703125,
+      "avg_turnover": 1428912512.8033662,
+      "daily_ema20": 289.4354564120946,
+      "daily_ema50": 293.82071686094474,
+      "previous_close": 285.20001220703125,
+      "avg_daily_range_pct": 5.7
+    },
+    {
+      "symbol": "QPOWER",
+      "price": 1363.5,
+      "avg_turnover": 507232855.7596008,
+      "daily_ema20": 1428.2580010658187,
+      "daily_ema50": 1416.8068332468613,
+      "previous_close": 1363.5,
+      "avg_daily_range_pct": 5.69
+    },
+    {
+      "symbol": "REDINGTON",
+      "price": 327.5,
+      "avg_turnover": 1832238303.7384675,
+      "daily_ema20": 359.84571745692966,
+      "daily_ema50": 365.33809406967805,
+      "previous_close": 327.5,
+      "avg_daily_range_pct": 5.68
+    },
+    {
+      "symbol": "IOLCP",
+      "price": 183.2899932861328,
+      "avg_turnover": 413362875.41201097,
+      "daily_ema20": 184.82001176534845,
+      "daily_ema50": 185.46356526048524,
+      "previous_close": 183.2899932861328,
+      "avg_daily_range_pct": 5.64
+    },
+    {
+      "symbol": "BOROLTD",
+      "price": 318.20001220703125,
+      "avg_turnover": 450841569.25248563,
+      "daily_ema20": 278.83071578415365,
+      "daily_ema50": 265.7404018723785,
+      "previous_close": 318.20001220703125,
+      "avg_daily_range_pct": 5.63
+    },
+    {
+      "symbol": "FCL",
+      "price": 51.54999923706055,
+      "avg_turnover": 935747756.7629614,
+      "daily_ema20": 52.25402759203445,
+      "daily_ema50": 51.6017734061585,
+      "previous_close": 51.54999923706055,
+      "avg_daily_range_pct": 5.61
+    },
+    {
+      "symbol": "INTELLECT",
+      "price": 514.9500122070312,
+      "avg_turnover": 482729508.6162445,
+      "daily_ema20": 573.0483552734034,
+      "daily_ema50": 620.2795194544816,
+      "previous_close": 514.9500122070312,
+      "avg_daily_range_pct": 5.61
+    },
+    {
+      "symbol": "MBEL",
+      "price": 281.95001220703125,
+      "avg_turnover": 518662830.4773735,
+      "daily_ema20": 267.2951489215264,
+      "daily_ema50": 266.86068276037787,
+      "previous_close": 281.95001220703125,
+      "avg_daily_range_pct": 5.59
+    },
+    {
+      "symbol": "CPPLUS",
+      "price": 4131.39990234375,
+      "avg_turnover": 1693662799.7580688,
+      "daily_ema20": 3971.9280640645397,
+      "daily_ema50": 3830.096497309586,
+      "previous_close": 4131.39990234375,
+      "avg_daily_range_pct": 5.53
+    },
+    {
+      "symbol": "CEMPRO",
+      "price": 1323.300048828125,
+      "avg_turnover": 752115286.4722046,
+      "daily_ema20": 1238.9382338854891,
+      "daily_ema50": 1240.4285290800929,
+      "previous_close": 1323.300048828125,
+      "avg_daily_range_pct": 5.53
+    },
+    {
+      "symbol": "SHOPERSTOP",
+      "price": 365.8999938964844,
+      "avg_turnover": 484992470.8034378,
+      "daily_ema20": 362.71708037126757,
+      "daily_ema50": 378.7818368790873,
+      "previous_close": 365.8999938964844,
+      "avg_daily_range_pct": 5.52
+    },
+    {
+      "symbol": "SAMBHV",
+      "price": 163.38999938964844,
+      "avg_turnover": 447800801.1737915,
+      "daily_ema20": 161.46809950265782,
+      "daily_ema50": 149.40305035767656,
+      "previous_close": 163.38999938964844,
+      "avg_daily_range_pct": 5.48
+    },
+    {
+      "symbol": "EQUITASBNK",
+      "price": 54.689998626708984,
+      "avg_turnover": 1126350988.1112251,
+      "daily_ema20": 61.01834444892429,
+      "daily_ema50": 66.74981597150426,
+      "previous_close": 54.689998626708984,
+      "avg_daily_range_pct": 5.46
+    },
+    {
+      "symbol": "THELEELA",
+      "price": 692.2999877929688,
+      "avg_turnover": 530716083.86939085,
+      "daily_ema20": 626.7152920511862,
+      "daily_ema50": 586.4556387136768,
+      "previous_close": 692.2999877929688,
+      "avg_daily_range_pct": 5.44
+    },
+    {
+      "symbol": "SHILPAMED",
+      "price": 942.3499755859375,
+      "avg_turnover": 842865006.4069397,
+      "daily_ema20": 936.5352064698811,
+      "daily_ema50": 924.7025376156795,
+      "previous_close": 942.3499755859375,
+      "avg_daily_range_pct": 5.43
+    },
+    {
+      "symbol": "ROLEXRINGS",
+      "price": 201.1699981689453,
+      "avg_turnover": 521247210.6640213,
+      "daily_ema20": 176.31400793910188,
+      "daily_ema50": 175.0902173290878,
+      "previous_close": 201.1699981689453,
+      "avg_daily_range_pct": 5.43
+    },
+    {
+      "symbol": "ICIL",
+      "price": 489.8500061035156,
+      "avg_turnover": 465722077.8301681,
+      "daily_ema20": 455.22585364463004,
+      "daily_ema50": 443.1569255216083,
+      "previous_close": 489.8500061035156,
+      "avg_daily_range_pct": 5.43
+    },
+    {
+      "symbol": "CMLL",
+      "price": 520.1500244140625,
+      "avg_turnover": 1230116528.278061,
+      "daily_ema20": 529.8019153826795,
+      "daily_ema50": 523.533964702817,
+      "previous_close": 520.1500244140625,
+      "avg_daily_range_pct": 5.4
+    },
+    {
+      "symbol": "RATNAVEER",
+      "price": 365.75,
+      "avg_turnover": 1545249755.6744065,
+      "daily_ema20": 352.0770170598882,
+      "daily_ema50": 320.60473828990484,
+      "previous_close": 365.75,
+      "avg_daily_range_pct": 5.39
+    },
+    {
+      "symbol": "MOBIKWIK",
+      "price": 224.82000732421875,
+      "avg_turnover": 843908495.3478905,
+      "daily_ema20": 220.61753012450765,
+      "daily_ema50": 212.14570462679586,
+      "previous_close": 224.82000732421875,
+      "avg_daily_range_pct": 5.39
+    },
+    {
+      "symbol": "SGMART",
+      "price": 859.1500244140625,
+      "avg_turnover": 721191769.8840821,
+      "daily_ema20": 826.3776158017561,
+      "daily_ema50": 796.4021654779641,
+      "previous_close": 859.1500244140625,
+      "avg_daily_range_pct": 5.36
+    },
+    {
+      "symbol": "TECHNOCRAF",
+      "price": 510.29998779296875,
+      "avg_turnover": 993496557.5886444,
+      "daily_ema20": 487.48575951697114,
+      "daily_ema50": 445.13366083077545,
+      "previous_close": 510.29998779296875,
+      "avg_daily_range_pct": 5.34
+    },
+    {
+      "symbol": "PNCINFRA",
+      "price": 130.1999969482422,
+      "avg_turnover": 697462945.4275029,
+      "daily_ema20": 134.9084588649371,
+      "daily_ema50": 155.20805103513302,
+      "previous_close": 130.1999969482422,
+      "avg_daily_range_pct": 5.3
+    },
+    {
+      "symbol": "RAIN",
+      "price": 181.39999389648438,
+      "avg_turnover": 920096726.1573861,
+      "daily_ema20": 200.70908015824182,
+      "daily_ema50": 205.787974952337,
+      "previous_close": 181.39999389648438,
+      "avg_daily_range_pct": 5.29
+    },
+    {
+      "symbol": "SENORES",
+      "price": 1161.0,
+      "avg_turnover": 447498803.89887697,
+      "daily_ema20": 1230.2877519433043,
+      "daily_ema50": 1325.164867052981,
+      "previous_close": 1161.0,
+      "avg_daily_range_pct": 5.29
+    },
+    {
+      "symbol": "ELECON",
+      "price": 418.95001220703125,
+      "avg_turnover": 987129103.8341858,
+      "daily_ema20": 435.2767637495341,
+      "daily_ema50": 434.543234355002,
+      "previous_close": 418.95001220703125,
+      "avg_daily_range_pct": 5.25
+    },
+    {
+      "symbol": "RBA",
+      "price": 88.62000274658203,
+      "avg_turnover": 435144821.2478062,
+      "daily_ema20": 91.04042313720498,
+      "daily_ema50": 93.72640914624122,
+      "previous_close": 88.62000274658203,
+      "avg_daily_range_pct": 5.24
+    },
+    {
+      "symbol": "INDIACEM",
+      "price": 349.25,
+      "avg_turnover": 1723145183.3130784,
+      "daily_ema20": 319.880735402306,
+      "daily_ema50": 334.0608270129901,
+      "previous_close": 349.25,
+      "avg_daily_range_pct": 5.23
+    },
+    {
+      "symbol": "IXIGO",
+      "price": 165.88999938964844,
+      "avg_turnover": 1058391999.5156486,
+      "daily_ema20": 149.97987724862793,
+      "daily_ema50": 156.86441978610756,
+      "previous_close": 165.88999938964844,
+      "avg_daily_range_pct": 5.23
+    },
+    {
+      "symbol": "BLUESTONE",
+      "price": 710.8499755859375,
+      "avg_turnover": 460304238.44541323,
+      "daily_ema20": 733.8435697387927,
+      "daily_ema50": 778.0779967302071,
+      "previous_close": 710.8499755859375,
+      "avg_daily_range_pct": 5.23
+    },
+    {
+      "symbol": "VRLLOG",
+      "price": 339.04998779296875,
+      "avg_turnover": 458335046.4379593,
+      "daily_ema20": 291.090245807129,
+      "daily_ema50": 289.47028892591345,
+      "previous_close": 339.04998779296875,
+      "avg_daily_range_pct": 5.23
+    },
+    {
+      "symbol": "DHOOTTRANS",
+      "price": 1601.5999755859375,
+      "avg_turnover": 1077681588.6315064,
+      "daily_ema20": 1522.1735228123048,
+      "daily_ema50": 1519.323814372801,
+      "previous_close": 1601.5999755859375,
+      "avg_daily_range_pct": 5.19
+    },
+    {
+      "symbol": "BAJAJCON",
+      "price": 396.70001220703125,
+      "avg_turnover": 411432061.430658,
+      "daily_ema20": 419.2962291143834,
+      "daily_ema50": 455.01463758435943,
+      "previous_close": 396.70001220703125,
+      "avg_daily_range_pct": 5.16
+    },
+    {
+      "symbol": "KIRLOSENG",
+      "price": 1582.5,
+      "avg_turnover": 990019795.5814636,
+      "daily_ema20": 1864.9877680442269,
+      "daily_ema50": 1997.4169151244514,
+      "previous_close": 1582.5,
+      "avg_daily_range_pct": 5.14
+    },
+    {
+      "symbol": "JAICORPLTD",
+      "price": 90.43000030517578,
+      "avg_turnover": 897523229.316536,
+      "daily_ema20": 90.28804831793262,
+      "daily_ema50": 93.73980053850262,
+      "previous_close": 90.43000030517578,
+      "avg_daily_range_pct": 5.13
+    },
+    {
+      "symbol": "TANLA",
+      "price": 651.5,
+      "avg_turnover": 812906304.7566147,
+      "daily_ema20": 597.3392402212934,
+      "daily_ema50": 567.132028431315,
+      "previous_close": 651.5,
+      "avg_daily_range_pct": 5.12
+    },
+    {
+      "symbol": "DIACABS",
+      "price": 370.6499938964844,
+      "avg_turnover": 443944255.535553,
+      "daily_ema20": 357.441125164915,
+      "daily_ema50": 354.79499890210633,
+      "previous_close": 370.6499938964844,
+      "avg_daily_range_pct": 5.12
+    },
+    {
+      "symbol": "FINCABLES",
+      "price": 1091.0,
+      "avg_turnover": 759724627.1602173,
+      "daily_ema20": 1216.6405263900242,
+      "daily_ema50": 1258.8435767031735,
+      "previous_close": 1091.0,
+      "avg_daily_range_pct": 5.1
+    },
+    {
+      "symbol": "TEGA",
+      "price": 1689.199951171875,
+      "avg_turnover": 519853251.31811523,
+      "daily_ema20": 1789.6118877230454,
+      "daily_ema50": 1780.3280918656462,
+      "previous_close": 1689.199951171875,
+      "avg_daily_range_pct": 5.07
+    },
+    {
+      "symbol": "LOTUSDEV",
+      "price": 233.82000732421875,
+      "avg_turnover": 507819495.0858933,
+      "daily_ema20": 236.12874858953296,
+      "daily_ema50": 218.20312653119012,
+      "previous_close": 233.82000732421875,
+      "avg_daily_range_pct": 5.06
+    },
+    {
+      "symbol": "JINDALSAW",
+      "price": 251.0,
+      "avg_turnover": 513177110.0241432,
+      "daily_ema20": 257.36022083220365,
+      "daily_ema50": 270.81378220737815,
+      "previous_close": 251.0,
+      "avg_daily_range_pct": 4.98
+    },
+    {
+      "symbol": "TIPSMUSIC",
+      "price": 769.25,
+      "avg_turnover": 737433172.9335296,
+      "daily_ema20": 744.604184640448,
+      "daily_ema50": 704.2066747749708,
+      "previous_close": 769.25,
+      "avg_daily_range_pct": 4.97
+    },
+    {
+      "symbol": "KRN",
+      "price": 939.7999877929688,
+      "avg_turnover": 756866598.8522034,
+      "daily_ema20": 1139.3140219535953,
+      "daily_ema50": 1284.4316618121784,
+      "previous_close": 939.7999877929688,
+      "avg_daily_range_pct": 4.96
+    },
+    {
+      "symbol": "RSYSTEMS",
+      "price": 268.04998779296875,
+      "avg_turnover": 764692527.8092506,
+      "daily_ema20": 257.2934170309205,
+      "daily_ema50": 252.3731379324066,
+      "previous_close": 268.04998779296875,
+      "avg_daily_range_pct": 4.93
+    },
+    {
+      "symbol": "RRKABEL",
+      "price": 1920.9000244140625,
+      "avg_turnover": 1157688801.2184265,
+      "daily_ema20": 2205.6832905628444,
+      "daily_ema50": 2413.93949587323,
+      "previous_close": 1920.9000244140625,
+      "avg_daily_range_pct": 4.9
+    },
+    {
+      "symbol": "BBOX",
+      "price": 810.9500122070312,
+      "avg_turnover": 923340713.7727264,
+      "daily_ema20": 828.7765400780131,
+      "daily_ema50": 806.1264057145179,
+      "previous_close": 810.9500122070312,
+      "avg_daily_range_pct": 4.89
+    },
+    {
+      "symbol": "LLOYDSENGG",
+      "price": 83.11000061035156,
+      "avg_turnover": 874596619.0346409,
+      "daily_ema20": 86.73649634530568,
+      "daily_ema50": 87.92788583762169,
+      "previous_close": 83.11000061035156,
+      "avg_daily_range_pct": 4.89
+    },
+    {
+      "symbol": "AEQUS",
+      "price": 219.5399932861328,
+      "avg_turnover": 1264204715.2337594,
+      "daily_ema20": 231.92112882759884,
+      "daily_ema50": 239.59032587123554,
+      "previous_close": 219.5399932861328,
+      "avg_daily_range_pct": 4.87
+    },
+    {
+      "symbol": "EMMVEE",
+      "price": 251.30999755859375,
+      "avg_turnover": 713474768.3079544,
+      "daily_ema20": 258.7897161259684,
+      "daily_ema50": 286.96420764222484,
+      "previous_close": 251.30999755859375,
+      "avg_daily_range_pct": 4.87
+    },
+    {
+      "symbol": "LUMAXTECH",
+      "price": 2327.39990234375,
+      "avg_turnover": 440335480.35973513,
+      "daily_ema20": 2024.858524724982,
+      "daily_ema50": 1988.7741713740659,
+      "previous_close": 2327.39990234375,
+      "avg_daily_range_pct": 4.87
+    },
+    {
+      "symbol": "BSOFT",
+      "price": 337.3500061035156,
+      "avg_turnover": 2156097170.818634,
+      "daily_ema20": 314.1040581055628,
+      "daily_ema50": 304.125586349006,
+      "previous_close": 337.3500061035156,
+      "avg_daily_range_pct": 4.86
+    }
+  ]
+}
