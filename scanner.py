@@ -4,6 +4,7 @@ import argparse
 import io
 import json
 import logging
+import math
 import os
 import shutil
 import sqlite3
@@ -25,6 +26,8 @@ import numpy as np
 import pandas as pd
 import requests
 import yfinance as yf
+import market_learning as ml
+import adaptive_journal as aj
 
 TZ = ZoneInfo("Asia/Kolkata")
 LOG = logging.getLogger("bis20")
@@ -60,7 +63,7 @@ DEFAULT_FORMULA_WEIGHTS: Dict[str, float] = {
 # Filters out range-exhausted low-ADR stocks (like SBIN/UNIONBANK at RSI>79) and targets
 # high-ADR stocks coiled in tight Bollinger squeezes (BB width <= 2.8%, RSI 54-75, MFI 52-80).
 CFG: Dict[str, Any] = {
-    "PRICE_FLOOR": float(os.getenv("PRICE_FLOOR", "50")),
+    "PRICE_FLOOR": float(os.getenv("PRICE_FLOOR", "60")),
     "MIN_AVG_TURNOVER_INR": float(os.getenv("MIN_AVG_TURNOVER_INR", "50000000")),  # ₹5 Cr floor
     "LIQUIDITY_LOOKBACK_DAYS": 20,
     "DAILY_HISTORY_PERIOD": os.getenv("DAILY_HISTORY_PERIOD", "3mo"),
@@ -102,8 +105,8 @@ CFG: Dict[str, Any] = {
     "TARGET1_R_MULTIPLE": 2.5,
     "TARGET2_R_MULTIPLE": 5.0,
     "EXPANSION_TARGET_PCT": 10.0,
-    "MIN_SCORE_TIER1": int(os.getenv("MIN_SCORE_TIER1", "78")),
-    "MIN_SCORE_TIER2": int(os.getenv("MIN_SCORE_TIER2", "70")),
+    "MIN_SCORE_TIER1": int(os.getenv("MIN_SCORE_TIER1", "72")),
+    "MIN_SCORE_TIER2": int(os.getenv("MIN_SCORE_TIER2", "65")),
     "TIER2_START_HOUR": 9,
     "TIER2_START_MINUTE": 45,
     "LAST_ENTRY_HOUR": 15,
@@ -147,13 +150,22 @@ def ensure_kronos_dependencies() -> None:
 
 def load_learned_weights() -> Dict[str, float]:
     weights = dict(DEFAULT_FORMULA_WEIGHTS)
-    if LEARNED_WEIGHTS_PATH.exists():
+    for filename in ("validated_weights.json", "replay_candidate_weights.json"):
+        path = ROOT / "data" / filename
+        if not path.exists():
+            continue
         try:
-            data = json.loads(LEARNED_WEIGHTS_PATH.read_text())
-            loaded = data.get("formula_weights", {})
+            data = json.loads(path.read_text())
+            loaded = data.get("formula_weights", {}) if filename != "validated_weights.json" or data.get("status") == "validated" else {}
+            usable = {}
             for k in weights:
                 if k in loaded:
-                    weights[k] = float(np.clip(float(loaded[k]), 0.4, 2.2))
+                    v = float(loaded[k])
+                    if np.isfinite(v):
+                        usable[k] = float(np.clip(v, 0.4, 2.2))
+            if usable:
+                weights.update(usable)
+                break
         except Exception as exc:
             LOG.warning("Could not read learned weights: %s", exc)
     return weights
@@ -185,45 +197,24 @@ def init_db() -> None:
 
 
 def persist_state_to_git() -> None:
-    """Conflict-free persistence of SQLite DB, universe cache, and learned weights to GitHub main branch."""
+    """Persist without discarding code or state; push conflicts are retained for recovery."""
+    if os.getenv("GITHUB_ACTIONS") != "true":
+        return
     try:
-        tmp_db = Path("/tmp/bis20.sqlite3.bak")
-        tmp_uni = Path("/tmp/liquid_universe.json.bak")
-        tmp_wts = Path("/tmp/learned_strategy_weights.json.bak")
-        tmp_flt = Path("/tmp/learned_filters.json.bak")
-        if FILTERS_PATH.exists():
-            shutil.copy2(FILTERS_PATH, tmp_flt)
-        if DB_PATH.exists():
-            shutil.copy2(DB_PATH, tmp_db)
-        if UNIVERSE_CACHE.exists():
-            shutil.copy2(UNIVERSE_CACHE, tmp_uni)
-        if LEARNED_WEIGHTS_PATH.exists():
-            shutil.copy2(LEARNED_WEIGHTS_PATH, tmp_wts)
-
-        subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
-        subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], check=False)
-        subprocess.run(["git", "fetch", "origin", "main"], check=False)
-        subprocess.run(["git", "reset", "--hard", "origin/main"], check=False)
-
-        if tmp_db.exists():
-            shutil.copy2(tmp_db, DB_PATH)
-        if tmp_uni.exists():
-            shutil.copy2(tmp_uni, UNIVERSE_CACHE)
-        if tmp_wts.exists():
-            shutil.copy2(tmp_wts, LEARNED_WEIGHTS_PATH)
-        if tmp_flt.exists():
-            shutil.copy2(tmp_flt, FILTERS_PATH)
-
-        for tracked in ("runtime/bis20.sqlite3", "data/liquid_universe.json", "data/learned_strategy_weights.json", "data/learned_filters.json"):
-            if Path(tracked).exists():
-                subprocess.run(["git", "add", tracked], check=False)
-        diff = subprocess.run(["git", "diff", "--cached", "--quiet"])
-        if diff.returncode != 0:
-            subprocess.run(["git", "commit", "-m", "BIS 2.0: persist scanner state & learned weights [skip ci]"], check=False)
-            subprocess.run(["git", "push", "origin", "HEAD:main"], check=False)
-            LOG.info("Persisted updated SQLite state & learned weights to GitHub main branch.")
+        paths = [str(p.relative_to(ROOT)) for p in (DB_PATH, UNIVERSE_CACHE,
+                 LEARNED_WEIGHTS_PATH, FILTERS_PATH, ROOT / "data/validated_weights.json",
+                 ROOT / "data/classifications.json") if p.exists() and p.is_relative_to(ROOT)]
+        subprocess.run(["git", "config", "user.name", "github-actions[bot]"], cwd=ROOT, check=True)
+        subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], cwd=ROOT, check=True)
+        subprocess.run(["git", "add", "--", *paths], cwd=ROOT, check=True)
+        diff = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=ROOT)
+        if diff.returncode == 1:
+            subprocess.run(["git", "commit", "-m", "Persist scanner paper state [skip ci]"], cwd=ROOT, check=True)
+        elif diff.returncode != 0:
+            raise RuntimeError("Cannot inspect staged state")
+        subprocess.run(["git", "push", "origin", "HEAD:main"], cwd=ROOT, check=True)
     except Exception as exc:
-        LOG.warning("Git state persistence warning (non-fatal): %s", exc)
+        LOG.error("State push failed; state remains local and is retained in workflow artifact: %s", exc)
 
 
 def get_time_window_info(now: Optional[datetime] = None) -> Tuple[str, dtime, dtime, int]:
@@ -244,7 +235,9 @@ def get_window_signal_counts(now: Optional[datetime] = None) -> Tuple[str, int, 
     win_name, win_start, win_end, win_limit = get_time_window_info(now)
 
     with db_connect() as conn:
-        rows = conn.execute("SELECT created_at FROM signals WHERE created_at LIKE ?", (day_str + "%",)).fetchall()
+        # Alert quota tracks delivered/queued approved alerts, not research shadow records.
+        rows = conn.execute("SELECT created_at FROM signals WHERE created_at LIKE ? AND delivered IN (0,1)",
+                            (day_str + "%",)).fetchall()
 
     total_today = len(rows)
     used_in_window = 0
@@ -269,7 +262,9 @@ def get_today_signal_count(day_str: Optional[str] = None) -> int:
 def get_today_alerted_symbols(day_str: Optional[str] = None) -> set:
     day = day_str or datetime.now(TZ).strftime("%Y-%m-%d")
     with db_connect() as conn:
-        rows = conn.execute("SELECT symbol FROM signals WHERE created_at LIKE ?", (day + "%",)).fetchall()
+        # Shadow-only observations must not block a later genuinely qualified alert.
+        rows = conn.execute("SELECT symbol FROM signals WHERE created_at LIKE ? AND delivered IN (0,1)",
+                            (day + "%",)).fetchall()
         return {r["symbol"] for r in rows}
 
 
@@ -557,7 +552,7 @@ def refresh_liquid_universe(force: bool = False) -> Dict[str, Any]:
             e50 = float(ema(close.values, 50))
             prev_close = float(close.iloc[-1])
             daily_range_pct = float(((high - low) / close.clip(lower=1e-6) * 100.0).tail(20).mean())
-            if last_price >= CFG["PRICE_FLOOR"] and avg_turnover >= CFG["MIN_AVG_TURNOVER_INR"]:
+            if last_price > CFG["PRICE_FLOOR"] and avg_turnover >= CFG["MIN_AVG_TURNOVER_INR"]:
                 metrics.append({
                     "symbol": symbol,
                     "price": last_price,
@@ -891,7 +886,15 @@ def build_signal_dict(
     tier: str,
     pillars_matched: List[str],
 ) -> Dict[str, Any]:
-    lv = (load_filters().get("levels") or {}).get(side, {})
+    # Apply calibrated levels once we have real evidence.
+    try:
+        _f = load_filters()
+        lv = (_f.get("levels", {}).get(side, {}) or {}) if (
+            _f.get("mode") == "proven"
+            and int(_f.get("total_resolved") or 0) >= LEARN_CFG["WARMUP_TOTAL"]
+        ) else {}
+    except Exception:
+        lv = dict()
     stop_scale = float(lv.get("stop_scale", 1.0))
     t1_mult = float(lv.get("t1_r", CFG["TARGET1_R_MULTIPLE"]))
     raw_risk = CFG["STOP_ATR_MULTIPLE"] * atr_value * stop_scale
@@ -907,6 +910,7 @@ def build_signal_dict(
     reward_risk = abs(target - price) / max(abs(price - stop), 1e-9)
 
     return {
+        "paper_cost_bps": float(os.getenv("PAPER_ROUND_TRIP_BPS", "20")),
         "symbol": symbol,
         "side": side,
         "tier": tier,
@@ -971,7 +975,7 @@ def evaluate_symbol(
 
     last = df.iloc[-1]
     price = float(last["close"])
-    if price < CFG["PRICE_FLOOR"]:
+    if price <= CFG["PRICE_FLOOR"]:
         if diagnostic is not None:
             diagnostic["rejected"] = "price_floor"
         return None
@@ -1286,163 +1290,129 @@ def kronos_forecast(
     }
 
 
-def add_signal(payload: Dict[str, Any], now: Optional[datetime] = None) -> bool:
-    now = now or datetime.now(TZ)
-    day = now.strftime("%Y-%m-%d")
-    dedupe = f"{day}|{payload['symbol']}"
-    _, used_in_win, win_limit, _ = get_window_signal_counts(now)
-    if used_in_win >= win_limit:
-        return False
-    with db_connect() as conn:
-        try:
-            conn.execute(
-                "INSERT INTO signals(created_at,symbol,side,payload,dedupe_key,delivered) VALUES(?,?,?,?,?,0)",
-                (now.isoformat(), payload["symbol"], payload["side"], json.dumps(payload), dedupe),
-            )
-            conn.commit()
-            return True
-        except sqlite3.IntegrityError:
-            return False
-
-
-def format_alert_message(payload: Dict[str, Any]) -> str:
-    forecast = payload.get("forecast") or {}
-    if forecast.get("forecast_change_pct") is not None:
-        aligned_tag = "✅ CONFIRMED" if forecast.get("direction_aligned") else "⚠️ neutral"
-        peak_str = f" | Peak 30m: {forecast.get('forecast_peak_move_pct', 0.0):+.2f}%"
-        forecast_line = (
-            f"Kronos-mini ({forecast.get('horizon_bars')} bars): "
-            f"{forecast.get('forecast_change_pct'):+.2f}%{peak_str} ({aligned_tag})"
-        )
-    else:
-        forecast_line = "Kronos-mini: technical-confluence mode"
-
-    tr1 = payload.get("trading_r1") or {}
-    if tr1.get("status") == "ok":
-        tr1_line = f"Trading-R1 ({tr1.get('rating')} | {tr1.get('confidence')}%): {tr1.get('thesis')}"
-    else:
-        tr1_line = "Trading-R1: 6-Formula adaptive confluence verified"
-
-    lg = payload.get("learned") or {}
-    if lg.get("mode") == "proven":
-        learn_line = f"🎯 PROVEN-ONLY filter passed | learned edge {lg.get('edge_r', 0):+.2f}R"
-    else:
-        learn_line = "🧪 LEARNING MODE (still collecting results; treat as unproven)"
-    pillars = ", ".join(payload.get("pillars_matched") or [])
-    exp_str = f" | 10% Expansion: ₹{payload['expansion_target']}" if payload.get("expansion_target") else ""
-
-    return (
-        f"🚀 BHARAT PRE-EXPLOSION SCOUT 2.0 [{payload.get('tier', 'TIER-1')}]\n"
-        f"{'🟢 EARLY BUY IGNITION' if payload['side'] == 'BUY' else '🔴 EARLY SELL IGNITION'} — {payload['symbol']}\n"
-        f"Current Day Move: {payload['day_move_pct']:+.2f}% (Remaining 10-15% Runway: ~{payload.get('remaining_room_pct', 10.0)}%)\n"
-        f"Entry reference: ₹{payload['price']} (VWAP: ₹{payload['vwap']})\n"
-        f"Stop: ₹{payload['stop']} | T1 (2.5R): ₹{payload['target']} | T2 (5R): ₹{payload['runner_target']}{exp_str}\n"
-        f"Conviction Score: {payload['score']}/100 | Planned R:R: {payload['reward_risk']}R\n"
-        f"5m RVOL: {payload['relative_volume']}x | Session RVOL: {payload['cumulative_relative_volume']}x\n"
-        f"RSI: {payload['rsi']} | MFI: {payload.get('mfi', 'N/A')} | ADX: {payload.get('adx', 'N/A')} | BB Width: {payload.get('bb_bandwidth_pct', 'N/A')}%\n"
-        f"Avg Turnover: ₹{payload['avg_daily_turnover_crore']} Cr | 20d Avg Range: {payload.get('avg_daily_range_pct', 'N/A')}%\n"
-        f"{forecast_line}\n"
-        f"{tr1_line}\n"
-        f"{learn_line}\n"
-        f"Formulas Matched: {pillars}\n"
-        f"Candle time: {payload['candle_time']}\n"
-        "Research alert only. Check live spread, price and execution risk. No order was placed."
-    )
-
-
-def send_telegram_message(message: str) -> None:
+def send_telegram_message(message: str) -> bool:
+    """Telegram bot sender; no order placement. Error if delivery fails."""
     token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-    chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
-    if not token or not chat_id:
-        raise RuntimeError("Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID GitHub Secret")
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
-    response = requests.post(
-        url,
-        json={"chat_id": chat_id, "text": message[:4000], "disable_web_page_preview": True},
-        timeout=20,
-    )
-    response.raise_for_status()
-    body = response.json()
-    if not body.get("ok"):
-        raise RuntimeError("Telegram API rejected message: " + str(body.get("description", "unknown error")))
+    chat = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+    if not token or not chat:
+        raise RuntimeError("Telegram secrets TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID are required")
+    if len(message) > 4000:
+        raise ValueError("Telegram message longer than 4000 characters; use send_long_telegram")
+    r = requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
+                      json={"chat_id":chat,"text":message,"disable_web_page_preview":True},timeout=20)
+    r.raise_for_status()
+    data=r.json()
+    if not data.get("ok"):
+        raise RuntimeError("Telegram API rejected message: " + str(data.get('description','unknown')))
+    return True
 
 
 def deliver_pending_signals(limit: int = 10) -> int:
-    delivered = 0
+    """Send ONLY approved pending research alerts. Shadow signals have delivered=2."""
+    sent=0
     with db_connect() as conn:
-        rows = conn.execute(
-            "SELECT id,payload FROM signals WHERE delivered=0 ORDER BY id ASC LIMIT ?",
-            (max(1, min(int(limit), 20)),),
-        ).fetchall()
-    for row in rows:
-        try:
-            payload = json.loads(row["payload"])
-            send_telegram_message(format_alert_message(payload))
+        rows=conn.execute('SELECT id,payload FROM signals WHERE delivered=0 ORDER BY id LIMIT ?',
+                          (limit,)).fetchall()
+    for r in rows:
+        p=json.loads(r['payload'])
+        v=p.get('validation') or {}
+        if not v.get('approved'):
+            # Fail closed on old imported signals; don't send stale/ungated alerts.
             with db_connect() as conn:
-                conn.execute("UPDATE signals SET delivered=1 WHERE id=?", (row["id"],))
-                conn.commit()
-            delivered += 1
-            LOG.info("Telegram delivered | %s | %s", payload.get("symbol"), payload.get("side"))
+                conn.execute('UPDATE signals SET delivered=2 WHERE id=?',(r['id'],));conn.commit()
+            continue
+        reason = str(v.get('reason') or '')
+        header = ("🔬 RESEARCH PREVIEW — {sym} {side}"
+                  if reason.startswith('RESEARCH PREVIEW')
+                  else "🎯 VALIDATED PAPER SETUP — {sym} {side}")
+        msg=(header.format(sym=p['symbol'], side=p['side']) + "\n"
+             f"Reference ₹{p['price']} | stop ₹{p['stop']} | target ₹{p['target']}\n"
+             f"Score {p['score']}/100 | 5m RVOL {p.get('relative_volume')}x "
+             f"| cum RVOL {p.get('cumulative_relative_volume')}x\n"
+             f"Kronos {p.get('forecast',{}).get('forecast_change_pct')}% / "
+             f"{p.get('forecast',{}).get('horizon_bars')} candles\n"
+             f"Validation: {reason}\n"
+             "Paper research only; not a guaranteed trade and no broker order placed.")
+        try:
+            send_telegram_message(msg)
         except Exception as exc:
-            LOG.exception("Telegram delivery failed for queued signal id=%s: %s", row["id"], exc)
+            LOG.warning("Telegram delivery failed for signal %s: %s",r['id'],exc)
             break
-    return delivered
+        with db_connect() as conn:
+            conn.execute('UPDATE signals SET delivered=1 WHERE id=?',(r['id'],));conn.commit()
+        sent+=1
+    return sent
 
 
-def rank_pre_explosion_candidates(
-    intraday_map: Dict[str, pd.DataFrame],
-    daily_map: Dict[str, Dict[str, Any]],
-    now: datetime,
-) -> List[Dict[str, Any]]:
-    ignition_list: List[Dict[str, Any]] = []
-    for symbol, raw_df in intraday_map.items():
-        if raw_df is None or raw_df.empty:
-            continue
-        df = completed_bars(normalize_intraday(raw_df), now)
-        if len(df) < CFG["MIN_HISTORY_BARS"]:
-            continue
-        last_idx = df.index[-1]
-        price = float(df.iloc[-1]["close"])
-        day_move, _, _, _ = compute_effective_day_move(df, last_idx, daily_map.get(symbol, {}), price)
-        if CFG["MIN_DAY_MOVE_PCT"] <= abs(day_move) <= CFG["MAX_DAY_MOVE_PCT"]:
-            relvol, _ = same_slot_relative_volume(df, last_idx, CFG["MIN_TIME_SLOT_SESSIONS"])
-            if relvol >= 1.25:
-                ignition_list.append({
-                    "symbol": symbol,
-                    "day_move_pct": round(day_move, 2),
-                    "rvol": round(relvol, 2),
-                })
-    ignition_list.sort(key=lambda x: x["rvol"], reverse=True)
-    return ignition_list
+def add_signal(payload: Dict[str, Any], now: Optional[datetime] = None,
+               shadow_only: bool = True) -> bool:
+    """Insert one signal per symbol/day; suppression is PERMANENT for shadow signals."""
+    now=now or datetime.now(TZ)
+    payload={**payload,"paper_only":True,"shadow_only":bool(shadow_only)}
+    key=f"{now.date().isoformat()}|{payload['symbol']}|{'SHADOW' if shadow_only else 'ALERT'}"
+    with db_connect() as conn:
+        cur=conn.execute("""INSERT OR IGNORE INTO signals
+           (created_at,symbol,side,payload,dedupe_key,delivered) VALUES (?,?,?,?,?,?)""",
+           (now.isoformat(),payload['symbol'],payload['side'],json.dumps(payload),key,
+            2 if shadow_only else 0))
+        conn.commit()
+        return cur.rowcount==1
+
+
+def rank_pre_explosion_candidates(frames: Dict[str, pd.DataFrame],
+                                   daily_map: Dict[str, Any], now: datetime) -> List[Dict[str, Any]]:
+    """Early price-compression watchlist BEFORE breakout; research, not an entry signal.
+    Only current session completed bars are used; volume uses same-time historical median.
+    """
+    rows=[]
+    for symbol,raw in frames.items():
+        try:
+            if raw is None or raw.empty: continue
+            df=completed_bars(normalize_intraday(raw),now)
+            today=df[df.index.date==now.date()]
+            if len(df)<45 or len(today)<3: continue
+            last_idx=df.index[-1]
+            if (pd.Timestamp(now)-last_idx).total_seconds()>1200: continue
+            price=float(df.iloc[-1]['close'])
+            if price<=CFG['PRICE_FLOOR']:continue
+            prior=df.iloc[-16:-1]
+            if len(prior)<12: continue
+            resistance=float(prior['high'].max());support=float(prior['low'].min())
+            if price<=0 or resistance<=0:continue
+            rv,n=same_slot_relative_volume(df,last_idx,3)
+            _,_,_,bw=bollinger_squeeze_ignition(df['close'].to_numpy(dtype=float))
+            if not math.isfinite(float(bw)): continue
+            # Tight near-resistance coiling OR support compression; direction is provisional.
+            near_hi=0 <= (resistance-price)/resistance <= .012
+            near_lo=0 <= (price-support)/support <= .012
+            if not (near_hi or near_lo) or rv<1.1 or bw>3.2:continue
+            side='BUY' if near_hi else 'SELL'
+            # Does not reward a stock already moved > 4% from prev close.
+            ref=daily_map.get(symbol,{})
+            dmove=(price/float(ref.get('previous_close') or ref.get('prev_close') or price)-1)*100
+            if abs(dmove)>4.0:continue
+            quality=round(min(100,40+min(rv,3)*10+max(0,3.2-bw)*6+min(n,5)*2),1)
+            rows.append({'symbol':symbol,'side':side,'price':round(price,2),
+                         'breakout_watch_level':round(resistance if side=='BUY' else support,2),
+                         'rvol':round(float(rv),2),'bb_width_pct':round(float(bw),3),
+                         'quality':quality,'asof':last_idx.isoformat(),
+                         'note':'compression near range extreme; NOT an entry signal'})
+        except Exception as exc:
+            LOG.debug('Prebreakout watch skipped %s: %s',symbol,exc)
+    rows.sort(key=lambda x:(x['quality'],x['rvol']),reverse=True)
+    return rows[:25]
 
 
 def run_scan_cycle() -> Dict[str, Any]:
     started = time.time()
     now = datetime.now(TZ)
-    if not is_market_session(now):
-        return {"status": "outside_market_hours", "at": now.isoformat()}
-
-    delivered_prior = deliver_pending_signals(limit=10)
+    init_db()
     win_name, used_in_win, win_limit, existing_today = get_window_signal_counts(now)
-
-    if used_in_win >= win_limit:
-        LOG.info("Window %s quota full (%d/%d); continuing loop for next window.", win_name, used_in_win, win_limit)
-        return {
-            "status": "window_quota_full_waiting_next_window",
-            "at": now.isoformat(),
-            "time_window": win_name,
-            "window_signals": f"{used_in_win}/{win_limit}",
-            "signals_today_total": existing_today,
-            "telegram_delivered": delivered_prior,
-        }
-
+    quota_full = used_in_win >= win_limit
+    delivered_prior = deliver_pending_signals(limit=10)
     if not is_entry_window(now):
-        return {
-            "status": "past_last_entry_window",
-            "at": now.isoformat(),
-            "signals_today_total": existing_today,
-            "telegram_delivered": delivered_prior,
-        }
+        return {"status": "outside_entry_window", "at": now.isoformat(),
+                "signals_today_total": existing_today, "telegram_delivered": delivered_prior}
 
     if not UNIVERSE_CACHE.exists():
         LOG.info("Universe cache missing; building initial universe cache...")
@@ -1463,8 +1433,19 @@ def run_scan_cycle() -> Dict[str, Any]:
         intraday_all.update(download_batch(group, CFG["INTRADAY_PERIOD"], CFG["BAR_INTERVAL"]))
         time.sleep(0.08)
 
+    classification_path = ROOT / "data/classifications.json"
+    metadata = json.loads(classification_path.read_text()) if classification_path.exists() else {}
+    market = ml.snapshot(intraday_all, metadata, now)
+    with db_connect() as conn:
+        ml.record_snapshot(conn, market)
+        ml.export_reports(ROOT, conn, market)
+        activation = aj.mode(conn, now)
+    if quota_full:
+        return {"status": "quota_full_market_updated", "at": now.isoformat()}
     alerted_today = get_today_alerted_symbols()
     early_ignitions = rank_pre_explosion_candidates(intraday_all, daily_map, now)
+    with db_connect() as conn:
+        aj.record_watch(conn, early_ignitions[:10], now)
 
     candidates: List[Tuple[int, float, Dict[str, Any], pd.DataFrame]] = []
 
@@ -1498,18 +1479,31 @@ def run_scan_cycle() -> Dict[str, Any]:
     tr1_rejected = 0
     learned_rejected = 0
     inserted = 0
+    approved_count = 0
     remaining_window_slots = max(0, win_limit - used_in_win)
     cycle_limit = min(CFG["MAX_SIGNALS_PER_CYCLE"], remaining_window_slots)
 
     for _, _, signal, candles in candidates[:max(8, cycle_limit * 3)]:
-        if inserted >= cycle_limit:
+        if approved_count >= cycle_limit:
             break
+        signal["market_context"] = market["stocks"].get(signal["symbol"], {})
+        signal["sector_context"] = next((x for x in market["sectors"]
+            if x["sector"] == signal["market_context"].get("sector")), {})
+        if not signal["market_context"]:
+            continue  # stale/missing data must not produce an alert
         gate = learned_gate(signal, now)
         if not gate["ok"]:
             learned_rejected += 1
+            signal["research_rejection"] = "legacy_learned_gate:" + str(gate["reason"])
+            if add_signal(signal, now=now, shadow_only=True): inserted += 1
             LOG.info("LEARNED GATE rejected %s %s: %s", signal["symbol"], signal["side"], gate["reason"])
             continue
         signal["learned"] = gate
+        if CFG["KRONOS_REQUIRED"] and (not CFG["KRONOS_ENABLED"] or kronos_predictor is None):
+            kronos_rejected += 1
+            signal["research_rejection"] = "kronos_not_ready"
+            if add_signal(signal, now=now, shadow_only=True): inserted += 1
+            continue
         if CFG["KRONOS_ENABLED"] and kronos_predictor is not None:
             try:
                 forecast = kronos_forecast(signal["symbol"], candles, signal["side"])
@@ -1518,24 +1512,39 @@ def run_scan_cycle() -> Dict[str, Any]:
                     signal["score"] = min(100, signal["score"] + 5)
                 elif CFG["KRONOS_REQUIRED"]:
                     kronos_rejected += 1
+                    signal["research_rejection"] = "kronos_disagreed"
+                    if add_signal(signal, now=now, shadow_only=True): inserted += 1
                     continue
             except Exception as exc:
                 signal["forecast"] = {"status": "unavailable", "detail": str(exc)[:180]}
                 if CFG["KRONOS_REQUIRED"]:
                     kronos_rejected += 1
+                    signal["research_rejection"] = "kronos_error"
+                    if add_signal(signal, now=now, shadow_only=True): inserted += 1
                     continue
 
         headlines = fetch_stock_news_headlines(signal["symbol"], max_items=3)
+        signal["news_headlines"] = headlines
         tr1_eval = trading_r1_evaluate_candidate(signal, headlines, learned_weights)
         signal["trading_r1"] = tr1_eval
         if tr1_eval.get("aligned"):
             signal["score"] = min(100, signal["score"] + 5)
+        elif tr1_eval.get("status") == "ok":
+            signal["score"] = min(100, signal["score"] + 2)  # neutral, not opposed
         elif CFG["TRADING_R1_REQUIRED"]:
             tr1_rejected += 1
+            signal["research_rejection"] = "trading_r1_disagreed"
+            if add_signal(signal, now=now, shadow_only=True): inserted += 1
             continue
 
-        if add_signal(signal, now=now):
+        approved, reason = aj.confirmed_gate(signal, market, activation)
+        signal["validation"] = {"approved": approved, "reason": reason,
+                                  "mode": activation["status"]}
+        # Every researched candidate is recorded and graded; only paper-validated
+        # high-confluence signals are delivered as actionable *research* alerts.
+        if add_signal(signal, now=now, shadow_only=not approved):
             inserted += 1
+            approved_count += int(approved)
 
     delivered = delivered_prior + deliver_pending_signals(limit=10)
     if inserted > 0 or delivered > 0:
@@ -1545,7 +1554,7 @@ def run_scan_cycle() -> Dict[str, Any]:
         "status": "complete",
         "at": now.isoformat(),
         "time_window": win_name,
-        "window_signals": f"{used_in_win + inserted}/{win_limit}",
+        "window_alerts": f"{used_in_win + approved_count}/{win_limit}",
         "symbols_considered": len(symbols),
         "top_early_ignition_watchlist": early_ignitions[:6],
         "technical_candidates": technical_candidates,
@@ -1553,8 +1562,10 @@ def run_scan_cycle() -> Dict[str, Any]:
         "kronos_rejected": kronos_rejected,
         "trading_r1_rejected": tr1_rejected,
         "learned_gate_rejected": learned_rejected,
-        "new_signals_queued": inserted,
-        "signals_today_total": existing_today + inserted,
+        "new_research_signals_logged": inserted,
+        "new_validated_alerts_queued": approved_count,
+        "validation_mode": activation["status"],
+        "approved_alerts_today_total": existing_today + approved_count,
         "telegram_delivered": delivered,
         "duration_seconds": round(time.time() - started, 1),
         "universe_refreshed_at": universe.get("refreshed_at"),
@@ -1562,6 +1573,7 @@ def run_scan_cycle() -> Dict[str, Any]:
     }
     LOG.info("SCAN SUMMARY %s", json.dumps(summary))
     return summary
+
 
 
 def run_backtest_and_learn(target_symbol: Optional[str] = None, send_telegram: bool = True) -> Dict[str, Any]:
@@ -1788,7 +1800,7 @@ def run_backtest_and_learn(target_symbol: Optional[str] = None, send_telegram: b
         "formula_weights": learned_weights,
         "formula_scorecard": formula_scorecard,
     }
-    LEARNED_WEIGHTS_PATH.write_text(json.dumps(weights_payload, indent=2), encoding="utf-8")
+    (ROOT / "data/replay_candidate_weights.json").write_text(json.dumps(weights_payload, indent=2), encoding="utf-8")
 
     all_passed_candidates.sort(key=lambda x: (-x["actual_move_after_signal_pct"], -x["score"]))
     seen_s = set()
@@ -1933,13 +1945,20 @@ def resolve_outcome(p: Dict[str, Any], frame: pd.DataFrame) -> Optional[Dict[str
     side = p["side"]
     entry, stop, t1 = float(p["price"]), float(p["stop"]), float(p["target"])
     risk = abs(entry - stop)
+    if side not in ("BUY", "SELL") or not all(math.isfinite(v) for v in (entry, stop, t1)):
+        return None
+    if not (stop < entry < t1 if side == "BUY" else t1 < entry < stop):
+        return None
     if risk <= 0 or frame is None or frame.empty:
         return None
     ct = pd.Timestamp(p["candle_time"])
     ct = ct.tz_localize(TZ) if ct.tzinfo is None else ct.tz_convert(TZ)
     after = frame[(frame.index > ct) & (frame.index.date == ct.date())]
     after = after.between_time("09:15", "15:25")
-    if after.empty:
+    expected = pd.date_range(ct + pd.Timedelta(minutes=5), ct.normalize() + pd.Timedelta(hours=15, minutes=25), freq="5min")
+    if after.empty or len(expected) == 0 or not expected.isin(after.index).all():
+        return None
+    if not np.isfinite(after[["open", "high", "low", "close"]].to_numpy(dtype=float)).all():
         return None
     r0 = risk / max(float(p.get("stop_scale", 1.0) or 1.0), 1e-6)  # base ATR risk before learned scaling
     t1_r = abs(t1 - entry) / risk
@@ -1948,6 +1967,7 @@ def resolve_outcome(p: Dict[str, Any], frame: pd.DataFrame) -> Optional[Dict[str
     mfe_pre = 0.0             # best favourable excursion before the stop was touched
     mae_before_1r = 0.0       # worst adverse excursion before price first reached +1R
     reached_1r = False
+    exit_r = None
     for ts, row in after.iterrows():
         hi, lo = float(row["high"]), float(row["low"])
         fav = (hi - entry) if side == "BUY" else (entry - lo)
@@ -1957,6 +1977,8 @@ def resolve_outcome(p: Dict[str, Any], frame: pd.DataFrame) -> Optional[Dict[str
         if result is None:
             if hit_stop:
                 result, minutes = "STOP", int((ts - ct).total_seconds() // 60)
+                op = float(row["open"])
+                exit_r = min(-1.0, ((op-entry) if side == "BUY" else (entry-op))/risk)
             else:
                 mfe_pre = max(mfe_pre, fav)
                 if fav >= t1_r * risk:
@@ -1970,7 +1992,7 @@ def resolve_outcome(p: Dict[str, Any], frame: pd.DataFrame) -> Optional[Dict[str
     if result == "T1":
         r_result = t1_r
     elif result == "STOP":
-        r_result = -1.0
+        r_result = exit_r if exit_r is not None else -1.0
     else:
         result, r_result = ("EOD_WIN" if eod_r > 0 else "EOD_LOSS"), float(eod_r)
     return {
@@ -2050,6 +2072,69 @@ def recompute_filters() -> Dict[str, Any]:
     new = _default_filters()
     new["total_resolved"] = total
     new["stats"] = stats
+    # ---- failure-mode aggregation (what killed losing trades) ----
+    new["failure_modes"] = {}
+    new["success_modes"] = {}
+    try:
+        with db_connect() as _c:
+            def _payload(sid):
+                row = _c.execute("SELECT payload FROM signals WHERE id=?", (sid,)).fetchone()
+                return json.loads(row["payload"]) if row else {}
+
+            killed = [r for r in rows if float(r["r_result"] or 0) <= -0.5]
+            fail_acc = {}
+            for r in killed:
+                p = _payload(r["signal_id"])
+                reasons = []
+                if float(p.get("bb_bandwidth_pct") or 0) > 1.8:
+                    reasons.append("entered on extended bands (>1.8%)")
+                if float(p.get("day_move_pct") or 0) > 2.8:
+                    reasons.append("chased late (day_move > 2.8%)")
+                if float(p.get("adx") or 0) < 22:
+                    reasons.append("weak trend (ADX < 22)")
+                if float(p.get("relative_volume") or 0) < 1.6:
+                    reasons.append("thin RVOL at entry (<1.6x)")
+                if not (p.get("forecast") or {}).get("direction_aligned"):
+                    reasons.append("Kronos disagreed")
+                peer = (p.get("market_context") or {}).get("peer_relative_pct")
+                if peer is None or abs(float(peer)) < 0.3:
+                    reasons.append("no peer leadership edge")
+                if not reasons:
+                    reasons.append("stopped without flagged cause")
+                for x in reasons:
+                    fail_acc.setdefault(x, []).append(float(r["r_result"]))
+            new["failure_modes"] = {
+                k: {"count": len(v), "mean_r": round(float(np.mean(v)), 3)}
+                for k, v in sorted(fail_acc.items(), key=lambda kv: len(kv[1]), reverse=True)
+            }
+
+            wins = [r for r in rows if float(r["r_result"] or 0) >= 1.0]
+            win_acc = {}
+            for r in wins:
+                p = _payload(r["signal_id"])
+                reasons = []
+                if float(p.get("bb_bandwidth_pct") or 99) <= 1.6:
+                    reasons.append("tight BB compression (≤1.6%)")
+                if float(p.get("relative_volume") or 0) >= 2.2:
+                    reasons.append("explosive RVOL (≥2.2x)")
+                if (p.get("forecast") or {}).get("direction_aligned"):
+                    reasons.append("Kronos aligned")
+                tr1 = p.get("trading_r1") or {}
+                if tr1.get("aligned"):
+                    reasons.append("Trading-R1 aligned")
+                peer = (p.get("market_context") or {}).get("peer_relative_pct")
+                if peer is not None and abs(float(peer)) >= 0.5:
+                    reasons.append("peer leadership confirmed (≥0.5pp)")
+                if not reasons:
+                    reasons.append("worked without flagged cause")
+                for x in reasons:
+                    win_acc.setdefault(x, []).append(float(r["r_result"]))
+            new["success_modes"] = {
+                k: {"count": len(v), "mean_r": round(float(np.mean(v)), 3)}
+                for k, v in sorted(win_acc.items(), key=lambda kv: len(kv[1]), reverse=True)
+            }
+    except Exception as exc:
+        LOG.warning("failure/success mode aggregation failed: %s", exc)
     new["mode"] = "proven" if total >= LEARN_CFG["WARMUP_TOTAL"] else "warmup"
 
     for k, v in stats.items():
@@ -2150,6 +2235,11 @@ def learned_gate(signal: Dict[str, Any], now: datetime) -> Dict[str, Any]:
     all_formulas_bad = bool(formula_dims) and all(d in blocked for d in formula_dims)
     info = {"ok": True, "mode": f.get("mode", "warmup"), "edge_r": edge, "reason": None,
             "boosted": [d for d in dims if d in f.get("boosted", {})]}
+    _live = (f.get("mode") == "proven"
+             and int(f.get("total_resolved") or 0) >= LEARN_CFG["WARMUP_TOTAL"])
+    _explicit = os.getenv("ENABLE_EXPERIMENTAL_LEGACY_FILTERS", "false").lower() == "true"
+    if not _live and not _explicit:
+        return {**info, "mode": "warmup", "reason": "Legacy filters collecting evidence"}
     if f.get("mode") == "warmup":
         return info
     if hard:
@@ -2250,6 +2340,8 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
     """End-of-day job: (1) grade every alert by real price path, (2) study top gainers/losers,
     (3) update filters + levels, (4) report everything on Telegram."""
     started = time.monotonic()
+    if datetime.now(TZ).weekday() < 5 and datetime.now(TZ).time() < dtime(15, 30):
+        return {"status": "deferred_until_session_close"}
     init_db()
     init_learning_tables()
     if not UNIVERSE_CACHE.exists():
@@ -2283,6 +2375,12 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
         already_studied = conn.execute("SELECT 1 FROM mover_study WHERE day=? LIMIT 1", (str(replay_day),)).fetchone() is not None
     movers = [] if already_studied else study_movers({s: normalized[s] for s in entries_symbols(entries, normalized)}, daily_map, replay_day)
     flt = recompute_filters()
+    with db_connect() as conn:
+        learning = ml.tune(conn, ml.ledger(conn), DEFAULT_FORMULA_WEIGHTS,
+                           ROOT / "data/validated_weights.json", datetime.now(TZ))
+        ml.export_reports(ROOT, conn)
+        adaptive_report = aj.export(ROOT, conn, datetime.now(TZ), frames)
+    LOG.info("Validated paper adaptation: %s", learning["status"])
     persist_state_to_git()
 
     report = {"day": str(replay_day), "resolved": len(resolved), "movers": len(movers), "mode": flt["mode"],
@@ -2290,6 +2388,7 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
     if send_telegram:
         try:
             send_long_telegram(format_learning_report(replay_day, resolved, movers, flt))
+            send_long_telegram(aj.telegram_digest(adaptive_report))
         except Exception as exc:
             LOG.warning("Learning report Telegram failed: %s", exc)
     LOG.info("DAILY LEARNING %s", json.dumps(report))
@@ -2302,8 +2401,8 @@ def entries_symbols(entries: List[Dict[str, Any]], normalized: Dict[str, pd.Data
 
 def format_learning_report(day, resolved, movers, flt) -> str:
     L = [f"🧠 BHARAT SCOUT — DAILY LEARNING ({day})", ""]
-    L.append(f"Mode: {'🧪 WARM-UP (collecting data, alerts tagged LEARNING)' if flt['mode'] == 'warmup' else '🎯 PROVEN-ONLY (strict filters ON)'}"
-             f" | graded alerts so far: {flt['total_resolved']}/{LEARN_CFG['WARMUP_TOTAL']} needed")
+    L.append(f"Legacy filter study: {flt['mode']} (diagnostics ONLY; live protection is adaptive validation)"
+             f" | graded outcomes: {flt['total_resolved']}")
     L.append("")
     L.append("📋 ALERT RESULTS (real price path after alert):")
     if resolved:
@@ -2315,7 +2414,7 @@ def format_learning_report(day, resolved, movers, flt) -> str:
             L.append(f"{icon} {r['symbol']} {r['side']} {r['result']} {r['r_result']:+.2f}R | went {r['mfe_pct']}% your way, {r['mae_pct']}% against")
         rs = [r["r_result"] for r in resolved if r["r_result"] is not None]
         if rs:
-            L.append(f"Today: {sum(1 for x in rs if x > 0)}/{len(rs)} profitable, net {sum(rs):+.2f}R")
+            L.append(f"Today: {sum(1 for x in rs if x > 0)}/{len(rs)} positive gross R, total gross {sum(rs):+.2f}R (estimated costs shown in adaptive report)")
     else:
         L.append("No new alerts to grade.")
     rec = flt.get("recent")
@@ -2345,6 +2444,16 @@ def format_learning_report(day, resolved, movers, flt) -> str:
     for side, lv in flt.get("levels", {}).items():
         L.append(f"{side} levels (from {lv['n']} alerts): target {lv.get('t1_r')}R, stop ×{lv.get('stop_scale', 1.0)}")
     L.append("")
+    if flt.get("failure_modes"):
+        L.append("")
+        L.append("❌ WHY LOSING TRADES FAILED (aggregated):")
+        for k, v in list(flt["failure_modes"].items())[:6]:
+            L.append(f"  • {k}: {v['count']} trades, mean {v['mean_r']:+.2f}R")
+    if flt.get("success_modes"):
+        L.append("")
+        L.append("✅ WHAT WORKING TRADES HAD IN COMMON:")
+        for k, v in list(flt["success_modes"].items())[:6]:
+            L.append(f"  • {k}: {v['count']} trades, mean {v['mean_r']:+.2f}R")
     L.append("Scanner auto-starts 09:20 IST tomorrow. Research alerts only; no orders placed.")
     return "\n".join(L)
 
@@ -2360,7 +2469,7 @@ def send_morning_brief() -> None:
         conn.commit()
     f = load_filters()
     lines = [f"🌅 BHARAT SCOUT LIVE — {day} 09:20 IST",
-             f"Mode: {'🧪 WARM-UP' if f.get('mode') == 'warmup' else '🎯 PROVEN-ONLY'} | graded alerts: {f.get('total_resolved', 0)}",
+             f"Research/paper mode | graded outcomes: {f.get('total_resolved', 0)} | no guaranteed trades",
              f"Kronos: {kronos_status}"]
     if f.get("blocked"):
         lines.append("🚫 Blocked today: " + "; ".join(list(f["blocked"].keys())[:6]))
@@ -2401,7 +2510,7 @@ def run_continuous_market_session() -> Dict[str, Any]:
 
     if not is_market_session(now):
         LOG.info("Outside NSE market session (%s); scan skipped cleanly", now.strftime("%H:%M:%S"))
-        return {"status": "outside_market_hours", "at": now.isoformat()}
+        return {"status": "outside_entry_window", "at": now.isoformat()}
 
     load_kronos()
     send_morning_brief()
@@ -2444,7 +2553,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Bharat Intraday Scout 2.0 Tri-Engine + Self-Learning Backtester")
     parser.add_argument(
         "--task",
-        choices=["scan", "daily-learn", "backtest-learn", "dry-run-v2", "refresh-universe", "test-telegram", "test-kronos", "reset-today-quota"],
+        choices=["scan", "daily-learn", "backtest-learn", "dry-run-v2", "refresh-universe", "test-telegram", "test-kronos", "reset-today-quota", "refresh-metadata", "report"],
         default="scan",
     )
     parser.add_argument("--symbol", default="", help="Optional NSE symbol to reverse-engineer in backtest-learn")
@@ -2461,10 +2570,22 @@ def main() -> int:
 
     init_db()
 
+    if args.task == "report":
+        with db_connect() as conn:
+            LOG.info("REPORT %s", ml.export_reports(ROOT, conn))
+            LOG.info("ADAPTIVE %s", aj.export(ROOT, conn, datetime.now(TZ))['activation'])
+        return 0
+    if args.task == "refresh-metadata":
+        universe = json.loads(UNIVERSE_CACHE.read_text())
+        LOG.info("METADATA %s", ml.refresh_classifications(ROOT,
+                 [e["symbol"] for e in universe["scan_symbols"]],
+                 lambda symbol: yf.Ticker(symbol + ".NS").get_info()))
+        persist_state_to_git()
+        return 0
     if args.task == "reset-today-quota":
         day = datetime.now(TZ).strftime("%Y-%m-%d")
         with db_connect() as conn:
-            conn.execute("DELETE FROM signals WHERE created_at LIKE ?", (day + "%",))
+            raise RuntimeError("Quota reset disabled: deleting signals destroys the learning ledger")
             conn.commit()
         persist_state_to_git()
         LOG.info("Cleared today's signal counter (%s); scanner will now resume alerting today.", day)

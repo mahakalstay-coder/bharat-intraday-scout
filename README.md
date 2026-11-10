@@ -1,84 +1,74 @@
-# Bharat Intraday Scout 2.0 — GitHub Actions (no VPS)
+# Bharat Intraday Scout 3.1 — Repaired Adaptive Paper-Validation Edition
 
-This edition is a one-shot Python runner designed for a **private GitHub repository**. GitHub Actions starts a temporary Ubuntu runner on each scheduled run, performs one scan, sends Telegram alerts directly from Python, commits the small SQLite deduplication state, and shuts down. It does not run a continuously hosted API or require Apps Script.
+**Read this first.** This is a patched version of the uploaded `bharat-intraday-scout-3 (1).zip`. It is an exploratory **paper research and notification tool**, not a profitable or guaranteed trading system. It does not execute broker orders.
 
-## Important limits
+## What was broken and repaired
 
-- GitHub Actions scheduled workflows have a minimum five-minute interval, but scheduled starts can be delayed or dropped by GitHub. This is research alerting, not exchange-grade real-time execution.
-- GitHub Free includes 2,000 Actions minutes/month for private repositories. Billing rounds each job's partial minutes up to a whole minute. A full 09:20–15:30 IST schedule is about 75 jobs per NSE trading day, or about 1,650 jobs in a 22-session month. For this to fit, the average scan job must generally finish within one billed minute, leaving about 350 minutes for setup/universe refresh/other runs. If average jobs take 2 billed minutes, the schedule will exceed the free allowance. Monitor Actions usage before relying on it.
-- The initial source uses yfinance/Yahoo Finance, which is unofficial, can be delayed/throttled/incomplete, and is not a guaranteed real-time NSE feed.
-- Kronos-mini is loaded on CPU for shortlisted technical candidates. It is a forecast, not a calibrated probability of profit.
-- The scanner initially checks the top 100 stocks by 20-session average traded value from eligible NSE EQ shares (not only NIFTY 50/200). Price floor is ₹60 and average turnover floor is ₹10 crore.
-- No broker orders are placed.
+The uploaded `scanner.py` had an incorrectly merged `add_signal()` function containing the scan-cycle code, but was missing separate `run_scan_cycle()`, `deliver_pending_signals()`, `send_telegram_message()`, and `rank_pre_explosion_candidates()` functions. Running the continuous scanner would have failed. These functions are restored and covered by a smoke test. Telegram delivery uses deduplication and suppresses old unvalidated pending signals.
 
-## Files
+The original ZIP had **24 stored historical signals and zero resolved outcomes**. This remains an unproven strategy. Existing scanner paper records are retained in this archive as supplied; if your GitHub repo has a newer database, **retain the newer database**, not this older one.
 
-- `scanner.py`: one-shot market scanner, Kronos inference, Telegram alerts, SQLite dedupe state.
-- `requirements.txt`: Python libraries (PyTorch CPU wheel is installed separately by the workflow).
-- `.github/workflows/bis20.yml`: weekday scan schedule plus weekly universe refresh.
-- `runtime/bis20.sqlite3`: created by the first run; tracks signal deduplication and daily count.
-- `data/liquid_universe.json`: created by the initial universe refresh; keeps the selected liquid NSE EQ symbols.
+## Automated workflow and learning
 
-## Setup — browser only; no local Python install
+1. During NSE market hours the scanner continues to sample the selected liquid NSE universe (200 stocks by default), evaluate 6 technical signal formulas, check the latest volume, evaluate Kronos-mini if available, fetch limited news headlines, and optionally consult the Tauric API if a key is available.
+2. A *pre-breakout research watchlist* logs the top 10 daily near-resistance/support compression setups. These are **not trade alerts**. End-of-day studies their later maximum favorable price excursion, subject to complete 5-minute data.
+3. Evaluated candidate trades (subject to the per-cycle processing limit) become permanent paper records, with an entry context including sector/industry, peers, six matched technical formulas, volume, Kronos forecast and a label indicating whether it was approved or was research-only.
+4. The 15:35 IST end-of-day task grades paper paths with conservative same-bar stop-first rules, and excludes incomplete/no-data sessions. The new journal also scores Kronos 30-minute forecast direction and absolute error against later bars, without treating missing data as a wrong prediction.
+5. Six formula weights are adapted only after **20 trading sessions** with a 70/30 chronological session split, at least 30 training and 15 holdout observations per formula, with conservative criteria. Single-day replay weights remain diagnostic.
+6. The new journal evaluates *indicators and context*, including RSI, MFI, ADX, same-slot and session RVOL, Bollinger width, industry peers, Kronos alignment and time of entry. Indicators are described as **associated with** outcomes, not assumed to cause them.
+7. The journal may suggest a higher minimum same-time RVOL floor (2.0x or 2.2x) but only when learned on the training partition and confirmed to improve net paper results on the held-out partition. Otherwise 1.8x remains the validated-alert floor.
+8. **During the learning phase, no candidate trade alerts are sent.** Signals are saved as shadow paper trades (`delivered=2`) and will not be sent retroactively. Daily learning reports and a morning status message can still be sent.
+9. Only when *every* condition below passes does `VALIDATED_PAPER_MODE` begin. Even then, only setups with the additional strong-signal gate result in a research alert; others continue as shadow observations.
 
-1. Create a **private** repository on GitHub called `bharat-intraday-scout-2`.
-2. Extract the ZIP on your Windows computer. Open the extracted folder. You should see `scanner.py`, `requirements.txt`, `.gitignore`, `data`, `runtime`, and `.github`.
-3. In the new GitHub repository choose **Add file → Upload files**. Drag the *contents* of the extracted folder into the upload area, including the `.github` folder. Make sure the final repository paths include `.github/workflows/bis20.yml`, not `.github/workflows/.github/workflows/bis20.yml`.
-4. Commit the uploaded files to the `main` branch.
-5. Open **Settings → Secrets and variables → Actions → New repository secret**.
-   - Name: `TELEGRAM_BOT_TOKEN`; value: your existing Telegram bot token.
-   - Name: `TELEGRAM_CHAT_ID`; value: your existing Telegram chat ID.
-   Never put either value in `scanner.py`, README, workflow YAML or ordinary repository files.
-6. Open **Settings → Actions → General**. Under **Workflow permissions**, select **Read and write permissions** and save. The workflow needs `contents: write` so it can preserve deduplication and the liquid-universe cache across temporary runners.
-7. Open **Actions**. If GitHub asks to enable Actions for this repository, enable them.
-8. Open **Actions → Bharat Intraday Scout 2.0 → Run workflow**.
-9. Select `test-telegram`, then **Run workflow**. Confirm you receive a Telegram test message.
-10. Run the workflow again, this time select `test-kronos`. Wait for a successful run. This downloads and caches the Kronos-mini and tokenizer weights. The first run can take longer.
-11. Run it again with `refresh-universe`. It downloads the NSE EQ list and builds the liquid universe. This can take several minutes; do not run the market schedule until this succeeds.
-12. Check that `data/liquid_universe.json` and `runtime/bis20.sqlite3` appear in the repository after a successful run. These are state files and must remain committed to preserve deduplication across temporary runners.
-13. Open **Settings → Secrets and variables → Actions → Variables → New repository variable**. Create `BIS_SCANNER_ENABLED` with value `true`. Until this variable exists, timed schedules are skipped safely; manual setup/test runs still work.
-14. Automatic scans now run on weekdays at 09:20, 09:25, every five minutes from 09:30 to 15:25, and 15:30 India time. Weekly liquidity refresh is scheduled Sundays at 08:30 India time. Schedule times are converted from UTC in the workflow file.
+### Promotion conditions (all required)
 
-## Monitor and control
+- At least **14 distinct sessions with resolved paper trades** (not simply calendar days); configurable via `OBSERVATION_MIN_SESSIONS`.
+- At least **50 resolved trades with the transaction-cost assumption frozen at entry**, controlled by `ACTIVATION_MIN_TRADES`.
+- A chronological last-30%-of-sessions holdout containing at least **15 trades**, with mean estimated net R >= **+0.10R**, and win rate >= **40%**.
+- At least **20 scored Kronos forecasts** with directional hit rate >= **53%**; scores use the stated 30-minute horizon, and omit forecasts that extend past the valid market session or have missing candles.
+- Each delivered setup must be Tier-1, score >= **85/100**, same-slot RVOL >= learned floor (initially 1.8x), cumulative RVOL >= 1.3x, Kronos aligned, and its sector/peer snapshot must agree directionally with sufficient sampled coverage.
 
-- Go to **Actions → Bharat Intraday Scout 2.0** to inspect each scan's logs and duration.
-- To pause automatic timed runs, change the repository variable `BIS_SCANNER_ENABLED` to `false`. Manual workflow runs remain possible.
-- To stop all scanning immediately, use **Actions → Bharat Intraday Scout 2.0 → ... → Disable workflow**.
-- To change the scanned universe size, edit `INTRADAY_UNIVERSE_SIZE` in `.github/workflows/bis20.yml`. Start at 100. Increase only after checking execution time and Actions usage.
-- The workflow requires `contents: write` so it can commit the SQLite deduplication state and the universe cache. Do not add untrusted third-party workflows to this repository.
+14 sessions is a **review point, NOT a countdown to guaranteed accuracy**. Promotion may take far longer or never happen. If validation deteriorates, the gate reverts automatically to `RESEARCH_ONLY`. Profitability and live execution quality were **not** tested.
 
-## First-run validation
+### Files and reports
 
-Do not trade from alerts immediately. First run at least several sessions in paper mode and check:
+- `scanner.py` — fixed live scanning orchestration; paper storage, Telegram, Kronos inference and original indicator rules.
+- `market_learning.py` — existing sampled-sector heatmap, frozen entry paper cost model, and conservative validated six-formula weights.
+- `adaptive_journal.py` — new shadow watch studies, Kronos forecast error tracking, feature outcome breakdowns, volume threshold holdout calibration, and evidence-based promotion gate.
+- `runtime/bis20.sqlite3` — SQLite signal, outcome, watch, snapshot, and learning database (preserve the most recent live database).
+- `reports/heatmap.html` — offline *sampled* sector/industry breadth, not an exchange or tick-level heatmap.
+- `reports/adaptive_report.json` — machine-readable activation checks, historical indicator outcome associations, last 25 paper-trade lesson tags, and watch and Kronos outcomes.
+- `reports/paper_trades.csv` / `performance.json` — existing ledger and cost-adjusted summary.
+- `test_adaptive_journal.py` / `test_market_learning.py` — offline tests.
+- `README-preaudit-notes.md` — the supplied package's earlier notes, preserved for reference.
 
-- all symbols have fresh five-minute candles;
-- the previous five same-time volume samples exist;
-- Kronos is loaded and forecast direction is logged;
-- Telegram alerts are not duplicated after consecutive workflows;
-- Actions jobs finish fast enough to stay within the private-repository free allowance;
-- performance after brokerage, STT, exchange charges, GST, stamp duty, spread and slippage.
+## Install/replace the existing repo in ONE upload
 
-## Technical configuration
+1. **Back up your existing repo and `runtime/bis20.sqlite3`** if it has more recent signals than the ZIP. Be careful not to expose this database in a public repo.
+2. Extract this ZIP and copy **the entire contents** of this directory to your existing GitHub repository **root**, keeping the `.github/workflows/bis20.yml` path unchanged. Commit once.
+3. Keep the existing GitHub Actions secrets `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`. Keep `TAURIC_API_KEY` only if desired; an external AI API may incur charges.
+4. In GitHub Actions, manually run `refresh-universe`, followed by `refresh-metadata` several times to build sector/industry coverage (50 symbols per run, network permitting). Test `test-kronos`, `test-telegram`, then choose `scan` during market hours. `daily-learn` runs automatically via cron or can be triggered manually after close.
+5. After the daily-learn workflow, download the **market-and-paper-learning** artifact to inspect `reports/adaptive_report.json`, `heatmap.html`, and `paper_trades.csv`. These reports **do not stream automatically** in a previously downloaded browser tab.
+6. Verify GitHub Actions schedules actually ran; hosted runner scheduling can be delayed, network data can be missing, and 6-hour continuous jobs are not guaranteed to remain online. The workflow does not currently use an authoritative NSE holiday calendar.
 
-Defaults in `scanner.py`:
+### Local tests (Python 3.11 with internet access for dependencies)
 
-- Minimum price ₹60.
-- Minimum 20-session average traded value ₹10 crore.
-- Top 100 qualifying main-board EQ symbols by average traded value.
-- Current 5-minute volume compared with same clock-time candles from five previous sessions; all five are required.
-- Cumulative session-volume comparison against the previous five sessions.
-- Trend, VWAP, breakout, candle body/close-position and RSI confirmation.
-- Anti-chasing limit 0.5 ATR beyond breakout/breakdown.
-- Initial stop reference 1.2 ATR and target reference 2R.
-- Maximum three alerts per day.
-- Kronos direction confirmation is required by default; failure to load or predict suppresses alerts.
+```bash
+python -m pip install -r requirements.txt
+python -m unittest discover -v
+python scanner.py --task report
+```
 
-These are initial research parameters, not proven optimal values. The 100-stock shortlist is for Actions-runtime control; it is still selected from the broader NSE EQ list, not an index membership list.
+When running locally, `scan` runs a repeated intraday loop; it is not a one-iteration dry run. Never supply real trading credentials: this package has **no broker integration**.
 
-## v3 self-learning (added)
+### Tested and not tested here
 
-- Every alert is graded after the session by walking the real 5-minute bars: did **stop** or **T1** hit first (stop assumed first if both in one bar), plus how far price went for/against you (MFE/MAE). Stored in `outcomes` table.
-- `daily-learn` (auto, 15:35 IST) also studies the day's **top gainers and top losers**, replays the scanner on them, records caught/missed and why, and the volume at ignition.
-- `data/learned_filters.json` is rebuilt from all graded history (last 40 days): blocks buckets (side / tier / time window / formula) with enough samples and negative expectancy, raises the score bar when recent results are negative, learns a minimum RVOL, and calibrates target (T1 R-multiple) and stop width per BUY/SELL.
-- **Warm-up**: until 20 alerts are graded, alerts are still sent but tagged 🧪 LEARNING. After that only alerts passing the learned gate are sent (🎯 PROVEN-ONLY).
-- Telegram: 09:20 morning brief (rules live today) + 15:35 daily learning report (results, movers study, what changed).
+- Passed **19 offline tests**, covering the original 11 deterministic tests, new validation, holdout rejection, forecast scoring, missing-data safeguards, and repaired scan-cycle wiring.
+- Python compilation passed, and a report was generated against the supplied 24-signal/zero-outcome database. All activation checks properly remained **false**.
+- External `yfinance`/NSE downloads, GitHub Actions remote execution, actual Telegram messages, real Kronos model inference/download, and a multiweek real-time trading experiment were **not available to test in this environment**. `yfinance` was stubbed *only in the local test harness* (not in the shipped application), because the package was unavailable in the audit runtime. Users must install dependencies as above.
+
+### What this version does not claim
+
+No autonomous fine-tuning of neural Kronos weights; no exact identification of why a day's high/low occurred (it records observable price/volume/peer/news **clues**, not proven causality); no fully NSE-wide tick-based sector heatmap; no HFT order-book model; no direct merged integration with the other GitHub repositories; no broker auto-trading; no assured 10–14-day profits; and no guaranteed free GitHub Actions compute/API use.
+
+All thresholds can be inspected in `adaptive_journal.py`. Raising or lowering minimum sample sizes may impact statistical validity. A 14-day positive result remains vulnerable to selection bias, correlated symbols, market-regime changes, slippage, survivorship bias, and changing data vendors.
