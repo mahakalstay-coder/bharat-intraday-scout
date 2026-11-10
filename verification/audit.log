@@ -1,0 +1,23 @@
+UNCHANGED scanner.py resolve_outcome
+UNCHANGED scanner.py _bucket
+UNCHANGED scanner.py rank_pre_explosion_candidates
+UNCHANGED scanner.py study_movers
+UNCHANGED scanner.py kronos_forecast
+UNCHANGED scanner.py trading_r1_evaluate_candidate
+UNCHANGED scanner.py init_db
+UNCHANGED imported reference adaptive_journal.py resolve_outcome
+UNCHANGED adaptive_journal.py resolve_kronos
+UNCHANGED adaptive_journal.py resolve_watch
+UNCHANGED adaptive_journal.py init
+UNCHANGED confidence logic except four requested defaults
+UNCHANGED market_learning.py tune
+UNCHANGED market_learning.py ledger
+UNCHANGED market_learning.py snapshot
+UNCHANGED market_learning.py export_reports
+PASS: schemas, paper_only flags, disclaimer lines, market_learning.py and dependencies unchanged
+MIN_SCORE_TIER1 72
+MIN_SCORE_TIER2 65
+OBSERVATION_MIN_SESSIONS 12
+ACTIVATION_MIN_TRADES 35
+ACTIVATION_MIN_HOLDOUT 12
+ACTIVATION_MIN_KRONOS 15

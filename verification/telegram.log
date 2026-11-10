@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/a96c71bff2ec/project/scanner.py", line 2622, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/scratch/a96c71bff2ec/project/scanner.py", line 2605, in main
+    send_telegram_message("✅ Bharat Intraday Scout 2.0 (fmzquant + Kronos + Trading-R1 + Self-Learning Backtester) active.")
+  File "/workspace/scratch/a96c71bff2ec/project/scanner.py", line 1298, in send_telegram_message
+    raise RuntimeError("Telegram secrets TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID are required")
+RuntimeError: Telegram secrets TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID are required

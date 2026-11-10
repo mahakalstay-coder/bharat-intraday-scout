@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0 -- /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/scratch/a96c71bff2ec/project
+plugins: platformdirs-4.14.5, anyio-4.14.2
+collecting ... collected 21 items
+
+test_adaptive_journal.py::AdaptiveTests::test_confirmed_gate_requires_sector_and_peers PASSED [  4%]
+test_adaptive_journal.py::AdaptiveTests::test_kronos_future_close_scored_no_data_not_loss PASSED [  9%]
+test_adaptive_journal.py::AdaptiveTests::test_learning_not_promoted_without_evidence PASSED [ 14%]
+test_adaptive_journal.py::AdaptiveTests::test_negative_holdout_rejects PASSED [ 19%]
+test_adaptive_journal.py::AdaptiveTests::test_research_preview_delivers_before_validation PASSED [ 23%]
+test_adaptive_journal.py::AdaptiveTests::test_shadow_watch_no_false_outcome_without_full_session PASSED [ 28%]
+test_adaptive_journal.py::AdaptiveTests::test_strong_holdout_promotes_qualified_paper_mode PASSED [ 33%]
+test_adaptive_journal.py::RepairedScannerSmokeTests::test_scan_cycle_without_market_feed_returns_cleanly PASSED [ 38%]
+test_adaptive_journal.py::ShadowDeliverySafetyTests::test_research_preview_delivery_header PASSED [ 42%]
+test_adaptive_journal.py::ShadowDeliverySafetyTests::test_shadow_never_sent_and_approved_sent_once PASSED [ 47%]
+test_market_learning.py::LearningTests::test_costs PASSED                [ 52%]
+test_market_learning.py::LearningTests::test_fresh_peers PASSED          [ 57%]
+test_market_learning.py::LearningTests::test_gap_stop PASSED             [ 61%]
+test_market_learning.py::LearningTests::test_holdout_reversal_no_promotion PASSED [ 66%]
+test_market_learning.py::LearningTests::test_insufficient_data_no_promotion PASSED [ 71%]
+test_market_learning.py::LearningTests::test_missing_bar_not_graded PASSED [ 76%]
+test_market_learning.py::LearningTests::test_no_data_not_loss PASSED     [ 80%]
+test_market_learning.py::LearningTests::test_partial_session_not_graded PASSED [ 85%]
+test_market_learning.py::LearningTests::test_same_bar_stop_wins PASSED   [ 90%]
+test_market_learning.py::LearningTests::test_sell_target PASSED          [ 95%]
+test_market_learning.py::LearningTests::test_stable_promotion PASSED     [100%]
+
+=============================== warnings summary ===============================
+../../../../opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/anyio/pytest_plugin.py:14
+  /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 21 passed, 1 warning in 0.56s =========================

@@ -1,0 +1,324 @@
+diff --git a/.github/workflows/bis20.yml b/.github/workflows/bis20.yml
+index fa7c111..ac7a9f1 100644
+--- a/.github/workflows/bis20.yml
++++ b/.github/workflows/bis20.yml
+@@ -47,6 +47,12 @@ jobs:
+     runs-on: ubuntu-latest
+     timeout-minutes: 360
+     env:
++      MIN_SCORE_TIER1: "72"
++      MIN_SCORE_TIER2: "65"
++      OBSERVATION_MIN_SESSIONS: "12"
++      ACTIVATION_MIN_TRADES: "35"
++      ACTIVATION_MIN_HOLDOUT: "12"
++      ACTIVATION_MIN_KRONOS: "15"
+       PYTHONUNBUFFERED: '1'
+       HF_HOME: ${{ github.workspace }}/.cache/huggingface
+       HF_HUB_DISABLE_PROGRESS_BARS: '1'
+diff --git a/adaptive_journal.py b/adaptive_journal.py
+index c74a7d1..8a63478 100644
+--- a/adaptive_journal.py
++++ b/adaptive_journal.py
+@@ -129,9 +129,9 @@ def _confidence_report(conn, now):
+     except sqlite3.OperationalError:
+         all_costed=[];records=[];payloads={}
+     days=sorted({r['day'] for r in records if r['day'] <= now.date().isoformat()})
+-    min_sessions=_i('OBSERVATION_MIN_SESSIONS',14)
+-    min_samples=_i('ACTIVATION_MIN_TRADES',50)
+-    val_min=_i('ACTIVATION_MIN_HOLDOUT',15)
++    min_sessions=_i('OBSERVATION_MIN_SESSIONS',12)
++    min_samples=_i('ACTIVATION_MIN_TRADES',35)
++    val_min=_i('ACTIVATION_MIN_HOLDOUT',12)
+     min_net=float(os.getenv('ACTIVATION_MIN_NET_R','0.10'))
+     train=[]; hold=[]
+     if len(days)>=2:
+@@ -174,7 +174,7 @@ def _confidence_report(conn, now):
+         'holdout_size':len(hold)>=val_min,
+         'holdout_net_expectancy':net is not None and net>=min_net,
+         'holdout_win_rate':len(hold)>0 and wins/len(hold)>=0.40,
+-        'kronos_evidence':kn>=_i('ACTIVATION_MIN_KRONOS',20) and direction_accuracy is not None and direction_accuracy>=float(os.getenv('ACTIVATION_MIN_KRONOS_ACCURACY','0.53')),
++        'kronos_evidence':kn>=_i('ACTIVATION_MIN_KRONOS',15) and direction_accuracy is not None and direction_accuracy>=float(os.getenv('ACTIVATION_MIN_KRONOS_ACCURACY','0.53')),
+     }
+     return {'status':'VALIDATED_PAPER_MODE' if all(checks.values()) else 'RESEARCH_ONLY',
+         'sessions':len(days),'completed_costed_trades':len(records),
+@@ -194,8 +194,31 @@ def mode(conn, now):
+ 
+ def confirmed_gate(signal, market, activation):
+     """Independent high-confluence live alert gate; rejected setups still become shadow signals."""
+-    if activation['status']!='VALIDATED_PAPER_MODE': return False, 'learning not validated'
+-    if signal.get('tier')!='TIER-1' or signal.get('score',0)<85: return False, 'tier/score'
++    score = int(signal.get('score', 0))
++    if activation['status'] != 'VALIDATED_PAPER_MODE':
++        fore = signal.get('forecast') or {}
++        rvol = float(signal.get('relative_volume', 0))
++        cum = float(signal.get('cumulative_relative_volume', 0))
++        stock = signal.get('market_context') or {}
++        sector = stock.get('sector')
++        sec = next((s for s in market.get('sectors', []) if s['sector'] == sector), None)
++        if signal.get('tier') != 'TIER-1': return False, 'research: not tier-1'
++        if score < 85: return False, 'research: score < 85'
++        if rvol < 2.0 or cum < 1.5: return False, 'research: rvol floor'
++        if fore.get('model') != 'Kronos-mini' or not fore.get('direction_aligned'):
++            return False, 'research: Kronos disagreed'
++        if not sector or sector == 'Unknown': return False, 'research: sector missing'
++        if not sec or sec.get('count', 0) < 3: return False, 'research: thin sector'
++        peers = stock.get('peer_relative_pct')
++        if peers is None or stock.get('peer_count', 0) < 2:
++            return False, 'research: not enough same-industry peers'
++        if signal['side'] == 'BUY' and not (sec['change_pct'] > 0 and sec['advancing_pct'] >= 55 and peers >= 0):
++            return False, 'research: weak sector/peer'
++        if signal['side'] == 'SELL' and not (sec['change_pct'] < 0 and sec['advancing_pct'] <= 45 and peers <= 0):
++            return False, 'research: weak sector/peer'
++        return True, 'RESEARCH PREVIEW — not validated (paper-only)'
++    if not (signal.get('tier') == 'TIER-1' and score >= 82) and score < 90:
++        return False, 'tier/score'
+     if signal.get('relative_volume',0)<activation.get('minimum_rvol_for_validated_alert',1.8) or signal.get('cumulative_relative_volume',0)<1.3:
+         return False,'insufficient relative volume'
+     fore=signal.get('forecast') or {}
+diff --git a/scanner.py b/scanner.py
+index b7cb907..81ccb25 100644
+--- a/scanner.py
++++ b/scanner.py
+@@ -105,8 +105,8 @@ CFG: Dict[str, Any] = {
+     "TARGET1_R_MULTIPLE": 2.5,
+     "TARGET2_R_MULTIPLE": 5.0,
+     "EXPANSION_TARGET_PCT": 10.0,
+-    "MIN_SCORE_TIER1": int(os.getenv("MIN_SCORE_TIER1", "78")),
+-    "MIN_SCORE_TIER2": int(os.getenv("MIN_SCORE_TIER2", "70")),
++    "MIN_SCORE_TIER1": int(os.getenv("MIN_SCORE_TIER1", "72")),
++    "MIN_SCORE_TIER2": int(os.getenv("MIN_SCORE_TIER2", "65")),
+     "TIER2_START_HOUR": 9,
+     "TIER2_START_MINUTE": 45,
+     "LAST_ENTRY_HOUR": 15,
+@@ -150,13 +150,22 @@ def ensure_kronos_dependencies() -> None:
+ 
+ def load_learned_weights() -> Dict[str, float]:
+     weights = dict(DEFAULT_FORMULA_WEIGHTS)
+-    if (ROOT / "data" / "validated_weights.json").exists():
++    for filename in ("validated_weights.json", "replay_candidate_weights.json"):
++        path = ROOT / "data" / filename
++        if not path.exists():
++            continue
+         try:
+-            data = json.loads((ROOT / "data" / "validated_weights.json").read_text())
+-            loaded = data.get("formula_weights", {}) if data.get("status") == "validated" else {}
++            data = json.loads(path.read_text())
++            loaded = data.get("formula_weights", {}) if filename != "validated_weights.json" or data.get("status") == "validated" else {}
++            usable = {}
+             for k in weights:
+                 if k in loaded:
+-                    weights[k] = float(np.clip(float(loaded[k]), 0.4, 2.2))
++                    v = float(loaded[k])
++                    if np.isfinite(v):
++                        usable[k] = float(np.clip(v, 0.4, 2.2))
++            if usable:
++                weights.update(usable)
++                break
+         except Exception as exc:
+             LOG.warning("Could not read learned weights: %s", exc)
+     return weights
+@@ -877,7 +886,15 @@ def build_signal_dict(
+     tier: str,
+     pillars_matched: List[str],
+ ) -> Dict[str, Any]:
+-    lv = {}  # retrospective level calibration remains diagnostic, not live parameters
++    # Apply calibrated levels once we have real evidence.
++    try:
++        _f = load_filters()
++        lv = (_f.get("levels", {}).get(side, {}) or {}) if (
++            _f.get("mode") == "proven"
++            and int(_f.get("total_resolved") or 0) >= LEARN_CFG["WARMUP_TOTAL"]
++        ) else {}
++    except Exception:
++        lv = dict()
+     stop_scale = float(lv.get("stop_scale", 1.0))
+     t1_mult = float(lv.get("t1_r", CFG["TARGET1_R_MULTIPLE"]))
+     raw_risk = CFG["STOP_ATR_MULTIPLE"] * atr_value * stop_scale
+@@ -1304,13 +1321,17 @@ def deliver_pending_signals(limit: int = 10) -> int:
+             with db_connect() as conn:
+                 conn.execute('UPDATE signals SET delivered=2 WHERE id=?',(r['id'],));conn.commit()
+             continue
+-        msg=(f"🎯 VALIDATED PAPER SETUP — {p['symbol']} {p['side']}\n"
++        reason = str(v.get('reason') or '')
++        header = ("🔬 RESEARCH PREVIEW — {sym} {side}"
++                  if reason.startswith('RESEARCH PREVIEW')
++                  else "🎯 VALIDATED PAPER SETUP — {sym} {side}")
++        msg=(header.format(sym=p['symbol'], side=p['side']) + "\n"
+              f"Reference ₹{p['price']} | stop ₹{p['stop']} | target ₹{p['target']}\n"
+              f"Score {p['score']}/100 | 5m RVOL {p.get('relative_volume')}x "
+              f"| cum RVOL {p.get('cumulative_relative_volume')}x\n"
+              f"Kronos {p.get('forecast',{}).get('forecast_change_pct')}% / "
+              f"{p.get('forecast',{}).get('horizon_bars')} candles\n"
+-             f"Validation: {v.get('reason')}\n"
++             f"Validation: {reason}\n"
+              "Paper research only; not a guaranteed trade and no broker order placed.")
+         try:
+             send_telegram_message(msg)
+@@ -1508,6 +1529,8 @@ def run_scan_cycle() -> Dict[str, Any]:
+         signal["trading_r1"] = tr1_eval
+         if tr1_eval.get("aligned"):
+             signal["score"] = min(100, signal["score"] + 5)
++        elif tr1_eval.get("status") == "ok":
++            signal["score"] = min(100, signal["score"] + 2)  # neutral, not opposed
+         elif CFG["TRADING_R1_REQUIRED"]:
+             tr1_rejected += 1
+             signal["research_rejection"] = "trading_r1_disagreed"
+@@ -2049,6 +2072,69 @@ def recompute_filters() -> Dict[str, Any]:
+     new = _default_filters()
+     new["total_resolved"] = total
+     new["stats"] = stats
++    # ---- failure-mode aggregation (what killed losing trades) ----
++    new["failure_modes"] = {}
++    new["success_modes"] = {}
++    try:
++        with db_connect() as _c:
++            def _payload(sid):
++                row = _c.execute("SELECT payload FROM signals WHERE id=?", (sid,)).fetchone()
++                return json.loads(row["payload"]) if row else {}
++
++            killed = [r for r in rows if float(r["r_result"] or 0) <= -0.5]
++            fail_acc = {}
++            for r in killed:
++                p = _payload(r["signal_id"])
++                reasons = []
++                if float(p.get("bb_bandwidth_pct") or 0) > 1.8:
++                    reasons.append("entered on extended bands (>1.8%)")
++                if float(p.get("day_move_pct") or 0) > 2.8:
++                    reasons.append("chased late (day_move > 2.8%)")
++                if float(p.get("adx") or 0) < 22:
++                    reasons.append("weak trend (ADX < 22)")
++                if float(p.get("relative_volume") or 0) < 1.6:
++                    reasons.append("thin RVOL at entry (<1.6x)")
++                if not (p.get("forecast") or {}).get("direction_aligned"):
++                    reasons.append("Kronos disagreed")
++                peer = (p.get("market_context") or {}).get("peer_relative_pct")
++                if peer is None or abs(float(peer)) < 0.3:
++                    reasons.append("no peer leadership edge")
++                if not reasons:
++                    reasons.append("stopped without flagged cause")
++                for x in reasons:
++                    fail_acc.setdefault(x, []).append(float(r["r_result"]))
++            new["failure_modes"] = {
++                k: {"count": len(v), "mean_r": round(float(np.mean(v)), 3)}
++                for k, v in sorted(fail_acc.items(), key=lambda kv: len(kv[1]), reverse=True)
++            }
++
++            wins = [r for r in rows if float(r["r_result"] or 0) >= 1.0]
++            win_acc = {}
++            for r in wins:
++                p = _payload(r["signal_id"])
++                reasons = []
++                if float(p.get("bb_bandwidth_pct") or 99) <= 1.6:
++                    reasons.append("tight BB compression (≤1.6%)")
++                if float(p.get("relative_volume") or 0) >= 2.2:
++                    reasons.append("explosive RVOL (≥2.2x)")
++                if (p.get("forecast") or {}).get("direction_aligned"):
++                    reasons.append("Kronos aligned")
++                tr1 = p.get("trading_r1") or {}
++                if tr1.get("aligned"):
++                    reasons.append("Trading-R1 aligned")
++                peer = (p.get("market_context") or {}).get("peer_relative_pct")
++                if peer is not None and abs(float(peer)) >= 0.5:
++                    reasons.append("peer leadership confirmed (≥0.5pp)")
++                if not reasons:
++                    reasons.append("worked without flagged cause")
++                for x in reasons:
++                    win_acc.setdefault(x, []).append(float(r["r_result"]))
++            new["success_modes"] = {
++                k: {"count": len(v), "mean_r": round(float(np.mean(v)), 3)}
++                for k, v in sorted(win_acc.items(), key=lambda kv: len(kv[1]), reverse=True)
++            }
++    except Exception as exc:
++        LOG.warning("failure/success mode aggregation failed: %s", exc)
+     new["mode"] = "proven" if total >= LEARN_CFG["WARMUP_TOTAL"] else "warmup"
+ 
+     for k, v in stats.items():
+@@ -2149,8 +2235,11 @@ def learned_gate(signal: Dict[str, Any], now: datetime) -> Dict[str, Any]:
+     all_formulas_bad = bool(formula_dims) and all(d in blocked for d in formula_dims)
+     info = {"ok": True, "mode": f.get("mode", "warmup"), "edge_r": edge, "reason": None,
+             "boosted": [d for d in dims if d in f.get("boosted", {})]}
+-    if os.getenv("ENABLE_EXPERIMENTAL_LEGACY_FILTERS", "false").lower() != "true":
+-        return {**info, "mode": "warmup", "reason": "Legacy filters are diagnostic; validated formula weights used separately"}
++    _live = (f.get("mode") == "proven"
++             and int(f.get("total_resolved") or 0) >= LEARN_CFG["WARMUP_TOTAL"])
++    _explicit = os.getenv("ENABLE_EXPERIMENTAL_LEGACY_FILTERS", "false").lower() == "true"
++    if not _live and not _explicit:
++        return {**info, "mode": "warmup", "reason": "Legacy filters collecting evidence"}
+     if f.get("mode") == "warmup":
+         return info
+     if hard:
+@@ -2355,6 +2444,16 @@ def format_learning_report(day, resolved, movers, flt) -> str:
+     for side, lv in flt.get("levels", {}).items():
+         L.append(f"{side} levels (from {lv['n']} alerts): target {lv.get('t1_r')}R, stop ×{lv.get('stop_scale', 1.0)}")
+     L.append("")
++    if flt.get("failure_modes"):
++        L.append("")
++        L.append("❌ WHY LOSING TRADES FAILED (aggregated):")
++        for k, v in list(flt["failure_modes"].items())[:6]:
++            L.append(f"  • {k}: {v['count']} trades, mean {v['mean_r']:+.2f}R")
++    if flt.get("success_modes"):
++        L.append("")
++        L.append("✅ WHAT WORKING TRADES HAD IN COMMON:")
++        for k, v in list(flt["success_modes"].items())[:6]:
++            L.append(f"  • {k}: {v['count']} trades, mean {v['mean_r']:+.2f}R")
+     L.append("Scanner auto-starts 09:20 IST tomorrow. Research alerts only; no orders placed.")
+     return "\n".join(L)
+ 
+@@ -2411,7 +2510,7 @@ def run_continuous_market_session() -> Dict[str, Any]:
+ 
+     if not is_market_session(now):
+         LOG.info("Outside NSE market session (%s); scan skipped cleanly", now.strftime("%H:%M:%S"))
+-        return {"status": "outside_market_hours", "at": now.isoformat()}
++        return {"status": "outside_entry_window", "at": now.isoformat()}
+ 
+     load_kronos()
+     send_morning_brief()
+diff --git a/test_adaptive_journal.py b/test_adaptive_journal.py
+index 15b773a..dbd2fae 100644
+--- a/test_adaptive_journal.py
++++ b/test_adaptive_journal.py
+@@ -65,6 +65,21 @@ class AdaptiveTests(unittest.TestCase):
+         signal['market_context']['peer_relative_pct']=-1
+         self.assertFalse(a.confirmed_gate(signal,market,activation)[0])
+ 
++    def test_research_preview_delivers_before_validation(self):
++        activation = {'status': 'RESEARCH_ONLY'}
++        signal = {
++            'score': 90, 'tier': 'TIER-1', 'side': 'BUY',
++            'relative_volume': 2.3, 'cumulative_relative_volume': 1.6,
++            'forecast': {'model': 'Kronos-mini', 'direction_aligned': True},
++            'market_context': {'sector': 'IT', 'peer_count': 3, 'peer_relative_pct': 1.0},
++        }
++        market = {'sectors': [{'sector': 'IT', 'count': 5, 'change_pct': 1.2, 'advancing_pct': 75}]}
++        ok, reason = a.confirmed_gate(signal, market, activation)
++        self.assertTrue(ok)
++        self.assertTrue(reason.startswith('RESEARCH PREVIEW'))
++        signal['market_context']['peer_relative_pct'] = -1
++        self.assertFalse(a.confirmed_gate(signal, market, activation)[0])
++
+     def test_kronos_future_close_scored_no_data_not_loss(self):
+         c=self.db()
+         p={'symbol':'X','side':'BUY','price':100,'stop':99,'target':102.5,
+@@ -135,3 +150,22 @@ class ShadowDeliverySafetyTests(unittest.TestCase):
+                     self.assertEqual(fake_send.call_count,1)
+                 with s.db_connect() as c:
+                     self.assertEqual(c.execute("SELECT delivered FROM signals WHERE symbol='X' AND dedupe_key LIKE '%SHADOW'").fetchone()[0],2)
++
++    def test_research_preview_delivery_header(self):
++        import tempfile
++        from pathlib import Path
++        from unittest.mock import patch
++        import scanner as s
++        with tempfile.TemporaryDirectory() as temp:
++            with patch.object(s, 'DB_PATH', Path(temp) / 'signals.sqlite3'):
++                s.init_db()
++                signal = {'symbol': 'FAKE', 'side': 'BUY', 'price': 100,
++                          'stop': 99, 'target': 102, 'score': 90,
++                          'validation': {'approved': True,
++                                         'reason': 'RESEARCH PREVIEW — not validated'}}
++                self.assertTrue(s.add_signal(signal, datetime(2026, 11, 10, 10, 10, tzinfo=a.TZ), shadow_only=False))
++                with patch.object(s, 'send_telegram_message', return_value=True) as send:
++                    self.assertEqual(s.deliver_pending_signals(), 1)
++                    self.assertTrue(send.call_args.args[0].startswith('🔬 RESEARCH PREVIEW'))
++                    self.assertEqual(s.deliver_pending_signals(), 0)
++                    self.assertEqual(send.call_count, 1)

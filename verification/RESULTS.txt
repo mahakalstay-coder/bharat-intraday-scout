@@ -1,0 +1,36 @@
+Bharat Scout repair verification
+
+Implemented fixes 1–10. Existing KRONOS_REQUIRED=true and TRADING_R1_REQUIRED=false retained in workflow; six requested threshold settings added. Legacy override remains unset.
+
+Adjustments needed to make the supplied specification executable:
+- Fix 6 uses scanner.load_filters and scanner.LEARN_CFG (these do not exist in adaptive_journal). Safe empty-level fallbacks retained.
+- Research previews retain direction-aware peer checks, as required by the supplied weak-peer rejection test.
+- Outside-hours CLI return status changed to outside_entry_window to meet acceptance criterion 4.
+
+Verification:
+- Requested pytest command: 21 passed, one external anyio/pytest deprecation warning.
+- New research-preview gate and mocked delivery tests passed; delivery is once-only.
+- test-telegram: FAILED/BLOCKED, missing TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID. Real delivery is not verified.
+- report: exit 0, no exceptions.
+- scan: exit 0, outside_entry_window.
+- git diff --check: clean. Protected function source and schema statements compared with original.
+- _confidence_report unchanged except four requested defaults; chronological split, tuning and AND-gate preserved.
+- market_learning.py, requirements files and test_market_learning.py unchanged.
+- Weight precedence/fallback/status/clipping and legacy automatic activation verified.
+- Manual text checks passed, including no literal lv = {} in build_signal_dict.
+
+Final values:
+MIN_SCORE_TIER1=72
+MIN_SCORE_TIER2=65
+OBSERVATION_MIN_SESSIONS=12
+ACTIVATION_MIN_TRADES=35
+ACTIVATION_MIN_HOLDOUT=12
+ACTIVATION_MIN_KRONOS=15
+
+Weights are tried in order: validated_weights.json (validated status required), then replay_candidate_weights.json (no status requirement). First usable file wins, with clipping 0.4–2.2.
+
+Initial verification issues: pytest was absent in the execution environment; installed test runner and existing declared requirements without changing project dependencies. New mocked-delivery test initially defaulted to shadow_only=True; corrected the fixture to explicitly insert an approved pending row. No final unit-test failures remain.
+
+Limits: Not all acceptance criteria pass because live Telegram credentials are absent. Alert counts and promotion timing are conditional on actual qualifying setups, data/model availability, chronological holdout results and every existing evidence check. 2–3 alerts/session and promotion by session 14 are not guaranteed. Aggregated modes are requested entry-feature associations using r_result, not independently proven causes or net-R attribution; costed validation logic is unchanged.
+
+Only four original files changed: scanner.py, adaptive_journal.py, test_adaptive_journal.py and .github/workflows/bis20.yml. Original data, DB, and exported reports are preserved in this package; test-generated DBs and reports are excluded. This verification folder contains the complete requested pytest output, CLI output, audit and patch.
