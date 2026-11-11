@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-11T16:29:51.429748+05:30",
+  "status": "collecting",
+  "samples": 13,
+  "sessions": 1,
+  "method": "chronological session holdout, formula conditional net expectancy",
+  "formulas": {},
+  "formula_weights": {
+    "F1_BB_KELTNER_SQUEEZE_5M": 1.2,
+    "F2_ORB_15M_RVOL_IGNITION": 1.2,
+    "F3_VWAP_MFI_ACCUMULATION": 1.0,
+    "F4_ADX_SUPERTREND_ACCEL": 1.0,
+    "F5_MTF_5M_15M_MACD_RSI": 1.1,
+    "F6_MULTIDAY_CHANNEL_BREAK": 1.1
+  }
+}

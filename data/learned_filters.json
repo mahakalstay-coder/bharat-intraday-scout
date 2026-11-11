@@ -1,13 +1,237 @@
 {
-  "updated_at": null,
-  "mode": "warmup",
-  "total_resolved": 0,
+  "updated_at": "2026-11-11T16:29:51.428297+05:30",
+  "mode": "proven",
+  "total_resolved": 31,
   "score_bump": 0,
-  "min_rvol": null,
+  "min_rvol": 1.2,
   "blocked": {},
-  "boosted": {},
-  "stats": {},
+  "boosted": {
+    "side:SELL": {
+      "n": 14,
+      "avg_r": 0.636,
+      "win": 64.3
+    },
+    "tier:TIER-1": {
+      "n": 26,
+      "avg_r": 0.44,
+      "win": 57.7
+    },
+    "side:BUY": {
+      "n": 17,
+      "avg_r": 0.275,
+      "win": 47.1
+    }
+  },
+  "stats": {
+    "side:SELL": {
+      "n": 14,
+      "avg_r": 0.636,
+      "win": 64.3
+    },
+    "tier:TIER-2": {
+      "n": 5,
+      "avg_r": 0.427,
+      "win": 40.0
+    },
+    "window:AFTER_2PM": {
+      "n": 5,
+      "avg_r": 0.937,
+      "win": 80.0
+    },
+    "side_window:SELL|AFTER_2PM": {
+      "n": 4,
+      "avg_r": 0.621,
+      "win": 75.0
+    },
+    "tier:TIER-1": {
+      "n": 26,
+      "avg_r": 0.44,
+      "win": 57.7
+    },
+    "side:BUY": {
+      "n": 17,
+      "avg_r": 0.275,
+      "win": 47.1
+    },
+    "side_window:BUY|AFTER_2PM": {
+      "n": 1,
+      "avg_r": 2.2,
+      "win": 100.0
+    },
+    "window:BEFORE_10AM": {
+      "n": 10,
+      "avg_r": 0.487,
+      "win": 50.0
+    },
+    "side_window:BUY|BEFORE_10AM": {
+      "n": 6,
+      "avg_r": 0.114,
+      "win": 33.3
+    },
+    "side_window:SELL|BEFORE_10AM": {
+      "n": 4,
+      "avg_r": 1.046,
+      "win": 75.0
+    },
+    "window:10AM_TO_1PM": {
+      "n": 12,
+      "avg_r": 0.131,
+      "win": 41.7
+    },
+    "side_window:SELL|10AM_TO_1PM": {
+      "n": 4,
+      "avg_r": 0.675,
+      "win": 50.0
+    },
+    "side_window:BUY|10AM_TO_1PM": {
+      "n": 8,
+      "avg_r": -0.141,
+      "win": 37.5
+    },
+    "window:1PM_TO_2PM": {
+      "n": 4,
+      "avg_r": 0.612,
+      "win": 75.0
+    },
+    "side_window:SELL|1PM_TO_2PM": {
+      "n": 2,
+      "avg_r": -0.233,
+      "win": 50.0
+    },
+    "formula:SELL|F1_BB_KELTNER_SQUEEZE_5M": {
+      "n": 5,
+      "avg_r": 1.55,
+      "win": 100.0
+    },
+    "formula:SELL|F2_ORB_15M_RVOL_IGNITION": {
+      "n": 3,
+      "avg_r": 1.611,
+      "win": 100.0
+    },
+    "formula:SELL|F3_VWAP_MFI_ACCUMULATION": {
+      "n": 5,
+      "avg_r": 1.55,
+      "win": 100.0
+    },
+    "formula:SELL|F6_MULTIDAY_CHANNEL_BREAK": {
+      "n": 5,
+      "avg_r": 1.55,
+      "win": 100.0
+    },
+    "formula:BUY|F1_BB_KELTNER_SQUEEZE_5M": {
+      "n": 9,
+      "avg_r": 0.481,
+      "win": 55.6
+    },
+    "formula:BUY|F3_VWAP_MFI_ACCUMULATION": {
+      "n": 9,
+      "avg_r": 0.481,
+      "win": 55.6
+    },
+    "formula:BUY|F5_MTF_5M_15M_MACD_RSI": {
+      "n": 6,
+      "avg_r": 0.638,
+      "win": 66.7
+    },
+    "formula:BUY|F6_MULTIDAY_CHANNEL_BREAK": {
+      "n": 9,
+      "avg_r": 0.481,
+      "win": 55.6
+    },
+    "formula:SELL|F4_ADX_SUPERTREND_ACCEL": {
+      "n": 3,
+      "avg_r": 1.463,
+      "win": 100.0
+    },
+    "formula:SELL|F5_MTF_5M_15M_MACD_RSI": {
+      "n": 3,
+      "avg_r": 1.807,
+      "win": 100.0
+    },
+    "formula:BUY|F2_ORB_15M_RVOL_IGNITION": {
+      "n": 6,
+      "avg_r": 0.403,
+      "win": 50.0
+    },
+    "formula:BUY|F4_ADX_SUPERTREND_ACCEL": {
+      "n": 5,
+      "avg_r": 0.683,
+      "win": 60.0
+    },
+    "side_window:BUY|1PM_TO_2PM": {
+      "n": 2,
+      "avg_r": 1.458,
+      "win": 100.0
+    }
+  },
   "levels": {},
-  "recent": {},
-  "changes": []
+  "recent": {
+    "n": 20,
+    "avg_r": 0.478,
+    "win": 60.0
+  },
+  "changes": [
+    {
+      "at": "2026-11-11T16:29:51.428288+05:30",
+      "items": [
+        "\u2b50 PROVEN EDGE side:SELL (n=14, avg +0.64R, win 64.3%)",
+        "\u2b50 PROVEN EDGE tier:TIER-1 (n=26, avg +0.44R, win 57.7%)",
+        "\u2b50 PROVEN EDGE side:BUY (n=17, avg +0.28R, win 47.1%)",
+        "\ud83d\udd01 MODE warmup \u2192 proven",
+        "\ud83d\udcca Min 5m RVOL \u2192 1.2 (was None)"
+      ]
+    }
+  ],
+  "failure_modes": {
+    "no peer leadership edge": {
+      "count": 12,
+      "mean_r": -1.0
+    },
+    "Kronos disagreed": {
+      "count": 11,
+      "mean_r": -1.0
+    },
+    "chased late (day_move > 2.8%)": {
+      "count": 8,
+      "mean_r": -1.0
+    },
+    "weak trend (ADX < 22)": {
+      "count": 3,
+      "mean_r": -1.0
+    },
+    "thin RVOL at entry (<1.6x)": {
+      "count": 1,
+      "mean_r": -1.0
+    },
+    "entered on extended bands (>1.8%)": {
+      "count": 1,
+      "mean_r": -1.0
+    }
+  },
+  "success_modes": {
+    "explosive RVOL (\u22652.2x)": {
+      "count": 8,
+      "mean_r": 2.257
+    },
+    "worked without flagged cause": {
+      "count": 2,
+      "mean_r": 2.351
+    },
+    "Kronos aligned": {
+      "count": 2,
+      "mean_r": 1.978
+    },
+    "tight BB compression (\u22641.6%)": {
+      "count": 2,
+      "mean_r": 2.5
+    },
+    "peer leadership confirmed (\u22650.5pp)": {
+      "count": 2,
+      "mean_r": 2.5
+    }
+  },
+  "mover_capture": {
+    "movers": 20,
+    "caught": 2
+  }
 }
