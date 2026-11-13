@@ -28,6 +28,7 @@ import requests
 import yfinance as yf
 import market_learning as ml
 import adaptive_journal as aj
+import scout_research as research
 
 TZ = ZoneInfo("Asia/Kolkata")
 LOG = logging.getLogger("bis20")
@@ -1325,13 +1326,16 @@ def deliver_pending_signals(limit: int = 10) -> int:
         header = ("🔬 RESEARCH PREVIEW — {sym} {side}"
                   if reason.startswith('RESEARCH PREVIEW')
                   else "🎯 VALIDATED PAPER SETUP — {sym} {side}")
+        drift = p.get('drift_forecast') or {}
+        drift_line = (f"Drift forecast {drift['forecast_change_pct']:+.2f}% / {drift['horizon_bars']} candles\n"
+                      if drift else "")
         msg=(header.format(sym=p['symbol'], side=p['side']) + "\n"
              f"Reference ₹{p['price']} | stop ₹{p['stop']} | target ₹{p['target']}\n"
              f"Score {p['score']}/100 | 5m RVOL {p.get('relative_volume')}x "
              f"| cum RVOL {p.get('cumulative_relative_volume')}x\n"
              f"Kronos {p.get('forecast',{}).get('forecast_change_pct')}% / "
              f"{p.get('forecast',{}).get('horizon_bars')} candles\n"
-             f"Validation: {reason}\n"
+             + drift_line + f"Validation: {reason}\n"
              "Paper research only; not a guaranteed trade and no broker order placed.")
         try:
             send_telegram_message(msg)
@@ -1440,6 +1444,14 @@ def run_scan_cycle() -> Dict[str, Any]:
         ml.record_snapshot(conn, market)
         ml.export_reports(ROOT, conn, market)
         activation = aj.mode(conn, now)
+    sector_sent = False
+    try:
+        with db_connect() as conn:
+            sector_sent = research.sector_update(conn, market, now, send_telegram_message)
+    except Exception as exc:
+        LOG.warning("Sector update failed: %s", type(exc).__name__)
+    if sector_sent:
+        persist_state_to_git()
     if quota_full:
         return {"status": "quota_full_market_updated", "at": now.isoformat()}
     alerted_today = get_today_alerted_symbols()
@@ -1506,11 +1518,15 @@ def run_scan_cycle() -> Dict[str, Any]:
             continue
         if CFG["KRONOS_ENABLED"] and kronos_predictor is not None:
             try:
-                forecast = kronos_forecast(signal["symbol"], candles, signal["side"])
+                close = normalize_intraday(candles)["close"]
+                signal["drift_forecast"] = research.drift_forecast(close, signal["candle_time"], CFG["KRONOS_PRED_LEN"])
+                forecast = kronos_forecast(signal["symbol"], candles, signal["side"], as_of=now)
                 signal["forecast"] = forecast
                 if forecast["direction_aligned"]:
                     signal["score"] = min(100, signal["score"] + 5)
-                elif CFG["KRONOS_REQUIRED"]:
+                elif CFG["KRONOS_REQUIRED"] and not (
+                    activation["status"] == "RESEARCH_ONLY" and research.alternative_support(signal)
+                ):
                     kronos_rejected += 1
                     signal["research_rejection"] = "kronos_disagreed"
                     if add_signal(signal, now=now, shadow_only=True): inserted += 1

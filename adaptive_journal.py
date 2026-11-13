@@ -192,6 +192,9 @@ def mode(conn, now):
     return _confidence_report(conn, now)
 
 
+from scout_research import alternative_support
+
+
 def confirmed_gate(signal, market, activation):
     """Independent high-confluence live alert gate; rejected setups still become shadow signals."""
     score = int(signal.get('score', 0))
@@ -202,10 +205,11 @@ def confirmed_gate(signal, market, activation):
         stock = signal.get('market_context') or {}
         sector = stock.get('sector')
         sec = next((s for s in market.get('sectors', []) if s['sector'] == sector), None)
-        if signal.get('tier') != 'TIER-1': return False, 'research: not tier-1'
+        if signal.get('tier') != 'TIER-1' and not (signal.get('tier') == 'TIER-2' and score >= 90):
+            return False, 'research: tier/score'
         if score < 85: return False, 'research: score < 85'
-        if rvol < 2.0 or cum < 1.5: return False, 'research: rvol floor'
-        if fore.get('model') != 'Kronos-mini' or not fore.get('direction_aligned'):
+        if rvol < 1.8 or cum < 1.2: return False, 'research: rvol floor'
+        if fore.get('model') != 'Kronos-mini' or not (fore.get('direction_aligned') or alternative_support(signal)):
             return False, 'research: Kronos disagreed'
         if not sector or sector == 'Unknown': return False, 'research: sector missing'
         if not sec or sec.get('count', 0) < 3: return False, 'research: thin sector'
@@ -216,6 +220,8 @@ def confirmed_gate(signal, market, activation):
             return False, 'research: weak sector/peer'
         if signal['side'] == 'SELL' and not (sec['change_pct'] < 0 and sec['advancing_pct'] <= 45 and peers <= 0):
             return False, 'research: weak sector/peer'
+        if not fore.get('direction_aligned'):
+            return True, 'RESEARCH PREVIEW — drift-supported, Kronos inconclusive (paper-only)'
         return True, 'RESEARCH PREVIEW — not validated (paper-only)'
     if not (signal.get('tier') == 'TIER-1' and score >= 82) and score < 90:
         return False, 'tier/score'
@@ -268,6 +274,22 @@ def export(root,conn,now,frames=None):
     ledger=ml.ledger(conn)
     eval_map={r[0]:r[1] for r in conn.execute('SELECT signal_id,correct_direction FROM kronos_accuracy')}
     signal_map={r[0]:json.loads(r[1]) for r in conn.execute('SELECT id,payload FROM signals')}
+    paired = []
+    for sid, actual, kronos_pct in conn.execute(
+        'SELECT signal_id,observed_pct,prediction_pct FROM kronos_accuracy'
+    ):
+        payload = signal_map.get(sid, {})
+        drift = payload.get('drift_forecast') or {}
+        if (actual is None or kronos_pct is None or drift.get('forecast_change_pct') is None
+                or drift.get('asof') != payload.get('candle_time')
+                or drift.get('horizon_bars') != (payload.get('forecast') or {}).get('horizon_bars')):
+            continue
+        paired.append((actual, kronos_pct, drift['forecast_change_pct']))
+    comparison = {'n':len(paired)}
+    if paired:
+        for i, model in [(1,'kronos'),(2,'drift')]:
+            comparison[model+'_direction_pct'] = round(100*mean(r[0]*r[i]>0 for r in paired),1)
+            comparison[model+'_mae_pct'] = round(mean(abs(r[0]-r[i]) for r in paired),3)
     items=[]
     for r in ledger:
         if r['net_r'] is None:continue
@@ -321,7 +343,7 @@ def export(root,conn,now,frames=None):
                           'win_pct':round(100*sum(x>0 for x in v)/len(v),1)}
                        for k,v in sorted(feature_values.items())}
     report={'generated_at':now.isoformat(),'activation':activation,'graded_watch_today':watch,
-            'graded_kronos_today':preds,
+            'graded_kronos_today':preds, 'paired_forecasts':comparison,
             'watch_totals':{str(k) if k is not None else 'PENDING':v for k,v in watches},
             'indicator_scorecard':by_formula,'feature_scorecard':feature_scorecard,
             'latest_trade_explanations':items[-25:],
@@ -338,6 +360,9 @@ def telegram_digest(report):
         f"Holdout mean net: {a['holdout_mean_net_r']} R | win: {a['holdout_win_rate_pct']}%",
         f"Kronos direction: {a['kronos_direction_accuracy_pct']}% across {a['kronos_evaluated']} resolved forecasts",
         'Promotion checks: '+', '.join(k for k,v in a['checks'].items() if not v) if a['status']!='VALIDATED_PAPER_MODE' else 'Promotion checks passed (paper evidence only).']
+    paired = report.get('paired_forecasts') or {}
+    if paired.get('n'):
+        lines.append(f"Same {paired['n']} graded forecasts: Kronos {paired['kronos_direction_pct']}% vs drift {paired['drift_direction_pct']}% direction correct")
     if report['latest_trade_explanations']:
         lines.append('LATEST TRADE REVIEW (evidence, not causation):')
         for p in report['latest_trade_explanations'][-5:]:
