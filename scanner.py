@@ -29,6 +29,8 @@ import yfinance as yf
 import market_learning as ml
 import adaptive_journal as aj
 import scout_research as research
+import market_regime
+import trading_calendar
 
 TZ = ZoneInfo("Asia/Kolkata")
 LOG = logging.getLogger("bis20")
@@ -151,7 +153,11 @@ def ensure_kronos_dependencies() -> None:
 
 def load_learned_weights() -> Dict[str, float]:
     weights = dict(DEFAULT_FORMULA_WEIGHTS)
-    for filename in ("validated_weights.json", "replay_candidate_weights.json"):
+    files = ["validated_weights.json"]
+    if os.getenv("ALLOW_REPLAY_WEIGHTS", "false").lower() == "true":
+        # Single-day replay weights are diagnostics; never live unless explicitly opted in.
+        files.append("replay_candidate_weights.json")
+    for filename in files:
         path = ROOT / "data" / filename
         if not path.exists():
             continue
@@ -409,7 +415,7 @@ def trading_r1_evaluate_candidate(
 
 def is_market_session(now: Optional[datetime] = None) -> bool:
     now = now or datetime.now(TZ)
-    if now.weekday() >= 5:
+    if not trading_calendar.is_trading_day(now.date()):
         return False
     t = now.time()
     return dtime(9, 20) <= t <= dtime(15, 30)
@@ -417,7 +423,7 @@ def is_market_session(now: Optional[datetime] = None) -> bool:
 
 def is_pre_market_wait_window(now: Optional[datetime] = None) -> bool:
     now = now or datetime.now(TZ)
-    if now.weekday() >= 5:
+    if not trading_calendar.is_trading_day(now.date()):
         return False
     t = now.time()
     return dtime(8, 30) <= t < dtime(9, 20)
@@ -1308,6 +1314,16 @@ def send_telegram_message(message: str) -> bool:
     return True
 
 
+def notify_failure(task: str, exc: BaseException) -> None:
+    """Best-effort Telegram alert when a run crashes. Never raises, never leaks the bot token."""
+    try:
+        import re as _re
+        detail = _re.sub(r"bot\d+:[A-Za-z0-9_-]+", "bot***", str(exc))[:160]
+        send_telegram_message(f"⚠️ Scout task '{task}' failed: {type(exc).__name__}: {detail}")
+    except Exception:
+        pass
+
+
 def deliver_pending_signals(limit: int = 10) -> int:
     """Send ONLY approved pending research alerts. Shadow signals have delivered=2."""
     sent=0
@@ -1440,6 +1456,7 @@ def run_scan_cycle() -> Dict[str, Any]:
     classification_path = ROOT / "data/classifications.json"
     metadata = json.loads(classification_path.read_text()) if classification_path.exists() else {}
     market = ml.snapshot(intraday_all, metadata, now)
+    regime = market_regime.current_regime(now)
     with db_connect() as conn:
         ml.record_snapshot(conn, market)
         ml.export_reports(ROOT, conn, market)
@@ -1499,6 +1516,7 @@ def run_scan_cycle() -> Dict[str, Any]:
     for _, _, signal, candles in candidates[:max(8, cycle_limit * 3)]:
         if approved_count >= cycle_limit:
             break
+        signal["regime"] = regime
         signal["market_context"] = market["stocks"].get(signal["symbol"], {})
         signal["sector_context"] = next((x for x in market["sectors"]
             if x["sector"] == signal["market_context"].get("sector")), {})
@@ -2398,6 +2416,15 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
         raise RuntimeError("No intraday data returned; learning skipped")
     replay_day = max(sessions)
 
+    try:  # watchdog: a trading day with zero recorded scan cycles means the scanner never ran
+        today_iso = datetime.now(TZ).date().isoformat()
+        with db_connect() as conn:
+            cycles = conn.execute("SELECT COUNT(*) FROM market_snapshots WHERE asof LIKE ?", (today_iso + "%",)).fetchone()[0]
+        if send_telegram and trading_calendar.is_trading_day(datetime.now(TZ).date()) and cycles == 0:
+            send_telegram_message("⚠️ Scout watchdog: no scan cycle was recorded today. Check the GitHub Actions schedule.")
+    except Exception as exc:
+        LOG.warning("Watchdog check failed: %s", type(exc).__name__)
+
     resolved = resolve_pending_outcomes(frames)
     already_studied = False
     with db_connect() as conn:
@@ -2648,4 +2675,8 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except Exception as _exc:  # SystemExit passes through untouched
+        notify_failure(" ".join(sys.argv[1:]) or "scan", _exc)
+        raise

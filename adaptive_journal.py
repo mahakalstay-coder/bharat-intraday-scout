@@ -7,6 +7,7 @@ from __future__ import annotations
 import json
 import math
 import os
+import random
 import sqlite3
 from datetime import datetime, time as dtime
 from pathlib import Path
@@ -112,6 +113,17 @@ def resolve_kronos(conn, frames):
     return graded
 
 
+def _bootstrap_lcb(values, pct=20.0, n_boot=2000, seed=42):
+    """Deterministic bootstrap lower bound of the mean (pct-th percentile).
+    A holdout of ~12-15 trades can look profitable by luck; requiring the lower
+    bound to clear a floor demands evidence, not just a good average."""
+    vals=[float(v) for v in values]
+    if len(vals)<2: return None
+    rng=random.Random(seed)
+    means=sorted(sum(rng.choice(vals) for _ in vals)/len(vals) for _ in range(n_boot))
+    return means[max(0,min(n_boot-1,int(n_boot*pct/100.0)))]
+
+
 def _confidence_report(conn, now):
     """Evidence gate. Strictly uses *chronologically held-out*, cost-adjusted paper trades.
     A 14-day review is not automatic promotion. No-data, old unverified cost
@@ -166,6 +178,8 @@ def _confidence_report(conn, now):
     kn=int(kr[0]); direction_accuracy=float(kr[1] or 0)/kn if kn else None
     net=mean([r['net_r'] for r in hold]) if hold else None
     wins=sum(r['net_r']>0 for r in hold)
+    lcb=_bootstrap_lcb([r['net_r'] for r in hold], float(os.getenv('ACTIVATION_LCB_PCT','20'))) if hold else None
+    min_lcb=float(os.getenv('ACTIVATION_MIN_LCB_R','0.0'))
     # Conservative: positive paper expectancy, nontrivial sample size, and Kronos
     # evidence must ALL be present. Positive past expectancy does not assure future gains.
     checks={
@@ -174,6 +188,7 @@ def _confidence_report(conn, now):
         'holdout_size':len(hold)>=val_min,
         'holdout_net_expectancy':net is not None and net>=min_net,
         'holdout_win_rate':len(hold)>0 and wins/len(hold)>=0.40,
+        'holdout_confidence':lcb is not None and lcb>=min_lcb,
         'kronos_evidence':kn>=_i('ACTIVATION_MIN_KRONOS',15) and direction_accuracy is not None and direction_accuracy>=float(os.getenv('ACTIVATION_MIN_KRONOS_ACCURACY','0.53')),
     }
     return {'status':'VALIDATED_PAPER_MODE' if all(checks.values()) else 'RESEARCH_ONLY',
@@ -181,6 +196,7 @@ def _confidence_report(conn, now):
         'all_costed_research_trades':len(all_costed),
         'holdout_trades':len(hold),'holdout_mean_net_r':round(net,4) if net is not None else None,
         'holdout_win_rate_pct':round(100*wins/len(hold),1) if hold else None,
+        'holdout_lcb_net_r':round(lcb,4) if lcb is not None else None,
         'kronos_evaluated':kn,'kronos_direction_accuracy_pct':round(100*direction_accuracy,1) if direction_accuracy is not None else None,
         'kronos_mae_pct':round(float(kr[2]),3) if kr[2] is not None else None,
         'minimum_rvol_for_validated_alert':min_rvol,'rvol_tuning':suggested,
@@ -334,6 +350,9 @@ def export(root,conn,now,frames=None):
         if peer is not None:
             leader=(float(peer)>0 and p.get('side')=='BUY') or (float(peer)<0 and p.get('side')=='SELL')
             labels.append('Ahead of industry peers' if leader else 'Behind industry peers')
+        reg=p.get('regime') or {}
+        if reg.get('nifty_trend') not in (None,'UNKNOWN'): labels.append('Nifty '+reg['nifty_trend'])
+        if reg.get('vix_bucket') not in (None,'UNKNOWN'): labels.append('VIX '+reg['vix_bucket'])
         try:
             hour=pd.Timestamp(p['candle_time']).hour
             labels.append('Morning setup' if hour<11 else 'Afternoon setup')
