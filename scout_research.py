@@ -102,3 +102,55 @@ def sector_update(conn, market, now, send):
     conn.execute('INSERT OR REPLACE INTO app_state(key,value) VALUES(?,?)',(key,json.dumps(state)))
     conn.commit()
     return sent
+
+
+def watch_reason(signal, market):
+    """Return the single missed preview check; missing evidence is ineligible."""
+    fore = signal.get('forecast') or {}
+    if fore.get('model') != 'Kronos-mini' or not (fore.get('direction_aligned') or alternative_support(signal)):
+        return None
+    score, tier = signal.get('score',0), signal.get('tier')
+    if tier not in ('TIER-1','TIER-2') or score < (85 if tier=='TIER-1' else 90):
+        return None
+    stock = signal.get('market_context') or {}
+    name = stock.get('sector')
+    sector = next((s for s in market['sectors'] if s['sector']==name), {})
+    if not name or name=='Unknown' or sector.get('count',0)<3 or stock.get('peer_count',0)<2:
+        return None
+    side = signal['side']
+    values = [signal.get('relative_volume'),signal.get('cumulative_relative_volume'),
+              sector.get('change_pct'),sector.get('advancing_pct'),stock.get('peer_relative_pct')]
+    if side not in ('BUY','SELL') or any(v is None or not math.isfinite(v) for v in values):
+        return None
+    rv, cum, move, breadth, peer = values
+    buy = side=='BUY'
+    tests = [(rv>=1.8, f'5m RVOL {rv:.2f}x (minimum 1.80x)'),
+             (cum>=1.2, f'Session RVOL {cum:.2f}x (minimum 1.20x)'),
+             ((move>0 and breadth>=55) if buy else (move<0 and breadth<=45),
+              f'{name} sector alignment: move {move:+.2f}%, advancing {breadth:.1f}% '
+              f'(requires {"positive move and >=55" if buy else "negative move and <=45"}% advancing)'),
+             (peer>=0 if buy else peer<=0, f'Peer strength {peer:+.2f} pp (requires {">=0" if buy else "<=0"})')]
+    missed = [desc for ok,desc in tests if not ok]
+    return missed[0] if len(missed)==1 else None
+
+
+def send_research_watch(conn, candidates, now, send):
+    if not candidates:
+        return False
+    day = now.date().isoformat()
+    conn.execute('BEGIN IMMEDIATE')
+    key = 'research_watch_last_day'
+    row = conn.execute('SELECT value FROM app_state WHERE key=?',(key,)).fetchone()
+    if row and row[0]==day:
+        conn.rollback()
+        return False
+    p, reason = max(candidates,key=lambda item:(item[0]['score'],item[0]['relative_volume'],item[0]['symbol']))
+    msg = (f"👀 RESEARCH WATCH — {p['symbol']} {p['side']} | {now:%H:%M} IST\n"
+           f"Score {p['score']}/100 | observed price ₹{p['price']}\nMissed check: {reason}\n"
+           "Observation only. No entry alert or broker order.")
+    if not send(msg):
+        conn.rollback()
+        return False
+    conn.execute('INSERT OR REPLACE INTO app_state(key,value) VALUES(?,?)',(key,day))
+    conn.commit()
+    return True

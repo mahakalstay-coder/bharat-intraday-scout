@@ -274,6 +274,11 @@ def export(root,conn,now,frames=None):
     ledger=ml.ledger(conn)
     eval_map={r[0]:r[1] for r in conn.execute('SELECT signal_id,correct_direction FROM kronos_accuracy')}
     signal_map={r[0]:json.loads(r[1]) for r in conn.execute('SELECT id,payload FROM signals')}
+    from scout_target_study import evaluate
+    try:
+        target_study = evaluate(ledger, signal_map)
+    except Exception as exc:
+        target_study = {'status':'unavailable', 'error':type(exc).__name__, 'paper_only':True}
     paired = []
     for sid, actual, kronos_pct in conn.execute(
         'SELECT signal_id,observed_pct,prediction_pct FROM kronos_accuracy'
@@ -343,7 +348,7 @@ def export(root,conn,now,frames=None):
                           'win_pct':round(100*sum(x>0 for x in v)/len(v),1)}
                        for k,v in sorted(feature_values.items())}
     report={'generated_at':now.isoformat(),'activation':activation,'graded_watch_today':watch,
-            'graded_kronos_today':preds, 'paired_forecasts':comparison,
+            'graded_kronos_today':preds, 'paired_forecasts':comparison, 'target_hit_study':target_study,
             'watch_totals':{str(k) if k is not None else 'PENDING':v for k,v in watches},
             'indicator_scorecard':by_formula,'feature_scorecard':feature_scorecard,
             'latest_trade_explanations':items[-25:],
@@ -360,6 +365,13 @@ def telegram_digest(report):
         f"Holdout mean net: {a['holdout_mean_net_r']} R | win: {a['holdout_win_rate_pct']}%",
         f"Kronos direction: {a['kronos_direction_accuracy_pct']}% across {a['kronos_evaluated']} resolved forecasts",
         'Promotion checks: '+', '.join(k for k,v in a['checks'].items() if not v) if a['status']!='VALIDATED_PAPER_MODE' else 'Promotion checks passed (paper evidence only).']
+    study = report.get('target_hit_study') or {}
+    if study.get('status')=='collecting':
+        lines.append(f"Target-hit study: collecting | {study['hits']} T1 hits / {study['samples']} costed outcomes across {study['sessions']} sessions")
+    elif study.get('status')=='evaluated':
+        lines.append(f"Target-hit study: {study['holdout']} later trades | Brier {study['brier']} vs baseline {study['baseline_brier']} (lower is better) | top quarter {study['top_quarter_mean_net_r']:+.2f}R vs all {study['all_holdout_mean_net_r']:+.2f}R net")
+    elif study.get('status')=='unavailable':
+        lines.append('Target-hit study unavailable: '+study['error'])
     paired = report.get('paired_forecasts') or {}
     if paired.get('n'):
         lines.append(f"Same {paired['n']} graded forecasts: Kronos {paired['kronos_direction_pct']}% vs drift {paired['drift_direction_pct']}% direction correct")

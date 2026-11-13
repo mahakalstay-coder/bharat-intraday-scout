@@ -1492,6 +1492,7 @@ def run_scan_cycle() -> Dict[str, Any]:
     learned_rejected = 0
     inserted = 0
     approved_count = 0
+    watch_candidates = []
     remaining_window_slots = max(0, win_limit - used_in_win)
     cycle_limit = min(CFG["MAX_SIGNALS_PER_CYCLE"], remaining_window_slots)
 
@@ -1556,6 +1557,10 @@ def run_scan_cycle() -> Dict[str, Any]:
         approved, reason = aj.confirmed_gate(signal, market, activation)
         signal["validation"] = {"approved": approved, "reason": reason,
                                   "mode": activation["status"]}
+        if not approved and activation["status"] == "RESEARCH_ONLY":
+            missed = research.watch_reason(signal, market)
+            if missed:
+                watch_candidates.append((signal, missed))
         # Every researched candidate is recorded and graded; only paper-validated
         # high-confluence signals are delivered as actionable *research* alerts.
         if add_signal(signal, now=now, shadow_only=not approved):
@@ -1563,7 +1568,14 @@ def run_scan_cycle() -> Dict[str, Any]:
             approved_count += int(approved)
 
     delivered = delivered_prior + deliver_pending_signals(limit=10)
-    if inserted > 0 or delivered > 0:
+    watch_sent = False
+    if watch_candidates:
+        try:
+            with db_connect() as conn:
+                watch_sent = research.send_research_watch(conn, watch_candidates, now, send_telegram_message)
+        except Exception as exc:
+            LOG.warning("Research watch delivery failed: %s", type(exc).__name__)
+    if inserted > 0 or delivered > 0 or watch_sent:
         persist_state_to_git()
 
     summary = {
@@ -1573,6 +1585,7 @@ def run_scan_cycle() -> Dict[str, Any]:
         "window_alerts": f"{used_in_win + approved_count}/{win_limit}",
         "symbols_considered": len(symbols),
         "top_early_ignition_watchlist": early_ignitions[:6],
+        "research_watch_sent": watch_sent,
         "technical_candidates": technical_candidates,
         "tier2_fallback_evaluated": tier2_triggered,
         "kronos_rejected": kronos_rejected,
