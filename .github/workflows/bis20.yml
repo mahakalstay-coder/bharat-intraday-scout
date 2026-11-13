@@ -104,6 +104,14 @@ jobs:
 
           IST_HM=$(TZ="Asia/Kolkata" date +%H%M)
           IST_DOW=$(TZ="Asia/Kolkata" date +%u)
+          IST_DATE=$(TZ="Asia/Kolkata" date +%F)
+          if [[ "$EVENT_NAME" == "schedule" && ( "$TASK" == "scan" || "$TASK" == "daily-learn" ) ]]; then
+            if python3 -c "import json,sys; sys.exit(0 if '$IST_DATE' in json.load(open('data/nse_holidays.json')).get('holidays',[]) else 1)" 2>/dev/null; then
+              echo "skip_outside_hours=true" >> "$GITHUB_OUTPUT"
+              echo "$IST_DATE is listed as an NSE holiday; skipping cleanly."
+              exit 0
+            fi
+          fi
           if [[ "$EVENT_NAME" == "schedule" && "$TASK" == "scan" ]]; then
             if (( IST_DOW > 5 || 10#$IST_HM < 830 || 10#$IST_HM > 1520 )); then
               echo "skip_outside_hours=true" >> "$GITHUB_OUTPUT"
