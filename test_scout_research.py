@@ -1,7 +1,7 @@
 from datetime import datetime,timedelta
 import sqlite3
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 import pandas as pd
 import adaptive_journal as a
 import scout_research as sr
@@ -14,6 +14,7 @@ class ResearchTests(unittest.TestCase):
         self.assertAlmostEqual(f['forecast_change_pct'],600/106,places=4)
         self.assertEqual(sr.drift_forecast(close.drop(idx[3]),idx[6],6),{})
 
+    @patch.dict('os.environ', {'KRONOS_REQUIRED': 'true'})  # strict mode; advisory mode is covered in test_pro_features
     def test_drift_only_in_research(self):
         t='2026-11-12T10:00:00+05:30'
         p=dict(tier='TIER-1',score=94,side='SELL',relative_volume=2,cumulative_relative_volume=1.6,

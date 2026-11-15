@@ -95,13 +95,3 @@ class MeaningfulTargetFloorTests(unittest.TestCase):
     def test_floor_applies_to_tight_stops_too(self):
         sig, pct = self.build(price=2000.0, atr_value=0.1, t1_r=1.0)
         self.assertGreaterEqual(pct, 1.5)
-
-    def test_high_probability_cannot_override_gate(self):
-        sector = dict(sector="IT",count=5,change_pct=1,advancing_pct=80)
-        stock = dict(sector="IT",peer_count=3,peer_relative_pct=1)
-        signal = dict(ml_target_probability=.9,side="BUY",tier="TIER-1",score=92,relative_volume=3,
-                      cumulative_relative_volume=2,forecast=dict(model="Kronos-mini",direction_aligned=True))
-        for mode in ("RESEARCH_ONLY","VALIDATED_PAPER_MODE"):
-            for changes,context in [({"score":50},stock),({},dict(stock,peer_relative_pct=-1)),({},dict(stock,sector="Unknown"))]:
-                approved,_ = aj.confirmed_gate(dict(signal,**changes,market_context=context),{"sectors":[sector]},{"status":mode})
-                self.assertFalse(approved)

@@ -15,6 +15,8 @@ from statistics import mean
 from zoneinfo import ZoneInfo
 import pandas as pd
 import market_learning as ml
+import feature_labels
+import mirror_study
 
 TZ = ZoneInfo('Asia/Kolkata')
 
@@ -113,6 +115,11 @@ def resolve_kronos(conn, frames):
     return graded
 
 
+def _kronos_required():
+    """Kronos is advisory by default: its forecasts are logged and scored but never block alerts."""
+    return os.getenv('KRONOS_REQUIRED','false').lower()=='true'
+
+
 def _bootstrap_lcb(values, pct=20.0, n_boot=2000, seed=42):
     """Deterministic bootstrap lower bound of the mean (pct-th percentile).
     A holdout of ~12-15 trades can look profitable by luck; requiring the lower
@@ -189,7 +196,7 @@ def _confidence_report(conn, now):
         'holdout_net_expectancy':net is not None and net>=min_net,
         'holdout_win_rate':len(hold)>0 and wins/len(hold)>=0.40,
         'holdout_confidence':lcb is not None and lcb>=min_lcb,
-        'kronos_evidence':kn>=_i('ACTIVATION_MIN_KRONOS',15) and direction_accuracy is not None and direction_accuracy>=float(os.getenv('ACTIVATION_MIN_KRONOS_ACCURACY','0.53')),
+        'kronos_evidence':(os.getenv('ACTIVATION_REQUIRE_KRONOS','false').lower()!='true') or (kn>=_i('ACTIVATION_MIN_KRONOS',15) and direction_accuracy is not None and direction_accuracy>=float(os.getenv('ACTIVATION_MIN_KRONOS_ACCURACY','0.53'))),
     }
     return {'status':'VALIDATED_PAPER_MODE' if all(checks.values()) else 'RESEARCH_ONLY',
         'sessions':len(days),'completed_costed_trades':len(records),
@@ -225,7 +232,7 @@ def confirmed_gate(signal, market, activation):
             return False, 'research: tier/score'
         if score < 85: return False, 'research: score < 85'
         if rvol < 1.8 or cum < 1.2: return False, 'research: rvol floor'
-        if fore.get('model') != 'Kronos-mini' or not (fore.get('direction_aligned') or alternative_support(signal)):
+        if _kronos_required() and (fore.get('model') != 'Kronos-mini' or not (fore.get('direction_aligned') or alternative_support(signal))):
             return False, 'research: Kronos disagreed'
         if not sector or sector == 'Unknown': return False, 'research: sector missing'
         if not sec or sec.get('count', 0) < 3: return False, 'research: thin sector'
@@ -244,7 +251,7 @@ def confirmed_gate(signal, market, activation):
     if signal.get('relative_volume',0)<activation.get('minimum_rvol_for_validated_alert',1.8) or signal.get('cumulative_relative_volume',0)<1.3:
         return False,'insufficient relative volume'
     fore=signal.get('forecast') or {}
-    if fore.get('model')!='Kronos-mini' or not fore.get('direction_aligned'):
+    if _kronos_required() and (fore.get('model')!='Kronos-mini' or not fore.get('direction_aligned')):
         return False,'Kronos unavailable/disagreed'
     stock=signal.get('market_context') or {}
     sector=stock.get('sector')
@@ -353,6 +360,7 @@ def export(root,conn,now,frames=None):
         reg=p.get('regime') or {}
         if reg.get('nifty_trend') not in (None,'UNKNOWN'): labels.append('Nifty '+reg['nifty_trend'])
         if reg.get('vix_bucket') not in (None,'UNKNOWN'): labels.append('VIX '+reg['vix_bucket'])
+        labels.extend(feature_labels.extra_labels(p))
         try:
             hour=pd.Timestamp(p['candle_time']).hour
             labels.append('Morning setup' if hour<11 else 'Afternoon setup')
@@ -366,7 +374,9 @@ def export(root,conn,now,frames=None):
     feature_scorecard={k:{'n':len(v),'mean_net_r':round(mean(v),3),
                           'win_pct':round(100*sum(x>0 for x in v)/len(v),1)}
                        for k,v in sorted(feature_values.items())}
-    report={'generated_at':now.isoformat(),'activation':activation,'graded_watch_today':watch,
+    try: vf=json.loads((Path(root)/'data'/'validated_features.json').read_text(encoding='utf-8'))
+    except Exception: vf=None
+    report={'generated_at':now.isoformat(),'activation':activation,'validated_features':vf,'mirror_study':mirror_study.report(conn),'graded_watch_today':watch,
             'graded_kronos_today':preds, 'paired_forecasts':comparison, 'target_hit_study':target_study,
             'watch_totals':{str(k) if k is not None else 'PENDING':v for k,v in watches},
             'indicator_scorecard':by_formula,'feature_scorecard':feature_scorecard,
@@ -382,7 +392,7 @@ def telegram_digest(report):
         f"Mode: {a['status']} | observed sessions {a['sessions']} / 14 minimum",
         f"Costed closed paper trades: {a['completed_costed_trades']} | holdout {a['holdout_trades']}",
         f"Holdout mean net: {a['holdout_mean_net_r']} R | win: {a['holdout_win_rate_pct']}%",
-        f"Kronos direction: {a['kronos_direction_accuracy_pct']}% across {a['kronos_evaluated']} resolved forecasts",
+        f"Kronos direction (advisory): {a['kronos_direction_accuracy_pct']}% across {a['kronos_evaluated']} resolved forecasts",
         'Promotion checks: '+', '.join(k for k,v in a['checks'].items() if not v) if a['status']!='VALIDATED_PAPER_MODE' else 'Promotion checks passed (paper evidence only).']
     study = report.get('target_hit_study') or {}
     if study.get('status')=='collecting':
@@ -398,6 +408,19 @@ def telegram_digest(report):
         lines.append('LATEST TRADE REVIEW (evidence, not causation):')
         for p in report['latest_trade_explanations'][-5:]:
             lines.append(f"{p['symbol']} {p['side']} {p['net_r']:+.2f}R | "+'; '.join(p['evidence_tags'][:3]))
+    try:
+        t_r=max(float(os.getenv('MIN_T1_R','2.0')),2.5); c_r=float(os.getenv('PAPER_ROUND_TRIP_BPS','20'))/100.0/0.8
+        lines.append(f"Reality check: break-even win rate at a {t_r:g}R target after costs is about {100*(1+c_r)/(1+t_r):.0f}%. "
+                     "A 90%+ win rate would mean tiny targets or a data error, not skill.")
+    except Exception: pass
+    mline=mirror_study.digest_line(report.get('mirror_study'))
+    if mline: lines.append(mline)
+    vf=report.get('validated_features')
+    if vf:
+        if vf.get('status')=='validated':
+            lines.append('Learned features (+): '+(', '.join(vf['positive']) or 'none')+' | (-): '+(', '.join(vf['negative']) or 'none'))
+        else:
+            lines.append(f"Learned features: {vf.get('status')} | {vf.get('sessions')} sessions, {vf.get('samples')} trades")
     lines.append('Validated alerts minimum 5m RVOL: '+str(a['minimum_rvol_for_validated_alert'])+'x')
     if a.get('rvol_tuning'):
         lines.append('Holdout-supported RVOL threshold proposal: '+str(a['rvol_tuning']))

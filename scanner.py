@@ -32,7 +32,6 @@ import scout_research as research
 import market_regime
 import mirror_study
 import features_pro
-import features_renko, features_gann, features_smc, features_cycles, ml_calibrator, heatmap_extra
 import news_events
 import feature_labels
 import feature_learner
@@ -1474,13 +1473,12 @@ def run_scan_cycle() -> Dict[str, Any]:
     classification_path = ROOT / "data/classifications.json"
     metadata = json.loads(classification_path.read_text()) if classification_path.exists() else {}
     market = ml.snapshot(intraday_all, metadata, now)
-    extras = heatmap_extra.optional(lambda: heatmap_extra.collect(intraday_all, daily_map, market, now))
     regime = market_regime.current_regime(now)
     validated_features = feature_learner.load(ROOT / "data" / "validated_features.json")
     macro_events = news_events.calendar_events(now.date())
     with db_connect() as conn:
         ml.record_snapshot(conn, market)
-        ml.export_reports(ROOT, conn, market, extras=extras)
+        ml.export_reports(ROOT, conn, market)
         activation = aj.mode(conn, now)
     sector_sent = False
     try:

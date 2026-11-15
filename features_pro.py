@@ -383,14 +383,7 @@ def compute(df: pd.DataFrame, side: str) -> Dict[str, Any]:
                      "chart_patterns": pb == opp or wall in patterns,
                      "trend_stack": bool(stack_bad), "flow": bool(flow_bad),
                      "levels": bool(lvl_bad), "smart_money": bool(sm_bad)}
-        research = {}
-        for name in ("renko", "smc", "cycles", "gann"):
-            try:
-                module = __import__("features_" + name)
-                research[name] = module.compute(d, side)
-            except Exception:
-                research[name] = {}
-        return {**research, "volume_profile": vp, "candles": candles, "candle_bias": cb,
+        return {"volume_profile": vp, "candles": candles, "candle_bias": cb,
                 "chart_patterns": patterns, "pattern_bias": pb, "indicators": ind,
                 "levels": levels, "anatomy": anatomy, "fvg": fvg, "order_blocks": ob,
                 "confirms": confirms, "conflicts": conflicts, "groups": len(confirms),

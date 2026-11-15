@@ -7,7 +7,7 @@ GROUP_NAMES = {"volume_profile": "Volume profile", "candles": "Candles", "chart_
                "smart_money": "FVG/Order block"}
 
 
-def extra_labels(p: Dict[str, Any], *, research: bool = False) -> List[str]:
+def extra_labels(p: Dict[str, Any]) -> List[str]:
     labels: List[str] = []
     side = p.get("side")
     pro = p.get("pro") or {}
@@ -93,15 +93,4 @@ def extra_labels(p: Dict[str, Any], *, research: bool = False) -> List[str]:
             labels.append("Midday window (10:00-13:00)")
     except (ValueError, TypeError):
         pass
-    if research:
-        # Opt-in only: the ordinary v4 label list also feeds the live score.
-        conditions = (
-            ("renko", "renko_trend", "UP", "Renko: up trend"),
-            ("gann", "gann_within_cycle", True, "Gann: near time cycle"),
-            ("smc", "bos_recent", True, "SMC: recent structure break"),
-            ("cycles", "hilbert_cycle_direction", "UP", "Cycles: advancing phase"),
-        )
-        for group, key, expected, label in conditions:
-            if (pro.get(group) or {}).get(key) == expected:
-                labels.append(label)
     return labels
