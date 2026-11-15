@@ -1,0 +1,227 @@
+{
+  "paper_only": true,
+  "features": {
+    "renko_trend": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        "UP"
+      ]
+    },
+    "renko_distance_atr": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        2
+      ]
+    },
+    "renko_reversal_within": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "le",
+        3
+      ]
+    },
+    "renko_agrees_daily": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        true
+      ]
+    },
+    "bos_recent": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        true
+      ]
+    },
+    "choch_recent": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        true
+      ]
+    },
+    "liquidity_sweep": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        true
+      ]
+    },
+    "equal_highs": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        2
+      ]
+    },
+    "equal_lows": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        2
+      ]
+    },
+    "mitigation_block_near": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        true
+      ]
+    },
+    "premium_discount_zone": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        50
+      ]
+    },
+    "fft_dominant_period_bars": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "le",
+        16
+      ]
+    },
+    "fft_cycle_strength": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        1.5
+      ]
+    },
+    "hilbert_phase_deg": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        180
+      ]
+    },
+    "hilbert_amplitude_pct": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        1
+      ]
+    },
+    "hilbert_cycle_direction": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        "UP"
+      ]
+    },
+    "gann_fan_angle_deg": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        45
+      ]
+    },
+    "gann_fan_atr_angle_deg": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        45
+      ]
+    },
+    "gann_retracement_pct": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        50
+      ]
+    },
+    "gann_nearest_retracement_pct": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        50
+      ]
+    },
+    "gann_time_days_from_swing": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "ge",
+        30
+      ]
+    },
+    "gann_nearest_cycle_days": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        30
+      ]
+    },
+    "gann_within_cycle": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        true
+      ]
+    },
+    "gann_sq9_nearest_deg": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "eq",
+        0
+      ]
+    },
+    "gann_sq9_distance_deg": {
+      "status": "collecting",
+      "observed": 0,
+      "condition": [
+        "le",
+        5
+      ]
+    }
+  },
+  "learner": {
+    "at": "2026-11-15T05:37:38.357101",
+    "sessions": 0,
+    "samples": 0,
+    "positive": {},
+    "negative": {},
+    "method": "screen on train (singles + pairs), confirm on later holdout with multiple-testing-adjusted t threshold",
+    "status": "collecting"
+  },
+  "disclaimer": "Gradient-boosted probability trained on paper outcomes. This is a research quantity, not a trading recommendation, and is NOT used to gate alerts.",
+  "interpretation": {
+    "Gann": "No peer-reviewed evidence for Gann geometry. Logged for the learner, not trusted. A positive learner result on one small sample is not proof.",
+    "Cycles": "The Laplace PDE does not apply to 1D price. This is the correct spectral replacement.",
+    "Learner": "Each status applies to the specified condition on entry-snapshot costed paper trades. Collecting also covers conditions without stable evidence.",
+    "Calibrator": "Past association only. Will underperform out of sample if the regime changes or the sample is <500 trades."
+  },
+  "What was NOT added and why": {
+    "Neural nets": "The available paper outcomes do not establish a need for a high-capacity model.",
+    "Deep RL": "There is no validated market simulator for learning an execution policy.",
+    "Order-flow-from-OHLCV": "Aggregated bars do not identify signed orders or queue changes.",
+    "Laplace-as-PDE": "A one-dimensional price series does not provide the spatial boundary conditions for this PDE."
+  }
+}
