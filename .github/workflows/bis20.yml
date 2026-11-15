@@ -151,6 +151,7 @@ jobs:
           else
             echo "Cached .venv verified healthy for Python ${{ steps.setup-python.outputs.python-version }}."
           fi
+          .venv/bin/python -m pip install -r requirements-ml.txt
 
       - name: Restore Kronos model cache
         if: steps.task.outputs.skip_outside_hours != 'true' && (steps.task.outputs.name == 'scan' || steps.task.outputs.name == 'test-kronos' || steps.task.outputs.name == 'dry-run-v2' || steps.task.outputs.name == 'backtest-learn')
