@@ -1,0 +1,4 @@
+{
+  "_note": "Add macro event days you care about (RBI policy, Union Budget, index expiry, big global events). Format: {\"date\": \"YYYY-MM-DD\", \"name\": \"...\", \"impact\": \"high\"}. Empty by default; I did not guess dates.",
+  "events": []
+}
