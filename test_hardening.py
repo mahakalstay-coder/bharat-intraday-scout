@@ -69,3 +69,39 @@ class ReplayWeightsTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class MeaningfulTargetFloorTests(unittest.TestCase):
+    """Learned levels must never shrink the target just to make the win rate look better."""
+
+    def build(self, price=500.0, atr_value=1.0, t1_r=None):
+        import scanner as sc
+        sc.load_filters = lambda: {"mode": "proven", "total_resolved": 999,
+                                   "levels": {"BUY": {"t1_r": t1_r, "stop_scale": 0.7}} if t1_r else {}}
+        sig = sc.build_signal_dict(symbol="T", side="BUY", price=price, atr_value=atr_value, score=80, rsi_value=60, mfi_value=60,
+                                   adx_val=25, bb_bw=1.2, relvol=2.0, cumulative_relvol=1.5, sessions_compared=5, daily={},
+                                   vwap_value=price, breakout_level=price, day_move=1.0, last_idx=pd.Timestamp("2026-11-13 10:00", tz="Asia/Kolkata"),
+                                   body_ratio=0.6, setup_label="t", tier="TIER-1", pillars_matched=[])
+        return sig, abs(sig["target"] - sig["price"]) / sig["price"] * 100.0
+
+    def test_learned_tiny_target_is_floored(self):
+        sig, pct = self.build(t1_r=0.05)          # learner "found" a 0.05R target
+        self.assertGreaterEqual(sig["t1_r"], 2.0); self.assertGreaterEqual(pct, 1.5)
+
+    def test_default_target_unchanged_and_meaningful(self):
+        sig, pct = self.build()
+        self.assertAlmostEqual(sig["t1_r"], 2.5, places=2); self.assertGreaterEqual(pct, 1.9)
+
+    def test_floor_applies_to_tight_stops_too(self):
+        sig, pct = self.build(price=2000.0, atr_value=0.1, t1_r=1.0)
+        self.assertGreaterEqual(pct, 1.5)
+
+    def test_high_probability_cannot_override_gate(self):
+        sector = dict(sector="IT",count=5,change_pct=1,advancing_pct=80)
+        stock = dict(sector="IT",peer_count=3,peer_relative_pct=1)
+        signal = dict(ml_target_probability=.9,side="BUY",tier="TIER-1",score=92,relative_volume=3,
+                      cumulative_relative_volume=2,forecast=dict(model="Kronos-mini",direction_aligned=True))
+        for mode in ("RESEARCH_ONLY","VALIDATED_PAPER_MODE"):
+            for changes,context in [({"score":50},stock),({},dict(stock,peer_relative_pct=-1)),({},dict(stock,sector="Unknown"))]:
+                approved,_ = aj.confirmed_gate(dict(signal,**changes,market_context=context),{"sectors":[sector]},{"status":mode})
+                self.assertFalse(approved)

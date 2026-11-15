@@ -146,7 +146,9 @@ def tune(conn, rows, defaults, path, now):
     init(conn); conn.execute('INSERT INTO learning_audit(asof,payload) VALUES (?,?)',(now.isoformat(),json.dumps(report))); conn.commit()
     return report
 
-def export_reports(root, conn, snap=None):
+def export_reports(root, conn, snap=None, extras=None):
+    import logging
+    daily_export = snap is None
     out=Path(root)/'reports'; out.mkdir(exist_ok=True)
     rows=ledger(conn)
     if rows:
@@ -169,5 +171,19 @@ def export_reports(root, conn, snap=None):
     page+='<p>Coverage: '+str(snap.get('fresh',0))+'/'+str(snap.get('requested',0))+' fresh stocks; '+str(snap.get('classified',0))+' classified.</p>'
     page+='<p>Snapshot: '+html.escape(snap['generated_at'])+'</p><small>'+html.escape(snap['scope'])+' · Downloaded HTML does not stream live updates.</small><div class="grid">'+cards+'</div>'
     page+='<h2>Paper outcomes after estimated costs</h2><p>'+html.escape(str(stats))+'</p><a href="paper_trades.csv">Trade ledger CSV</a><h2>Industry peers</h2><input id="q" placeholder="Filter symbol / industry"><table><thead><tr><th>Symbol</th><th>Sector</th><th>Industry</th><th>Day %</th><th>Vs peers pp</th><th>Peers</th></tr></thead><tbody>'+tr+'</tbody></table><script>document.querySelector("#q").oninput=e=>document.querySelectorAll("tbody tr").forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(e.target.value.toLowerCase()));</script></html>'
+    try:
+        import heatmap_extra
+        saved = heatmap_extra.optional(lambda: heatmap_extra.cached_tiles(conn, snap['generated_at'], extras))
+        extras = extras if extras is not None else saved
+        page = page.removesuffix('</html>') + heatmap_extra.sections(extras) + '</html>'
+    except Exception:
+        logging.getLogger(__name__).exception('Optional heatmap tiles unavailable')
+    try:
+        import ml_calibrator
+        ml_calibrator.annotate(conn, Path(root)/'data/ml_calibrator.json')
+        if daily_export:
+            ml_calibrator.refresh(root, conn, rows)
+    except Exception:
+        logging.getLogger(__name__).exception('Optional paper research unavailable')
     (out/'heatmap.html').write_text(page,encoding='utf-8')
     return stats

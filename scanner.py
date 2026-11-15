@@ -30,6 +30,12 @@ import market_learning as ml
 import adaptive_journal as aj
 import scout_research as research
 import market_regime
+import mirror_study
+import features_pro
+import features_renko, features_gann, features_smc, features_cycles, ml_calibrator, heatmap_extra
+import news_events
+import feature_labels
+import feature_learner
 import trading_calendar
 
 TZ = ZoneInfo("Asia/Kolkata")
@@ -121,7 +127,7 @@ CFG: Dict[str, Any] = {
     "MAX_SIGNALS_PER_CYCLE": int(os.getenv("MAX_SIGNALS_PER_CYCLE", "3")),
     "CONTINUOUS_LOOP_MINUTES": int(os.getenv("CONTINUOUS_LOOP_MINUTES", "350")),
     "KRONOS_ENABLED": os.getenv("KRONOS_ENABLED", "true").lower() == "true",
-    "KRONOS_REQUIRED": os.getenv("KRONOS_REQUIRED", "true").lower() == "true",
+    "KRONOS_REQUIRED": os.getenv("KRONOS_REQUIRED", "false").lower() == "true",
     "KRONOS_MODEL": os.getenv("KRONOS_MODEL", "NeoQuasar/Kronos-mini"),
     "KRONOS_TOKENIZER": os.getenv("KRONOS_TOKENIZER", "NeoQuasar/Kronos-Tokenizer-2k"),
     "KRONOS_LOOKBACK": int(os.getenv("KRONOS_LOOKBACK", "96")),
@@ -210,7 +216,7 @@ def persist_state_to_git() -> None:
     try:
         paths = [str(p.relative_to(ROOT)) for p in (DB_PATH, UNIVERSE_CACHE,
                  LEARNED_WEIGHTS_PATH, FILTERS_PATH, ROOT / "data/validated_weights.json",
-                 ROOT / "data/classifications.json") if p.exists() and p.is_relative_to(ROOT)]
+                 ROOT / "data/classifications.json", ROOT / "data/validated_features.json") if p.exists() and p.is_relative_to(ROOT)]
         subprocess.run(["git", "config", "user.name", "github-actions[bot]"], cwd=ROOT, check=True)
         subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], cwd=ROOT, check=True)
         subprocess.run(["git", "add", "--", *paths], cwd=ROOT, check=True)
@@ -909,6 +915,12 @@ def build_signal_dict(
     max_risk = price * CFG["MAX_STOP_PCT"]
     risk = float(np.clip(raw_risk, min_risk, max_risk))
 
+    # Meaningful-target floor: learned levels may never shrink the target just to inflate the win rate.
+    t1_mult = max(t1_mult, float(os.getenv("MIN_T1_R", "2.0")))
+    min_target_dist = price * float(os.getenv("MIN_TARGET_PCT", "1.5")) / 100.0
+    if risk * t1_mult < min_target_dist:
+        t1_mult = min_target_dist / risk
+
     stop = price - risk if side == "BUY" else price + risk
     target = price + risk * t1_mult if side == "BUY" else price - risk * t1_mult
     runner_target = price + risk * CFG["TARGET2_R_MULTIPLE"] if side == "BUY" else price - risk * CFG["TARGET2_R_MULTIPLE"]
@@ -1375,8 +1387,14 @@ def add_signal(payload: Dict[str, Any], now: Optional[datetime] = None,
            (created_at,symbol,side,payload,dedupe_key,delivered) VALUES (?,?,?,?,?,?)""",
            (now.isoformat(),payload['symbol'],payload['side'],json.dumps(payload),key,
             2 if shadow_only else 0))
+        inserted = cur.rowcount==1
+        if inserted:
+            try:  # opposite-direction control trade; separate table, never mixed into the real ledger
+                mirror_study.record(conn, cur.lastrowid, payload, now)
+            except Exception as exc:
+                LOG.warning("Mirror record failed: %s", type(exc).__name__)
         conn.commit()
-        return cur.rowcount==1
+        return inserted
 
 
 def rank_pre_explosion_candidates(frames: Dict[str, pd.DataFrame],
@@ -1456,10 +1474,13 @@ def run_scan_cycle() -> Dict[str, Any]:
     classification_path = ROOT / "data/classifications.json"
     metadata = json.loads(classification_path.read_text()) if classification_path.exists() else {}
     market = ml.snapshot(intraday_all, metadata, now)
+    extras = heatmap_extra.optional(lambda: heatmap_extra.collect(intraday_all, daily_map, market, now))
     regime = market_regime.current_regime(now)
+    validated_features = feature_learner.load(ROOT / "data" / "validated_features.json")
+    macro_events = news_events.calendar_events(now.date())
     with db_connect() as conn:
         ml.record_snapshot(conn, market)
-        ml.export_reports(ROOT, conn, market)
+        ml.export_reports(ROOT, conn, market, extras=extras)
         activation = aj.mode(conn, now)
     sector_sent = False
     try:
@@ -1517,6 +1538,10 @@ def run_scan_cycle() -> Dict[str, Any]:
         if approved_count >= cycle_limit:
             break
         signal["regime"] = regime
+        try:
+            signal["pro"] = features_pro.compute(completed_bars(normalize_intraday(candles), now), signal["side"])
+        except Exception:
+            signal["pro"] = {}
         signal["market_context"] = market["stocks"].get(signal["symbol"], {})
         signal["sector_context"] = next((x for x in market["sectors"]
             if x["sector"] == signal["market_context"].get("sector")), {})
@@ -1572,6 +1597,21 @@ def run_scan_cycle() -> Dict[str, Any]:
             if add_signal(signal, now=now, shadow_only=True): inserted += 1
             continue
 
+        try:
+            items = [{"title": t, "published": None} for t in headlines]
+            if os.getenv("ENABLE_GOOGLE_NEWS", "true").lower() == "true":
+                items += news_events.fetch_google_news(signal["symbol"])
+            ne = news_events.classify_items(items, now)
+            ne["macro_events"] = [e.get("name") for e in macro_events]
+            if os.getenv("ENABLE_EARNINGS_LOOKUP", "true").lower() == "true":
+                ne["earnings_today"] = news_events.earnings_today(signal["symbol"], now.date())
+            signal["news_events"] = ne
+            adj = feature_learner.score_adjustment(validated_features, feature_labels.extra_labels(signal))
+            if adj:
+                signal["score"] = int(min(100, max(0, signal["score"] + adj)))
+                signal["feature_adjustment"] = adj
+        except Exception as exc:
+            LOG.warning("News/feature step failed: %s", type(exc).__name__)
         approved, reason = aj.confirmed_gate(signal, market, activation)
         signal["validation"] = {"approved": approved, "reason": reason,
                                   "mode": activation["status"]}
@@ -2204,7 +2244,7 @@ def recompute_filters() -> Dict[str, Any]:
             continue
         lv: Dict[str, Any] = {"n": len(s_rows)}
         best_t, best_exp = None, -9.0
-        for t in (1.0, 1.5, 2.0, 2.5, 3.0):
+        for t in [x for x in (1.0, 1.5, 2.0, 2.5, 3.0) if x >= float(os.getenv("MIN_T1_R", "2.0"))]:
             sim = []
             for r in s_rows:
                 if (r["mfe_pre_r"] or 0.0) >= t:
@@ -2426,6 +2466,13 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
         LOG.warning("Watchdog check failed: %s", type(exc).__name__)
 
     resolved = resolve_pending_outcomes(frames)
+    try:
+        with db_connect() as conn:
+            LOG.info("Mirror backfill: %d", mirror_study.backfill(conn, datetime.now(TZ)))
+            mirrored = mirror_study.resolve_pending(conn, frames, resolve_outcome, normalize_intraday, datetime.now(TZ))
+        LOG.info("Mirror trades resolved: %d", mirrored)
+    except Exception as exc:
+        LOG.warning("Mirror resolve failed: %s", type(exc).__name__)
     already_studied = False
     with db_connect() as conn:
         already_studied = conn.execute("SELECT 1 FROM mover_study WHERE day=? LIMIT 1", (str(replay_day),)).fetchone() is not None
@@ -2434,6 +2481,11 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
     with db_connect() as conn:
         learning = ml.tune(conn, ml.ledger(conn), DEFAULT_FORMULA_WEIGHTS,
                            ROOT / "data/validated_weights.json", datetime.now(TZ))
+        try:
+            fl = feature_learner.learn(conn, ROOT, datetime.now(TZ))
+            LOG.info("Feature learning: %s (+%d / -%d)", fl["status"], len(fl["positive"]), len(fl["negative"]))
+        except Exception as exc:
+            LOG.warning("Feature learning failed: %s", type(exc).__name__)
         ml.export_reports(ROOT, conn)
         adaptive_report = aj.export(ROOT, conn, datetime.now(TZ), frames)
     LOG.info("Validated paper adaptation: %s", learning["status"])
