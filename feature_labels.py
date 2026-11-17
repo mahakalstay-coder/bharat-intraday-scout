@@ -7,7 +7,7 @@ GROUP_NAMES = {"volume_profile": "Volume profile", "candles": "Candles", "chart_
                "smart_money": "FVG/Order block"}
 
 
-def extra_labels(p: Dict[str, Any]) -> List[str]:
+def extra_labels(p: Dict[str, Any], research: bool = False) -> List[str]:
     labels: List[str] = []
     side = p.get("side")
     pro = p.get("pro") or {}
@@ -93,4 +93,15 @@ def extra_labels(p: Dict[str, Any]) -> List[str]:
             labels.append("Midday window (10:00-13:00)")
     except (ValueError, TypeError):
         pass
+    if research:
+        # Only the separate research study requests these; default decision
+        # labels and the existing feature-adjustment gate remain unchanged.
+        renko = pro.get("renko") or {}
+        trend = renko.get("renko_trend")
+        if trend in ("UP", "DOWN"):
+            labels.append("Renko: " + trend.lower() + " trend")
+        for group in ("smc", "cycles", "gann", "renko"):
+            for key, value in (pro.get(group) or {}).items():
+                if value is True:
+                    labels.append("Research " + group + ": " + key)
     return labels

@@ -4,3 +4,5 @@ requests>=2.32.3
 # yfinance is unofficial market data and may be delayed or throttled.
 yfinance==0.2.65
 catboost==1.2.8
+lightgbm>=4.5,<5
+scikit-learn>=1.5,<2

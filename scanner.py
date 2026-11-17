@@ -36,6 +36,14 @@ import news_events
 import feature_labels
 import feature_learner
 import trading_calendar
+import four_header_engine as four_headers
+import learning_context
+import features_smc
+import features_renko
+import features_cycles
+import features_gann
+import heatmap_extra
+import ml_calibrator
 
 TZ = ZoneInfo("Asia/Kolkata")
 LOG = logging.getLogger("bis20")
@@ -206,6 +214,8 @@ def init_db() -> None:
         )""")
         conn.commit()
     init_learning_tables()
+    with db_connect() as conn:
+        four_headers.init(conn)
 
 
 def persist_state_to_git() -> None:
@@ -215,7 +225,9 @@ def persist_state_to_git() -> None:
     try:
         paths = [str(p.relative_to(ROOT)) for p in (DB_PATH, UNIVERSE_CACHE,
                  LEARNED_WEIGHTS_PATH, FILTERS_PATH, ROOT / "data/validated_weights.json",
-                 ROOT / "data/classifications.json", ROOT / "data/validated_features.json") if p.exists() and p.is_relative_to(ROOT)]
+                 ROOT / "data/classifications.json", ROOT / "data/validated_features.json",
+                 ROOT / "data/sector_memberships.json", ROOT / "data/ml_calibrator.json",
+                 ROOT / "reports") if p.exists() and p.is_relative_to(ROOT)]
         subprocess.run(["git", "config", "user.name", "github-actions[bot]"], cwd=ROOT, check=True)
         subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], cwd=ROOT, check=True)
         subprocess.run(["git", "add", "--", *paths], cwd=ROOT, check=True)
@@ -1440,6 +1452,38 @@ def rank_pre_explosion_candidates(frames: Dict[str, pd.DataFrame],
     return rows[:25]
 
 
+def download_benchmark_frames(symbols):
+    """Index identifiers must not receive the stock '.NS' suffix."""
+    raw = yf.download(tickers=symbols, period="10d", interval="5m", group_by="ticker",
+                      auto_adjust=False, actions=False, threads=True, progress=False, timeout=12)
+    out = {}
+    for symbol in symbols:
+        frame = extract_ticker_frame(raw, symbol, single=(len(symbols) == 1))
+        if not frame.empty:
+            frame.columns = [str(c).lower().replace(" ", "_") for c in frame.columns]
+        out[symbol] = frame
+    return out
+
+
+def run_four_header_cycle(frames, entries, market, now):
+    """Independent additive engine; optional context failures never block originals."""
+    with db_connect() as conn:
+        four_headers.init(conn)
+        try:
+            context = learning_context.snapshot(ROOT, conn, frames, market, now, download_benchmark_frames)
+        except Exception as exc:
+            LOG.warning("Four-header context unavailable: %s", type(exc).__name__)
+            context = {"asof": now.isoformat(), "intraday_regime": "UNKNOWN", "stocks": {}, "advisory_only": True}
+        resolved = four_headers.resolve(conn, frames, now, DB_PATH)
+        result = four_headers.collect(conn, frames, entries, market, context, now, DB_PATH)
+        result["resolved"] = resolved
+        result["sent"] = four_headers.deliver(conn, now, send_telegram_message)
+        four_headers.report(conn, ROOT, now, learn=False)
+        # Persist quota reservations and the ledger even if Telegram fails.
+        persist_state_to_git()
+        return result
+
+
 def run_scan_cycle() -> Dict[str, Any]:
     started = time.time()
     now = datetime.now(TZ)
@@ -1470,15 +1514,26 @@ def run_scan_cycle() -> Dict[str, Any]:
         intraday_all.update(download_batch(group, CFG["INTRADAY_PERIOD"], CFG["BAR_INTERVAL"]))
         time.sleep(0.08)
 
+    # Recover open paper calls even when their stocks leave the current universe.
+    with db_connect() as conn:
+        recovery = [r[0] for r in conn.execute("SELECT DISTINCT symbol FROM four_header_calls WHERE status='OPEN'") if r[0] not in intraday_all]
+    for start in range(0, len(recovery), CFG["INTRADAY_BATCH_SIZE"]):
+        intraday_all.update(download_batch(recovery[start:start + CFG["INTRADAY_BATCH_SIZE"]], CFG["INTRADAY_PERIOD"], CFG["BAR_INTERVAL"]))
+
     classification_path = ROOT / "data/classifications.json"
     metadata = json.loads(classification_path.read_text()) if classification_path.exists() else {}
     market = ml.snapshot(intraday_all, metadata, now)
+    try:
+        extra_tiles = heatmap_extra.collect(intraday_all, daily_map, market, now)
+    except Exception:
+        LOG.warning("Optional heatmap studies unavailable", exc_info=True)
+        extra_tiles = None
     regime = market_regime.current_regime(now)
     validated_features = feature_learner.load(ROOT / "data" / "validated_features.json")
     macro_events = news_events.calendar_events(now.date())
     with db_connect() as conn:
         ml.record_snapshot(conn, market)
-        ml.export_reports(ROOT, conn, market)
+        ml.export_reports(ROOT, conn, market, extras=extra_tiles)
         activation = aj.mode(conn, now)
     sector_sent = False
     try:
@@ -1488,6 +1543,10 @@ def run_scan_cycle() -> Dict[str, Any]:
         LOG.warning("Sector update failed: %s", type(exc).__name__)
     if sector_sent:
         persist_state_to_git()
+    try:
+        LOG.info("FOUR_HEADERS %s", json.dumps(run_four_header_cycle(intraday_all, entries, market, now)))
+    except Exception:
+        LOG.exception("Four-header engine failed; legacy scanner continues")
     if quota_full:
         return {"status": "quota_full_market_updated", "at": now.isoformat()}
     alerted_today = get_today_alerted_symbols()
@@ -1540,6 +1599,13 @@ def run_scan_cycle() -> Dict[str, Any]:
             signal["pro"] = features_pro.compute(completed_bars(normalize_intraday(candles), now), signal["side"])
         except Exception:
             signal["pro"] = {}
+        # Observation-only features: excluded from the existing decision labels.
+        for name, module in (("smc", features_smc), ("renko", features_renko),
+                             ("cycles", features_cycles), ("gann", features_gann)):
+            try:
+                signal["pro"][name] = module.compute(completed_bars(normalize_intraday(candles), now), signal["side"])
+            except Exception:
+                LOG.warning("Optional %s study unavailable", name)
         signal["market_context"] = market["stocks"].get(signal["symbol"], {})
         signal["sector_context"] = next((x for x in market["sectors"]
             if x["sector"] == signal["market_context"].get("sector")), {})
@@ -2437,6 +2503,7 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
     with db_connect() as conn:
         sig_syms = [r["symbol"] for r in conn.execute(
             "SELECT DISTINCT s.symbol FROM signals s LEFT JOIN outcomes o ON o.signal_id=s.id WHERE o.signal_id IS NULL")]
+        sig_syms += [r[0] for r in conn.execute("SELECT DISTINCT symbol FROM four_header_calls WHERE status='OPEN'")]
     symbols = list(dict.fromkeys([e["symbol"] for e in entries] + sig_syms))
     frames: Dict[str, pd.DataFrame] = {}
     for off in range(0, len(symbols), CFG["INTRADAY_BATCH_SIZE"]):
@@ -2486,6 +2553,19 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
             LOG.warning("Feature learning failed: %s", type(exc).__name__)
         ml.export_reports(ROOT, conn)
         adaptive_report = aj.export(ROOT, conn, datetime.now(TZ), frames)
+    try:
+        with db_connect() as conn:
+            four_headers.resolve(conn, frames, datetime.now(TZ), DB_PATH)
+            four_report = four_headers.report(conn, ROOT, datetime.now(TZ))
+            if send_telegram:
+                day = datetime.now(TZ).date().isoformat()
+                sent = conn.execute("SELECT value FROM app_state WHERE key='four_digest_day'").fetchone()
+                if not sent or sent[0] != day:
+                    send_long_telegram(four_headers.digest(four_report))
+                    conn.execute("INSERT OR REPLACE INTO app_state VALUES('four_digest_day',?)", (day,))
+                    conn.commit()
+    except Exception:
+        LOG.exception("Four-header daily study failed; legacy daily learning continues")
     LOG.info("Validated paper adaptation: %s", learning["status"])
     persist_state_to_git()
 
@@ -2577,6 +2657,8 @@ def send_morning_brief() -> None:
     lines = [f"🌅 BHARAT SCOUT LIVE — {day} 09:20 IST",
              f"Research/paper mode | graded outcomes: {f.get('total_resolved', 0)} | no guaranteed trades",
              f"Kronos: {kronos_status}"]
+    lines.append("Four research headers enabled: " + " / ".join(four_headers.HEADERS))
+    lines.append("Original strategy rules retained. Each header has its own paper ledger; new settings run as forward paper comparisons.")
     if f.get("blocked"):
         lines.append("🚫 Blocked today: " + "; ".join(list(f["blocked"].keys())[:6]))
     if f.get("min_rvol"):
@@ -2680,12 +2762,14 @@ def main() -> int:
         with db_connect() as conn:
             LOG.info("REPORT %s", ml.export_reports(ROOT, conn))
             LOG.info("ADAPTIVE %s", aj.export(ROOT, conn, datetime.now(TZ))['activation'])
+            LOG.info("FOUR_HEADERS %s", four_headers.digest(four_headers.report(conn, ROOT, datetime.now(TZ), learn=False)))
         return 0
     if args.task == "refresh-metadata":
         universe = json.loads(UNIVERSE_CACHE.read_text())
         LOG.info("METADATA %s", ml.refresh_classifications(ROOT,
                  [e["symbol"] for e in universe["scan_symbols"]],
                  lambda symbol: yf.Ticker(symbol + ".NS").get_info()))
+        learning_context.refresh_memberships(ROOT, datetime.now(TZ))
         persist_state_to_git()
         return 0
     if args.task == "reset-today-quota":
@@ -2708,7 +2792,9 @@ def main() -> int:
         return 0
 
     if args.task == "test-telegram":
-        send_telegram_message("✅ Bharat Intraday Scout 2.0 (fmzquant + Kronos + Trading-R1 + Self-Learning Backtester) active.")
+        send_telegram_message("✅ Bharat Scout — four-header integration installed.\n" +
+                              " / ".join(four_headers.HEADERS) +
+                              "\nPaper research only. Alerts require original strategy conditions; no accuracy claim.")
         LOG.info("Telegram test succeeded")
         return 0
 
