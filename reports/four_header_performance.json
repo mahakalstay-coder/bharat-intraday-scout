@@ -1,16 +1,16 @@
 {
-  "asof": "2026-11-18T09:25:12.000566+05:30",
+  "asof": "2026-11-18T09:30:12.000581+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
   "headers": {
     "EARLIER_SETUP": {
       "paper_alerts": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
-        "sent": 0,
+        "sent": 2,
         "wins": 0,
         "losses": 0,
         "win_rate_pct": null,
@@ -22,11 +22,11 @@
         "quality": {}
       },
       "sent_alerts": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
-        "sent": 0,
+        "sent": 2,
         "wins": 0,
         "losses": 0,
         "win_rate_pct": null,
@@ -38,9 +38,9 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -54,9 +54,9 @@
         "quality": {}
       },
       "rejected_study": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -69,17 +69,53 @@
         "ambiguous": 0,
         "quality": {}
       },
-      "by_regime": {},
+      "by_regime": {
+        "UNKNOWN|SELL": {
+          "recorded": 2,
+          "closed": 0,
+          "pending": 2,
+          "no_data": 0,
+          "sent": 2,
+          "wins": 0,
+          "losses": 0,
+          "win_rate_pct": null,
+          "net_r": 0,
+          "mean_net_r": null,
+          "profit_factor": null,
+          "max_closed_trade_drawdown_r": 0.0,
+          "ambiguous": 0,
+          "quality": {}
+        }
+      },
       "observed_associations": {},
-      "latest_calls": []
+      "latest_calls": [
+        {
+          "symbol": "PARACABLES",
+          "side": "SELL",
+          "day": "2026-11-18",
+          "outcome": null,
+          "net_r": null,
+          "quality": null,
+          "regime": "UNKNOWN"
+        },
+        {
+          "symbol": "JINDALSAW",
+          "side": "SELL",
+          "day": "2026-11-18",
+          "outcome": null,
+          "net_r": null,
+          "quality": null,
+          "regime": "UNKNOWN"
+        }
+      ]
     },
     "LEARNING_SETUP": {
       "paper_alerts": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
-        "sent": 0,
+        "sent": 2,
         "wins": 0,
         "losses": 0,
         "win_rate_pct": null,
@@ -91,11 +127,11 @@
         "quality": {}
       },
       "sent_alerts": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
-        "sent": 0,
+        "sent": 2,
         "wins": 0,
         "losses": 0,
         "win_rate_pct": null,
@@ -107,9 +143,9 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -123,9 +159,9 @@
         "quality": {}
       },
       "rejected_study": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -138,17 +174,53 @@
         "ambiguous": 0,
         "quality": {}
       },
-      "by_regime": {},
+      "by_regime": {
+        "UNKNOWN|SELL": {
+          "recorded": 2,
+          "closed": 0,
+          "pending": 2,
+          "no_data": 0,
+          "sent": 2,
+          "wins": 0,
+          "losses": 0,
+          "win_rate_pct": null,
+          "net_r": 0,
+          "mean_net_r": null,
+          "profit_factor": null,
+          "max_closed_trade_drawdown_r": 0.0,
+          "ambiguous": 0,
+          "quality": {}
+        }
+      },
       "observed_associations": {},
-      "latest_calls": []
+      "latest_calls": [
+        {
+          "symbol": "SSWL",
+          "side": "SELL",
+          "day": "2026-11-18",
+          "outcome": null,
+          "net_r": null,
+          "quality": null,
+          "regime": "UNKNOWN"
+        },
+        {
+          "symbol": "ANTELOPUS",
+          "side": "SELL",
+          "day": "2026-11-18",
+          "outcome": null,
+          "net_r": null,
+          "quality": null,
+          "regime": "UNKNOWN"
+        }
+      ]
     },
     "90PCT_SETUP_V9": {
       "paper_alerts": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
-        "sent": 0,
+        "sent": 2,
         "wins": 0,
         "losses": 0,
         "win_rate_pct": null,
@@ -160,11 +232,11 @@
         "quality": {}
       },
       "sent_alerts": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
-        "sent": 0,
+        "sent": 2,
         "wins": 0,
         "losses": 0,
         "win_rate_pct": null,
@@ -176,9 +248,9 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -192,9 +264,9 @@
         "quality": {}
       },
       "rejected_study": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -207,17 +279,53 @@
         "ambiguous": 0,
         "quality": {}
       },
-      "by_regime": {},
+      "by_regime": {
+        "UNKNOWN|SELL": {
+          "recorded": 2,
+          "closed": 0,
+          "pending": 2,
+          "no_data": 0,
+          "sent": 2,
+          "wins": 0,
+          "losses": 0,
+          "win_rate_pct": null,
+          "net_r": 0,
+          "mean_net_r": null,
+          "profit_factor": null,
+          "max_closed_trade_drawdown_r": 0.0,
+          "ambiguous": 0,
+          "quality": {}
+        }
+      },
       "observed_associations": {},
-      "latest_calls": []
+      "latest_calls": [
+        {
+          "symbol": "EMMVEE",
+          "side": "SELL",
+          "day": "2026-11-18",
+          "outcome": null,
+          "net_r": null,
+          "quality": null,
+          "regime": "UNKNOWN"
+        },
+        {
+          "symbol": "DIACABS",
+          "side": "SELL",
+          "day": "2026-11-18",
+          "outcome": null,
+          "net_r": null,
+          "quality": null,
+          "regime": "UNKNOWN"
+        }
+      ]
     },
     "BEST_SETTING_CALL": {
       "paper_alerts": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
-        "sent": 0,
+        "sent": 2,
         "wins": 0,
         "losses": 0,
         "win_rate_pct": null,
@@ -229,11 +337,11 @@
         "quality": {}
       },
       "sent_alerts": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
-        "sent": 0,
+        "sent": 2,
         "wins": 0,
         "losses": 0,
         "win_rate_pct": null,
@@ -245,9 +353,9 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -261,9 +369,9 @@
         "quality": {}
       },
       "rejected_study": {
-        "recorded": 0,
+        "recorded": 2,
         "closed": 0,
-        "pending": 0,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -276,48 +384,84 @@
         "ambiguous": 0,
         "quality": {}
       },
-      "by_regime": {},
+      "by_regime": {
+        "UNKNOWN|BUY": {
+          "recorded": 2,
+          "closed": 0,
+          "pending": 2,
+          "no_data": 0,
+          "sent": 2,
+          "wins": 0,
+          "losses": 0,
+          "win_rate_pct": null,
+          "net_r": 0,
+          "mean_net_r": null,
+          "profit_factor": null,
+          "max_closed_trade_drawdown_r": 0.0,
+          "ambiguous": 0,
+          "quality": {}
+        }
+      },
       "observed_associations": {},
-      "latest_calls": []
+      "latest_calls": [
+        {
+          "symbol": "ALIVUS",
+          "side": "BUY",
+          "day": "2026-11-18",
+          "outcome": null,
+          "net_r": null,
+          "quality": null,
+          "regime": "UNKNOWN"
+        },
+        {
+          "symbol": "KPIGREEN",
+          "side": "BUY",
+          "day": "2026-11-18",
+          "outcome": null,
+          "net_r": null,
+          "quality": null,
+          "regime": "UNKNOWN"
+        }
+      ]
     }
   },
   "policies": [],
   "latest_cycle": {
-    "at": "2026-11-18T09:25:12.000566+05:30",
-    "candidates": 0,
+    "at": "2026-11-18T09:30:12.000581+05:30",
+    "candidates": 200,
     "errors": 0,
     "headers": {
       "EARLIER_SETUP": {
-        "approved": 0,
-        "rejected": 0,
+        "approved": 15,
+        "rejected": 185,
         "errors": 0,
-        "queued": 0,
+        "queued": 2,
         "quota": 2,
-        "background": 0
+        "background": 2
       },
       "LEARNING_SETUP": {
-        "approved": 0,
-        "rejected": 0,
+        "approved": 136,
+        "rejected": 64,
         "errors": 0,
-        "queued": 0,
+        "queued": 2,
         "quota": 2,
-        "background": 0
+        "background": 2
       },
       "90PCT_SETUP_V9": {
-        "approved": 0,
-        "rejected": 0,
+        "approved": 20,
+        "rejected": 180,
         "errors": 0,
-        "queued": 0,
+        "queued": 2,
         "quota": 2,
-        "background": 0
+        "background": 2
       },
       "BEST_SETTING_CALL": {
-        "approved": 0,
-        "rejected": 0,
+        "approved": 90,
+        "rejected": 110,
         "errors": 0,
-        "queued": 0,
+        "queued": 2,
         "quota": 2,
-        "background": 0
+        "background": 2
       }
     },
     "paper_only": true
