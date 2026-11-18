@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-18T09:21:58.858867+05:30",
+  "asof": "2026-11-18T09:25:12.000566+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -282,5 +282,44 @@
     }
   },
   "policies": [],
-  "latest_cycle": null
+  "latest_cycle": {
+    "at": "2026-11-18T09:25:12.000566+05:30",
+    "candidates": 0,
+    "errors": 0,
+    "headers": {
+      "EARLIER_SETUP": {
+        "approved": 0,
+        "rejected": 0,
+        "errors": 0,
+        "queued": 0,
+        "quota": 2,
+        "background": 0
+      },
+      "LEARNING_SETUP": {
+        "approved": 0,
+        "rejected": 0,
+        "errors": 0,
+        "queued": 0,
+        "quota": 2,
+        "background": 0
+      },
+      "90PCT_SETUP_V9": {
+        "approved": 0,
+        "rejected": 0,
+        "errors": 0,
+        "queued": 0,
+        "quota": 2,
+        "background": 0
+      },
+      "BEST_SETTING_CALL": {
+        "approved": 0,
+        "rejected": 0,
+        "errors": 0,
+        "queued": 0,
+        "quota": 2,
+        "background": 0
+      }
+    },
+    "paper_only": true
+  }
 }
