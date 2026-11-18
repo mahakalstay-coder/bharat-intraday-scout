@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-18T14:50:12.000620+05:30",
+  "asof": "2026-11-18T14:55:12.000604+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -43,20 +43,20 @@
       },
       "approved_background": {
         "recorded": 126,
-        "closed": 53,
-        "pending": 73,
+        "closed": 54,
+        "pending": 72,
         "no_data": 0,
         "sent": 0,
-        "wins": 18,
+        "wins": 19,
         "losses": 35,
-        "win_rate_pct": 33.9622641509434,
-        "net_r": -11.189054046899123,
-        "mean_net_r": -0.21111422729998344,
-        "profit_factor": 0.7432681995499062,
+        "win_rate_pct": 35.18518518518518,
+        "net_r": -9.38526372431847,
+        "mean_net_r": -0.17380118007997167,
+        "profit_factor": 0.7846560000922519,
         "max_closed_trade_drawdown_r": 18.38542004483808,
         "ambiguous": 0,
         "quality": {
-          "GREAT": 16,
+          "GREAT": 17,
           "BAD": 35,
           "GOOD": 2
         }
@@ -191,22 +191,22 @@
       },
       "approved_background": {
         "recorded": 101,
-        "closed": 48,
-        "pending": 53,
+        "closed": 50,
+        "pending": 51,
         "no_data": 0,
         "sent": 0,
         "wins": 16,
-        "losses": 32,
-        "win_rate_pct": 33.333333333333336,
-        "net_r": -17.605192950212306,
-        "mean_net_r": -0.36677485312942304,
-        "profit_factor": 0.541520666788452,
-        "max_closed_trade_drawdown_r": 23.99878697234576,
+        "losses": 34,
+        "win_rate_pct": 32.0,
+        "net_r": -20.005636737194553,
+        "mean_net_r": -0.4001127347438911,
+        "profit_factor": 0.5096602620876629,
+        "max_closed_trade_drawdown_r": 26.399230759328006,
         "ambiguous": 0,
         "quality": {
           "GREAT": 15,
           "GOOD": 1,
-          "BAD": 32
+          "BAD": 34
         }
       },
       "rejected_study": {
