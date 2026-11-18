@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-18T10:50:12.000616+05:30",
+  "asof": "2026-11-18T10:55:12.000574+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -38,22 +38,22 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 34,
-        "closed": 4,
-        "pending": 30,
+        "recorded": 36,
+        "closed": 5,
+        "pending": 31,
         "no_data": 0,
         "sent": 0,
         "wins": 1,
-        "losses": 3,
-        "win_rate_pct": 25.0,
-        "net_r": -1.799750572144524,
-        "mean_net_r": -0.449937643036131,
-        "profit_factor": 0.5000346451581099,
-        "max_closed_trade_drawdown_r": 3.599750572144504,
+        "losses": 4,
+        "win_rate_pct": 20.0,
+        "net_r": -2.999501332022942,
+        "mean_net_r": -0.5999002664045885,
+        "profit_factor": 0.3750389624834848,
+        "max_closed_trade_drawdown_r": 4.799501332022922,
         "ambiguous": 0,
         "quality": {
           "GREAT": 1,
-          "BAD": 3
+          "BAD": 4
         }
       },
       "rejected_study": {
@@ -148,29 +148,29 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 34,
-        "closed": 8,
-        "pending": 26,
+        "recorded": 36,
+        "closed": 9,
+        "pending": 27,
         "no_data": 0,
         "sent": 0,
         "wins": 3,
-        "losses": 5,
-        "win_rate_pct": 37.5,
-        "net_r": -2.0981980806892793,
-        "mean_net_r": -0.2622747600861599,
-        "profit_factor": 0.6502960435271402,
-        "max_closed_trade_drawdown_r": 3.4996484294856165,
+        "losses": 6,
+        "win_rate_pct": 33.333333333333336,
+        "net_r": -3.2979488405676975,
+        "mean_net_r": -0.36643876006307746,
+        "profit_factor": 0.5419310251752542,
+        "max_closed_trade_drawdown_r": 4.5993452369641,
         "ambiguous": 0,
         "quality": {
           "GOOD": 1,
-          "BAD": 5,
+          "BAD": 6,
           "GREAT": 2
         }
       },
       "rejected_study": {
-        "recorded": 29,
+        "recorded": 30,
         "closed": 5,
-        "pending": 24,
+        "pending": 25,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -263,9 +263,9 @@
         }
       },
       "approved_background": {
-        "recorded": 34,
+        "recorded": 36,
         "closed": 19,
-        "pending": 15,
+        "pending": 17,
         "no_data": 0,
         "sent": 0,
         "wins": 9,
@@ -282,22 +282,22 @@
         }
       },
       "rejected_study": {
-        "recorded": 30,
-        "closed": 12,
-        "pending": 18,
+        "recorded": 32,
+        "closed": 13,
+        "pending": 19,
         "no_data": 0,
         "sent": 0,
         "wins": 9,
-        "losses": 3,
-        "win_rate_pct": 75.0,
-        "net_r": -1.05564951431508,
-        "mean_net_r": -0.08797079285959,
-        "profit_factor": 0.34812197932536404,
-        "max_closed_trade_drawdown_r": 1.5875387933812264,
-        "ambiguous": 9,
+        "losses": 4,
+        "win_rate_pct": 69.23076923076923,
+        "net_r": -1.3059473866555056,
+        "mean_net_r": -0.10045749128119273,
+        "profit_factor": 0.30151855889712936,
+        "max_closed_trade_drawdown_r": 1.837836665721652,
+        "ambiguous": 10,
         "quality": {
           "GOOD": 9,
-          "BAD": 3
+          "BAD": 4
         }
       },
       "by_regime": {
@@ -411,9 +411,9 @@
         }
       },
       "approved_background": {
-        "recorded": 34,
+        "recorded": 36,
         "closed": 5,
-        "pending": 29,
+        "pending": 31,
         "no_data": 0,
         "sent": 0,
         "wins": 1,
@@ -430,9 +430,9 @@
         }
       },
       "rejected_study": {
-        "recorded": 33,
+        "recorded": 35,
         "closed": 6,
-        "pending": 27,
+        "pending": 29,
         "no_data": 0,
         "sent": 0,
         "wins": 1,
@@ -524,21 +524,21 @@
   },
   "policies": [],
   "latest_cycle": {
-    "at": "2026-11-18T10:50:12.000616+05:30",
+    "at": "2026-11-18T10:55:12.000574+05:30",
     "candidates": 200,
     "errors": 0,
     "headers": {
       "EARLIER_SETUP": {
-        "approved": 11,
-        "rejected": 189,
+        "approved": 6,
+        "rejected": 194,
         "errors": 0,
         "queued": 0,
         "quota": 2,
         "background": 2
       },
       "LEARNING_SETUP": {
-        "approved": 105,
-        "rejected": 95,
+        "approved": 99,
+        "rejected": 101,
         "errors": 0,
         "queued": 0,
         "quota": 2,
@@ -553,8 +553,8 @@
         "background": 2
       },
       "BEST_SETTING_CALL": {
-        "approved": 11,
-        "rejected": 189,
+        "approved": 6,
+        "rejected": 194,
         "errors": 0,
         "queued": 0,
         "quota": 2,
