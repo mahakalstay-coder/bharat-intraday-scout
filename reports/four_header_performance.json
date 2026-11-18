@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-18T09:30:12.000581+05:30",
+  "asof": "2026-11-18T09:35:12.000569+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -38,9 +38,9 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 2,
+        "recorded": 4,
         "closed": 0,
-        "pending": 2,
+        "pending": 4,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -54,9 +54,9 @@
         "quality": {}
       },
       "rejected_study": {
-        "recorded": 2,
+        "recorded": 4,
         "closed": 0,
-        "pending": 2,
+        "pending": 4,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -143,9 +143,9 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 2,
+        "recorded": 4,
         "closed": 0,
-        "pending": 2,
+        "pending": 4,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -159,9 +159,9 @@
         "quality": {}
       },
       "rejected_study": {
-        "recorded": 2,
+        "recorded": 4,
         "closed": 0,
-        "pending": 2,
+        "pending": 4,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -248,9 +248,9 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 2,
+        "recorded": 4,
         "closed": 0,
-        "pending": 2,
+        "pending": 4,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -264,9 +264,9 @@
         "quality": {}
       },
       "rejected_study": {
-        "recorded": 2,
+        "recorded": 4,
         "closed": 0,
-        "pending": 2,
+        "pending": 4,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -353,9 +353,9 @@
         "quality": {}
       },
       "approved_background": {
-        "recorded": 2,
+        "recorded": 4,
         "closed": 0,
-        "pending": 2,
+        "pending": 4,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -369,9 +369,9 @@
         "quality": {}
       },
       "rejected_study": {
-        "recorded": 2,
+        "recorded": 4,
         "closed": 0,
-        "pending": 2,
+        "pending": 4,
         "no_data": 0,
         "sent": 0,
         "wins": 0,
@@ -427,7 +427,7 @@
   },
   "policies": [],
   "latest_cycle": {
-    "at": "2026-11-18T09:30:12.000581+05:30",
+    "at": "2026-11-18T09:35:12.000569+05:30",
     "candidates": 200,
     "errors": 0,
     "headers": {
@@ -435,15 +435,15 @@
         "approved": 15,
         "rejected": 185,
         "errors": 0,
-        "queued": 2,
+        "queued": 0,
         "quota": 2,
         "background": 2
       },
       "LEARNING_SETUP": {
-        "approved": 136,
-        "rejected": 64,
+        "approved": 142,
+        "rejected": 58,
         "errors": 0,
-        "queued": 2,
+        "queued": 0,
         "quota": 2,
         "background": 2
       },
@@ -451,15 +451,15 @@
         "approved": 20,
         "rejected": 180,
         "errors": 0,
-        "queued": 2,
+        "queued": 0,
         "quota": 2,
         "background": 2
       },
       "BEST_SETTING_CALL": {
-        "approved": 90,
-        "rejected": 110,
+        "approved": 108,
+        "rejected": 92,
         "errors": 0,
-        "queued": 2,
+        "queued": 0,
         "quota": 2,
         "background": 2
       }
