@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-18T14:35:12.000439+05:30",
+  "asof": "2026-11-18T14:40:12.000608+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -42,22 +42,22 @@
         }
       },
       "approved_background": {
-        "recorded": 124,
-        "closed": 46,
+        "recorded": 126,
+        "closed": 48,
         "pending": 78,
         "no_data": 0,
         "sent": 0,
-        "wins": 14,
-        "losses": 32,
-        "win_rate_pct": 30.434782608695652,
-        "net_r": -14.785470044838103,
-        "mean_net_r": -0.3214232618443066,
-        "profit_factor": 0.6301987080186507,
+        "wins": 15,
+        "losses": 33,
+        "win_rate_pct": 31.25,
+        "net_r": -14.185449991362164,
+        "mean_net_r": -0.2955302081533784,
+        "profit_factor": 0.6555435467932964,
         "max_closed_trade_drawdown_r": 18.38542004483808,
         "ambiguous": 0,
         "quality": {
-          "GREAT": 12,
-          "BAD": 32,
+          "GREAT": 13,
+          "BAD": 33,
           "GOOD": 2
         }
       },
@@ -190,9 +190,9 @@
         }
       },
       "approved_background": {
-        "recorded": 100,
+        "recorded": 101,
         "closed": 45,
-        "pending": 55,
+        "pending": 56,
         "no_data": 0,
         "sent": 0,
         "wins": 16,
@@ -608,21 +608,21 @@
   },
   "policies": [],
   "latest_cycle": {
-    "at": "2026-11-18T14:35:12.000439+05:30",
+    "at": "2026-11-18T14:40:12.000608+05:30",
     "candidates": 199,
     "errors": 0,
     "headers": {
       "EARLIER_SETUP": {
-        "approved": 18,
-        "rejected": 181,
+        "approved": 17,
+        "rejected": 182,
         "errors": 0,
         "queued": 0,
         "quota": 2,
         "background": 2
       },
       "LEARNING_SETUP": {
-        "approved": 1,
-        "rejected": 198,
+        "approved": 2,
+        "rejected": 197,
         "errors": 0,
         "queued": 0,
         "quota": 2,
