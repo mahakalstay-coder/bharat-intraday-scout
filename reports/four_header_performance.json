@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-18T15:15:12.000602+05:30",
+  "asof": "2026-11-18T16:35:06.252333+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -7,127 +7,128 @@
     "EARLIER_SETUP": {
       "paper_alerts": {
         "recorded": 2,
-        "closed": 1,
-        "pending": 1,
+        "closed": 2,
+        "pending": 0,
         "no_data": 0,
         "sent": 2,
-        "wins": 1,
+        "wins": 2,
         "losses": 0,
         "win_rate_pct": 100.0,
-        "net_r": 1.800571428571418,
-        "mean_net_r": 1.800571428571418,
+        "net_r": 2.4744113958392058,
+        "mean_net_r": 1.2372056979196029,
         "profit_factor": null,
         "max_closed_trade_drawdown_r": 0.0,
         "ambiguous": 0,
         "quality": {
-          "GOOD": 1
+          "GOOD": 2
         }
       },
       "sent_alerts": {
         "recorded": 2,
-        "closed": 1,
-        "pending": 1,
+        "closed": 2,
+        "pending": 0,
         "no_data": 0,
         "sent": 2,
-        "wins": 1,
+        "wins": 2,
         "losses": 0,
         "win_rate_pct": 100.0,
-        "net_r": 1.800571428571418,
-        "mean_net_r": 1.800571428571418,
+        "net_r": 2.4744113958392058,
+        "mean_net_r": 1.2372056979196029,
         "profit_factor": null,
         "max_closed_trade_drawdown_r": 0.0,
         "ambiguous": 0,
         "quality": {
-          "GOOD": 1
+          "GOOD": 2
         }
       },
       "approved_background": {
         "recorded": 126,
-        "closed": 59,
-        "pending": 67,
+        "closed": 114,
+        "pending": 12,
         "no_data": 0,
         "sent": 0,
-        "wins": 20,
-        "losses": 39,
-        "win_rate_pct": 33.898305084745765,
-        "net_r": -12.384787106188735,
-        "mean_net_r": -0.2099116458676057,
-        "profit_factor": 0.7440227703476977,
+        "wins": 57,
+        "losses": 57,
+        "win_rate_pct": 50.0,
+        "net_r": 1.0750829408168292,
+        "mean_net_r": 0.00943055211242836,
+        "profit_factor": 1.0200699016307477,
         "max_closed_trade_drawdown_r": 18.38542004483808,
         "ambiguous": 0,
         "quality": {
-          "GREAT": 18,
-          "BAD": 39,
-          "GOOD": 2
+          "GREAT": 19,
+          "BAD": 57,
+          "GOOD": 38
         }
       },
       "rejected_study": {
         "recorded": 25,
-        "closed": 13,
-        "pending": 12,
+        "closed": 25,
+        "pending": 0,
         "no_data": 0,
         "sent": 0,
-        "wins": 0,
-        "losses": 13,
-        "win_rate_pct": 0.0,
-        "net_r": -15.986337209056083,
-        "mean_net_r": -1.2297182468504682,
-        "profit_factor": 0.0,
-        "max_closed_trade_drawdown_r": 15.986337209056087,
+        "wins": 1,
+        "losses": 24,
+        "win_rate_pct": 4.0,
+        "net_r": -20.304227072787572,
+        "mean_net_r": -0.812169082911503,
+        "profit_factor": 0.007571738370184201,
+        "max_closed_trade_drawdown_r": 20.304227072787576,
         "ambiguous": 0,
         "quality": {
-          "BAD": 13
+          "BAD": 24,
+          "GOOD": 1
         }
       },
       "by_regime": {
         "UNKNOWN|SELL": {
           "recorded": 2,
-          "closed": 1,
-          "pending": 1,
+          "closed": 2,
+          "pending": 0,
           "no_data": 0,
           "sent": 2,
-          "wins": 1,
+          "wins": 2,
           "losses": 0,
           "win_rate_pct": 100.0,
-          "net_r": 1.800571428571418,
-          "mean_net_r": 1.800571428571418,
+          "net_r": 2.4744113958392058,
+          "mean_net_r": 1.2372056979196029,
           "profit_factor": null,
           "max_closed_trade_drawdown_r": 0.0,
           "ambiguous": 0,
           "quality": {
-            "GOOD": 1
+            "GOOD": 2
           }
         }
       },
       "observed_associations": {
         "intraday:UNKNOWN": {
-          "n": 1,
-          "mean_net_r": 1.800571428571418,
+          "n": 2,
+          "mean_net_r": 1.2372056979196029,
           "note": "association, not causation"
         },
         "side:SELL": {
-          "n": 1,
-          "mean_net_r": 1.800571428571418,
+          "n": 2,
+          "mean_net_r": 1.2372056979196029,
           "note": "association, not causation"
         },
         "background:UP": {
-          "n": 1,
-          "mean_net_r": 1.800571428571418,
+          "n": 2,
+          "mean_net_r": 1.2372056979196029,
           "note": "association, not causation"
         },
         "VIX:NORMAL": {
-          "n": 1,
-          "mean_net_r": 1.800571428571418,
+          "n": 2,
+          "mean_net_r": 1.2372056979196029,
           "note": "association, not causation"
         },
         "RVOL>=2.2": {
-          "n": 1,
-          "mean_net_r": 1.800571428571418,
+          "n": 2,
+          "mean_net_r": 1.2372056979196029,
           "note": "association, not causation"
         },
         "peer_aligned": {
-          "n": 1,
-          "mean_net_r": 1.800571428571418,
+          "n": 2,
+          "mean_net_r": 1.2372056979196029,
           "note": "association, not causation"
         }
       },
@@ -145,9 +146,9 @@
           "symbol": "JINDALSAW",
           "side": "SELL",
           "day": "2026-11-18",
-          "outcome": null,
-          "net_r": null,
-          "quality": null,
+          "outcome": "EOD",
+          "net_r": 0.6738399672677875,
+          "quality": "GOOD",
           "regime": "UNKNOWN"
         }
       ]
@@ -191,41 +192,41 @@
       },
       "approved_background": {
         "recorded": 101,
-        "closed": 59,
-        "pending": 42,
+        "closed": 91,
+        "pending": 10,
         "no_data": 0,
         "sent": 0,
-        "wins": 17,
-        "losses": 42,
-        "win_rate_pct": 28.8135593220339,
-        "net_r": -28.305665613994382,
-        "mean_net_r": -0.4797570443049896,
-        "profit_factor": 0.4383749942684728,
+        "wins": 34,
+        "losses": 57,
+        "win_rate_pct": 37.362637362637365,
+        "net_r": -27.11785966120485,
+        "mean_net_r": -0.29799845781543793,
+        "profit_factor": 0.5240455778618061,
         "max_closed_trade_drawdown_r": 34.69925963612784,
         "ambiguous": 0,
         "quality": {
+          "GOOD": 18,
           "GREAT": 16,
-          "GOOD": 1,
-          "BAD": 42
+          "BAD": 57
         }
       },
       "rejected_study": {
         "recorded": 91,
-        "closed": 57,
-        "pending": 34,
+        "closed": 85,
+        "pending": 6,
         "no_data": 0,
         "sent": 0,
-        "wins": 19,
-        "losses": 38,
-        "win_rate_pct": 33.333333333333336,
-        "net_r": -20.896364338876065,
-        "mean_net_r": -0.36660288313817646,
-        "profit_factor": 0.5417334713433452,
-        "max_closed_trade_drawdown_r": 21.096148670137868,
+        "wins": 33,
+        "losses": 52,
+        "win_rate_pct": 38.8235294117647,
+        "net_r": -23.15285196831814,
+        "mean_net_r": -0.2723864937449192,
+        "profit_factor": 0.5506647057405848,
+        "max_closed_trade_drawdown_r": 23.152851968318128,
         "ambiguous": 0,
         "quality": {
-          "GOOD": 5,
-          "BAD": 38,
+          "GOOD": 19,
+          "BAD": 52,
           "GREAT": 14
         }
       },
@@ -343,41 +344,41 @@
       },
       "approved_background": {
         "recorded": 78,
-        "closed": 65,
-        "pending": 13,
+        "closed": 76,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
-        "wins": 38,
-        "losses": 27,
-        "win_rate_pct": 58.46153846153846,
-        "net_r": -11.333542391386416,
-        "mean_net_r": -0.1743621906367142,
-        "profit_factor": 0.22551726134970151,
-        "max_closed_trade_drawdown_r": 11.552000221723864,
-        "ambiguous": 51,
+        "wins": 40,
+        "losses": 36,
+        "win_rate_pct": 52.63157894736842,
+        "net_r": -16.81896396503053,
+        "mean_net_r": -0.22130215743461232,
+        "profit_factor": 0.19233436018150163,
+        "max_closed_trade_drawdown_r": 17.01903174721811,
+        "ambiguous": 52,
         "quality": {
-          "GOOD": 37,
-          "BAD": 27,
+          "GOOD": 39,
+          "BAD": 36,
           "GREAT": 1
         }
       },
       "rejected_study": {
         "recorded": 75,
-        "closed": 56,
-        "pending": 19,
+        "closed": 73,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
-        "wins": 37,
-        "losses": 19,
-        "win_rate_pct": 66.07142857142857,
-        "net_r": -10.271616012914418,
-        "mean_net_r": -0.18342171451632888,
-        "profit_factor": 0.2427044350783562,
-        "max_closed_trade_drawdown_r": 10.964376628362004,
-        "ambiguous": 41,
+        "wins": 38,
+        "losses": 35,
+        "win_rate_pct": 52.054794520547944,
+        "net_r": -16.326494366496753,
+        "mean_net_r": -0.22365060776022952,
+        "profit_factor": 0.19039912005741524,
+        "max_closed_trade_drawdown_r": 16.8583836455629,
+        "ambiguous": 42,
         "quality": {
-          "GOOD": 36,
-          "BAD": 19,
+          "GOOD": 37,
+          "BAD": 35,
           "GREAT": 1
         }
       },
@@ -458,124 +459,127 @@
     "BEST_SETTING_CALL": {
       "paper_alerts": {
         "recorded": 2,
-        "closed": 1,
-        "pending": 1,
+        "closed": 2,
+        "pending": 0,
         "no_data": 0,
         "sent": 2,
-        "wins": 0,
+        "wins": 1,
         "losses": 1,
-        "win_rate_pct": 0.0,
-        "net_r": -1.1999461279461292,
-        "mean_net_r": -1.1999461279461292,
-        "profit_factor": 0.0,
+        "win_rate_pct": 50.0,
+        "net_r": -0.6746702339694752,
+        "mean_net_r": -0.3373351169847376,
+        "profit_factor": 0.43774956370394313,
         "max_closed_trade_drawdown_r": 1.1999461279461292,
         "ambiguous": 0,
         "quality": {
-          "BAD": 1
+          "BAD": 1,
+          "GOOD": 1
         }
       },
       "sent_alerts": {
         "recorded": 2,
-        "closed": 1,
-        "pending": 1,
+        "closed": 2,
+        "pending": 0,
         "no_data": 0,
         "sent": 2,
-        "wins": 0,
+        "wins": 1,
         "losses": 1,
-        "win_rate_pct": 0.0,
-        "net_r": -1.1999461279461292,
-        "mean_net_r": -1.1999461279461292,
-        "profit_factor": 0.0,
+        "win_rate_pct": 50.0,
+        "net_r": -0.6746702339694752,
+        "mean_net_r": -0.3373351169847376,
+        "profit_factor": 0.43774956370394313,
         "max_closed_trade_drawdown_r": 1.1999461279461292,
         "ambiguous": 0,
         "quality": {
-          "BAD": 1
+          "BAD": 1,
+          "GOOD": 1
         }
       },
       "approved_background": {
         "recorded": 49,
-        "closed": 28,
-        "pending": 21,
+        "closed": 47,
+        "pending": 2,
         "no_data": 0,
         "sent": 0,
-        "wins": 7,
-        "losses": 21,
-        "win_rate_pct": 25.0,
-        "net_r": -16.37644749000381,
-        "mean_net_r": -0.5848731246429933,
-        "profit_factor": 0.35715722817940704,
+        "wins": 19,
+        "losses": 28,
+        "win_rate_pct": 40.42553191489362,
+        "net_r": -13.352886351783502,
+        "mean_net_r": -0.2841039649315639,
+        "profit_factor": 0.5169483225296339,
         "max_closed_trade_drawdown_r": 17.67576875697215,
         "ambiguous": 0,
         "quality": {
-          "BAD": 21,
-          "GREAT": 6,
-          "GOOD": 1
+          "BAD": 28,
+          "GOOD": 13,
+          "GREAT": 6
         }
       },
       "rejected_study": {
         "recorded": 77,
-        "closed": 45,
-        "pending": 32,
+        "closed": 74,
+        "pending": 3,
         "no_data": 0,
         "sent": 0,
-        "wins": 15,
-        "losses": 30,
-        "win_rate_pct": 33.333333333333336,
-        "net_r": -16.525559453496847,
-        "mean_net_r": -0.3672346545221521,
-        "profit_factor": 0.5413920101937606,
-        "max_closed_trade_drawdown_r": 17.822281258008143,
+        "wins": 30,
+        "losses": 44,
+        "win_rate_pct": 40.54054054054054,
+        "net_r": -17.34280790034851,
+        "mean_net_r": -0.2343622689236285,
+        "profit_factor": 0.5956122787202868,
+        "max_closed_trade_drawdown_r": 18.639529704859804,
         "ambiguous": 0,
         "quality": {
           "GREAT": 14,
-          "BAD": 30,
-          "GOOD": 1
+          "BAD": 44,
+          "GOOD": 16
         }
       },
       "by_regime": {
         "UNKNOWN|BUY": {
           "recorded": 2,
-          "closed": 1,
-          "pending": 1,
+          "closed": 2,
+          "pending": 0,
           "no_data": 0,
           "sent": 2,
-          "wins": 0,
+          "wins": 1,
           "losses": 1,
-          "win_rate_pct": 0.0,
-          "net_r": -1.1999461279461292,
-          "mean_net_r": -1.1999461279461292,
-          "profit_factor": 0.0,
+          "win_rate_pct": 50.0,
+          "net_r": -0.6746702339694752,
+          "mean_net_r": -0.3373351169847376,
+          "profit_factor": 0.43774956370394313,
           "max_closed_trade_drawdown_r": 1.1999461279461292,
           "ambiguous": 0,
           "quality": {
-            "BAD": 1
+            "BAD": 1,
+            "GOOD": 1
           }
         }
       },
       "observed_associations": {
         "intraday:UNKNOWN": {
-          "n": 1,
-          "mean_net_r": -1.1999461279461292,
+          "n": 2,
+          "mean_net_r": -0.3373351169847376,
           "note": "association, not causation"
         },
         "side:BUY": {
-          "n": 1,
-          "mean_net_r": -1.1999461279461292,
+          "n": 2,
+          "mean_net_r": -0.3373351169847376,
           "note": "association, not causation"
         },
         "background:UP": {
-          "n": 1,
-          "mean_net_r": -1.1999461279461292,
+          "n": 2,
+          "mean_net_r": -0.3373351169847376,
           "note": "association, not causation"
         },
         "VIX:NORMAL": {
-          "n": 1,
-          "mean_net_r": -1.1999461279461292,
+          "n": 2,
+          "mean_net_r": -0.3373351169847376,
           "note": "association, not causation"
         },
         "RVOL<2.2": {
-          "n": 1,
-          "mean_net_r": -1.1999461279461292,
+          "n": 2,
+          "mean_net_r": -0.3373351169847376,
           "note": "association, not causation"
         },
         "peer_aligned": {
@@ -598,9 +602,9 @@
           "symbol": "KPIGREEN",
           "side": "BUY",
           "day": "2026-11-18",
-          "outcome": null,
-          "net_r": null,
-          "quality": null,
+          "outcome": "EOD",
+          "net_r": 0.525275893976654,
+          "quality": "GOOD",
           "regime": "UNKNOWN"
         }
       ]
