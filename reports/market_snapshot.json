@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T10:30:12.000521+05:30",
+  "generated_at": "2026-11-19T10:35:12.000488+05:30",
   "scope": "Sampled liquid universe; equal-weight breadth, not official sector indices",
   "requested": 200,
   "fresh": 200,
@@ -9,125 +9,125 @@
       "symbol": "HDFCBANK",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 808.7000122070312,
-      "change_pct": 0.068,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 808.7999877929688,
+      "change_pct": 0.08,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
+        },
+        {
+          "symbol": "UNIONBANK",
+          "change_pct": 1.053
         },
         {
           "symbol": "SBIN",
           "change_pct": 0.947
         },
         {
-          "symbol": "UNIONBANK",
-          "change_pct": 0.914
-        },
-        {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
-        },
-        {
-          "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.5
         },
         {
           "symbol": "KOTAKBANK",
-          "change_pct": 0.172
+          "change_pct": 0.192
+        },
+        {
+          "symbol": "INDUSINDBK",
+          "change_pct": 0.192
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -1.129
+      "peer_relative_pct": -1.121
     },
     "RELIANCE": {
       "symbol": "RELIANCE",
       "sector": "Energy",
       "industry": "Oil & Gas Refining & Marketing",
-      "price": 1359.300048828125,
-      "change_pct": -0.271,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1359.5,
+      "change_pct": -0.257,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MRPL",
-          "change_pct": 0.386
+          "change_pct": 0.381
         },
         {
           "symbol": "CHENNPETRO",
-          "change_pct": -0.162
+          "change_pct": -0.246
         },
         {
           "symbol": "AEGISLOG",
-          "change_pct": -0.814
+          "change_pct": -0.797
         },
         {
           "symbol": "GANDHAR",
-          "change_pct": -2.142
+          "change_pct": -2.088
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": 0.412
+      "peer_relative_pct": 0.43
     },
     "ICICIBANK": {
       "symbol": "ICICIBANK",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 1591.699951171875,
-      "change_pct": -0.6,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1592.300048828125,
+      "change_pct": -0.562,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
+        },
+        {
+          "symbol": "UNIONBANK",
+          "change_pct": 1.053
         },
         {
           "symbol": "SBIN",
           "change_pct": 0.947
         },
         {
-          "symbol": "UNIONBANK",
-          "change_pct": 0.914
-        },
-        {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
-        },
-        {
-          "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.5
         },
         {
           "symbol": "KOTAKBANK",
-          "change_pct": 0.172
+          "change_pct": 0.192
+        },
+        {
+          "symbol": "INDUSINDBK",
+          "change_pct": 0.192
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -1.864
+      "peer_relative_pct": -1.827
     },
     "BHARTIARTL": {
       "symbol": "BHARTIARTL",
       "sector": "Communication Services",
       "industry": "Telecom Services",
-      "price": 2147.5,
-      "change_pct": 0.727,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2148.89990234375,
+      "change_pct": 0.793,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -136,9 +136,9 @@
       "symbol": "INFY",
       "sector": "Technology",
       "industry": "Information Technology Services",
-      "price": 1074.699951171875,
-      "change_pct": -3.075,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1074.4000244140625,
+      "change_pct": -3.102,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "REDINGTON",
@@ -146,35 +146,35 @@
         },
         {
           "symbol": "COFORGE",
-          "change_pct": -1.005
+          "change_pct": -0.996
         },
         {
           "symbol": "PERSISTENT",
-          "change_pct": -1.238
+          "change_pct": -1.34
         },
         {
           "symbol": "TCS",
-          "change_pct": -1.862
+          "change_pct": -1.824
         },
         {
           "symbol": "LTTS",
-          "change_pct": -2.144
-        },
-        {
-          "symbol": "HCLTECH",
-          "change_pct": -2.484
+          "change_pct": -2.161
         },
         {
           "symbol": "WIPRO",
-          "change_pct": -2.533
+          "change_pct": -2.263
+        },
+        {
+          "symbol": "HCLTECH",
+          "change_pct": -2.29
         },
         {
           "symbol": "TECHM",
-          "change_pct": -2.857
+          "change_pct": -2.697
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -1.253
+      "peer_relative_pct": -1.348
     },
     "SBIN": {
       "symbol": "SBIN",
@@ -182,67 +182,67 @@
       "industry": "Banks - Regional",
       "price": 1145.75,
       "change_pct": 0.947,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
         },
         {
           "symbol": "UNIONBANK",
-          "change_pct": 0.914
+          "change_pct": 1.053
         },
         {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
-        },
-        {
-          "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.5
         },
         {
           "symbol": "KOTAKBANK",
-          "change_pct": 0.172
+          "change_pct": 0.192
         },
         {
-          "symbol": "HDFCBANK",
-          "change_pct": 0.068
+          "symbol": "INDUSINDBK",
+          "change_pct": 0.192
+        },
+        {
+          "symbol": "AXISBANK",
+          "change_pct": 0.088
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -0.162
+      "peer_relative_pct": -0.167
     },
     "BSE": {
       "symbol": "BSE",
       "sector": "Financial Services",
       "industry": "Financial Data & Stock Exchanges",
-      "price": 3771.0,
-      "change_pct": 0.407,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 3772.699951171875,
+      "change_pct": 0.453,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MCX",
-          "change_pct": -0.644
+          "change_pct": -0.542
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 1.051
+      "peer_relative_pct": 0.995
     },
     "TCS": {
       "symbol": "TCS",
       "sector": "Technology",
       "industry": "Information Technology Services",
-      "price": 2335.199951171875,
-      "change_pct": -1.862,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2336.10009765625,
+      "change_pct": -1.824,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "REDINGTON",
@@ -250,127 +250,127 @@
         },
         {
           "symbol": "COFORGE",
-          "change_pct": -1.005
+          "change_pct": -0.996
         },
         {
           "symbol": "PERSISTENT",
-          "change_pct": -1.238
+          "change_pct": -1.34
         },
         {
           "symbol": "LTTS",
-          "change_pct": -2.144
-        },
-        {
-          "symbol": "HCLTECH",
-          "change_pct": -2.484
+          "change_pct": -2.161
         },
         {
           "symbol": "WIPRO",
-          "change_pct": -2.533
+          "change_pct": -2.263
+        },
+        {
+          "symbol": "HCLTECH",
+          "change_pct": -2.29
         },
         {
           "symbol": "TECHM",
-          "change_pct": -2.857
+          "change_pct": -2.697
         },
         {
           "symbol": "INFY",
-          "change_pct": -3.075
+          "change_pct": -3.102
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": 0.112
+      "peer_relative_pct": 0.089
     },
     "KOTAKBANK": {
       "symbol": "KOTAKBANK",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 495.70001220703125,
-      "change_pct": 0.172,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 495.79998779296875,
+      "change_pct": 0.192,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
+        },
+        {
+          "symbol": "UNIONBANK",
+          "change_pct": 1.053
         },
         {
           "symbol": "SBIN",
           "change_pct": 0.947
         },
         {
-          "symbol": "UNIONBANK",
-          "change_pct": 0.914
-        },
-        {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
+          "change_pct": 0.5
         },
         {
           "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.192
         },
         {
-          "symbol": "HDFCBANK",
-          "change_pct": 0.068
+          "symbol": "AXISBANK",
+          "change_pct": 0.088
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -1.014
+      "peer_relative_pct": -0.997
     },
     "BAJFINANCE": {
       "symbol": "BAJFINANCE",
       "sector": "Financial Services",
       "industry": "Credit Services",
-      "price": 1095.550048828125,
-      "change_pct": 0.155,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1099.199951171875,
+      "change_pct": 0.489,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PFC",
-          "change_pct": 0.912
+          "change_pct": 1.035
         },
         {
           "symbol": "KISSHT",
-          "change_pct": 0.61
+          "change_pct": 0.58
         },
         {
           "symbol": "CHOLAFIN",
-          "change_pct": -0.512
+          "change_pct": -0.469
         },
         {
           "symbol": "SHRIRAMFIN",
-          "change_pct": -0.83
+          "change_pct": -0.696
         },
         {
           "symbol": "IIFL",
-          "change_pct": -2.56
+          "change_pct": -2.884
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 0.631
+      "peer_relative_pct": 0.976
     },
     "LT": {
       "symbol": "LT",
       "sector": "Industrials",
       "industry": "Engineering & Construction",
-      "price": 4145.89990234375,
-      "change_pct": -0.315,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 4146.7001953125,
+      "change_pct": -0.296,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CEMPRO",
-          "change_pct": 0.679
+          "change_pct": 0.495
         },
         {
           "symbol": "ENGINERSIN",
-          "change_pct": -0.492
+          "change_pct": -0.393
         },
         {
           "symbol": "MBEL",
@@ -378,239 +378,239 @@
         },
         {
           "symbol": "LOTUSDEV",
-          "change_pct": -3.112
+          "change_pct": -3.05
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": 0.918
+      "peer_relative_pct": 0.943
     },
     "ETERNAL": {
       "symbol": "ETERNAL",
       "sector": "Consumer Cyclical",
       "industry": "Internet Retail",
-      "price": 360.75,
-      "change_pct": -1.434,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 361.3500061035156,
+      "change_pct": -1.27,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MEESHO",
-          "change_pct": 1.759
+          "change_pct": 1.688
         },
         {
           "symbol": "SWIGGY",
-          "change_pct": 0.443
+          "change_pct": 0.421
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -2.535
+      "peer_relative_pct": -2.325
     },
     "M&M": {
       "symbol": "M&M",
       "sector": "Consumer Cyclical",
       "industry": "Auto Manufacturers",
-      "price": 3477.199951171875,
-      "change_pct": 3.516,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 3479.10009765625,
+      "change_pct": 3.572,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MARUTI",
-          "change_pct": 4.987
+          "change_pct": 5.32
         },
         {
           "symbol": "TVSMOTOR",
-          "change_pct": 3.511
+          "change_pct": 3.973
         },
         {
           "symbol": "HEROMOTOCO",
-          "change_pct": 3.017
+          "change_pct": 3.588
         },
         {
           "symbol": "EICHERMOT",
-          "change_pct": 2.675
+          "change_pct": 3.299
         },
         {
           "symbol": "BAJAJ-AUTO",
-          "change_pct": 0.426
-        },
-        {
-          "symbol": "TMCV",
-          "change_pct": -0.257
+          "change_pct": 0.719
         },
         {
           "symbol": "ATHERENERG",
-          "change_pct": -0.747
+          "change_pct": -0.437
+        },
+        {
+          "symbol": "TMCV",
+          "change_pct": -0.615
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 1.571
+      "peer_relative_pct": 1.308
     },
     "AXISBANK": {
       "symbol": "AXISBANK",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 1359.699951171875,
-      "change_pct": -0.022,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1361.199951171875,
+      "change_pct": 0.088,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
+        },
+        {
+          "symbol": "UNIONBANK",
+          "change_pct": 1.053
         },
         {
           "symbol": "SBIN",
           "change_pct": 0.947
         },
         {
-          "symbol": "UNIONBANK",
-          "change_pct": 0.914
-        },
-        {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
-        },
-        {
-          "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.5
         },
         {
           "symbol": "KOTAKBANK",
-          "change_pct": 0.172
+          "change_pct": 0.192
+        },
+        {
+          "symbol": "INDUSINDBK",
+          "change_pct": 0.192
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -1.228
+      "peer_relative_pct": -1.112
     },
     "DIVISLAB": {
       "symbol": "DIVISLAB",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 10997.0,
-      "change_pct": -0.471,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 11008.0,
+      "change_pct": -0.371,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
-        },
-        {
-          "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.034
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
+        },
+        {
+          "symbol": "SHILPAMED",
+          "change_pct": -0.95
         },
         {
           "symbol": "DRREDDY",
-          "change_pct": -1.137
+          "change_pct": -1.08
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": 0.039
+      "peer_relative_pct": 0.06
     },
     "GROWW": {
       "symbol": "GROWW",
       "sector": "Financial Services",
       "industry": "Capital Markets",
-      "price": 224.13999938964844,
-      "change_pct": 0.174,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 224.3300018310547,
+      "change_pct": 0.259,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SGFIN",
-          "change_pct": -0.803
+          "change_pct": -0.581
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 0.977
+      "peer_relative_pct": 0.84
     },
     "MCX": {
       "symbol": "MCX",
       "sector": "Financial Services",
       "industry": "Financial Data & Stock Exchanges",
-      "price": 3595.699951171875,
-      "change_pct": -0.644,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 3599.39990234375,
+      "change_pct": -0.542,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "BSE",
-          "change_pct": 0.407
+          "change_pct": 0.453
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -1.051
+      "peer_relative_pct": -0.995
     },
     "KALYANKJIL": {
       "symbol": "KALYANKJIL",
       "sector": "Consumer Cyclical",
       "industry": "Luxury Goods",
-      "price": 646.8499755859375,
-      "change_pct": -0.485,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 645.7000122070312,
+      "change_pct": -0.662,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNGSREVA",
-          "change_pct": 0.161
+          "change_pct": 0.127
         },
         {
           "symbol": "TITAN",
-          "change_pct": -0.385
+          "change_pct": -0.243
         },
         {
           "symbol": "TIMEX",
-          "change_pct": -1.897
+          "change_pct": -1.863
         },
         {
           "symbol": "SHANTIGOLD",
-          "change_pct": -2.373
+          "change_pct": -2.945
         },
         {
           "symbol": "SKYGOLD",
-          "change_pct": -2.811
+          "change_pct": -4.415
         },
         {
           "symbol": "BLUESTONE",
-          "change_pct": -4.971
+          "change_pct": -4.815
         },
         {
           "symbol": "SHRINGARMS",
-          "change_pct": -7.831
+          "change_pct": -7.701
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 2.387
+      "peer_relative_pct": 2.46
     },
     "TECHM": {
       "symbol": "TECHM",
       "sector": "Technology",
       "industry": "Information Technology Services",
-      "price": 1700.0,
-      "change_pct": -2.857,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1702.800048828125,
+      "change_pct": -2.697,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "REDINGTON",
@@ -618,307 +618,307 @@
         },
         {
           "symbol": "COFORGE",
-          "change_pct": -1.005
+          "change_pct": -0.996
         },
         {
           "symbol": "PERSISTENT",
-          "change_pct": -1.238
+          "change_pct": -1.34
         },
         {
           "symbol": "TCS",
-          "change_pct": -1.862
+          "change_pct": -1.824
         },
         {
           "symbol": "LTTS",
-          "change_pct": -2.144
-        },
-        {
-          "symbol": "HCLTECH",
-          "change_pct": -2.484
+          "change_pct": -2.161
         },
         {
           "symbol": "WIPRO",
-          "change_pct": -2.533
+          "change_pct": -2.263
+        },
+        {
+          "symbol": "HCLTECH",
+          "change_pct": -2.29
         },
         {
           "symbol": "INFY",
-          "change_pct": -3.075
+          "change_pct": -3.102
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -1.007
+      "peer_relative_pct": -0.893
     },
     "NETWEB": {
       "symbol": "NETWEB",
       "sector": "Technology",
       "industry": "Computer Hardware",
-      "price": 4225.0,
-      "change_pct": 2.776,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 4230.2001953125,
+      "change_pct": 2.902,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "EBGNG",
-          "change_pct": -0.173
+          "change_pct": -1.219
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 2.949
+      "peer_relative_pct": 4.121
     },
     "MARUTI": {
       "symbol": "MARUTI",
       "sector": "Consumer Cyclical",
       "industry": "Auto Manufacturers",
-      "price": 13262.0,
-      "change_pct": 4.987,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 13304.0,
+      "change_pct": 5.32,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
-          "symbol": "M&M",
-          "change_pct": 3.516
-        },
-        {
           "symbol": "TVSMOTOR",
-          "change_pct": 3.511
+          "change_pct": 3.973
         },
         {
           "symbol": "HEROMOTOCO",
-          "change_pct": 3.017
+          "change_pct": 3.588
+        },
+        {
+          "symbol": "M&M",
+          "change_pct": 3.572
         },
         {
           "symbol": "EICHERMOT",
-          "change_pct": 2.675
+          "change_pct": 3.299
         },
         {
           "symbol": "BAJAJ-AUTO",
-          "change_pct": 0.426
-        },
-        {
-          "symbol": "TMCV",
-          "change_pct": -0.257
+          "change_pct": 0.719
         },
         {
           "symbol": "ATHERENERG",
-          "change_pct": -0.747
+          "change_pct": -0.437
+        },
+        {
+          "symbol": "TMCV",
+          "change_pct": -0.615
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 3.253
+      "peer_relative_pct": 3.306
     },
     "APOLLO": {
       "symbol": "APOLLO",
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
-      "price": 453.8999938964844,
-      "change_pct": 1.544,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 452.79998779296875,
+      "change_pct": 1.298,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "UNIMECH",
-          "change_pct": 1.669
+          "change_pct": 1.581
         },
         {
           "symbol": "BEL",
-          "change_pct": 1.326
+          "change_pct": 1.415
         },
         {
           "symbol": "DATAPATTNS",
-          "change_pct": 1.219
+          "change_pct": 1.401
         },
         {
           "symbol": "CYIENTDLM",
-          "change_pct": 0.863
+          "change_pct": 0.729
         },
         {
           "symbol": "HAL",
-          "change_pct": 0.55
+          "change_pct": 0.667
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 0.419
+      "peer_relative_pct": 0.139
     },
     "ATHERENERG": {
       "symbol": "ATHERENERG",
       "sector": "Consumer Cyclical",
       "industry": "Auto Manufacturers",
-      "price": 1886.9000244140625,
-      "change_pct": -0.747,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1892.800048828125,
+      "change_pct": -0.437,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MARUTI",
-          "change_pct": 4.987
-        },
-        {
-          "symbol": "M&M",
-          "change_pct": 3.516
+          "change_pct": 5.32
         },
         {
           "symbol": "TVSMOTOR",
-          "change_pct": 3.511
+          "change_pct": 3.973
         },
         {
           "symbol": "HEROMOTOCO",
-          "change_pct": 3.017
+          "change_pct": 3.588
+        },
+        {
+          "symbol": "M&M",
+          "change_pct": 3.572
         },
         {
           "symbol": "EICHERMOT",
-          "change_pct": 2.675
+          "change_pct": 3.299
         },
         {
           "symbol": "BAJAJ-AUTO",
-          "change_pct": 0.426
+          "change_pct": 0.719
         },
         {
           "symbol": "TMCV",
-          "change_pct": -0.257
+          "change_pct": -0.615
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": -3.301
+      "peer_relative_pct": -3.274
     },
     "LAURUSLABS": {
       "symbol": "LAURUSLABS",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 2276.0,
-      "change_pct": -2.002,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2284.5,
+      "change_pct": -1.636,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
+          "change_pct": -0.034
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
-        },
-        {
-          "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.371
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
+        },
+        {
+          "symbol": "SHILPAMED",
+          "change_pct": -0.95
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -1.645
+      "peer_relative_pct": -1.331
     },
     "POWERINDIA": {
       "symbol": "POWERINDIA",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 30645.0,
-      "change_pct": -0.632,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 30670.0,
+      "change_pct": -0.551,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
           "change_pct": 1.476
         },
         {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "symbol": "FINCABLES",
+          "change_pct": 1.252
         },
         {
-          "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "MVELECTRO",
-          "change_pct": -0.737
+          "change_pct": -0.807
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": -0.892
+      "peer_relative_pct": -0.783
     },
     "INDHOTEL": {
       "symbol": "INDHOTEL",
       "sector": "Consumer Cyclical",
       "industry": "Lodging",
-      "price": 891.7999877929688,
-      "change_pct": 1.914,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 893.1500244140625,
+      "change_pct": 2.068,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "THELEELA",
-          "change_pct": 0.365
+          "change_pct": 0.555
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 1.549
+      "peer_relative_pct": 1.513
     },
     "SHRIRAMFIN": {
       "symbol": "SHRIRAMFIN",
       "sector": "Financial Services",
       "industry": "Credit Services",
-      "price": 961.9500122070312,
-      "change_pct": -0.83,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 963.25,
+      "change_pct": -0.696,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PFC",
-          "change_pct": 0.912
+          "change_pct": 1.035
         },
         {
           "symbol": "KISSHT",
-          "change_pct": 0.61
+          "change_pct": 0.58
         },
         {
           "symbol": "BAJFINANCE",
-          "change_pct": 0.155
+          "change_pct": 0.489
         },
         {
           "symbol": "CHOLAFIN",
-          "change_pct": -0.512
+          "change_pct": -0.469
         },
         {
           "symbol": "IIFL",
-          "change_pct": -2.56
+          "change_pct": -2.884
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": -0.551
+      "peer_relative_pct": -0.446
     },
     "HINDALCO": {
       "symbol": "HINDALCO",
       "sector": "Basic Materials",
       "industry": "Aluminum",
-      "price": 902.0499877929688,
-      "change_pct": 0.228,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 903.5,
+      "change_pct": 0.389,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -927,9 +927,9 @@
       "symbol": "ITC",
       "sector": "Consumer Defensive",
       "industry": "Tobacco",
-      "price": 297.75,
-      "change_pct": 0.388,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 298.04998779296875,
+      "change_pct": 0.489,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -938,45 +938,45 @@
       "symbol": "CUPID",
       "sector": "Consumer Defensive",
       "industry": "Household & Personal Products",
-      "price": 366.25,
-      "change_pct": 0.549,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 365.3999938964844,
+      "change_pct": 0.316,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "HINDUNILVR",
-          "change_pct": 1.545
+          "change_pct": 1.696
         },
         {
           "symbol": "BAJAJCON",
-          "change_pct": 1.0
+          "change_pct": 0.912
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -0.723
+      "peer_relative_pct": -0.988
     },
     "ADANIPORTS": {
       "symbol": "ADANIPORTS",
       "sector": "Industrials",
       "industry": "Marine Shipping",
-      "price": 1902.5999755859375,
-      "change_pct": 0.0,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1901.300048828125,
+      "change_pct": -0.068,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "KMEW",
-          "change_pct": 1.633
+          "change_pct": 1.823
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -1.633
+      "peer_relative_pct": -1.891
     },
     "HCLTECH": {
       "symbol": "HCLTECH",
       "sector": "Technology",
       "industry": "Information Technology Services",
-      "price": 1311.300048828125,
-      "change_pct": -2.484,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1313.9000244140625,
+      "change_pct": -2.29,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "REDINGTON",
@@ -984,63 +984,63 @@
         },
         {
           "symbol": "COFORGE",
-          "change_pct": -1.005
+          "change_pct": -0.996
         },
         {
           "symbol": "PERSISTENT",
-          "change_pct": -1.238
+          "change_pct": -1.34
         },
         {
           "symbol": "TCS",
-          "change_pct": -1.862
+          "change_pct": -1.824
         },
         {
           "symbol": "LTTS",
-          "change_pct": -2.144
+          "change_pct": -2.161
         },
         {
           "symbol": "WIPRO",
-          "change_pct": -2.533
+          "change_pct": -2.263
         },
         {
           "symbol": "TECHM",
-          "change_pct": -2.857
+          "change_pct": -2.697
         },
         {
           "symbol": "INFY",
-          "change_pct": -3.075
+          "change_pct": -3.102
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -0.588
+      "peer_relative_pct": -0.435
     },
     "PAYTM": {
       "symbol": "PAYTM",
       "sector": "Technology",
       "industry": "Software - Infrastructure",
-      "price": 1769.5999755859375,
-      "change_pct": -6.37,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1766.4000244140625,
+      "change_pct": -6.54,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "FRACTAL",
-          "change_pct": 2.676
+          "change_pct": 2.752
         },
         {
           "symbol": "MOBIKWIK",
-          "change_pct": -7.066
+          "change_pct": -7.22
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -4.175
+      "peer_relative_pct": -4.306
     },
     "COFORGE": {
       "symbol": "COFORGE",
       "sector": "Technology",
       "industry": "Information Technology Services",
-      "price": 2028.4000244140625,
-      "change_pct": -1.005,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2028.5999755859375,
+      "change_pct": -0.996,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "REDINGTON",
@@ -1048,107 +1048,107 @@
         },
         {
           "symbol": "PERSISTENT",
-          "change_pct": -1.238
+          "change_pct": -1.34
         },
         {
           "symbol": "TCS",
-          "change_pct": -1.862
+          "change_pct": -1.824
         },
         {
           "symbol": "LTTS",
-          "change_pct": -2.144
-        },
-        {
-          "symbol": "HCLTECH",
-          "change_pct": -2.484
+          "change_pct": -2.161
         },
         {
           "symbol": "WIPRO",
-          "change_pct": -2.533
+          "change_pct": -2.263
+        },
+        {
+          "symbol": "HCLTECH",
+          "change_pct": -2.29
         },
         {
           "symbol": "TECHM",
-          "change_pct": -2.857
+          "change_pct": -2.697
         },
         {
           "symbol": "INFY",
-          "change_pct": -3.075
+          "change_pct": -3.102
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": 1.076
+      "peer_relative_pct": 1.021
     },
     "TDPOWERSYS": {
       "symbol": "TDPOWERSYS",
       "sector": "Industrials",
       "industry": "Specialty Industrial Machinery",
-      "price": 632.2000122070312,
-      "change_pct": -0.284,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 631.7999877929688,
+      "change_pct": -0.347,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CUMMINSIND",
-          "change_pct": 1.948
+          "change_pct": 1.835
         },
         {
           "symbol": "RAYMOND",
-          "change_pct": 1.248
+          "change_pct": 1.314
         },
         {
           "symbol": "KIRLOSENG",
-          "change_pct": 0.873
+          "change_pct": 0.849
         },
         {
           "symbol": "BHEL",
-          "change_pct": 0.308
+          "change_pct": 0.498
         },
         {
           "symbol": "TEGA",
-          "change_pct": -0.099
+          "change_pct": 0.037
         },
         {
           "symbol": "GVT&D",
-          "change_pct": -0.245
+          "change_pct": -0.255
         },
         {
           "symbol": "DIACABS",
-          "change_pct": -1.313
+          "change_pct": -1.492
         },
         {
           "symbol": "GREAVESCOT",
-          "change_pct": -1.711
+          "change_pct": -1.733
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -0.41
+      "peer_relative_pct": -0.479
     },
     "SWIGGY": {
       "symbol": "SWIGGY",
       "sector": "Consumer Cyclical",
       "industry": "Internet Retail",
-      "price": 181.2899932861328,
-      "change_pct": 0.443,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 181.25,
+      "change_pct": 0.421,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MEESHO",
-          "change_pct": 1.759
+          "change_pct": 1.688
         },
         {
           "symbol": "ETERNAL",
-          "change_pct": -1.434
+          "change_pct": -1.27
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 0.281
+      "peer_relative_pct": 0.212
     },
     "DIXON": {
       "symbol": "DIXON",
       "sector": "Technology",
       "industry": "Consumer Electronics",
-      "price": 12887.0,
-      "change_pct": 2.156,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 12918.0,
+      "change_pct": 2.402,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -1157,53 +1157,53 @@
       "symbol": "BHEL",
       "sector": "Industrials",
       "industry": "Specialty Industrial Machinery",
-      "price": 423.0,
-      "change_pct": 0.308,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 423.79998779296875,
+      "change_pct": 0.498,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CUMMINSIND",
-          "change_pct": 1.948
+          "change_pct": 1.835
         },
         {
           "symbol": "RAYMOND",
-          "change_pct": 1.248
+          "change_pct": 1.314
         },
         {
           "symbol": "KIRLOSENG",
-          "change_pct": 0.873
+          "change_pct": 0.849
         },
         {
           "symbol": "TEGA",
-          "change_pct": -0.099
+          "change_pct": 0.037
         },
         {
           "symbol": "GVT&D",
-          "change_pct": -0.245
+          "change_pct": -0.255
         },
         {
           "symbol": "TDPOWERSYS",
-          "change_pct": -0.284
+          "change_pct": -0.347
         },
         {
           "symbol": "DIACABS",
-          "change_pct": -1.313
+          "change_pct": -1.492
         },
         {
           "symbol": "GREAVESCOT",
-          "change_pct": -1.711
+          "change_pct": -1.733
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": 0.256
+      "peer_relative_pct": 0.472
     },
     "PERSISTENT": {
       "symbol": "PERSISTENT",
       "sector": "Technology",
       "industry": "Information Technology Services",
-      "price": 5784.5,
-      "change_pct": -1.238,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 5778.5,
+      "change_pct": -1.34,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "REDINGTON",
@@ -1211,43 +1211,43 @@
         },
         {
           "symbol": "COFORGE",
-          "change_pct": -1.005
+          "change_pct": -0.996
         },
         {
           "symbol": "TCS",
-          "change_pct": -1.862
+          "change_pct": -1.824
         },
         {
           "symbol": "LTTS",
-          "change_pct": -2.144
-        },
-        {
-          "symbol": "HCLTECH",
-          "change_pct": -2.484
+          "change_pct": -2.161
         },
         {
           "symbol": "WIPRO",
-          "change_pct": -2.533
+          "change_pct": -2.263
+        },
+        {
+          "symbol": "HCLTECH",
+          "change_pct": -2.29
         },
         {
           "symbol": "TECHM",
-          "change_pct": -2.857
+          "change_pct": -2.697
         },
         {
           "symbol": "INFY",
-          "change_pct": -3.075
+          "change_pct": -3.102
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": 0.814
+      "peer_relative_pct": 0.634
     },
     "INDIGO": {
       "symbol": "INDIGO",
       "sector": "Industrials",
       "industry": "Airlines",
-      "price": 5593.7001953125,
-      "change_pct": 1.717,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 5580.0,
+      "change_pct": 1.467,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -1256,301 +1256,301 @@
       "symbol": "TITAN",
       "sector": "Consumer Cyclical",
       "industry": "Luxury Goods",
-      "price": 4630.2001953125,
-      "change_pct": -0.385,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 4636.7998046875,
+      "change_pct": -0.243,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNGSREVA",
-          "change_pct": 0.161
+          "change_pct": 0.127
         },
         {
           "symbol": "KALYANKJIL",
-          "change_pct": -0.485
+          "change_pct": -0.662
         },
         {
           "symbol": "TIMEX",
-          "change_pct": -1.897
+          "change_pct": -1.863
         },
         {
           "symbol": "SHANTIGOLD",
-          "change_pct": -2.373
+          "change_pct": -2.945
         },
         {
           "symbol": "SKYGOLD",
-          "change_pct": -2.811
+          "change_pct": -4.415
         },
         {
           "symbol": "BLUESTONE",
-          "change_pct": -4.971
+          "change_pct": -4.815
         },
         {
           "symbol": "SHRINGARMS",
-          "change_pct": -7.831
+          "change_pct": -7.701
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 2.502
+      "peer_relative_pct": 2.939
     },
     "HAL": {
       "symbol": "HAL",
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
-      "price": 4700.7001953125,
-      "change_pct": 0.55,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 4706.2001953125,
+      "change_pct": 0.667,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "UNIMECH",
-          "change_pct": 1.669
-        },
-        {
-          "symbol": "APOLLO",
-          "change_pct": 1.544
+          "change_pct": 1.581
         },
         {
           "symbol": "BEL",
-          "change_pct": 1.326
+          "change_pct": 1.415
         },
         {
           "symbol": "DATAPATTNS",
-          "change_pct": 1.219
+          "change_pct": 1.401
+        },
+        {
+          "symbol": "APOLLO",
+          "change_pct": 1.298
         },
         {
           "symbol": "CYIENTDLM",
-          "change_pct": 0.863
+          "change_pct": 0.729
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": -0.774
+      "peer_relative_pct": -0.618
     },
     "TATASTEEL": {
       "symbol": "TATASTEEL",
       "sector": "Basic Materials",
       "industry": "Steel",
-      "price": 180.49000549316406,
-      "change_pct": 0.832,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 180.8699951171875,
+      "change_pct": 1.045,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SAIL",
-          "change_pct": 0.72
+          "change_pct": 0.854
         },
         {
           "symbol": "JSWSTEEL",
-          "change_pct": 0.593
-        },
-        {
-          "symbol": "WELCORP",
-          "change_pct": 0.364
-        },
-        {
-          "symbol": "MANINDS",
-          "change_pct": 0.287
-        },
-        {
-          "symbol": "JINDALSAW",
-          "change_pct": 0.016
+          "change_pct": 0.676
         },
         {
           "symbol": "SAMBHV",
-          "change_pct": -0.222
+          "change_pct": 0.519
+        },
+        {
+          "symbol": "WELCORP",
+          "change_pct": 0.405
+        },
+        {
+          "symbol": "MANINDS",
+          "change_pct": 0.202
+        },
+        {
+          "symbol": "JINDALSAW",
+          "change_pct": 0.095
         },
         {
           "symbol": "GALLANTT",
-          "change_pct": -0.431
+          "change_pct": -0.3
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 0.642
+      "peer_relative_pct": 0.695
     },
     "APOLLOHOSP": {
       "symbol": "APOLLOHOSP",
       "sector": "Healthcare",
       "industry": "Medical Care Facilities",
-      "price": 8710.5,
-      "change_pct": -1.253,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 8708.5,
+      "change_pct": -1.275,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MAXHEALTH",
-          "change_pct": -0.621
+          "change_pct": -0.577
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -0.632
+      "peer_relative_pct": -0.698
     },
     "SUNPHARMA": {
       "symbol": "SUNPHARMA",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 1887.9000244140625,
-      "change_pct": 0.876,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1889.5,
+      "change_pct": 0.962,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
+          "change_pct": -0.034
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
-        },
-        {
-          "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.371
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
+        },
+        {
+          "symbol": "SHILPAMED",
+          "change_pct": -0.95
         },
         {
           "symbol": "DRREDDY",
-          "change_pct": -1.137
+          "change_pct": -1.08
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": 1.521
+      "peer_relative_pct": 1.527
     },
     "BEL": {
       "symbol": "BEL",
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
-      "price": 401.04998779296875,
-      "change_pct": 1.326,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 401.3999938964844,
+      "change_pct": 1.415,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "UNIMECH",
-          "change_pct": 1.669
-        },
-        {
-          "symbol": "APOLLO",
-          "change_pct": 1.544
+          "change_pct": 1.581
         },
         {
           "symbol": "DATAPATTNS",
-          "change_pct": 1.219
+          "change_pct": 1.401
+        },
+        {
+          "symbol": "APOLLO",
+          "change_pct": 1.298
         },
         {
           "symbol": "CYIENTDLM",
-          "change_pct": 0.863
+          "change_pct": 0.729
         },
         {
           "symbol": "HAL",
-          "change_pct": 0.55
+          "change_pct": 0.667
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 0.157
+      "peer_relative_pct": 0.28
     },
     "PNB": {
       "symbol": "PNB",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 156.0500030517578,
-      "change_pct": 4.332,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 155.9600067138672,
+      "change_pct": 4.272,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
+        },
+        {
+          "symbol": "UNIONBANK",
+          "change_pct": 1.053
         },
         {
           "symbol": "SBIN",
           "change_pct": 0.947
         },
         {
-          "symbol": "UNIONBANK",
-          "change_pct": 0.914
-        },
-        {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
-        },
-        {
-          "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.5
         },
         {
           "symbol": "KOTAKBANK",
-          "change_pct": 0.172
+          "change_pct": 0.192
         },
         {
-          "symbol": "HDFCBANK",
-          "change_pct": 0.068
+          "symbol": "INDUSINDBK",
+          "change_pct": 0.192
+        },
+        {
+          "symbol": "AXISBANK",
+          "change_pct": 0.088
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": 3.562
+      "peer_relative_pct": 3.491
     },
     "CUMMINSIND": {
       "symbol": "CUMMINSIND",
       "sector": "Industrials",
       "industry": "Specialty Industrial Machinery",
-      "price": 4083.0,
-      "change_pct": 1.948,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 4078.5,
+      "change_pct": 1.835,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "RAYMOND",
-          "change_pct": 1.248
+          "change_pct": 1.314
         },
         {
           "symbol": "KIRLOSENG",
-          "change_pct": 0.873
+          "change_pct": 0.849
         },
         {
           "symbol": "BHEL",
-          "change_pct": 0.308
+          "change_pct": 0.498
         },
         {
           "symbol": "TEGA",
-          "change_pct": -0.099
+          "change_pct": 0.037
         },
         {
           "symbol": "GVT&D",
-          "change_pct": -0.245
+          "change_pct": -0.255
         },
         {
           "symbol": "TDPOWERSYS",
-          "change_pct": -0.284
+          "change_pct": -0.347
         },
         {
           "symbol": "DIACABS",
-          "change_pct": -1.313
+          "change_pct": -1.492
         },
         {
           "symbol": "GREAVESCOT",
-          "change_pct": -1.711
+          "change_pct": -1.733
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": 2.101
+      "peer_relative_pct": 1.976
     },
     "WIPRO": {
       "symbol": "WIPRO",
       "sector": "Technology",
       "industry": "Information Technology Services",
-      "price": 180.4499969482422,
-      "change_pct": -2.533,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 180.9499969482422,
+      "change_pct": -2.263,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "REDINGTON",
@@ -1558,127 +1558,127 @@
         },
         {
           "symbol": "COFORGE",
-          "change_pct": -1.005
+          "change_pct": -0.996
         },
         {
           "symbol": "PERSISTENT",
-          "change_pct": -1.238
+          "change_pct": -1.34
         },
         {
           "symbol": "TCS",
-          "change_pct": -1.862
+          "change_pct": -1.824
         },
         {
           "symbol": "LTTS",
-          "change_pct": -2.144
+          "change_pct": -2.161
         },
         {
           "symbol": "HCLTECH",
-          "change_pct": -2.484
+          "change_pct": -2.29
         },
         {
           "symbol": "TECHM",
-          "change_pct": -2.857
+          "change_pct": -2.697
         },
         {
           "symbol": "INFY",
-          "change_pct": -3.075
+          "change_pct": -3.102
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -0.643
+      "peer_relative_pct": -0.405
     },
     "GVT&D": {
       "symbol": "GVT&D",
       "sector": "Industrials",
       "industry": "Specialty Industrial Machinery",
-      "price": 4309.39990234375,
-      "change_pct": -0.245,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 4309.0,
+      "change_pct": -0.255,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CUMMINSIND",
-          "change_pct": 1.948
+          "change_pct": 1.835
         },
         {
           "symbol": "RAYMOND",
-          "change_pct": 1.248
+          "change_pct": 1.314
         },
         {
           "symbol": "KIRLOSENG",
-          "change_pct": 0.873
+          "change_pct": 0.849
         },
         {
           "symbol": "BHEL",
-          "change_pct": 0.308
+          "change_pct": 0.498
         },
         {
           "symbol": "TEGA",
-          "change_pct": -0.099
+          "change_pct": 0.037
         },
         {
           "symbol": "TDPOWERSYS",
-          "change_pct": -0.284
+          "change_pct": -0.347
         },
         {
           "symbol": "DIACABS",
-          "change_pct": -1.313
+          "change_pct": -1.492
         },
         {
           "symbol": "GREAVESCOT",
-          "change_pct": -1.711
+          "change_pct": -1.733
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -0.366
+      "peer_relative_pct": -0.375
     },
     "BAJAJ-AUTO": {
       "symbol": "BAJAJ-AUTO",
       "sector": "Consumer Cyclical",
       "industry": "Auto Manufacturers",
-      "price": 10615.0,
-      "change_pct": 0.426,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 10646.0,
+      "change_pct": 0.719,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MARUTI",
-          "change_pct": 4.987
-        },
-        {
-          "symbol": "M&M",
-          "change_pct": 3.516
+          "change_pct": 5.32
         },
         {
           "symbol": "TVSMOTOR",
-          "change_pct": 3.511
+          "change_pct": 3.973
         },
         {
           "symbol": "HEROMOTOCO",
-          "change_pct": 3.017
+          "change_pct": 3.588
+        },
+        {
+          "symbol": "M&M",
+          "change_pct": 3.572
         },
         {
           "symbol": "EICHERMOT",
-          "change_pct": 2.675
-        },
-        {
-          "symbol": "TMCV",
-          "change_pct": -0.257
+          "change_pct": 3.299
         },
         {
           "symbol": "ATHERENERG",
-          "change_pct": -0.747
+          "change_pct": -0.437
+        },
+        {
+          "symbol": "TMCV",
+          "change_pct": -0.615
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": -1.96
+      "peer_relative_pct": -1.952
     },
     "LENSKART": {
       "symbol": "LENSKART",
       "sector": "Healthcare",
       "industry": "Medical Instruments & Supplies",
-      "price": 742.25,
-      "change_pct": 1.386,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 743.9000244140625,
+      "change_pct": 1.612,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -1687,121 +1687,121 @@
       "symbol": "ACUTAAS",
       "sector": "Basic Materials",
       "industry": "Specialty Chemicals",
-      "price": 3961.699951171875,
-      "change_pct": -0.861,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 3974.199951171875,
+      "change_pct": -0.548,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "NEOGEN",
-          "change_pct": 2.698
+          "change_pct": 2.644
         },
         {
           "symbol": "SOLARINDS",
-          "change_pct": 0.74
+          "change_pct": 0.95
         },
         {
           "symbol": "RAIN",
-          "change_pct": 0.216
+          "change_pct": 0.346
         },
         {
           "symbol": "ASIANPAINT",
-          "change_pct": 0.023
+          "change_pct": 0.066
         },
         {
           "symbol": "JAICORPLTD",
-          "change_pct": -0.182
+          "change_pct": -0.148
         },
         {
           "symbol": "GRWRHITECH",
-          "change_pct": -0.912
+          "change_pct": -0.618
         }
       ],
       "peer_count": 6,
-      "peer_relative_pct": -1.292
+      "peer_relative_pct": -1.088
     },
     "CANBK": {
       "symbol": "CANBK",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 136.27999877929688,
-      "change_pct": 2.159,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 136.25,
+      "change_pct": 2.136,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
+        },
+        {
+          "symbol": "UNIONBANK",
+          "change_pct": 1.053
         },
         {
           "symbol": "SBIN",
           "change_pct": 0.947
         },
         {
-          "symbol": "UNIONBANK",
-          "change_pct": 0.914
-        },
-        {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
-        },
-        {
-          "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.5
         },
         {
           "symbol": "KOTAKBANK",
-          "change_pct": 0.172
+          "change_pct": 0.192
         },
         {
-          "symbol": "HDFCBANK",
-          "change_pct": 0.068
+          "symbol": "INDUSINDBK",
+          "change_pct": 0.192
+        },
+        {
+          "symbol": "AXISBANK",
+          "change_pct": 0.088
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": 1.171
+      "peer_relative_pct": 1.141
     },
     "EICHERMOT": {
       "symbol": "EICHERMOT",
       "sector": "Consumer Cyclical",
       "industry": "Auto Manufacturers",
-      "price": 7906.0,
-      "change_pct": 2.675,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 7954.0,
+      "change_pct": 3.299,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MARUTI",
-          "change_pct": 4.987
-        },
-        {
-          "symbol": "M&M",
-          "change_pct": 3.516
+          "change_pct": 5.32
         },
         {
           "symbol": "TVSMOTOR",
-          "change_pct": 3.511
+          "change_pct": 3.973
         },
         {
           "symbol": "HEROMOTOCO",
-          "change_pct": 3.017
+          "change_pct": 3.588
+        },
+        {
+          "symbol": "M&M",
+          "change_pct": 3.572
         },
         {
           "symbol": "BAJAJ-AUTO",
-          "change_pct": 0.426
-        },
-        {
-          "symbol": "TMCV",
-          "change_pct": -0.257
+          "change_pct": 0.719
         },
         {
           "symbol": "ATHERENERG",
-          "change_pct": -0.747
+          "change_pct": -0.437
+        },
+        {
+          "symbol": "TMCV",
+          "change_pct": -0.615
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 0.61
+      "peer_relative_pct": 0.996
     },
     "ADANIPOWER": {
       "symbol": "ADANIPOWER",
@@ -1809,7 +1809,7 @@
       "industry": "Utilities - Independent Power Producers",
       "price": 206.0500030517578,
       "change_pct": 0.365,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -1818,21 +1818,21 @@
       "symbol": "UNIONBANK",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 209.77999877929688,
-      "change_pct": 0.914,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 210.07000732421875,
+      "change_pct": 1.053,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
         },
         {
           "symbol": "SBIN",
@@ -1840,91 +1840,91 @@
         },
         {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
-        },
-        {
-          "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.5
         },
         {
           "symbol": "KOTAKBANK",
-          "change_pct": 0.172
+          "change_pct": 0.192
         },
         {
-          "symbol": "HDFCBANK",
-          "change_pct": 0.068
+          "symbol": "INDUSINDBK",
+          "change_pct": 0.192
+        },
+        {
+          "symbol": "AXISBANK",
+          "change_pct": 0.088
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -0.198
+      "peer_relative_pct": -0.05
     },
     "ADANIENT": {
       "symbol": "ADANIENT",
       "sector": "Energy",
       "industry": "Thermal Coal",
-      "price": 2698.800048828125,
-      "change_pct": 0.544,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2693.89990234375,
+      "change_pct": 0.361,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "COALINDIA",
-          "change_pct": 0.026
+          "change_pct": 0.116
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 0.518
+      "peer_relative_pct": 0.245
     },
     "CGPOWER": {
       "symbol": "CGPOWER",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 796.25,
-      "change_pct": 0.664,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 797.0499877929688,
+      "change_pct": 0.765,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
           "change_pct": 1.476
         },
         {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "symbol": "FINCABLES",
+          "change_pct": 1.252
         },
         {
-          "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         },
         {
           "symbol": "MVELECTRO",
-          "change_pct": -0.737
+          "change_pct": -0.807
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": 0.522
+      "peer_relative_pct": 0.652
     },
     "LICI": {
       "symbol": "LICI",
       "sector": "Financial Services",
       "industry": "Insurance - Life",
-      "price": 402.3999938964844,
-      "change_pct": 0.6,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 402.95001220703125,
+      "change_pct": 0.738,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -1933,13 +1933,13 @@
       "symbol": "ULTRACEMCO",
       "sector": "Basic Materials",
       "industry": "Building Materials",
-      "price": 12488.0,
-      "change_pct": 0.483,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 12492.0,
+      "change_pct": 0.515,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "INDIACEM",
-          "change_pct": 2.906
+          "change_pct": 3.211
         },
         {
           "symbol": "EUROPRATIK",
@@ -1947,131 +1947,131 @@
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -0.816
+      "peer_relative_pct": -0.936
     },
     "CHOLAFIN": {
       "symbol": "CHOLAFIN",
       "sector": "Financial Services",
       "industry": "Credit Services",
-      "price": 1865.4000244140625,
-      "change_pct": -0.512,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1866.199951171875,
+      "change_pct": -0.469,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PFC",
-          "change_pct": 0.912
+          "change_pct": 1.035
         },
         {
           "symbol": "KISSHT",
-          "change_pct": 0.61
+          "change_pct": 0.58
         },
         {
           "symbol": "BAJFINANCE",
-          "change_pct": 0.155
+          "change_pct": 0.489
         },
         {
           "symbol": "SHRIRAMFIN",
-          "change_pct": -0.83
+          "change_pct": -0.696
         },
         {
           "symbol": "IIFL",
-          "change_pct": -2.56
+          "change_pct": -2.884
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": -0.169
+      "peer_relative_pct": -0.174
     },
     "MRPL": {
       "symbol": "MRPL",
       "sector": "Energy",
       "industry": "Oil & Gas Refining & Marketing",
-      "price": 176.64999389648438,
-      "change_pct": 0.386,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 176.63999938964844,
+      "change_pct": 0.381,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CHENNPETRO",
-          "change_pct": -0.162
+          "change_pct": -0.246
         },
         {
           "symbol": "RELIANCE",
-          "change_pct": -0.271
+          "change_pct": -0.257
         },
         {
           "symbol": "AEGISLOG",
-          "change_pct": -0.814
+          "change_pct": -0.797
         },
         {
           "symbol": "GANDHAR",
-          "change_pct": -2.142
+          "change_pct": -2.088
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": 1.233
+      "peer_relative_pct": 1.228
     },
     "MAXHEALTH": {
       "symbol": "MAXHEALTH",
       "sector": "Healthcare",
       "industry": "Medical Care Facilities",
-      "price": 1016.5,
-      "change_pct": -0.621,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1016.9500122070312,
+      "change_pct": -0.577,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "APOLLOHOSP",
-          "change_pct": -1.253
+          "change_pct": -1.275
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 0.632
+      "peer_relative_pct": 0.698
     },
     "TVSMOTOR": {
       "symbol": "TVSMOTOR",
       "sector": "Consumer Cyclical",
       "industry": "Auto Manufacturers",
-      "price": 4522.39990234375,
-      "change_pct": 3.511,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 4542.60009765625,
+      "change_pct": 3.973,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MARUTI",
-          "change_pct": 4.987
-        },
-        {
-          "symbol": "M&M",
-          "change_pct": 3.516
+          "change_pct": 5.32
         },
         {
           "symbol": "HEROMOTOCO",
-          "change_pct": 3.017
+          "change_pct": 3.588
+        },
+        {
+          "symbol": "M&M",
+          "change_pct": 3.572
         },
         {
           "symbol": "EICHERMOT",
-          "change_pct": 2.675
+          "change_pct": 3.299
         },
         {
           "symbol": "BAJAJ-AUTO",
-          "change_pct": 0.426
-        },
-        {
-          "symbol": "TMCV",
-          "change_pct": -0.257
+          "change_pct": 0.719
         },
         {
           "symbol": "ATHERENERG",
-          "change_pct": -0.747
+          "change_pct": -0.437
+        },
+        {
+          "symbol": "TMCV",
+          "change_pct": -0.615
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 1.566
+      "peer_relative_pct": 1.766
     },
     "SAILIFE": {
       "symbol": "SAILIFE",
       "sector": "Healthcare",
       "industry": "Diagnostics & Research",
-      "price": 1772.800048828125,
-      "change_pct": -0.856,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1776.800048828125,
+      "change_pct": -0.632,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -2080,9 +2080,9 @@
       "symbol": "JIOFIN",
       "sector": "Financial Services",
       "industry": "Asset Management",
-      "price": 224.8000030517578,
-      "change_pct": 0.134,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 224.97000122070312,
+      "change_pct": 0.209,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -2091,37 +2091,37 @@
       "symbol": "CHENNPETRO",
       "sector": "Energy",
       "industry": "Oil & Gas Refining & Marketing",
-      "price": 1417.699951171875,
-      "change_pct": -0.162,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1416.5,
+      "change_pct": -0.246,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MRPL",
-          "change_pct": 0.386
+          "change_pct": 0.381
         },
         {
           "symbol": "RELIANCE",
-          "change_pct": -0.271
+          "change_pct": -0.257
         },
         {
           "symbol": "AEGISLOG",
-          "change_pct": -0.814
+          "change_pct": -0.797
         },
         {
           "symbol": "GANDHAR",
-          "change_pct": -2.142
+          "change_pct": -2.088
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": 0.548
+      "peer_relative_pct": 0.444
     },
     "POLICYBZR": {
       "symbol": "POLICYBZR",
       "sector": "Financial Services",
       "industry": "Insurance Brokers",
-      "price": 1013.7999877929688,
-      "change_pct": -2.067,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1013.2999877929688,
+      "change_pct": -2.116,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -2130,137 +2130,137 @@
       "symbol": "TMCV",
       "sector": "Consumer Cyclical",
       "industry": "Auto Manufacturers",
-      "price": 445.8500061035156,
-      "change_pct": -0.257,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 444.25,
+      "change_pct": -0.615,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MARUTI",
-          "change_pct": 4.987
-        },
-        {
-          "symbol": "M&M",
-          "change_pct": 3.516
+          "change_pct": 5.32
         },
         {
           "symbol": "TVSMOTOR",
-          "change_pct": 3.511
+          "change_pct": 3.973
         },
         {
           "symbol": "HEROMOTOCO",
-          "change_pct": 3.017
+          "change_pct": 3.588
+        },
+        {
+          "symbol": "M&M",
+          "change_pct": 3.572
         },
         {
           "symbol": "EICHERMOT",
-          "change_pct": 2.675
+          "change_pct": 3.299
         },
         {
           "symbol": "BAJAJ-AUTO",
-          "change_pct": 0.426
+          "change_pct": 0.719
         },
         {
           "symbol": "ATHERENERG",
-          "change_pct": -0.747
+          "change_pct": -0.437
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": -2.741
+      "peer_relative_pct": -3.477
     },
     "FEDERALBNK": {
       "symbol": "FEDERALBNK",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 362.29998779296875,
-      "change_pct": 0.541,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 362.1499938964844,
+      "change_pct": 0.5,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
+        },
+        {
+          "symbol": "UNIONBANK",
+          "change_pct": 1.053
         },
         {
           "symbol": "SBIN",
           "change_pct": 0.947
         },
         {
-          "symbol": "UNIONBANK",
-          "change_pct": 0.914
+          "symbol": "KOTAKBANK",
+          "change_pct": 0.192
         },
         {
           "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.192
         },
         {
-          "symbol": "KOTAKBANK",
-          "change_pct": 0.172
-        },
-        {
-          "symbol": "HDFCBANK",
-          "change_pct": 0.068
+          "symbol": "AXISBANK",
+          "change_pct": 0.088
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -0.608
+      "peer_relative_pct": -0.659
     },
     "APARINDS": {
       "symbol": "APARINDS",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 14230.0,
-      "change_pct": 1.847,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 14231.0,
+      "change_pct": 1.854,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "MARINE",
           "change_pct": 1.476
         },
         {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "symbol": "FINCABLES",
+          "change_pct": 1.252
         },
         {
-          "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         },
         {
           "symbol": "MVELECTRO",
-          "change_pct": -0.737
+          "change_pct": -0.807
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": 1.812
+      "peer_relative_pct": 1.84
     },
     "ASHOKLEY": {
       "symbol": "ASHOKLEY",
       "sector": "Industrials",
       "industry": "Farm & Heavy Construction Machinery",
-      "price": 165.88999938964844,
-      "change_pct": 2.118,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 166.0399932861328,
+      "change_pct": 2.21,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -2269,253 +2269,253 @@
       "symbol": "COALINDIA",
       "sector": "Energy",
       "industry": "Thermal Coal",
-      "price": 388.1000061035156,
-      "change_pct": 0.026,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 388.45001220703125,
+      "change_pct": 0.116,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "ADANIENT",
-          "change_pct": 0.544
+          "change_pct": 0.361
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -0.518
+      "peer_relative_pct": -0.245
     },
     "HEROMOTOCO": {
       "symbol": "HEROMOTOCO",
       "sector": "Consumer Cyclical",
       "industry": "Auto Manufacturers",
-      "price": 5411.5,
-      "change_pct": 3.017,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 5441.5,
+      "change_pct": 3.588,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MARUTI",
-          "change_pct": 4.987
-        },
-        {
-          "symbol": "M&M",
-          "change_pct": 3.516
+          "change_pct": 5.32
         },
         {
           "symbol": "TVSMOTOR",
-          "change_pct": 3.511
+          "change_pct": 3.973
+        },
+        {
+          "symbol": "M&M",
+          "change_pct": 3.572
         },
         {
           "symbol": "EICHERMOT",
-          "change_pct": 2.675
+          "change_pct": 3.299
         },
         {
           "symbol": "BAJAJ-AUTO",
-          "change_pct": 0.426
-        },
-        {
-          "symbol": "TMCV",
-          "change_pct": -0.257
+          "change_pct": 0.719
         },
         {
           "symbol": "ATHERENERG",
-          "change_pct": -0.747
+          "change_pct": -0.437
+        },
+        {
+          "symbol": "TMCV",
+          "change_pct": -0.615
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 1.001
+      "peer_relative_pct": 1.326
     },
     "TRENT": {
       "symbol": "TRENT",
       "sector": "Consumer Cyclical",
       "industry": "Apparel Retail",
-      "price": 3198.60009765625,
-      "change_pct": 0.27,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 3202.199951171875,
+      "change_pct": 0.382,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "STYLEBAAZA",
-          "change_pct": 0.565
+          "change_pct": 0.602
         },
         {
           "symbol": "V2RETAIL",
-          "change_pct": -0.709
+          "change_pct": -0.816
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 0.342
+      "peer_relative_pct": 0.489
     },
     "HINDUNILVR": {
       "symbol": "HINDUNILVR",
       "sector": "Consumer Defensive",
       "industry": "Household & Personal Products",
-      "price": 2023.800048828125,
-      "change_pct": 1.545,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2026.800048828125,
+      "change_pct": 1.696,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "BAJAJCON",
-          "change_pct": 1.0
+          "change_pct": 0.912
         },
         {
           "symbol": "CUPID",
-          "change_pct": 0.549
+          "change_pct": 0.316
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 0.77
+      "peer_relative_pct": 1.082
     },
     "NTPC": {
       "symbol": "NTPC",
       "sector": "Utilities",
       "industry": "Utilities - Regulated Electric",
-      "price": 321.0,
-      "change_pct": 0.187,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 321.6499938964844,
+      "change_pct": 0.39,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "POWERGRID",
-          "change_pct": 0.444
+          "change_pct": 0.521
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -0.257
+      "peer_relative_pct": -0.131
     },
     "MEESHO": {
       "symbol": "MEESHO",
       "sector": "Consumer Cyclical",
       "industry": "Internet Retail",
-      "price": 258.010009765625,
-      "change_pct": 1.759,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 257.8299865722656,
+      "change_pct": 1.688,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SWIGGY",
-          "change_pct": 0.443
+          "change_pct": 0.421
         },
         {
           "symbol": "ETERNAL",
-          "change_pct": -1.434
+          "change_pct": -1.27
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 2.254
+      "peer_relative_pct": 2.112
     },
     "WELCORP": {
       "symbol": "WELCORP",
       "sector": "Basic Materials",
       "industry": "Steel",
-      "price": 2233.0,
-      "change_pct": 0.364,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2233.89990234375,
+      "change_pct": 0.405,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "TATASTEEL",
-          "change_pct": 0.832
+          "change_pct": 1.045
         },
         {
           "symbol": "SAIL",
-          "change_pct": 0.72
+          "change_pct": 0.854
         },
         {
           "symbol": "JSWSTEEL",
-          "change_pct": 0.593
-        },
-        {
-          "symbol": "MANINDS",
-          "change_pct": 0.287
-        },
-        {
-          "symbol": "JINDALSAW",
-          "change_pct": 0.016
+          "change_pct": 0.676
         },
         {
           "symbol": "SAMBHV",
-          "change_pct": -0.222
+          "change_pct": 0.519
+        },
+        {
+          "symbol": "MANINDS",
+          "change_pct": 0.202
+        },
+        {
+          "symbol": "JINDALSAW",
+          "change_pct": 0.095
         },
         {
           "symbol": "GALLANTT",
-          "change_pct": -0.431
+          "change_pct": -0.3
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 0.108
+      "peer_relative_pct": -0.037
     },
     "JSWSTEEL": {
       "symbol": "JSWSTEEL",
       "sector": "Basic Materials",
       "industry": "Steel",
-      "price": 1323.699951171875,
-      "change_pct": 0.593,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1324.800048828125,
+      "change_pct": 0.676,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "TATASTEEL",
-          "change_pct": 0.832
+          "change_pct": 1.045
         },
         {
           "symbol": "SAIL",
-          "change_pct": 0.72
-        },
-        {
-          "symbol": "WELCORP",
-          "change_pct": 0.364
-        },
-        {
-          "symbol": "MANINDS",
-          "change_pct": 0.287
-        },
-        {
-          "symbol": "JINDALSAW",
-          "change_pct": 0.016
+          "change_pct": 0.854
         },
         {
           "symbol": "SAMBHV",
-          "change_pct": -0.222
+          "change_pct": 0.519
+        },
+        {
+          "symbol": "WELCORP",
+          "change_pct": 0.405
+        },
+        {
+          "symbol": "MANINDS",
+          "change_pct": 0.202
+        },
+        {
+          "symbol": "JINDALSAW",
+          "change_pct": 0.095
         },
         {
           "symbol": "GALLANTT",
-          "change_pct": -0.431
+          "change_pct": -0.3
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 0.369
+      "peer_relative_pct": 0.273
     },
     "DATAPATTNS": {
       "symbol": "DATAPATTNS",
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
-      "price": 4161.10009765625,
-      "change_pct": 1.219,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 4168.60009765625,
+      "change_pct": 1.401,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "UNIMECH",
-          "change_pct": 1.669
-        },
-        {
-          "symbol": "APOLLO",
-          "change_pct": 1.544
+          "change_pct": 1.581
         },
         {
           "symbol": "BEL",
-          "change_pct": 1.326
+          "change_pct": 1.415
+        },
+        {
+          "symbol": "APOLLO",
+          "change_pct": 1.298
         },
         {
           "symbol": "CYIENTDLM",
-          "change_pct": 0.863
+          "change_pct": 0.729
         },
         {
           "symbol": "HAL",
-          "change_pct": 0.55
+          "change_pct": 0.667
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 0.029
+      "peer_relative_pct": 0.263
     },
     "ONGC": {
       "symbol": "ONGC",
       "sector": "Energy",
       "industry": "Oil & Gas Integrated",
-      "price": 224.0800018310547,
-      "change_pct": -0.409,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 224.2100067138672,
+      "change_pct": -0.351,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -2524,201 +2524,201 @@
       "symbol": "BANKBARODA",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 283.29998779296875,
-      "change_pct": 3.206,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 283.25,
+      "change_pct": 3.188,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
+        },
+        {
+          "symbol": "UNIONBANK",
+          "change_pct": 1.053
         },
         {
           "symbol": "SBIN",
           "change_pct": 0.947
         },
         {
-          "symbol": "UNIONBANK",
-          "change_pct": 0.914
-        },
-        {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
-        },
-        {
-          "symbol": "INDUSINDBK",
-          "change_pct": 0.318
+          "change_pct": 0.5
         },
         {
           "symbol": "KOTAKBANK",
-          "change_pct": 0.172
+          "change_pct": 0.192
         },
         {
-          "symbol": "HDFCBANK",
-          "change_pct": 0.068
+          "symbol": "INDUSINDBK",
+          "change_pct": 0.192
+        },
+        {
+          "symbol": "AXISBANK",
+          "change_pct": 0.088
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": 2.323
+      "peer_relative_pct": 2.298
     },
     "SOLARINDS": {
       "symbol": "SOLARINDS",
       "sector": "Basic Materials",
       "industry": "Specialty Chemicals",
-      "price": 18657.0,
-      "change_pct": 0.74,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 18696.0,
+      "change_pct": 0.95,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "NEOGEN",
-          "change_pct": 2.698
+          "change_pct": 2.644
         },
         {
           "symbol": "RAIN",
-          "change_pct": 0.216
+          "change_pct": 0.346
         },
         {
           "symbol": "ASIANPAINT",
-          "change_pct": 0.023
+          "change_pct": 0.066
         },
         {
           "symbol": "JAICORPLTD",
-          "change_pct": -0.182
+          "change_pct": -0.148
         },
         {
           "symbol": "ACUTAAS",
-          "change_pct": -0.861
+          "change_pct": -0.548
         },
         {
           "symbol": "GRWRHITECH",
-          "change_pct": -0.912
+          "change_pct": -0.618
         }
       ],
       "peer_count": 6,
-      "peer_relative_pct": 0.576
+      "peer_relative_pct": 0.66
     },
     "AEROFLEX": {
       "symbol": "AEROFLEX",
       "sector": "Industrials",
       "industry": "Metal Fabrication",
-      "price": 490.3500061035156,
-      "change_pct": -0.638,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 490.25,
+      "change_pct": -0.659,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "ROLEXRINGS",
-          "change_pct": -1.638
+          "change_pct": -1.682
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 1.0
+      "peer_relative_pct": 1.023
     },
     "HBLENGINE": {
       "symbol": "HBLENGINE",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 777.9500122070312,
-      "change_pct": -0.917,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 778.2000122070312,
+      "change_pct": -0.885,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
           "change_pct": 1.476
         },
         {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "symbol": "FINCABLES",
+          "change_pct": 1.252
         },
         {
-          "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": -1.203
+      "peer_relative_pct": -1.148
     },
     "DRREDDY": {
       "symbol": "DRREDDY",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 1382.300048828125,
-      "change_pct": -1.137,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1383.0999755859375,
+      "change_pct": -1.08,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
+          "change_pct": -0.034
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
-        },
-        {
-          "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.371
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
+        },
+        {
+          "symbol": "SHILPAMED",
+          "change_pct": -0.95
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -0.693
+      "peer_relative_pct": -0.72
     },
     "POLYCAB": {
       "symbol": "POLYCAB",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 7405.5,
-      "change_pct": 1.341,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 7380.0,
+      "change_pct": 0.992,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
@@ -2726,159 +2726,159 @@
         },
         {
           "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "change_pct": 1.252
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         },
         {
           "symbol": "MVELECTRO",
-          "change_pct": -0.737
+          "change_pct": -0.807
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": 1.26
+      "peer_relative_pct": 0.9
     },
     "SONACOMS": {
       "symbol": "SONACOMS",
       "sector": "Consumer Cyclical",
       "industry": "Auto Parts",
-      "price": 896.9500122070312,
-      "change_pct": 0.894,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 898.8499755859375,
+      "change_pct": 1.108,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MOTHERSON",
-          "change_pct": 3.231
+          "change_pct": 3.447
         },
         {
           "symbol": "DHOOTTRANS",
-          "change_pct": 2.489
+          "change_pct": 2.727
         },
         {
           "symbol": "LUMAXTECH",
-          "change_pct": 0.694
+          "change_pct": 0.897
         },
         {
           "symbol": "KROSS",
-          "change_pct": -0.28
+          "change_pct": -0.384
         },
         {
           "symbol": "SSWL",
-          "change_pct": -1.777
+          "change_pct": -1.044
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 0.023
+      "peer_relative_pct": -0.021
     },
     "POWERGRID": {
       "symbol": "POWERGRID",
       "sector": "Utilities",
       "industry": "Utilities - Regulated Electric",
-      "price": 260.25,
-      "change_pct": 0.444,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 260.45001220703125,
+      "change_pct": 0.521,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "NTPC",
-          "change_pct": 0.187
+          "change_pct": 0.39
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 0.257
+      "peer_relative_pct": 0.131
     },
     "MOTHERSON": {
       "symbol": "MOTHERSON",
       "sector": "Consumer Cyclical",
       "industry": "Auto Parts",
-      "price": 162.32000732421875,
-      "change_pct": 3.231,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 162.66000366210938,
+      "change_pct": 3.447,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "DHOOTTRANS",
-          "change_pct": 2.489
+          "change_pct": 2.727
         },
         {
           "symbol": "SONACOMS",
-          "change_pct": 0.894
+          "change_pct": 1.108
         },
         {
           "symbol": "LUMAXTECH",
-          "change_pct": 0.694
+          "change_pct": 0.897
         },
         {
           "symbol": "KROSS",
-          "change_pct": -0.28
+          "change_pct": -0.384
         },
         {
           "symbol": "SSWL",
-          "change_pct": -1.777
+          "change_pct": -1.044
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 2.827
+      "peer_relative_pct": 2.786
     },
     "PPLPHARMA": {
       "symbol": "PPLPHARMA",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 237.86000061035156,
-      "change_pct": -0.147,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 238.1300048828125,
+      "change_pct": -0.034,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
-        },
-        {
-          "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.371
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
+        },
+        {
+          "symbol": "SHILPAMED",
+          "change_pct": -0.95
         },
         {
           "symbol": "DRREDDY",
-          "change_pct": -1.137
+          "change_pct": -1.08
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": 0.396
+      "peer_relative_pct": 0.431
     },
     "LTTS": {
       "symbol": "LTTS",
       "sector": "Technology",
       "industry": "Information Technology Services",
-      "price": 4012.699951171875,
-      "change_pct": -2.144,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 4012.0,
+      "change_pct": -2.161,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "REDINGTON",
@@ -2886,43 +2886,43 @@
         },
         {
           "symbol": "COFORGE",
-          "change_pct": -1.005
+          "change_pct": -0.996
         },
         {
           "symbol": "PERSISTENT",
-          "change_pct": -1.238
+          "change_pct": -1.34
         },
         {
           "symbol": "TCS",
-          "change_pct": -1.862
-        },
-        {
-          "symbol": "HCLTECH",
-          "change_pct": -2.484
+          "change_pct": -1.824
         },
         {
           "symbol": "WIPRO",
-          "change_pct": -2.533
+          "change_pct": -2.263
+        },
+        {
+          "symbol": "HCLTECH",
+          "change_pct": -2.29
         },
         {
           "symbol": "TECHM",
-          "change_pct": -2.857
+          "change_pct": -2.697
         },
         {
           "symbol": "INFY",
-          "change_pct": -3.075
+          "change_pct": -3.102
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -0.205
+      "peer_relative_pct": -0.29
     },
     "VEDL": {
       "symbol": "VEDL",
       "sector": "Basic Materials",
       "industry": "Other Industrial Metals & Mining",
-      "price": 242.69000244140625,
-      "change_pct": -1.104,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 242.85000610351562,
+      "change_pct": -1.039,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -2931,321 +2931,321 @@
       "symbol": "INDUSINDBK",
       "sector": "Financial Services",
       "industry": "Banks - Regional",
-      "price": 914.75,
-      "change_pct": 0.318,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 913.5999755859375,
+      "change_pct": 0.192,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNB",
-          "change_pct": 4.332
+          "change_pct": 4.272
         },
         {
           "symbol": "BANKBARODA",
-          "change_pct": 3.206
+          "change_pct": 3.188
         },
         {
           "symbol": "CANBK",
-          "change_pct": 2.159
+          "change_pct": 2.136
+        },
+        {
+          "symbol": "UNIONBANK",
+          "change_pct": 1.053
         },
         {
           "symbol": "SBIN",
           "change_pct": 0.947
         },
         {
-          "symbol": "UNIONBANK",
-          "change_pct": 0.914
-        },
-        {
           "symbol": "FEDERALBNK",
-          "change_pct": 0.541
+          "change_pct": 0.5
         },
         {
           "symbol": "KOTAKBANK",
-          "change_pct": 0.172
+          "change_pct": 0.192
         },
         {
-          "symbol": "HDFCBANK",
-          "change_pct": 0.068
+          "symbol": "AXISBANK",
+          "change_pct": 0.088
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -0.854
+      "peer_relative_pct": -0.997
     },
     "SAIL": {
       "symbol": "SAIL",
       "sector": "Basic Materials",
       "industry": "Steel",
-      "price": 165.17999267578125,
-      "change_pct": 0.72,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 165.39999389648438,
+      "change_pct": 0.854,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "TATASTEEL",
-          "change_pct": 0.832
+          "change_pct": 1.045
         },
         {
           "symbol": "JSWSTEEL",
-          "change_pct": 0.593
-        },
-        {
-          "symbol": "WELCORP",
-          "change_pct": 0.364
-        },
-        {
-          "symbol": "MANINDS",
-          "change_pct": 0.287
-        },
-        {
-          "symbol": "JINDALSAW",
-          "change_pct": 0.016
+          "change_pct": 0.676
         },
         {
           "symbol": "SAMBHV",
-          "change_pct": -0.222
+          "change_pct": 0.519
+        },
+        {
+          "symbol": "WELCORP",
+          "change_pct": 0.405
+        },
+        {
+          "symbol": "MANINDS",
+          "change_pct": 0.202
+        },
+        {
+          "symbol": "JINDALSAW",
+          "change_pct": 0.095
         },
         {
           "symbol": "GALLANTT",
-          "change_pct": -0.431
+          "change_pct": -0.3
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 0.514
+      "peer_relative_pct": 0.477
     },
     "ASIANPAINT": {
       "symbol": "ASIANPAINT",
       "sector": "Basic Materials",
       "industry": "Specialty Chemicals",
-      "price": 2580.89990234375,
-      "change_pct": 0.023,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2582.0,
+      "change_pct": 0.066,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "NEOGEN",
-          "change_pct": 2.698
+          "change_pct": 2.644
         },
         {
           "symbol": "SOLARINDS",
-          "change_pct": 0.74
+          "change_pct": 0.95
         },
         {
           "symbol": "RAIN",
-          "change_pct": 0.216
+          "change_pct": 0.346
         },
         {
           "symbol": "JAICORPLTD",
-          "change_pct": -0.182
+          "change_pct": -0.148
         },
         {
           "symbol": "ACUTAAS",
-          "change_pct": -0.861
+          "change_pct": -0.548
         },
         {
           "symbol": "GRWRHITECH",
-          "change_pct": -0.912
+          "change_pct": -0.618
         }
       ],
       "peer_count": 6,
-      "peer_relative_pct": -0.26
+      "peer_relative_pct": -0.372
     },
     "PFC": {
       "symbol": "PFC",
       "sector": "Financial Services",
       "industry": "Credit Services",
-      "price": 326.5,
-      "change_pct": 0.912,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 326.8999938964844,
+      "change_pct": 1.035,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "KISSHT",
-          "change_pct": 0.61
+          "change_pct": 0.58
         },
         {
           "symbol": "BAJFINANCE",
-          "change_pct": 0.155
+          "change_pct": 0.489
         },
         {
           "symbol": "CHOLAFIN",
-          "change_pct": -0.512
+          "change_pct": -0.469
         },
         {
           "symbol": "SHRIRAMFIN",
-          "change_pct": -0.83
+          "change_pct": -0.696
         },
         {
           "symbol": "IIFL",
-          "change_pct": -2.56
+          "change_pct": -2.884
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 1.539
+      "peer_relative_pct": 1.631
     },
     "WELSPUNLIV": {
       "symbol": "WELSPUNLIV",
       "sector": "Consumer Cyclical",
       "industry": "Textile Manufacturing",
-      "price": 257.9200134277344,
-      "change_pct": 0.358,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 258.0,
+      "change_pct": 0.389,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "ICIL",
-          "change_pct": 0.035
+          "change_pct": -0.061
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 0.323
+      "peer_relative_pct": 0.45
     },
     "SHANTIGOLD": {
       "symbol": "SHANTIGOLD",
       "sector": "Consumer Cyclical",
       "industry": "Luxury Goods",
-      "price": 238.64999389648438,
-      "change_pct": -2.373,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 237.25,
+      "change_pct": -2.945,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNGSREVA",
-          "change_pct": 0.161
+          "change_pct": 0.127
         },
         {
           "symbol": "TITAN",
-          "change_pct": -0.385
+          "change_pct": -0.243
         },
         {
           "symbol": "KALYANKJIL",
-          "change_pct": -0.485
+          "change_pct": -0.662
         },
         {
           "symbol": "TIMEX",
-          "change_pct": -1.897
+          "change_pct": -1.863
         },
         {
           "symbol": "SKYGOLD",
-          "change_pct": -2.811
+          "change_pct": -4.415
         },
         {
           "symbol": "BLUESTONE",
-          "change_pct": -4.971
+          "change_pct": -4.815
         },
         {
           "symbol": "SHRINGARMS",
-          "change_pct": -7.831
+          "change_pct": -7.701
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 0.23
+      "peer_relative_pct": -0.149
     },
     "AGIIL": {
       "symbol": "AGIIL",
       "sector": "Real Estate",
       "industry": "Real Estate - Development",
-      "price": 310.82000732421875,
-      "change_pct": 0.019,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 310.8500061035156,
+      "change_pct": 0.029,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "HUBTOWN",
-          "change_pct": -0.425
+          "change_pct": -0.165
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 0.444
+      "peer_relative_pct": 0.194
     },
     "PARACABLES": {
       "symbol": "PARACABLES",
       "sector": "Technology",
       "industry": "Communication Equipment",
-      "price": 60.29999923706055,
-      "change_pct": -1.454,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 60.290000915527344,
+      "change_pct": -1.471,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "AVANTEL",
-          "change_pct": 0.083
+          "change_pct": 0.185
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -1.537
+      "peer_relative_pct": -1.656
     },
     "SKYGOLD": {
       "symbol": "SKYGOLD",
       "sector": "Consumer Cyclical",
       "industry": "Luxury Goods",
-      "price": 897.0499877929688,
-      "change_pct": -2.811,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 882.25,
+      "change_pct": -4.415,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNGSREVA",
-          "change_pct": 0.161
+          "change_pct": 0.127
         },
         {
           "symbol": "TITAN",
-          "change_pct": -0.385
+          "change_pct": -0.243
         },
         {
           "symbol": "KALYANKJIL",
-          "change_pct": -0.485
+          "change_pct": -0.662
         },
         {
           "symbol": "TIMEX",
-          "change_pct": -1.897
+          "change_pct": -1.863
         },
         {
           "symbol": "SHANTIGOLD",
-          "change_pct": -2.373
+          "change_pct": -2.945
         },
         {
           "symbol": "BLUESTONE",
-          "change_pct": -4.971
+          "change_pct": -4.815
         },
         {
           "symbol": "SHRINGARMS",
-          "change_pct": -7.831
+          "change_pct": -7.701
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": -0.271
+      "peer_relative_pct": -1.829
     },
     "PNGSREVA": {
       "symbol": "PNGSREVA",
       "sector": "Consumer Cyclical",
       "industry": "Luxury Goods",
-      "price": 590.2000122070312,
-      "change_pct": 0.161,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 590.0,
+      "change_pct": 0.127,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "TITAN",
-          "change_pct": -0.385
+          "change_pct": -0.243
         },
         {
           "symbol": "KALYANKJIL",
-          "change_pct": -0.485
+          "change_pct": -0.662
         },
         {
           "symbol": "TIMEX",
-          "change_pct": -1.897
+          "change_pct": -1.863
         },
         {
           "symbol": "SHANTIGOLD",
-          "change_pct": -2.373
+          "change_pct": -2.945
         },
         {
           "symbol": "SKYGOLD",
-          "change_pct": -2.811
+          "change_pct": -4.415
         },
         {
           "symbol": "BLUESTONE",
-          "change_pct": -4.971
+          "change_pct": -4.815
         },
         {
           "symbol": "SHRINGARMS",
-          "change_pct": -7.831
+          "change_pct": -7.701
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 3.126
+      "peer_relative_pct": 3.362
     },
     "EUROPRATIK": {
       "symbol": "EUROPRATIK",
@@ -3253,55 +3253,55 @@
       "industry": "Building Materials",
       "price": 187.57000732421875,
       "change_pct": -0.308,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "INDIACEM",
-          "change_pct": 2.906
+          "change_pct": 3.211
         },
         {
           "symbol": "ULTRACEMCO",
-          "change_pct": 0.483
+          "change_pct": 0.515
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -2.002
+      "peer_relative_pct": -2.171
     },
     "EMUDHRA": {
       "symbol": "EMUDHRA",
       "sector": "Technology",
       "industry": "Software - Application",
-      "price": 355.3999938964844,
-      "change_pct": -1.085,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 355.3500061035156,
+      "change_pct": -1.099,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
-          "symbol": "BBOX",
-          "change_pct": 2.304
+          "symbol": "63MOONS",
+          "change_pct": 2.137
         },
         {
-          "symbol": "63MOONS",
-          "change_pct": 1.385
+          "symbol": "BBOX",
+          "change_pct": 1.873
         },
         {
           "symbol": "INTELLECT",
-          "change_pct": -0.702
+          "change_pct": -0.74
         },
         {
           "symbol": "TANLA",
-          "change_pct": -4.052
+          "change_pct": -4.066
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": -0.819
+      "peer_relative_pct": -0.9
     },
     "MOLBIO": {
       "symbol": "MOLBIO",
       "sector": "Healthcare",
       "industry": "Medical Devices",
-      "price": 1495.0,
-      "change_pct": -0.174,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1496.0999755859375,
+      "change_pct": -0.1,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -3312,131 +3312,131 @@
       "industry": "Electrical Equipment & Parts",
       "price": 422.95001220703125,
       "change_pct": 1.476,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
-        },
-        {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "change_pct": 1.854
         },
         {
           "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "change_pct": 1.252
+        },
+        {
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         },
         {
           "symbol": "MVELECTRO",
-          "change_pct": -0.737
+          "change_pct": -0.807
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": 1.407
+      "peer_relative_pct": 1.428
     },
     "AVALON": {
       "symbol": "AVALON",
       "sector": "Technology",
       "industry": "Electronic Components",
-      "price": 1809.300048828125,
-      "change_pct": 1.361,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1809.5,
+      "change_pct": 1.373,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SYRMA",
-          "change_pct": 2.888
+          "change_pct": 3.051
         },
         {
           "symbol": "KRN",
-          "change_pct": 0.284
+          "change_pct": 0.2
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -0.225
+      "peer_relative_pct": -0.253
     },
     "MANINDS": {
       "symbol": "MANINDS",
       "sector": "Basic Materials",
       "industry": "Steel",
-      "price": 768.2000122070312,
-      "change_pct": 0.287,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 767.5499877929688,
+      "change_pct": 0.202,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "TATASTEEL",
-          "change_pct": 0.832
+          "change_pct": 1.045
         },
         {
           "symbol": "SAIL",
-          "change_pct": 0.72
+          "change_pct": 0.854
         },
         {
           "symbol": "JSWSTEEL",
-          "change_pct": 0.593
-        },
-        {
-          "symbol": "WELCORP",
-          "change_pct": 0.364
-        },
-        {
-          "symbol": "JINDALSAW",
-          "change_pct": 0.016
+          "change_pct": 0.676
         },
         {
           "symbol": "SAMBHV",
-          "change_pct": -0.222
+          "change_pct": 0.519
+        },
+        {
+          "symbol": "WELCORP",
+          "change_pct": 0.405
+        },
+        {
+          "symbol": "JINDALSAW",
+          "change_pct": 0.095
         },
         {
           "symbol": "GALLANTT",
-          "change_pct": -0.431
+          "change_pct": -0.3
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 0.02
+      "peer_relative_pct": -0.269
     },
     "V2RETAIL": {
       "symbol": "V2RETAIL",
       "sector": "Consumer Cyclical",
       "industry": "Apparel Retail",
-      "price": 140.0,
-      "change_pct": -0.709,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 139.85000610351562,
+      "change_pct": -0.816,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "STYLEBAAZA",
-          "change_pct": 0.565
+          "change_pct": 0.602
         },
         {
           "symbol": "TRENT",
-          "change_pct": 0.27
+          "change_pct": 0.382
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -1.127
+      "peer_relative_pct": -1.308
     },
     "ANTELOPUS": {
       "symbol": "ANTELOPUS",
       "sector": "Energy",
       "industry": "Oil & Gas E&P",
-      "price": 837.4000244140625,
-      "change_pct": -2.418,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 839.4000244140625,
+      "change_pct": -2.185,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -3447,7 +3447,7 @@
       "industry": "Auto & Truck Dealerships",
       "price": 2656.89990234375,
       "change_pct": 1.077,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -3456,25 +3456,25 @@
       "symbol": "HUBTOWN",
       "sector": "Real Estate",
       "industry": "Real Estate - Development",
-      "price": 168.55999755859375,
-      "change_pct": -0.425,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 169.0,
+      "change_pct": -0.165,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "AGIIL",
-          "change_pct": 0.019
+          "change_pct": 0.029
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -0.444
+      "peer_relative_pct": -0.194
     },
     "WSTCSTPAPR": {
       "symbol": "WSTCSTPAPR",
       "sector": "Basic Materials",
       "industry": "Paper & Paper Products",
-      "price": 655.5,
-      "change_pct": -1.146,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 655.6500244140625,
+      "change_pct": -1.124,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -3483,321 +3483,321 @@
       "symbol": "CYIENTDLM",
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
-      "price": 830.0999755859375,
-      "change_pct": 0.863,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 829.0,
+      "change_pct": 0.729,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "UNIMECH",
-          "change_pct": 1.669
-        },
-        {
-          "symbol": "APOLLO",
-          "change_pct": 1.544
+          "change_pct": 1.581
         },
         {
           "symbol": "BEL",
-          "change_pct": 1.326
+          "change_pct": 1.415
         },
         {
           "symbol": "DATAPATTNS",
-          "change_pct": 1.219
+          "change_pct": 1.401
+        },
+        {
+          "symbol": "APOLLO",
+          "change_pct": 1.298
         },
         {
           "symbol": "HAL",
-          "change_pct": 0.55
+          "change_pct": 0.667
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": -0.399
+      "peer_relative_pct": -0.543
     },
     "SSWL": {
       "symbol": "SSWL",
       "sector": "Consumer Cyclical",
       "industry": "Auto Parts",
-      "price": 536.0499877929688,
-      "change_pct": -1.777,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 540.0499877929688,
+      "change_pct": -1.044,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MOTHERSON",
-          "change_pct": 3.231
+          "change_pct": 3.447
         },
         {
           "symbol": "DHOOTTRANS",
-          "change_pct": 2.489
+          "change_pct": 2.727
         },
         {
           "symbol": "SONACOMS",
-          "change_pct": 0.894
+          "change_pct": 1.108
         },
         {
           "symbol": "LUMAXTECH",
-          "change_pct": 0.694
+          "change_pct": 0.897
         },
         {
           "symbol": "KROSS",
-          "change_pct": -0.28
+          "change_pct": -0.384
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": -3.183
+      "peer_relative_pct": -2.603
     },
     "SHRINGARMS": {
       "symbol": "SHRINGARMS",
       "sector": "Consumer Cyclical",
       "industry": "Luxury Goods",
-      "price": 248.35000610351562,
-      "change_pct": -7.831,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 248.6999969482422,
+      "change_pct": -7.701,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNGSREVA",
-          "change_pct": 0.161
+          "change_pct": 0.127
         },
         {
           "symbol": "TITAN",
-          "change_pct": -0.385
+          "change_pct": -0.243
         },
         {
           "symbol": "KALYANKJIL",
-          "change_pct": -0.485
+          "change_pct": -0.662
         },
         {
           "symbol": "TIMEX",
-          "change_pct": -1.897
+          "change_pct": -1.863
         },
         {
           "symbol": "SHANTIGOLD",
-          "change_pct": -2.373
+          "change_pct": -2.945
         },
         {
           "symbol": "SKYGOLD",
-          "change_pct": -2.811
+          "change_pct": -4.415
         },
         {
           "symbol": "BLUESTONE",
-          "change_pct": -4.971
+          "change_pct": -4.815
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": -6.008
+      "peer_relative_pct": -5.584
     },
     "SHUKRAPHAR": {
       "symbol": "SHUKRAPHAR",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 82.55999755859375,
-      "change_pct": 0.438,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 82.5,
+      "change_pct": 0.365,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
+          "change_pct": -0.034
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
-        },
-        {
-          "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.371
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
+        },
+        {
+          "symbol": "SHILPAMED",
+          "change_pct": -0.95
         },
         {
           "symbol": "DRREDDY",
-          "change_pct": -1.137
+          "change_pct": -1.08
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": 1.039
+      "peer_relative_pct": 0.87
     },
     "MARSONS": {
       "symbol": "MARSONS",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 161.0,
-      "change_pct": -2.983,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 160.75999450683594,
+      "change_pct": -3.127,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
           "change_pct": 1.476
         },
         {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "symbol": "FINCABLES",
+          "change_pct": 1.252
         },
         {
-          "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": -3.457
+      "peer_relative_pct": -3.594
     },
     "EBGNG": {
       "symbol": "EBGNG",
       "sector": "Technology",
       "industry": "Computer Hardware",
-      "price": 520.0499877929688,
-      "change_pct": -0.173,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 514.5999755859375,
+      "change_pct": -1.219,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "NETWEB",
-          "change_pct": 2.776
+          "change_pct": 2.902
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -2.949
+      "peer_relative_pct": -4.121
     },
     "AEGISLOG": {
       "symbol": "AEGISLOG",
       "sector": "Energy",
       "industry": "Oil & Gas Refining & Marketing",
-      "price": 1170.4000244140625,
-      "change_pct": -0.814,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1170.5999755859375,
+      "change_pct": -0.797,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MRPL",
-          "change_pct": 0.386
+          "change_pct": 0.381
         },
         {
           "symbol": "CHENNPETRO",
-          "change_pct": -0.162
+          "change_pct": -0.246
         },
         {
           "symbol": "RELIANCE",
-          "change_pct": -0.271
+          "change_pct": -0.257
         },
         {
           "symbol": "GANDHAR",
-          "change_pct": -2.142
+          "change_pct": -2.088
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": -0.267
+      "peer_relative_pct": -0.245
     },
     "MVELECTRO": {
       "symbol": "MVELECTRO",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 774.7999877929688,
-      "change_pct": -0.737,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 774.25,
+      "change_pct": -0.807,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
           "change_pct": 1.476
         },
         {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "symbol": "FINCABLES",
+          "change_pct": 1.252
         },
         {
-          "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": -1.007
+      "peer_relative_pct": -1.063
     },
     "KROSS": {
       "symbol": "KROSS",
       "sector": "Consumer Cyclical",
       "industry": "Auto Parts",
-      "price": 285.29998779296875,
-      "change_pct": -0.28,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 285.0,
+      "change_pct": -0.384,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MOTHERSON",
-          "change_pct": 3.231
+          "change_pct": 3.447
         },
         {
           "symbol": "DHOOTTRANS",
-          "change_pct": 2.489
+          "change_pct": 2.727
         },
         {
           "symbol": "SONACOMS",
-          "change_pct": 0.894
+          "change_pct": 1.108
         },
         {
           "symbol": "LUMAXTECH",
-          "change_pct": 0.694
+          "change_pct": 0.897
         },
         {
           "symbol": "SSWL",
-          "change_pct": -1.777
+          "change_pct": -1.044
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": -1.386
+      "peer_relative_pct": -1.811
     },
     "PARAGMILK": {
       "symbol": "PARAGMILK",
       "sector": "Consumer Defensive",
       "industry": "Packaged Foods",
-      "price": 344.5,
-      "change_pct": 4.711,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 343.45001220703125,
+      "change_pct": 4.392,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -3806,53 +3806,53 @@
       "symbol": "IOLCP",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 189.5,
-      "change_pct": -0.132,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 190.0500030517578,
+      "change_pct": 0.158,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
+          "change_pct": -0.034
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
-        },
-        {
-          "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.371
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
+        },
+        {
+          "symbol": "SHILPAMED",
+          "change_pct": -0.95
         },
         {
           "symbol": "DRREDDY",
-          "change_pct": -1.137
+          "change_pct": -1.08
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": 0.412
+      "peer_relative_pct": 0.642
     },
     "VRLLOG": {
       "symbol": "VRLLOG",
       "sector": "Industrials",
       "industry": "Trucking",
-      "price": 347.6000061035156,
-      "change_pct": 2.613,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 347.04998779296875,
+      "change_pct": 2.45,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -3861,221 +3861,221 @@
       "symbol": "HEGAM",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 265.42999267578125,
-      "change_pct": -0.955,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 264.510009765625,
+      "change_pct": -1.299,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
           "change_pct": 1.476
         },
         {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "symbol": "FINCABLES",
+          "change_pct": 1.252
         },
         {
-          "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": -1.245
+      "peer_relative_pct": -1.599
     },
     "KMEW": {
       "symbol": "KMEW",
       "sector": "Industrials",
       "industry": "Marine Shipping",
-      "price": 747.0,
-      "change_pct": 1.633,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 748.4000244140625,
+      "change_pct": 1.823,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "ADANIPORTS",
-          "change_pct": 0.0
+          "change_pct": -0.068
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 1.633
+      "peer_relative_pct": 1.891
     },
     "UNIMECH": {
       "symbol": "UNIMECH",
       "sector": "Industrials",
       "industry": "Aerospace & Defense",
-      "price": 1833.0999755859375,
-      "change_pct": 1.669,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1831.5,
+      "change_pct": 1.581,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
-          "symbol": "APOLLO",
-          "change_pct": 1.544
-        },
-        {
           "symbol": "BEL",
-          "change_pct": 1.326
+          "change_pct": 1.415
         },
         {
           "symbol": "DATAPATTNS",
-          "change_pct": 1.219
+          "change_pct": 1.401
+        },
+        {
+          "symbol": "APOLLO",
+          "change_pct": 1.298
         },
         {
           "symbol": "CYIENTDLM",
-          "change_pct": 0.863
+          "change_pct": 0.729
         },
         {
           "symbol": "HAL",
-          "change_pct": 0.55
+          "change_pct": 0.667
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 0.569
+      "peer_relative_pct": 0.479
     },
     "RAYMOND": {
       "symbol": "RAYMOND",
       "sector": "Industrials",
       "industry": "Specialty Industrial Machinery",
-      "price": 1233.199951171875,
-      "change_pct": 1.248,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1234.0,
+      "change_pct": 1.314,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CUMMINSIND",
-          "change_pct": 1.948
+          "change_pct": 1.835
         },
         {
           "symbol": "KIRLOSENG",
-          "change_pct": 0.873
+          "change_pct": 0.849
         },
         {
           "symbol": "BHEL",
-          "change_pct": 0.308
+          "change_pct": 0.498
         },
         {
           "symbol": "TEGA",
-          "change_pct": -0.099
+          "change_pct": 0.037
         },
         {
           "symbol": "GVT&D",
-          "change_pct": -0.245
+          "change_pct": -0.255
         },
         {
           "symbol": "TDPOWERSYS",
-          "change_pct": -0.284
+          "change_pct": -0.347
         },
         {
           "symbol": "DIACABS",
-          "change_pct": -1.313
+          "change_pct": -1.492
         },
         {
           "symbol": "GREAVESCOT",
-          "change_pct": -1.711
+          "change_pct": -1.733
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": 1.313
+      "peer_relative_pct": 1.39
     },
     "GANDHAR": {
       "symbol": "GANDHAR",
       "sector": "Energy",
       "industry": "Oil & Gas Refining & Marketing",
-      "price": 255.38999938964844,
-      "change_pct": -2.142,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 255.52999877929688,
+      "change_pct": -2.088,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MRPL",
-          "change_pct": 0.386
+          "change_pct": 0.381
         },
         {
           "symbol": "CHENNPETRO",
-          "change_pct": -0.162
+          "change_pct": -0.246
         },
         {
           "symbol": "RELIANCE",
-          "change_pct": -0.271
+          "change_pct": -0.257
         },
         {
           "symbol": "AEGISLOG",
-          "change_pct": -0.814
+          "change_pct": -0.797
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": -1.927
+      "peer_relative_pct": -1.858
     },
     "SGFIN": {
       "symbol": "SGFIN",
       "sector": "Financial Services",
       "industry": "Capital Markets",
-      "price": 827.9000244140625,
-      "change_pct": -0.803,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 829.75,
+      "change_pct": -0.581,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "GROWW",
-          "change_pct": 0.174
+          "change_pct": 0.259
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -0.977
+      "peer_relative_pct": -0.84
     },
     "TIMEX": {
       "symbol": "TIMEX",
       "sector": "Consumer Cyclical",
       "industry": "Luxury Goods",
-      "price": 726.5,
-      "change_pct": -1.897,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 726.75,
+      "change_pct": -1.863,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNGSREVA",
-          "change_pct": 0.161
+          "change_pct": 0.127
         },
         {
           "symbol": "TITAN",
-          "change_pct": -0.385
+          "change_pct": -0.243
         },
         {
           "symbol": "KALYANKJIL",
-          "change_pct": -0.485
+          "change_pct": -0.662
         },
         {
           "symbol": "SHANTIGOLD",
-          "change_pct": -2.373
+          "change_pct": -2.945
         },
         {
           "symbol": "SKYGOLD",
-          "change_pct": -2.811
+          "change_pct": -4.415
         },
         {
           "symbol": "BLUESTONE",
-          "change_pct": -4.971
+          "change_pct": -4.815
         },
         {
           "symbol": "SHRINGARMS",
-          "change_pct": -7.831
+          "change_pct": -7.701
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": 0.774
+      "peer_relative_pct": 1.088
     },
     "REDINGTON": {
       "symbol": "REDINGTON",
@@ -4083,187 +4083,187 @@
       "industry": "Information Technology Services",
       "price": 337.45001220703125,
       "change_pct": -0.457,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "COFORGE",
-          "change_pct": -1.005
+          "change_pct": -0.996
         },
         {
           "symbol": "PERSISTENT",
-          "change_pct": -1.238
+          "change_pct": -1.34
         },
         {
           "symbol": "TCS",
-          "change_pct": -1.862
+          "change_pct": -1.824
         },
         {
           "symbol": "LTTS",
-          "change_pct": -2.144
-        },
-        {
-          "symbol": "HCLTECH",
-          "change_pct": -2.484
+          "change_pct": -2.161
         },
         {
           "symbol": "WIPRO",
-          "change_pct": -2.533
+          "change_pct": -2.263
+        },
+        {
+          "symbol": "HCLTECH",
+          "change_pct": -2.29
         },
         {
           "symbol": "TECHM",
-          "change_pct": -2.857
+          "change_pct": -2.697
         },
         {
           "symbol": "INFY",
-          "change_pct": -3.075
+          "change_pct": -3.102
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": 1.693
+      "peer_relative_pct": 1.627
     },
     "KISSHT": {
       "symbol": "KISSHT",
       "sector": "Financial Services",
       "industry": "Credit Services",
-      "price": 338.1000061035156,
-      "change_pct": 0.61,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 338.0,
+      "change_pct": 0.58,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PFC",
-          "change_pct": 0.912
+          "change_pct": 1.035
         },
         {
           "symbol": "BAJFINANCE",
-          "change_pct": 0.155
+          "change_pct": 0.489
         },
         {
           "symbol": "CHOLAFIN",
-          "change_pct": -0.512
+          "change_pct": -0.469
         },
         {
           "symbol": "SHRIRAMFIN",
-          "change_pct": -0.83
+          "change_pct": -0.696
         },
         {
           "symbol": "IIFL",
-          "change_pct": -2.56
+          "change_pct": -2.884
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 1.177
+      "peer_relative_pct": 1.085
     },
     "GALLANTT": {
       "symbol": "GALLANTT",
       "sector": "Basic Materials",
       "industry": "Steel",
-      "price": 530.9000244140625,
-      "change_pct": -0.431,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 531.5999755859375,
+      "change_pct": -0.3,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "TATASTEEL",
-          "change_pct": 0.832
+          "change_pct": 1.045
         },
         {
           "symbol": "SAIL",
-          "change_pct": 0.72
+          "change_pct": 0.854
         },
         {
           "symbol": "JSWSTEEL",
-          "change_pct": 0.593
-        },
-        {
-          "symbol": "WELCORP",
-          "change_pct": 0.364
-        },
-        {
-          "symbol": "MANINDS",
-          "change_pct": 0.287
-        },
-        {
-          "symbol": "JINDALSAW",
-          "change_pct": 0.016
+          "change_pct": 0.676
         },
         {
           "symbol": "SAMBHV",
-          "change_pct": -0.222
+          "change_pct": 0.519
+        },
+        {
+          "symbol": "WELCORP",
+          "change_pct": 0.405
+        },
+        {
+          "symbol": "MANINDS",
+          "change_pct": 0.202
+        },
+        {
+          "symbol": "JINDALSAW",
+          "change_pct": 0.095
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": -0.801
+      "peer_relative_pct": -0.842
     },
     "ICIL": {
       "symbol": "ICIL",
       "sector": "Consumer Cyclical",
       "industry": "Textile Manufacturing",
-      "price": 575.2000122070312,
-      "change_pct": 0.035,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 574.6500244140625,
+      "change_pct": -0.061,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "WELSPUNLIV",
-          "change_pct": 0.358
+          "change_pct": 0.389
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -0.323
+      "peer_relative_pct": -0.45
     },
     "BLUESTONE": {
       "symbol": "BLUESTONE",
       "sector": "Consumer Cyclical",
       "industry": "Luxury Goods",
-      "price": 666.1500244140625,
-      "change_pct": -4.971,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 667.25,
+      "change_pct": -4.815,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PNGSREVA",
-          "change_pct": 0.161
+          "change_pct": 0.127
         },
         {
           "symbol": "TITAN",
-          "change_pct": -0.385
+          "change_pct": -0.243
         },
         {
           "symbol": "KALYANKJIL",
-          "change_pct": -0.485
+          "change_pct": -0.662
         },
         {
           "symbol": "TIMEX",
-          "change_pct": -1.897
+          "change_pct": -1.863
         },
         {
           "symbol": "SHANTIGOLD",
-          "change_pct": -2.373
+          "change_pct": -2.945
         },
         {
           "symbol": "SKYGOLD",
-          "change_pct": -2.811
+          "change_pct": -4.415
         },
         {
           "symbol": "SHRINGARMS",
-          "change_pct": -7.831
+          "change_pct": -7.701
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": -2.739
+      "peer_relative_pct": -2.286
     },
     "FINCABLES": {
       "symbol": "FINCABLES",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 1195.4000244140625,
-      "change_pct": 1.134,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1196.800048828125,
+      "change_pct": 1.252,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
@@ -4271,267 +4271,267 @@
         },
         {
           "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         },
         {
           "symbol": "MVELECTRO",
-          "change_pct": -0.737
+          "change_pct": -0.807
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": 1.034
+      "peer_relative_pct": 1.184
     },
     "QPOWER": {
       "symbol": "QPOWER",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 1582.0,
-      "change_pct": 2.322,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1583.9000244140625,
+      "change_pct": 2.445,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
           "change_pct": 1.476
         },
         {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "symbol": "FINCABLES",
+          "change_pct": 1.252
         },
         {
-          "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "RRKABEL",
-          "change_pct": -0.33
+          "change_pct": -0.11
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         },
         {
           "symbol": "MVELECTRO",
-          "change_pct": -0.737
+          "change_pct": -0.807
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": 2.33
+      "peer_relative_pct": 2.485
     },
     "SOLARA": {
       "symbol": "SOLARA",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 643.7000122070312,
-      "change_pct": -1.045,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 644.7000122070312,
+      "change_pct": -0.892,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
+          "change_pct": -0.034
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
+          "change_pct": -0.371
         },
         {
           "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.95
         },
         {
           "symbol": "DRREDDY",
-          "change_pct": -1.137
+          "change_pct": -1.08
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -0.592
+      "peer_relative_pct": -0.513
     },
     "AARTIDRUGS": {
       "symbol": "AARTIDRUGS",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 496.25,
-      "change_pct": -1.538,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 496.3500061035156,
+      "change_pct": -1.518,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
+          "change_pct": -0.034
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
-        },
-        {
-          "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.371
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
+        },
+        {
+          "symbol": "SHILPAMED",
+          "change_pct": -0.95
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -1.134
+      "peer_relative_pct": -1.201
     },
     "RAIN": {
       "symbol": "RAIN",
       "sector": "Basic Materials",
       "industry": "Specialty Chemicals",
-      "price": 162.3000030517578,
-      "change_pct": 0.216,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 162.50999450683594,
+      "change_pct": 0.346,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "NEOGEN",
-          "change_pct": 2.698
+          "change_pct": 2.644
         },
         {
           "symbol": "SOLARINDS",
-          "change_pct": 0.74
+          "change_pct": 0.95
         },
         {
           "symbol": "ASIANPAINT",
-          "change_pct": 0.023
+          "change_pct": 0.066
         },
         {
           "symbol": "JAICORPLTD",
-          "change_pct": -0.182
+          "change_pct": -0.148
         },
         {
           "symbol": "ACUTAAS",
-          "change_pct": -0.861
+          "change_pct": -0.548
         },
         {
           "symbol": "GRWRHITECH",
-          "change_pct": -0.912
+          "change_pct": -0.618
         }
       ],
       "peer_count": 6,
-      "peer_relative_pct": -0.035
+      "peer_relative_pct": -0.045
     },
     "INTELLECT": {
       "symbol": "INTELLECT",
       "sector": "Technology",
       "industry": "Software - Application",
-      "price": 530.25,
-      "change_pct": -0.702,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 530.0499877929688,
+      "change_pct": -0.74,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
-          "symbol": "BBOX",
-          "change_pct": 2.304
+          "symbol": "63MOONS",
+          "change_pct": 2.137
         },
         {
-          "symbol": "63MOONS",
-          "change_pct": 1.385
+          "symbol": "BBOX",
+          "change_pct": 1.873
         },
         {
           "symbol": "EMUDHRA",
-          "change_pct": -1.085
+          "change_pct": -1.099
         },
         {
           "symbol": "TANLA",
-          "change_pct": -4.052
+          "change_pct": -4.066
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": -0.34
+      "peer_relative_pct": -0.451
     },
     "NEOGEN": {
       "symbol": "NEOGEN",
       "sector": "Basic Materials",
       "industry": "Specialty Chemicals",
-      "price": 2855.199951171875,
-      "change_pct": 2.698,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2853.699951171875,
+      "change_pct": 2.644,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SOLARINDS",
-          "change_pct": 0.74
+          "change_pct": 0.95
         },
         {
           "symbol": "RAIN",
-          "change_pct": 0.216
+          "change_pct": 0.346
         },
         {
           "symbol": "ASIANPAINT",
-          "change_pct": 0.023
+          "change_pct": 0.066
         },
         {
           "symbol": "JAICORPLTD",
-          "change_pct": -0.182
+          "change_pct": -0.148
         },
         {
           "symbol": "ACUTAAS",
-          "change_pct": -0.861
+          "change_pct": -0.548
         },
         {
           "symbol": "GRWRHITECH",
-          "change_pct": -0.912
+          "change_pct": -0.618
         }
       ],
       "peer_count": 6,
-      "peer_relative_pct": 2.861
+      "peer_relative_pct": 2.636
     },
     "WESTLIFE": {
       "symbol": "WESTLIFE",
       "sector": "Consumer Cyclical",
       "industry": "Restaurants",
-      "price": 707.3499755859375,
-      "change_pct": 4.793,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 705.0,
+      "change_pct": 4.444,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "RBA",
@@ -4539,31 +4539,31 @@
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 3.368
+      "peer_relative_pct": 3.019
     },
     "ROLEXRINGS": {
       "symbol": "ROLEXRINGS",
       "sector": "Industrials",
       "industry": "Metal Fabrication",
-      "price": 201.13999938964844,
-      "change_pct": -1.638,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 201.0500030517578,
+      "change_pct": -1.682,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "AEROFLEX",
-          "change_pct": -0.638
+          "change_pct": -0.659
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -1.0
+      "peer_relative_pct": -1.023
     },
     "TECHNOCRAF": {
       "symbol": "TECHNOCRAF",
       "sector": "Industrials",
       "industry": "Infrastructure Operations",
-      "price": 485.04998779296875,
-      "change_pct": 2.331,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 486.20001220703125,
+      "change_pct": 2.574,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -4572,93 +4572,93 @@
       "symbol": "BAJAJCON",
       "sector": "Consumer Defensive",
       "industry": "Household & Personal Products",
-      "price": 404.0,
-      "change_pct": 1.0,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 403.6499938964844,
+      "change_pct": 0.912,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "HINDUNILVR",
-          "change_pct": 1.545
+          "change_pct": 1.696
         },
         {
           "symbol": "CUPID",
-          "change_pct": 0.549
+          "change_pct": 0.316
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -0.047
+      "peer_relative_pct": -0.094
     },
     "DHOOTTRANS": {
       "symbol": "DHOOTTRANS",
       "sector": "Consumer Cyclical",
       "industry": "Auto Parts",
-      "price": 1589.5999755859375,
-      "change_pct": 2.489,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1593.300048828125,
+      "change_pct": 2.727,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MOTHERSON",
-          "change_pct": 3.231
+          "change_pct": 3.447
         },
         {
           "symbol": "SONACOMS",
-          "change_pct": 0.894
+          "change_pct": 1.108
         },
         {
           "symbol": "LUMAXTECH",
-          "change_pct": 0.694
+          "change_pct": 0.897
         },
         {
           "symbol": "KROSS",
-          "change_pct": -0.28
+          "change_pct": -0.384
         },
         {
           "symbol": "SSWL",
-          "change_pct": -1.777
+          "change_pct": -1.044
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": 1.937
+      "peer_relative_pct": 1.922
     },
     "BOROLTD": {
       "symbol": "BOROLTD",
       "sector": "Consumer Cyclical",
       "industry": "Furnishings, Fixtures & Appliances",
-      "price": 332.45001220703125,
-      "change_pct": 2.371,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 332.54998779296875,
+      "change_pct": 2.402,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "ORIENTELEC",
-          "change_pct": 0.559
+          "change_pct": 0.468
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 1.812
+      "peer_relative_pct": 1.934
     },
     "MSTCLTD": {
       "symbol": "MSTCLTD",
       "sector": "Industrials",
       "industry": "Conglomerates",
-      "price": 682.5,
-      "change_pct": -1.529,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 683.9000244140625,
+      "change_pct": -1.327,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "GODREJIND",
-          "change_pct": 0.014
+          "change_pct": 0.549
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -1.543
+      "peer_relative_pct": -1.876
     },
     "TEMPSENS": {
       "symbol": "TEMPSENS",
       "sector": "Technology",
       "industry": "Scientific & Technical Instruments",
-      "price": 509.8999938964844,
-      "change_pct": -0.391,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 510.1000061035156,
+      "change_pct": -0.352,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -4667,29 +4667,29 @@
       "symbol": "SENORES",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - General",
-      "price": 1086.4000244140625,
-      "change_pct": -0.567,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1087.800048828125,
+      "change_pct": -0.439,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SMSPHARMA",
-          "change_pct": -0.294
+          "change_pct": -0.126
         },
         {
           "symbol": "SYMBIOTEC",
-          "change_pct": -1.079
+          "change_pct": -1.129
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 0.12
+      "peer_relative_pct": 0.188
     },
     "PFOCUS": {
       "symbol": "PFOCUS",
       "sector": "Communication Services",
       "industry": "Entertainment",
-      "price": 279.6000061035156,
-      "change_pct": 2.832,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 280.0,
+      "change_pct": 2.979,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -4698,193 +4698,193 @@
       "symbol": "SHILPAMED",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 919.6500244140625,
-      "change_pct": -0.68,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 917.1500244140625,
+      "change_pct": -0.95,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "ALIVUS",
-          "change_pct": 0.263
+          "change_pct": 0.312
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
+          "change_pct": -0.034
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
+          "change_pct": -0.371
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
         },
         {
           "symbol": "DRREDDY",
-          "change_pct": -1.137
+          "change_pct": -1.08
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": -0.191
+      "peer_relative_pct": -0.577
     },
     "LUMAXTECH": {
       "symbol": "LUMAXTECH",
       "sector": "Consumer Cyclical",
       "industry": "Auto Parts",
-      "price": 2335.10009765625,
-      "change_pct": 0.694,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 2339.800048828125,
+      "change_pct": 0.897,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MOTHERSON",
-          "change_pct": 3.231
+          "change_pct": 3.447
         },
         {
           "symbol": "DHOOTTRANS",
-          "change_pct": 2.489
+          "change_pct": 2.727
         },
         {
           "symbol": "SONACOMS",
-          "change_pct": 0.894
+          "change_pct": 1.108
         },
         {
           "symbol": "KROSS",
-          "change_pct": -0.28
+          "change_pct": -0.384
         },
         {
           "symbol": "SSWL",
-          "change_pct": -1.777
+          "change_pct": -1.044
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": -0.217
+      "peer_relative_pct": -0.274
     },
     "TANLA": {
       "symbol": "TANLA",
       "sector": "Technology",
       "industry": "Software - Application",
-      "price": 668.9500122070312,
-      "change_pct": -4.052,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 668.8499755859375,
+      "change_pct": -4.066,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
-          "symbol": "BBOX",
-          "change_pct": 2.304
+          "symbol": "63MOONS",
+          "change_pct": 2.137
         },
         {
-          "symbol": "63MOONS",
-          "change_pct": 1.385
+          "symbol": "BBOX",
+          "change_pct": 1.873
         },
         {
           "symbol": "INTELLECT",
-          "change_pct": -0.702
+          "change_pct": -0.74
         },
         {
           "symbol": "EMUDHRA",
-          "change_pct": -1.085
+          "change_pct": -1.099
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": -4.527
+      "peer_relative_pct": -4.609
     },
     "STYLEBAAZA": {
       "symbol": "STYLEBAAZA",
       "sector": "Consumer Cyclical",
       "industry": "Apparel Retail",
-      "price": 543.0,
-      "change_pct": 0.565,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 543.2000122070312,
+      "change_pct": 0.602,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "TRENT",
-          "change_pct": 0.27
+          "change_pct": 0.382
         },
         {
           "symbol": "V2RETAIL",
-          "change_pct": -0.709
+          "change_pct": -0.816
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 0.784
+      "peer_relative_pct": 0.819
     },
     "SAMBHV": {
       "symbol": "SAMBHV",
       "sector": "Basic Materials",
       "industry": "Steel",
-      "price": 161.44000244140625,
-      "change_pct": -0.222,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 162.63999938964844,
+      "change_pct": 0.519,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "TATASTEEL",
-          "change_pct": 0.832
+          "change_pct": 1.045
         },
         {
           "symbol": "SAIL",
-          "change_pct": 0.72
+          "change_pct": 0.854
         },
         {
           "symbol": "JSWSTEEL",
-          "change_pct": 0.593
+          "change_pct": 0.676
         },
         {
           "symbol": "WELCORP",
-          "change_pct": 0.364
+          "change_pct": 0.405
         },
         {
           "symbol": "MANINDS",
-          "change_pct": 0.287
+          "change_pct": 0.202
         },
         {
           "symbol": "JINDALSAW",
-          "change_pct": 0.016
+          "change_pct": 0.095
         },
         {
           "symbol": "GALLANTT",
-          "change_pct": -0.431
+          "change_pct": -0.3
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": -0.562
+      "peer_relative_pct": 0.094
     },
     "THELEELA": {
       "symbol": "THELEELA",
       "sector": "Consumer Cyclical",
       "industry": "Lodging",
-      "price": 687.0,
-      "change_pct": 0.365,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 688.2999877929688,
+      "change_pct": 0.555,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "INDHOTEL",
-          "change_pct": 1.914
+          "change_pct": 2.068
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -1.549
+      "peer_relative_pct": -1.513
     },
     "INDIACEM": {
       "symbol": "INDIACEM",
       "sector": "Basic Materials",
       "industry": "Building Materials",
-      "price": 320.5,
-      "change_pct": 2.906,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 321.45001220703125,
+      "change_pct": 3.211,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "ULTRACEMCO",
-          "change_pct": 0.483
+          "change_pct": 0.515
         },
         {
           "symbol": "EUROPRATIK",
@@ -4892,63 +4892,63 @@
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 2.819
+      "peer_relative_pct": 3.107
     },
     "63MOONS": {
       "symbol": "63MOONS",
       "sector": "Technology",
       "industry": "Software - Application",
-      "price": 937.0499877929688,
-      "change_pct": 1.385,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 944.0,
+      "change_pct": 2.137,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "BBOX",
-          "change_pct": 2.304
+          "change_pct": 1.873
         },
         {
           "symbol": "INTELLECT",
-          "change_pct": -0.702
+          "change_pct": -0.74
         },
         {
           "symbol": "EMUDHRA",
-          "change_pct": -1.085
+          "change_pct": -1.099
         },
         {
           "symbol": "TANLA",
-          "change_pct": -4.052
+          "change_pct": -4.066
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": 2.269
+      "peer_relative_pct": 3.145
     },
     "SMSPHARMA": {
       "symbol": "SMSPHARMA",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - General",
-      "price": 475.3999938964844,
-      "change_pct": -0.294,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 476.20001220703125,
+      "change_pct": -0.126,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SENORES",
-          "change_pct": -0.567
+          "change_pct": -0.439
         },
         {
           "symbol": "SYMBIOTEC",
-          "change_pct": -1.079
+          "change_pct": -1.129
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 0.529
+      "peer_relative_pct": 0.658
     },
     "SHOPERSTOP": {
       "symbol": "SHOPERSTOP",
       "sector": "Consumer Cyclical",
       "industry": "Department Stores",
-      "price": 372.79998779296875,
-      "change_pct": -0.121,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 373.54998779296875,
+      "change_pct": 0.08,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -4957,9 +4957,9 @@
       "symbol": "SGMART",
       "sector": "Industrials",
       "industry": "Industrial Distribution",
-      "price": 1010.5499877929688,
-      "change_pct": -1.434,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1010.5999755859375,
+      "change_pct": -1.429,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -4968,9 +4968,9 @@
       "symbol": "ENTERO",
       "sector": "Healthcare",
       "industry": "Medical Distribution",
-      "price": 1950.0999755859375,
-      "change_pct": -1.181,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1950.300048828125,
+      "change_pct": -1.171,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -4979,29 +4979,29 @@
       "symbol": "SYMBIOTEC",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - General",
-      "price": 1603.800048828125,
-      "change_pct": -1.079,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1603.0,
+      "change_pct": -1.129,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SMSPHARMA",
-          "change_pct": -0.294
+          "change_pct": -0.126
         },
         {
           "symbol": "SENORES",
-          "change_pct": -0.567
+          "change_pct": -0.439
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -0.648
+      "peer_relative_pct": -0.847
     },
     "ZEEL": {
       "symbol": "ZEEL",
       "sector": "Communication Services",
       "industry": "Broadcasting",
-      "price": 71.08000183105469,
-      "change_pct": 0.566,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 71.08999633789062,
+      "change_pct": 0.58,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -5010,29 +5010,29 @@
       "symbol": "BBOX",
       "sector": "Technology",
       "industry": "Software - Application",
-      "price": 901.2999877929688,
-      "change_pct": 2.304,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 897.5,
+      "change_pct": 1.873,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "63MOONS",
-          "change_pct": 1.385
+          "change_pct": 2.137
         },
         {
           "symbol": "INTELLECT",
-          "change_pct": -0.702
+          "change_pct": -0.74
         },
         {
           "symbol": "EMUDHRA",
-          "change_pct": -1.085
+          "change_pct": -1.099
         },
         {
           "symbol": "TANLA",
-          "change_pct": -4.052
+          "change_pct": -4.066
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": 3.417
+      "peer_relative_pct": 2.815
     },
     "MBEL": {
       "symbol": "MBEL",
@@ -5040,27 +5040,27 @@
       "industry": "Engineering & Construction",
       "price": 292.79998779296875,
       "change_pct": -2.008,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CEMPRO",
-          "change_pct": 0.679
+          "change_pct": 0.495
         },
         {
           "symbol": "LT",
-          "change_pct": -0.315
+          "change_pct": -0.296
         },
         {
           "symbol": "ENGINERSIN",
-          "change_pct": -0.492
+          "change_pct": -0.393
         },
         {
           "symbol": "LOTUSDEV",
-          "change_pct": -3.112
+          "change_pct": -3.05
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": -1.198
+      "peer_relative_pct": -1.197
     },
     "RBA": {
       "symbol": "RBA",
@@ -5068,187 +5068,187 @@
       "industry": "Restaurants",
       "price": 92.55000305175781,
       "change_pct": 1.425,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "WESTLIFE",
-          "change_pct": 4.793
+          "change_pct": 4.444
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -3.368
+      "peer_relative_pct": -3.019
     },
     "KIRLOSENG": {
       "symbol": "KIRLOSENG",
       "sector": "Industrials",
       "industry": "Specialty Industrial Machinery",
-      "price": 1675.9000244140625,
-      "change_pct": 0.873,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1675.5,
+      "change_pct": 0.849,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CUMMINSIND",
-          "change_pct": 1.948
+          "change_pct": 1.835
         },
         {
           "symbol": "RAYMOND",
-          "change_pct": 1.248
+          "change_pct": 1.314
         },
         {
           "symbol": "BHEL",
-          "change_pct": 0.308
+          "change_pct": 0.498
         },
         {
           "symbol": "TEGA",
-          "change_pct": -0.099
+          "change_pct": 0.037
         },
         {
           "symbol": "GVT&D",
-          "change_pct": -0.245
+          "change_pct": -0.255
         },
         {
           "symbol": "TDPOWERSYS",
-          "change_pct": -0.284
+          "change_pct": -0.347
         },
         {
           "symbol": "DIACABS",
-          "change_pct": -1.313
+          "change_pct": -1.492
         },
         {
           "symbol": "GREAVESCOT",
-          "change_pct": -1.711
+          "change_pct": -1.733
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": 0.891
+      "peer_relative_pct": 0.867
     },
     "IIFL": {
       "symbol": "IIFL",
       "sector": "Financial Services",
       "industry": "Credit Services",
-      "price": 647.0,
-      "change_pct": -2.56,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 644.8499755859375,
+      "change_pct": -2.884,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PFC",
-          "change_pct": 0.912
+          "change_pct": 1.035
         },
         {
           "symbol": "KISSHT",
-          "change_pct": 0.61
+          "change_pct": 0.58
         },
         {
           "symbol": "BAJFINANCE",
-          "change_pct": 0.155
+          "change_pct": 0.489
         },
         {
           "symbol": "CHOLAFIN",
-          "change_pct": -0.512
+          "change_pct": -0.469
         },
         {
           "symbol": "SHRIRAMFIN",
-          "change_pct": -0.83
+          "change_pct": -0.696
         }
       ],
       "peer_count": 5,
-      "peer_relative_pct": -2.627
+      "peer_relative_pct": -3.072
     },
     "ALIVUS": {
       "symbol": "ALIVUS",
       "sector": "Healthcare",
       "industry": "Drug Manufacturers - Specialty & Generic",
-      "price": 1446.800048828125,
-      "change_pct": 0.263,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1447.5,
+      "change_pct": 0.312,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SUNPHARMA",
-          "change_pct": 0.876
+          "change_pct": 0.962
         },
         {
           "symbol": "SHUKRAPHAR",
-          "change_pct": 0.438
+          "change_pct": 0.365
         },
         {
           "symbol": "IOLCP",
-          "change_pct": -0.132
+          "change_pct": 0.158
         },
         {
           "symbol": "PPLPHARMA",
-          "change_pct": -0.147
+          "change_pct": -0.034
         },
         {
           "symbol": "DIVISLAB",
-          "change_pct": -0.471
-        },
-        {
-          "symbol": "SHILPAMED",
-          "change_pct": -0.68
+          "change_pct": -0.371
         },
         {
           "symbol": "SOLARA",
-          "change_pct": -1.045
+          "change_pct": -0.892
+        },
+        {
+          "symbol": "SHILPAMED",
+          "change_pct": -0.95
         },
         {
           "symbol": "DRREDDY",
-          "change_pct": -1.137
+          "change_pct": -1.08
         }
       ],
       "peer_count": 10,
-      "peer_relative_pct": 0.847
+      "peer_relative_pct": 0.812
     },
     "RRKABEL": {
       "symbol": "RRKABEL",
       "sector": "Industrials",
       "industry": "Electrical Equipment & Parts",
-      "price": 1813.0,
-      "change_pct": -0.33,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1817.0,
+      "change_pct": -0.11,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "QPOWER",
-          "change_pct": 2.322
+          "change_pct": 2.445
         },
         {
           "symbol": "APARINDS",
-          "change_pct": 1.847
+          "change_pct": 1.854
         },
         {
           "symbol": "MARINE",
           "change_pct": 1.476
         },
         {
-          "symbol": "POLYCAB",
-          "change_pct": 1.341
+          "symbol": "FINCABLES",
+          "change_pct": 1.252
         },
         {
-          "symbol": "FINCABLES",
-          "change_pct": 1.134
+          "symbol": "POLYCAB",
+          "change_pct": 0.992
         },
         {
           "symbol": "CGPOWER",
-          "change_pct": 0.664
+          "change_pct": 0.765
         },
         {
           "symbol": "POWERINDIA",
-          "change_pct": -0.632
+          "change_pct": -0.551
         },
         {
           "symbol": "MVELECTRO",
-          "change_pct": -0.737
+          "change_pct": -0.807
         }
       ],
       "peer_count": 11,
-      "peer_relative_pct": -0.563
+      "peer_relative_pct": -0.302
     },
     "EMMVEE": {
       "symbol": "EMMVEE",
       "sector": "Technology",
       "industry": "Solar",
-      "price": 268.739990234375,
-      "change_pct": -0.603,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 268.8900146484375,
+      "change_pct": -0.547,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -5257,9 +5257,9 @@
       "symbol": "JINDALPOLY",
       "sector": "Consumer Cyclical",
       "industry": "Packaging & Containers",
-      "price": 663.5,
-      "change_pct": 1.298,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 664.5999755859375,
+      "change_pct": 1.466,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -5268,53 +5268,53 @@
       "symbol": "TEGA",
       "sector": "Industrials",
       "industry": "Specialty Industrial Machinery",
-      "price": 1612.0,
-      "change_pct": -0.099,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1614.199951171875,
+      "change_pct": 0.037,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CUMMINSIND",
-          "change_pct": 1.948
+          "change_pct": 1.835
         },
         {
           "symbol": "RAYMOND",
-          "change_pct": 1.248
+          "change_pct": 1.314
         },
         {
           "symbol": "KIRLOSENG",
-          "change_pct": 0.873
+          "change_pct": 0.849
         },
         {
           "symbol": "BHEL",
-          "change_pct": 0.308
+          "change_pct": 0.498
         },
         {
           "symbol": "GVT&D",
-          "change_pct": -0.245
+          "change_pct": -0.255
         },
         {
           "symbol": "TDPOWERSYS",
-          "change_pct": -0.284
+          "change_pct": -0.347
         },
         {
           "symbol": "DIACABS",
-          "change_pct": -1.313
+          "change_pct": -1.492
         },
         {
           "symbol": "GREAVESCOT",
-          "change_pct": -1.711
+          "change_pct": -1.733
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -0.202
+      "peer_relative_pct": -0.047
     },
     "KPIGREEN": {
       "symbol": "KPIGREEN",
       "sector": "Utilities",
       "industry": "Utilities - Renewable",
-      "price": 328.8500061035156,
-      "change_pct": 0.998,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 328.70001220703125,
+      "change_pct": 0.952,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -5323,77 +5323,77 @@
       "symbol": "GODREJIND",
       "sector": "Industrials",
       "industry": "Conglomerates",
-      "price": 1101.6500244140625,
-      "change_pct": 0.014,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1107.550048828125,
+      "change_pct": 0.549,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "MSTCLTD",
-          "change_pct": -1.529
+          "change_pct": -1.327
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 1.543
+      "peer_relative_pct": 1.876
     },
     "GREAVESCOT": {
       "symbol": "GREAVESCOT",
       "sector": "Industrials",
       "industry": "Specialty Industrial Machinery",
-      "price": 260.8599853515625,
-      "change_pct": -1.711,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 260.79998779296875,
+      "change_pct": -1.733,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CUMMINSIND",
-          "change_pct": 1.948
+          "change_pct": 1.835
         },
         {
           "symbol": "RAYMOND",
-          "change_pct": 1.248
+          "change_pct": 1.314
         },
         {
           "symbol": "KIRLOSENG",
-          "change_pct": 0.873
+          "change_pct": 0.849
         },
         {
           "symbol": "BHEL",
-          "change_pct": 0.308
+          "change_pct": 0.498
         },
         {
           "symbol": "TEGA",
-          "change_pct": -0.099
+          "change_pct": 0.037
         },
         {
           "symbol": "GVT&D",
-          "change_pct": -0.245
+          "change_pct": -0.255
         },
         {
           "symbol": "TDPOWERSYS",
-          "change_pct": -0.284
+          "change_pct": -0.347
         },
         {
           "symbol": "DIACABS",
-          "change_pct": -1.313
+          "change_pct": -1.492
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -2.016
+      "peer_relative_pct": -2.038
     },
     "ENGINERSIN": {
       "symbol": "ENGINERSIN",
       "sector": "Industrials",
       "industry": "Engineering & Construction",
-      "price": 303.5,
-      "change_pct": -0.492,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 303.79998779296875,
+      "change_pct": -0.393,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CEMPRO",
-          "change_pct": 0.679
+          "change_pct": 0.495
         },
         {
           "symbol": "LT",
-          "change_pct": -0.315
+          "change_pct": -0.296
         },
         {
           "symbol": "MBEL",
@@ -5401,131 +5401,131 @@
         },
         {
           "symbol": "LOTUSDEV",
-          "change_pct": -3.112
+          "change_pct": -3.05
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": 0.697
+      "peer_relative_pct": 0.822
     },
     "JAICORPLTD": {
       "symbol": "JAICORPLTD",
       "sector": "Basic Materials",
       "industry": "Specialty Chemicals",
-      "price": 87.62000274658203,
-      "change_pct": -0.182,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 87.6500015258789,
+      "change_pct": -0.148,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "NEOGEN",
-          "change_pct": 2.698
+          "change_pct": 2.644
         },
         {
           "symbol": "SOLARINDS",
-          "change_pct": 0.74
+          "change_pct": 0.95
         },
         {
           "symbol": "RAIN",
-          "change_pct": 0.216
+          "change_pct": 0.346
         },
         {
           "symbol": "ASIANPAINT",
-          "change_pct": 0.023
+          "change_pct": 0.066
         },
         {
           "symbol": "ACUTAAS",
-          "change_pct": -0.861
+          "change_pct": -0.548
         },
         {
           "symbol": "GRWRHITECH",
-          "change_pct": -0.912
+          "change_pct": -0.618
         }
       ],
       "peer_count": 6,
-      "peer_relative_pct": -0.499
+      "peer_relative_pct": -0.621
     },
     "FRACTAL": {
       "symbol": "FRACTAL",
       "sector": "Technology",
       "industry": "Software - Infrastructure",
-      "price": 815.2000122070312,
-      "change_pct": 2.676,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 815.7999877929688,
+      "change_pct": 2.752,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PAYTM",
-          "change_pct": -6.37
+          "change_pct": -6.54
         },
         {
           "symbol": "MOBIKWIK",
-          "change_pct": -7.066
+          "change_pct": -7.22
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 9.394
+      "peer_relative_pct": 9.632
     },
     "DIACABS": {
       "symbol": "DIACABS",
       "sector": "Industrials",
       "industry": "Specialty Industrial Machinery",
-      "price": 357.1499938964844,
-      "change_pct": -1.313,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 356.5,
+      "change_pct": -1.492,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CUMMINSIND",
-          "change_pct": 1.948
+          "change_pct": 1.835
         },
         {
           "symbol": "RAYMOND",
-          "change_pct": 1.248
+          "change_pct": 1.314
         },
         {
           "symbol": "KIRLOSENG",
-          "change_pct": 0.873
+          "change_pct": 0.849
         },
         {
           "symbol": "BHEL",
-          "change_pct": 0.308
+          "change_pct": 0.498
         },
         {
           "symbol": "TEGA",
-          "change_pct": -0.099
+          "change_pct": 0.037
         },
         {
           "symbol": "GVT&D",
-          "change_pct": -0.245
+          "change_pct": -0.255
         },
         {
           "symbol": "TDPOWERSYS",
-          "change_pct": -0.284
+          "change_pct": -0.347
         },
         {
           "symbol": "GREAVESCOT",
-          "change_pct": -1.711
+          "change_pct": -1.733
         }
       ],
       "peer_count": 8,
-      "peer_relative_pct": -1.568
+      "peer_relative_pct": -1.767
     },
     "LOTUSDEV": {
       "symbol": "LOTUSDEV",
       "sector": "Industrials",
       "industry": "Engineering & Construction",
-      "price": 233.5,
-      "change_pct": -3.112,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 233.64999389648438,
+      "change_pct": -3.05,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "CEMPRO",
-          "change_pct": 0.679
+          "change_pct": 0.495
         },
         {
           "symbol": "LT",
-          "change_pct": -0.315
+          "change_pct": -0.296
         },
         {
           "symbol": "ENGINERSIN",
-          "change_pct": -0.492
+          "change_pct": -0.393
         },
         {
           "symbol": "MBEL",
@@ -5533,23 +5533,23 @@
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": -2.578
+      "peer_relative_pct": -2.499
     },
     "CEMPRO": {
       "symbol": "CEMPRO",
       "sector": "Industrials",
       "industry": "Engineering & Construction",
-      "price": 1363.5999755859375,
-      "change_pct": 0.679,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1361.0999755859375,
+      "change_pct": 0.495,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "LT",
-          "change_pct": -0.315
+          "change_pct": -0.296
         },
         {
           "symbol": "ENGINERSIN",
-          "change_pct": -0.492
+          "change_pct": -0.393
         },
         {
           "symbol": "MBEL",
@@ -5557,75 +5557,75 @@
         },
         {
           "symbol": "LOTUSDEV",
-          "change_pct": -3.112
+          "change_pct": -3.05
         }
       ],
       "peer_count": 4,
-      "peer_relative_pct": 2.161
+      "peer_relative_pct": 1.932
     },
     "GRWRHITECH": {
       "symbol": "GRWRHITECH",
       "sector": "Basic Materials",
       "industry": "Specialty Chemicals",
-      "price": 7770.5,
-      "change_pct": -0.912,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 7793.5,
+      "change_pct": -0.618,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "NEOGEN",
-          "change_pct": 2.698
+          "change_pct": 2.644
         },
         {
           "symbol": "SOLARINDS",
-          "change_pct": 0.74
+          "change_pct": 0.95
         },
         {
           "symbol": "RAIN",
-          "change_pct": 0.216
+          "change_pct": 0.346
         },
         {
           "symbol": "ASIANPAINT",
-          "change_pct": 0.023
+          "change_pct": 0.066
         },
         {
           "symbol": "JAICORPLTD",
-          "change_pct": -0.182
+          "change_pct": -0.148
         },
         {
           "symbol": "ACUTAAS",
-          "change_pct": -0.861
+          "change_pct": -0.548
         }
       ],
       "peer_count": 6,
-      "peer_relative_pct": -1.351
+      "peer_relative_pct": -1.17
     },
     "KRN": {
       "symbol": "KRN",
       "sector": "Technology",
       "industry": "Electronic Components",
-      "price": 954.2999877929688,
-      "change_pct": 0.284,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 953.5,
+      "change_pct": 0.2,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "SYRMA",
-          "change_pct": 2.888
+          "change_pct": 3.051
         },
         {
           "symbol": "AVALON",
-          "change_pct": 1.361
+          "change_pct": 1.373
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -1.84
+      "peer_relative_pct": -2.012
     },
     "IXIGO": {
       "symbol": "IXIGO",
       "sector": "Consumer Cyclical",
       "industry": "Travel Services",
-      "price": 175.86000061035156,
-      "change_pct": -0.801,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 175.89999389648438,
+      "change_pct": -0.778,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -5634,9 +5634,9 @@
       "symbol": "ABREL",
       "sector": "Real Estate",
       "industry": "Real Estate Services",
-      "price": 1223.5999755859375,
-      "change_pct": -1.561,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1224.300048828125,
+      "change_pct": -1.504,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -5645,69 +5645,69 @@
       "symbol": "JINDALSAW",
       "sector": "Basic Materials",
       "industry": "Steel",
-      "price": 252.27000427246094,
-      "change_pct": 0.016,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 252.47000122070312,
+      "change_pct": 0.095,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "TATASTEEL",
-          "change_pct": 0.832
+          "change_pct": 1.045
         },
         {
           "symbol": "SAIL",
-          "change_pct": 0.72
+          "change_pct": 0.854
         },
         {
           "symbol": "JSWSTEEL",
-          "change_pct": 0.593
-        },
-        {
-          "symbol": "WELCORP",
-          "change_pct": 0.364
-        },
-        {
-          "symbol": "MANINDS",
-          "change_pct": 0.287
+          "change_pct": 0.676
         },
         {
           "symbol": "SAMBHV",
-          "change_pct": -0.222
+          "change_pct": 0.519
+        },
+        {
+          "symbol": "WELCORP",
+          "change_pct": 0.405
+        },
+        {
+          "symbol": "MANINDS",
+          "change_pct": 0.202
         },
         {
           "symbol": "GALLANTT",
-          "change_pct": -0.431
+          "change_pct": -0.3
         }
       ],
       "peer_count": 7,
-      "peer_relative_pct": -0.29
+      "peer_relative_pct": -0.391
     },
     "MOBIKWIK": {
       "symbol": "MOBIKWIK",
       "sector": "Technology",
       "industry": "Software - Infrastructure",
-      "price": 210.6999969482422,
-      "change_pct": -7.066,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 210.35000610351562,
+      "change_pct": -7.22,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "FRACTAL",
-          "change_pct": 2.676
+          "change_pct": 2.752
         },
         {
           "symbol": "PAYTM",
-          "change_pct": -6.37
+          "change_pct": -6.54
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": -5.219
+      "peer_relative_pct": -5.326
     },
     "JWL": {
       "symbol": "JWL",
       "sector": "Industrials",
       "industry": "Railroads",
-      "price": 194.5,
-      "change_pct": -2.359,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 194.8800048828125,
+      "change_pct": -2.169,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [],
       "peer_count": 0,
       "peer_relative_pct": null
@@ -5716,133 +5716,133 @@
       "symbol": "ORIENTELEC",
       "sector": "Consumer Cyclical",
       "industry": "Furnishings, Fixtures & Appliances",
-      "price": 199.6199951171875,
-      "change_pct": 0.559,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 199.44000244140625,
+      "change_pct": 0.468,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "BOROLTD",
-          "change_pct": 2.371
+          "change_pct": 2.402
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": -1.812
+      "peer_relative_pct": -1.934
     },
     "AVANTEL": {
       "symbol": "AVANTEL",
       "sector": "Technology",
       "industry": "Communication Equipment",
-      "price": 157.0399932861328,
-      "change_pct": 0.083,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 157.1999969482422,
+      "change_pct": 0.185,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "PARACABLES",
-          "change_pct": -1.454
+          "change_pct": -1.471
         }
       ],
       "peer_count": 1,
-      "peer_relative_pct": 1.537
+      "peer_relative_pct": 1.656
     },
     "SYRMA": {
       "symbol": "SYRMA",
       "sector": "Technology",
       "industry": "Electronic Components",
-      "price": 1517.5999755859375,
-      "change_pct": 2.888,
-      "asof": "2026-11-19T10:25:00+05:30",
+      "price": 1520.0,
+      "change_pct": 3.051,
+      "asof": "2026-11-19T10:30:00+05:30",
       "peers": [
         {
           "symbol": "AVALON",
-          "change_pct": 1.361
+          "change_pct": 1.373
         },
         {
           "symbol": "KRN",
-          "change_pct": 0.284
+          "change_pct": 0.2
         }
       ],
       "peer_count": 2,
-      "peer_relative_pct": 2.066
+      "peer_relative_pct": 2.264
     }
   },
   "sectors": [
     {
       "sector": "Basic Materials",
       "count": 21,
-      "change_pct": 0.235,
-      "advancing_pct": 61.9,
-      "change_since_previous_pp": -0.154
+      "change_pct": 0.373,
+      "advancing_pct": 66.7,
+      "change_since_previous_pp": 0.138
     },
     {
       "sector": "Communication Services",
       "count": 3,
-      "change_pct": 1.375,
+      "change_pct": 1.451,
       "advancing_pct": 100.0,
-      "change_since_previous_pp": -0.298
+      "change_since_previous_pp": 0.076
     },
     {
       "sector": "Consumer Cyclical",
       "count": 40,
-      "change_pct": 0.399,
+      "change_pct": 0.455,
       "advancing_pct": 62.5,
-      "change_since_previous_pp": -0.16
+      "change_since_previous_pp": 0.056
     },
     {
       "sector": "Consumer Defensive",
       "count": 5,
-      "change_pct": 1.639,
+      "change_pct": 1.561,
       "advancing_pct": 100.0,
-      "change_since_previous_pp": 0.026
+      "change_since_previous_pp": -0.078
     },
     {
       "sector": "Energy",
       "count": 9,
-      "change_pct": -0.584,
+      "change_pct": -0.563,
       "advancing_pct": 33.3,
-      "change_since_previous_pp": -0.066
+      "change_since_previous_pp": 0.021
     },
     {
       "sector": "Financial Services",
       "count": 24,
-      "change_pct": 0.317,
-      "advancing_pct": 66.7,
-      "change_since_previous_pp": -0.181
+      "change_pct": 0.357,
+      "advancing_pct": 70.8,
+      "change_since_previous_pp": 0.04
     },
     {
       "sector": "Healthcare",
       "count": 20,
-      "change_pct": -0.511,
-      "advancing_pct": 20.0,
-      "change_since_previous_pp": -0.135
+      "change_pct": -0.426,
+      "advancing_pct": 25.0,
+      "change_since_previous_pp": 0.085
     },
     {
       "sector": "Industrials",
       "count": 44,
-      "change_pct": 0.175,
-      "advancing_pct": 52.3,
-      "change_since_previous_pp": -0.216
+      "change_pct": 0.188,
+      "advancing_pct": 54.5,
+      "change_since_previous_pp": 0.013
     },
     {
       "sector": "Real Estate",
       "count": 3,
-      "change_pct": -0.656,
+      "change_pct": -0.547,
       "advancing_pct": 33.3,
-      "change_since_previous_pp": -0.149
+      "change_since_previous_pp": 0.109
     },
     {
       "sector": "Technology",
       "count": 27,
-      "change_pct": -0.875,
+      "change_pct": -0.871,
       "advancing_pct": 33.3,
-      "change_since_previous_pp": -0.145
+      "change_since_previous_pp": 0.004
     },
     {
       "sector": "Utilities",
       "count": 4,
-      "change_pct": 0.498,
+      "change_pct": 0.557,
       "advancing_pct": 100.0,
-      "change_since_previous_pp": -0.126
+      "change_since_previous_pp": 0.059
     }
   ],
-  "previous_snapshot_at": "2026-11-19T10:25:12.000507+05:30"
+  "previous_snapshot_at": "2026-11-19T10:30:12.000521+05:30"
 }
