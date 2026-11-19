@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-19T14:55:12.000609+05:30",
+  "asof": "2026-11-19T15:00:12.000627+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -7,40 +7,40 @@
     "EARLIER_SETUP": {
       "paper_alerts": {
         "recorded": 4,
-        "closed": 3,
-        "pending": 1,
+        "closed": 4,
+        "pending": 0,
         "no_data": 0,
         "sent": 4,
         "wins": 2,
-        "losses": 1,
-        "win_rate_pct": 66.66666666666667,
-        "net_r": 1.2745020302802936,
-        "mean_net_r": 0.42483401009343114,
-        "profit_factor": 2.0621652491949978,
-        "max_closed_trade_drawdown_r": 1.1999093655589121,
+        "losses": 2,
+        "win_rate_pct": 50.0,
+        "net_r": 0.07459479465877172,
+        "mean_net_r": 0.018648698664692875,
+        "profit_factor": 1.0310835397263607,
+        "max_closed_trade_drawdown_r": 2.399816601180434,
         "ambiguous": 0,
         "quality": {
           "GOOD": 2,
-          "BAD": 1
+          "BAD": 2
         }
       },
       "sent_alerts": {
         "recorded": 4,
-        "closed": 3,
-        "pending": 1,
+        "closed": 4,
+        "pending": 0,
         "no_data": 0,
         "sent": 4,
         "wins": 2,
-        "losses": 1,
-        "win_rate_pct": 66.66666666666667,
-        "net_r": 1.2745020302802936,
-        "mean_net_r": 0.42483401009343114,
-        "profit_factor": 2.0621652491949978,
-        "max_closed_trade_drawdown_r": 1.1999093655589121,
+        "losses": 2,
+        "win_rate_pct": 50.0,
+        "net_r": 0.07459479465877172,
+        "mean_net_r": 0.018648698664692875,
+        "profit_factor": 1.0310835397263607,
+        "max_closed_trade_drawdown_r": 2.399816601180434,
         "ambiguous": 0,
         "quality": {
           "GOOD": 2,
-          "BAD": 1
+          "BAD": 2
         }
       },
       "approved_background": {
@@ -85,33 +85,33 @@
       "by_regime": {
         "UNKNOWN|SELL": {
           "recorded": 4,
-          "closed": 3,
-          "pending": 1,
+          "closed": 4,
+          "pending": 0,
           "no_data": 0,
           "sent": 4,
           "wins": 2,
-          "losses": 1,
-          "win_rate_pct": 66.66666666666667,
-          "net_r": 1.2745020302802936,
-          "mean_net_r": 0.42483401009343114,
-          "profit_factor": 2.0621652491949978,
-          "max_closed_trade_drawdown_r": 1.1999093655589121,
+          "losses": 2,
+          "win_rate_pct": 50.0,
+          "net_r": 0.07459479465877172,
+          "mean_net_r": 0.018648698664692875,
+          "profit_factor": 1.0310835397263607,
+          "max_closed_trade_drawdown_r": 2.399816601180434,
           "ambiguous": 0,
           "quality": {
             "GOOD": 2,
-            "BAD": 1
+            "BAD": 2
           }
         }
       },
       "observed_associations": {
         "intraday:UNKNOWN": {
-          "n": 3,
-          "mean_net_r": 0.42483401009343114,
+          "n": 4,
+          "mean_net_r": 0.018648698664692875,
           "note": "association, not causation"
         },
         "side:SELL": {
-          "n": 3,
-          "mean_net_r": 0.42483401009343114,
+          "n": 4,
+          "mean_net_r": 0.018648698664692875,
           "note": "association, not causation"
         },
         "background:UP": {
@@ -120,23 +120,23 @@
           "note": "association, not causation"
         },
         "VIX:NORMAL": {
-          "n": 3,
-          "mean_net_r": 0.42483401009343114,
+          "n": 4,
+          "mean_net_r": 0.018648698664692875,
           "note": "association, not causation"
         },
         "RVOL>=2.2": {
-          "n": 3,
-          "mean_net_r": 0.42483401009343114,
+          "n": 4,
+          "mean_net_r": 0.018648698664692875,
           "note": "association, not causation"
         },
         "peer_aligned": {
-          "n": 3,
-          "mean_net_r": 0.42483401009343114,
+          "n": 4,
+          "mean_net_r": 0.018648698664692875,
           "note": "association, not causation"
         },
         "background:DOWN": {
-          "n": 1,
-          "mean_net_r": -1.1999093655589121,
+          "n": 2,
+          "mean_net_r": -1.199908300590217,
           "note": "association, not causation"
         }
       },
@@ -163,9 +163,9 @@
           "symbol": "INFY",
           "side": "SELL",
           "day": "2026-11-19",
-          "outcome": null,
-          "net_r": null,
-          "quality": null,
+          "outcome": "STOP_LOSS",
+          "net_r": -1.199907235621522,
+          "quality": "BAD",
           "regime": "UNKNOWN"
         },
         {
@@ -218,22 +218,22 @@
       },
       "approved_background": {
         "recorded": 197,
-        "closed": 132,
-        "pending": 65,
+        "closed": 134,
+        "pending": 63,
         "no_data": 0,
         "sent": 0,
         "wins": 48,
-        "losses": 84,
-        "win_rate_pct": 36.36363636363637,
-        "net_r": -41.31587747318906,
-        "mean_net_r": -0.31299907176658387,
-        "profit_factor": 0.5377291864228931,
-        "max_closed_trade_drawdown_r": 47.70947149532252,
+        "losses": 86,
+        "win_rate_pct": 35.82089552238806,
+        "net_r": -43.71596793001443,
+        "mean_net_r": -0.3262385666418989,
+        "profit_factor": 0.5236667017234983,
+        "max_closed_trade_drawdown_r": 50.1095619521479,
         "ambiguous": 0,
         "quality": {
           "GOOD": 18,
           "GREAT": 30,
-          "BAD": 84
+          "BAD": 86
         }
       },
       "rejected_study": {
@@ -602,22 +602,22 @@
       },
       "rejected_study": {
         "recorded": 160,
-        "closed": 108,
-        "pending": 52,
+        "closed": 110,
+        "pending": 50,
         "no_data": 0,
         "sent": 0,
-        "wins": 41,
-        "losses": 67,
-        "win_rate_pct": 37.96296296296296,
-        "net_r": -31.201262446202655,
-        "mean_net_r": -0.2889005782055801,
-        "profit_factor": 0.5608059204134346,
+        "wins": 42,
+        "losses": 68,
+        "win_rate_pct": 38.18181818181818,
+        "net_r": -31.101235321428696,
+        "mean_net_r": -0.2827385029220791,
+        "profit_factor": 0.5694857412721308,
         "max_closed_trade_drawdown_r": 41.89473730773719,
         "ambiguous": 0,
         "quality": {
           "GREAT": 23,
-          "BAD": 67,
-          "GOOD": 18
+          "BAD": 68,
+          "GOOD": 19
         }
       },
       "by_regime": {
