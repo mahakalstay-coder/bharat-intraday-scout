@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-19T09:20:11.954213+05:30",
+  "asof": "2026-11-19T09:25:12.000511+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -612,29 +612,29 @@
   },
   "policies": [],
   "latest_cycle": {
-    "at": "2026-11-18T14:40:12.000608+05:30",
-    "candidates": 199,
+    "at": "2026-11-19T09:25:12.000511+05:30",
+    "candidates": 0,
     "errors": 0,
     "headers": {
       "EARLIER_SETUP": {
-        "approved": 17,
-        "rejected": 182,
+        "approved": 0,
+        "rejected": 0,
         "errors": 0,
         "queued": 0,
         "quota": 2,
-        "background": 2
+        "background": 0
       },
       "LEARNING_SETUP": {
-        "approved": 2,
-        "rejected": 197,
+        "approved": 0,
+        "rejected": 0,
         "errors": 0,
         "queued": 0,
         "quota": 2,
-        "background": 1
+        "background": 0
       },
       "90PCT_SETUP_V9": {
         "approved": 0,
-        "rejected": 199,
+        "rejected": 0,
         "errors": 0,
         "queued": 0,
         "quota": 2,
@@ -642,7 +642,7 @@
       },
       "BEST_SETTING_CALL": {
         "approved": 0,
-        "rejected": 199,
+        "rejected": 0,
         "errors": 0,
         "queued": 0,
         "quota": 2,
