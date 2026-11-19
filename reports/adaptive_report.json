@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-18T16:35:04.910811+05:30",
+  "generated_at": "2026-11-19T16:32:23.572076+05:30",
   "activation": {
     "status": "RESEARCH_ONLY",
-    "sessions": 1,
-    "completed_costed_trades": 2,
-    "all_costed_research_trades": 63,
-    "holdout_trades": 0,
-    "holdout_mean_net_r": null,
-    "holdout_win_rate_pct": null,
-    "holdout_lcb_net_r": null,
-    "kronos_evaluated": 93,
-    "kronos_direction_accuracy_pct": 51.6,
-    "kronos_mae_pct": 0.52,
+    "sessions": 2,
+    "completed_costed_trades": 7,
+    "all_costed_research_trades": 74,
+    "holdout_trades": 5,
+    "holdout_mean_net_r": -0.7662,
+    "holdout_win_rate_pct": 20.0,
+    "holdout_lcb_net_r": -1.053,
+    "kronos_evaluated": 108,
+    "kronos_direction_accuracy_pct": 50.9,
+    "kronos_mae_pct": 0.548,
     "minimum_rvol_for_validated_alert": 1.8,
     "rvol_tuning": null,
     "checks": {
@@ -26,590 +26,578 @@
     "notes": "Paper evidence, not certainty. 10-14 trading days is a review milestone, not a guaranteed activation."
   },
   "validated_features": {
-    "at": "2026-11-18T16:35:03.962565+05:30",
-    "sessions": 6,
-    "samples": 63,
+    "at": "2026-11-19T16:32:22.862824+05:30",
+    "sessions": 7,
+    "samples": 74,
     "positive": {},
     "negative": {},
     "method": "screen on train (singles + pairs), confirm on later holdout with multiple-testing-adjusted t threshold",
     "status": "collecting"
   },
   "mirror_study": {
-    "pairs": 53,
+    "pairs": 64,
     "status": "evaluated",
     "min_pairs": 30,
-    "original_mean_net_r": -0.162,
-    "mirror_mean_net_r": -0.267,
-    "direction_edge_r": 0.105,
-    "original_beats_mirror_pct": 45.3,
-    "both_stopped_pct": 24.5,
-    "edge_lower_bound_r": -0.194,
-    "reading": "Inconclusive: original leads, but not by enough to rule out luck.",
+    "original_mean_net_r": -0.272,
+    "mirror_mean_net_r": -0.094,
+    "direction_edge_r": -0.177,
+    "original_beats_mirror_pct": 42.2,
+    "both_stopped_pct": 20.3,
+    "edge_lower_bound_r": -0.432,
+    "reading": "No directional edge: the opposite trade does as well or better. The setup finds movement, not direction.",
     "approved_only": {
-      "pairs": 2,
+      "pairs": 4,
       "status": "collecting",
       "min_pairs": 15,
-      "original_mean_net_r": 0.499,
-      "mirror_mean_net_r": -1.25,
-      "direction_edge_r": 1.748,
+      "original_mean_net_r": -0.13,
+      "mirror_mean_net_r": -0.25,
+      "direction_edge_r": 0.12,
       "original_beats_mirror_pct": 50.0,
-      "both_stopped_pct": 50.0,
-      "edge_lower_bound_r": 0.0
+      "both_stopped_pct": 25.0,
+      "edge_lower_bound_r": -1.0
     }
   },
   "graded_watch_today": [
     {
-      "symbol": "PARAGMILK",
-      "day": "2026-11-18",
+      "symbol": "GROWW",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.34
+    },
+    {
+      "symbol": "THELEELA",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.72
+    },
+    {
+      "symbol": "AGIIL",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.06
+    },
+    {
+      "symbol": "LENSKART",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.26
+    },
+    {
+      "symbol": "CEMPRO",
+      "day": "2026-11-19",
+      "outcome": "REACHED_2PCT",
+      "max_favorable_pct": 3.09
+    },
+    {
+      "symbol": "SAMBHV",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.76
+    },
+    {
+      "symbol": "KPIGREEN",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.5
+    },
+    {
+      "symbol": "63MOONS",
+      "day": "2026-11-19",
+      "outcome": "REACHED_2PCT",
+      "max_favorable_pct": 3.34
+    },
+    {
+      "symbol": "TECHNOCRAF",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.99
+    },
+    {
+      "symbol": "ACUTAAS",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.6
+    },
+    {
+      "symbol": "ENTERO",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.66
+    },
+    {
+      "symbol": "TIMEX",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.5
+    },
+    {
+      "symbol": "SHUKRAPHAR",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.52
+    },
+    {
+      "symbol": "SYMBIOTEC",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.45
+    },
+    {
+      "symbol": "INTELLECT",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.15
+    },
+    {
+      "symbol": "RBA",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.07
+    },
+    {
+      "symbol": "MEESHO",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.77
+    },
+    {
+      "symbol": "ENGINERSIN",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.38
+    },
+    {
+      "symbol": "LUMAXTECH",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.7
+    },
+    {
+      "symbol": "ORIENTELEC",
+      "day": "2026-11-19",
+      "outcome": "REACHED_2PCT",
+      "max_favorable_pct": 2.16
+    },
+    {
+      "symbol": "EMUDHRA",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
       "max_favorable_pct": 0.28
     },
     {
-      "symbol": "MOBIKWIK",
-      "day": "2026-11-18",
+      "symbol": "GODREJIND",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.8
+      "max_favorable_pct": 0.39
     },
     {
       "symbol": "MBEL",
-      "day": "2026-11-18",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.67
+      "max_favorable_pct": 1.27
     },
     {
-      "symbol": "PPLPHARMA",
-      "day": "2026-11-18",
+      "symbol": "TMCV",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.74
+      "max_favorable_pct": 1.57
     },
     {
-      "symbol": "KPIGREEN",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.68
-    },
-    {
-      "symbol": "CEMPRO",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 2.12
-    },
-    {
-      "symbol": "GANDHAR",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.34
-    },
-    {
-      "symbol": "VRLLOG",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.98
-    },
-    {
-      "symbol": "CHENNPETRO",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.18
-    },
-    {
-      "symbol": "THELEELA",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.12
-    },
-    {
-      "symbol": "EMUDHRA",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.97
-    },
-    {
-      "symbol": "MEESHO",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.78
-    },
-    {
-      "symbol": "SHUKRAPHAR",
-      "day": "2026-11-18",
+      "symbol": "LOTUSDEV",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
       "max_favorable_pct": 0.48
     },
     {
-      "symbol": "GROWW",
-      "day": "2026-11-18",
+      "symbol": "GRWRHITECH",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.16
+      "max_favorable_pct": 0.67
     },
     {
-      "symbol": "MRPL",
-      "day": "2026-11-18",
+      "symbol": "BBOX",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.96
-    },
-    {
-      "symbol": "CYIENTDLM",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 3.36
-    },
-    {
-      "symbol": "63MOONS",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 3.43
-    },
-    {
-      "symbol": "HBLENGINE",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.17
-    },
-    {
-      "symbol": "ENGINERSIN",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.43
-    },
-    {
-      "symbol": "ROLEXRINGS",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.51
-    },
-    {
-      "symbol": "ANTELOPUS",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.34
-    },
-    {
-      "symbol": "MARINE",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.28
-    },
-    {
-      "symbol": "PFOCUS",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 3.24
-    },
-    {
-      "symbol": "TIMEX",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.59
-    },
-    {
-      "symbol": "CARTRADE",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.14
-    },
-    {
-      "symbol": "ORIENTELEC",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.79
-    },
-    {
-      "symbol": "RBA",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.33
-    },
-    {
-      "symbol": "SYMBIOTEC",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 2.23
-    },
-    {
-      "symbol": "ACUTAAS",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.56
-    },
-    {
-      "symbol": "LTTS",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.51
-    },
-    {
-      "symbol": "WELCORP",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.08
-    },
-    {
-      "symbol": "WESTLIFE",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.3
-    },
-    {
-      "symbol": "JINDALSAW",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.83
-    },
-    {
-      "symbol": "TEMPSENS",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": -0.95
-    },
-    {
-      "symbol": "LOTUSDEV",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 5.73
-    },
-    {
-      "symbol": "GODREJIND",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.44
-    },
-    {
-      "symbol": "ABREL",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.82
-    },
-    {
-      "symbol": "KIRLOSENG",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 2.02
-    },
-    {
-      "symbol": "SAMBHV",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.59
-    },
-    {
-      "symbol": "HEGAM",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.13
-    },
-    {
-      "symbol": "AEGISLOG",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.51
-    },
-    {
-      "symbol": "TECHNOCRAF",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.8
-    },
-    {
-      "symbol": "ENTERO",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.56
-    },
-    {
-      "symbol": "INTELLECT",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.42
+      "max_favorable_pct": 0.86
     },
     {
       "symbol": "RAIN",
-      "day": "2026-11-18",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.49
+      "max_favorable_pct": 0.41
     },
     {
-      "symbol": "TMCV",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 3.21
-    },
-    {
-      "symbol": "SSWL",
-      "day": "2026-11-18",
+      "symbol": "PARAGMILK",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": -0.09
+      "max_favorable_pct": 1.11
     },
     {
-      "symbol": "KISSHT",
-      "day": "2026-11-18",
+      "symbol": "FRACTAL",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.18
+      "max_favorable_pct": 0.12
     },
     {
-      "symbol": "NEOGEN",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 1.25
-    },
-    {
-      "symbol": "KMEW",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.75
-    },
-    {
-      "symbol": "AEROFLEX",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 2.05
-    },
-    {
-      "symbol": "ALIVUS",
-      "day": "2026-11-18",
-      "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.29
-    },
-    {
-      "symbol": "RAYMOND",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 2.45
-    },
-    {
-      "symbol": "ICIL",
-      "day": "2026-11-18",
-      "outcome": "REACHED_2PCT",
-      "max_favorable_pct": 6.24
-    },
-    {
-      "symbol": "WELSPUNLIV",
-      "day": "2026-11-18",
+      "symbol": "NETWEB",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
       "max_favorable_pct": 0.2
     },
     {
-      "symbol": "NETWEB",
-      "day": "2026-11-18",
+      "symbol": "AARTIDRUGS",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.09
+      "max_favorable_pct": 1.03
     },
     {
-      "symbol": "AGIIL",
-      "day": "2026-11-18",
+      "symbol": "HBLENGINE",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.35
+      "max_favorable_pct": 0.39
     },
     {
-      "symbol": "IIFL",
-      "day": "2026-11-18",
+      "symbol": "GANDHAR",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
       "max_favorable_pct": 0.45
     },
     {
-      "symbol": "DHOOTTRANS",
-      "day": "2026-11-18",
+      "symbol": "AEROFLEX",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.11
+      "max_favorable_pct": 1.05
     },
     {
-      "symbol": "EMMVEE",
-      "day": "2026-11-18",
+      "symbol": "PFOCUS",
+      "day": "2026-11-19",
+      "outcome": "REACHED_2PCT",
+      "max_favorable_pct": 3.89
+    },
+    {
+      "symbol": "CHENNPETRO",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.28
+      "max_favorable_pct": 0.73
+    },
+    {
+      "symbol": "ANTELOPUS",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.66
+    },
+    {
+      "symbol": "CARTRADE",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.93
+    },
+    {
+      "symbol": "NEOGEN",
+      "day": "2026-11-19",
+      "outcome": "REACHED_2PCT",
+      "max_favorable_pct": 2.47
+    },
+    {
+      "symbol": "MRPL",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.44
+    },
+    {
+      "symbol": "ZEEL",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.35
+    },
+    {
+      "symbol": "APARINDS",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.44
+    },
+    {
+      "symbol": "MARINE",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.49
+    },
+    {
+      "symbol": "TDPOWERSYS",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.72
+    },
+    {
+      "symbol": "REDINGTON",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.74
+    },
+    {
+      "symbol": "JINDALSAW",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.01
+    },
+    {
+      "symbol": "ICIL",
+      "day": "2026-11-19",
+      "outcome": "REACHED_2PCT",
+      "max_favorable_pct": 2.66
+    },
+    {
+      "symbol": "CYIENTDLM",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.43
+    },
+    {
+      "symbol": "IIFL",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.15
+    },
+    {
+      "symbol": "TEGA",
+      "day": "2026-11-19",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.01
     },
     {
       "symbol": "GALLANTT",
-      "day": "2026-11-18",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.89
+      "max_favorable_pct": 0.04
     },
     {
-      "symbol": "HUBTOWN",
-      "day": "2026-11-18",
+      "symbol": "ALIVUS",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.22
+      "max_favorable_pct": 0.12
     },
     {
-      "symbol": "LUMAXTECH",
-      "day": "2026-11-18",
+      "symbol": "AVANTEL",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.68
+      "max_favorable_pct": 1.62
     },
     {
-      "symbol": "DIACABS",
-      "day": "2026-11-18",
+      "symbol": "KISSHT",
+      "day": "2026-11-19",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.33
+      "max_favorable_pct": 0.44
     }
   ],
   "graded_kronos_today": [
     {
-      "symbol": "SENORES",
-      "actual_pct": -0.984,
-      "predicted_pct": -0.042,
+      "symbol": "63MOONS",
+      "actual_pct": 1.602,
+      "predicted_pct": 0.133,
       "correct": true
     },
     {
-      "symbol": "MCX",
-      "actual_pct": -0.585,
-      "predicted_pct": -0.11,
+      "symbol": "INDHOTEL",
+      "actual_pct": 0.598,
+      "predicted_pct": -0.105,
+      "correct": false
+    },
+    {
+      "symbol": "SGMART",
+      "actual_pct": -1.679,
+      "predicted_pct": 0.811,
+      "correct": false
+    },
+    {
+      "symbol": "LTTS",
+      "actual_pct": -0.087,
+      "predicted_pct": -0.054,
       "correct": true
     },
     {
-      "symbol": "BSE",
-      "actual_pct": -0.749,
-      "predicted_pct": -0.226,
+      "symbol": "CANBK",
+      "actual_pct": 0.541,
+      "predicted_pct": -0.138,
+      "correct": false
+    },
+    {
+      "symbol": "M&M",
+      "actual_pct": 1.736,
+      "predicted_pct": -0.004,
+      "correct": false
+    },
+    {
+      "symbol": "PNB",
+      "actual_pct": 0.882,
+      "predicted_pct": -0.04,
+      "correct": false
+    },
+    {
+      "symbol": "DIXON",
+      "actual_pct": 0.257,
+      "predicted_pct": 0.32,
+      "correct": true
+    },
+    {
+      "symbol": "TRENT",
+      "actual_pct": -0.168,
+      "predicted_pct": 0.041,
+      "correct": false
+    },
+    {
+      "symbol": "ASIANPAINT",
+      "actual_pct": -0.279,
+      "predicted_pct": -0.152,
+      "correct": true
+    },
+    {
+      "symbol": "UNIONBANK",
+      "actual_pct": 0.508,
+      "predicted_pct": 0.026,
+      "correct": true
+    },
+    {
+      "symbol": "SONACOMS",
+      "actual_pct": -0.757,
+      "predicted_pct": 0.012,
+      "correct": false
+    },
+    {
+      "symbol": "NETWEB",
+      "actual_pct": -0.432,
+      "predicted_pct": -0.172,
       "correct": true
     },
     {
       "symbol": "THELEELA",
-      "actual_pct": 0.191,
-      "predicted_pct": -0.108,
+      "actual_pct": 0.484,
+      "predicted_pct": -0.082,
       "correct": false
     },
     {
       "symbol": "COFORGE",
-      "actual_pct": -0.443,
-      "predicted_pct": 0.017,
-      "correct": false
-    },
-    {
-      "symbol": "CGPOWER",
-      "actual_pct": 0.133,
-      "predicted_pct": -0.155,
-      "correct": false
-    },
-    {
-      "symbol": "ASHOKLEY",
-      "actual_pct": 0.242,
-      "predicted_pct": -0.427,
-      "correct": false
-    },
-    {
-      "symbol": "SKYGOLD",
-      "actual_pct": -0.461,
-      "predicted_pct": 0.237,
-      "correct": false
+      "actual_pct": 0.392,
+      "predicted_pct": 0.136,
+      "correct": true
     }
   ],
   "paired_forecasts": {
-    "n": 31,
-    "kronos_direction_pct": 61.3,
-    "kronos_mae_pct": 0.512,
-    "drift_direction_pct": 48.4,
-    "drift_mae_pct": 0.953
+    "n": 44,
+    "kronos_direction_pct": 56.8,
+    "kronos_mae_pct": 0.556,
+    "drift_direction_pct": 50.0,
+    "drift_mae_pct": 1.007
   },
   "target_hit_study": {
     "status": "collecting",
     "paper_only": true,
-    "samples": 63,
-    "sessions": 6,
+    "samples": 74,
+    "sessions": 7,
     "hits": 13
   },
   "watch_totals": {
-    "PENDING": 432,
-    "DID_NOT_REACH_2PCT": 304,
-    "REACHED_2PCT": 51
+    "PENDING": 495,
+    "DID_NOT_REACH_2PCT": 353,
+    "REACHED_2PCT": 57
   },
   "indicator_scorecard": {
     "F1_BB_KELTNER_SQUEEZE_5M": {
-      "n": 54,
-      "mean_net_r": -0.056,
-      "win_pct": 38.9,
+      "n": 65,
+      "mean_net_r": -0.182,
+      "win_pct": 35.4,
       "note": "conditional association only; not proof that the formula caused returns"
     },
     "F2_ORB_15M_RVOL_IGNITION": {
-      "n": 40,
-      "mean_net_r": -0.397,
-      "win_pct": 27.5,
+      "n": 46,
+      "mean_net_r": -0.46,
+      "win_pct": 26.1,
       "note": "conditional association only; not proof that the formula caused returns"
     },
     "F3_VWAP_MFI_ACCUMULATION": {
-      "n": 64,
-      "mean_net_r": -0.101,
-      "win_pct": 37.5,
+      "n": 75,
+      "mean_net_r": -0.204,
+      "win_pct": 34.7,
       "note": "conditional association only; not proof that the formula caused returns"
     },
     "F4_ADX_SUPERTREND_ACCEL": {
-      "n": 36,
-      "mean_net_r": -0.211,
-      "win_pct": 33.3,
+      "n": 42,
+      "mean_net_r": -0.318,
+      "win_pct": 28.6,
       "note": "conditional association only; not proof that the formula caused returns"
     },
     "F5_MTF_5M_15M_MACD_RSI": {
-      "n": 38,
-      "mean_net_r": 0.01,
-      "win_pct": 42.1,
+      "n": 49,
+      "mean_net_r": -0.172,
+      "win_pct": 36.7,
       "note": "conditional association only; not proof that the formula caused returns"
     },
     "F6_MULTIDAY_CHANNEL_BREAK": {
-      "n": 54,
-      "mean_net_r": -0.038,
-      "win_pct": 40.7,
+      "n": 65,
+      "mean_net_r": -0.167,
+      "win_pct": 36.9,
       "note": "conditional association only; not proof that the formula caused returns"
     }
   },
   "feature_scorecard": {
     "ADX < 25": {
-      "n": 31,
-      "mean_net_r": 0.129,
-      "win_pct": 48.4
+      "n": 38,
+      "mean_net_r": -0.042,
+      "win_pct": 44.7
     },
     "ADX >= 25": {
-      "n": 50,
-      "mean_net_r": -0.246,
-      "win_pct": 32.0
+      "n": 54,
+      "mean_net_r": -0.288,
+      "win_pct": 29.6
     },
     "Afternoon setup": {
-      "n": 44,
-      "mean_net_r": -0.24,
-      "win_pct": 36.4
+      "n": 50,
+      "mean_net_r": -0.297,
+      "win_pct": 36.0
     },
     "Ahead of industry peers": {
-      "n": 32,
-      "mean_net_r": -0.118,
-      "win_pct": 34.4
+      "n": 39,
+      "mean_net_r": -0.259,
+      "win_pct": 30.8
     },
     "BB compression <= 1.6%": {
-      "n": 30,
-      "mean_net_r": 0.006,
-      "win_pct": 43.3
+      "n": 35,
+      "mean_net_r": -0.083,
+      "win_pct": 42.9
     },
     "BB width > 1.6%": {
-      "n": 51,
-      "mean_net_r": -0.167,
-      "win_pct": 35.3
+      "n": 57,
+      "mean_net_r": -0.25,
+      "win_pct": 31.6
     },
     "Behind industry peers": {
-      "n": 7,
-      "mean_net_r": 0.69,
-      "win_pct": 57.1
+      "n": 8,
+      "mean_net_r": 0.666,
+      "win_pct": 62.5
     },
     "Body: normal": {
-      "n": 9,
-      "mean_net_r": 0.086,
-      "win_pct": 44.4
+      "n": 10,
+      "mean_net_r": 0.127,
+      "win_pct": 50.0
     },
     "Body: strong (>= 1.5x avg)": {
-      "n": 23,
-      "mean_net_r": -0.455,
-      "win_pct": 21.7
+      "n": 32,
+      "mean_net_r": -0.603,
+      "win_pct": 18.8
     },
     "Body: weak (< 0.6x avg)": {
-      "n": 1,
-      "mean_net_r": -1.25,
+      "n": 2,
+      "mean_net_r": -0.859,
       "win_pct": 0.0
     },
     "Candle: bearish_engulfing": {
-      "n": 1,
-      "mean_net_r": -1.25,
+      "n": 2,
+      "mean_net_r": -0.757,
       "win_pct": 0.0
     },
     "Candle: bullish_engulfing": {
-      "n": 6,
-      "mean_net_r": -0.022,
-      "win_pct": 50.0
+      "n": 7,
+      "mean_net_r": -0.197,
+      "win_pct": 42.9
     },
     "Candle: evening_star": {
       "n": 2,
@@ -627,59 +615,59 @@
       "win_pct": 50.0
     },
     "Candle: marubozu_bull": {
-      "n": 3,
+      "n": 4,
       "mean_net_r": -1.25,
       "win_pct": 0.0
     },
     "Candle: morning_star": {
-      "n": 1,
+      "n": 2,
       "mean_net_r": -1.25,
       "win_pct": 0.0
     },
     "Candles confirms side": {
-      "n": 10,
-      "mean_net_r": 0.238,
-      "win_pct": 50.0
+      "n": 14,
+      "mean_net_r": -0.116,
+      "win_pct": 35.7
     },
     "Chart pattern against side": {
-      "n": 5,
-      "mean_net_r": -0.646,
+      "n": 10,
+      "mean_net_r": -0.674,
       "win_pct": 20.0
     },
     "Chart pattern confirms side": {
-      "n": 27,
-      "mean_net_r": -0.239,
-      "win_pct": 29.6
+      "n": 33,
+      "mean_net_r": -0.356,
+      "win_pct": 27.3
     },
     "Chased (day move > 2.8%)": {
-      "n": 38,
-      "mean_net_r": -0.37,
-      "win_pct": 31.6
+      "n": 42,
+      "mean_net_r": -0.419,
+      "win_pct": 31.0
     },
     "Combo: FVG/OB retest + volume profile": {
-      "n": 4,
-      "mean_net_r": -0.468,
-      "win_pct": 25.0
+      "n": 6,
+      "mean_net_r": -0.564,
+      "win_pct": 16.7
     },
     "Combo: candle + level confirm": {
-      "n": 7,
-      "mean_net_r": 0.376,
-      "win_pct": 57.1
+      "n": 8,
+      "mean_net_r": 0.173,
+      "win_pct": 50.0
     },
     "Combo: level + FVG/OB retest": {
-      "n": 4,
-      "mean_net_r": -0.468,
-      "win_pct": 25.0
+      "n": 5,
+      "mean_net_r": -0.624,
+      "win_pct": 20.0
     },
     "Combo: pattern + trend stack": {
-      "n": 24,
-      "mean_net_r": -0.258,
-      "win_pct": 29.2
+      "n": 29,
+      "mean_net_r": -0.353,
+      "win_pct": 27.6
     },
     "EMA trend stack confirms side": {
-      "n": 30,
-      "mean_net_r": -0.356,
-      "win_pct": 26.7
+      "n": 39,
+      "mean_net_r": -0.435,
+      "win_pct": 25.6
     },
     "FVG/Order block against side": {
       "n": 1,
@@ -687,93 +675,93 @@
       "win_pct": 0.0
     },
     "FVG/Order block confirms side": {
-      "n": 4,
-      "mean_net_r": -0.468,
-      "win_pct": 25.0
+      "n": 6,
+      "mean_net_r": -0.564,
+      "win_pct": 16.7
     },
     "Kronos aligned": {
-      "n": 16,
-      "mean_net_r": 0.147,
-      "win_pct": 43.8
+      "n": 17,
+      "mean_net_r": 0.065,
+      "win_pct": 41.2
     },
     "Kronos unavailable/misaligned": {
-      "n": 65,
-      "mean_net_r": -0.164,
-      "win_pct": 36.9
+      "n": 75,
+      "mean_net_r": -0.243,
+      "win_pct": 34.7
     },
     "Level: at resistance": {
-      "n": 16,
-      "mean_net_r": -0.151,
-      "win_pct": 31.2
+      "n": 20,
+      "mean_net_r": -0.371,
+      "win_pct": 25.0
     },
     "Level: at support": {
-      "n": 21,
-      "mean_net_r": -0.312,
-      "win_pct": 28.6
+      "n": 25,
+      "mean_net_r": -0.405,
+      "win_pct": 28.0
     },
     "MFI < 65": {
-      "n": 57,
-      "mean_net_r": -0.068,
-      "win_pct": 38.6
+      "n": 64,
+      "mean_net_r": -0.147,
+      "win_pct": 35.9
     },
     "MFI >= 65": {
-      "n": 24,
-      "mean_net_r": -0.185,
-      "win_pct": 37.5
+      "n": 28,
+      "mean_net_r": -0.275,
+      "win_pct": 35.7
     },
     "Midday window (10:00-13:00)": {
-      "n": 34,
-      "mean_net_r": -0.549,
-      "win_pct": 23.5
+      "n": 37,
+      "mean_net_r": -0.584,
+      "win_pct": 21.6
     },
     "Morning setup": {
-      "n": 37,
-      "mean_net_r": 0.06,
-      "win_pct": 40.5
+      "n": 42,
+      "mean_net_r": -0.054,
+      "win_pct": 35.7
     },
     "News: Neutral": {
-      "n": 2,
-      "mean_net_r": -1.222,
+      "n": 4,
+      "mean_net_r": -0.99,
       "win_pct": 0.0
     },
     "News: None": {
-      "n": 15,
-      "mean_net_r": -0.111,
+      "n": 18,
+      "mean_net_r": -0.204,
       "win_pct": 33.3
     },
     "Nifty DOWN": {
-      "n": 8,
-      "mean_net_r": -0.032,
-      "win_pct": 37.5
+      "n": 10,
+      "mean_net_r": -0.177,
+      "win_pct": 30.0
     },
     "Nifty FLAT": {
-      "n": 16,
-      "mean_net_r": 0.166,
-      "win_pct": 43.8
+      "n": 20,
+      "mean_net_r": -0.078,
+      "win_pct": 35.0
     },
     "Nifty UP": {
-      "n": 12,
-      "mean_net_r": -0.909,
-      "win_pct": 8.3
+      "n": 17,
+      "mean_net_r": -0.822,
+      "win_pct": 17.6
     },
     "Not chased (day move <= 2.8%)": {
-      "n": 43,
-      "mean_net_r": 0.133,
-      "win_pct": 44.2
+      "n": 50,
+      "mean_net_r": 0.01,
+      "win_pct": 40.0
     },
     "OBV+VWAP flow confirms side": {
-      "n": 29,
-      "mean_net_r": -0.384,
-      "win_pct": 24.1
+      "n": 36,
+      "mean_net_r": -0.482,
+      "win_pct": 22.2
     },
     "Pattern: ascending_triangle": {
-      "n": 3,
-      "mean_net_r": 1.084,
-      "win_pct": 66.7
+      "n": 4,
+      "mean_net_r": 0.859,
+      "win_pct": 75.0
     },
     "Pattern: descending_triangle": {
-      "n": 2,
-      "mean_net_r": -0.781,
+      "n": 3,
+      "mean_net_r": -0.937,
       "win_pct": 0.0
     },
     "Pattern: double_bottom_breakout": {
@@ -782,9 +770,9 @@
       "win_pct": 40.0
     },
     "Pattern: double_bottom_forming": {
-      "n": 6,
-      "mean_net_r": 0.159,
-      "win_pct": 33.3
+      "n": 7,
+      "mean_net_r": -0.042,
+      "win_pct": 28.6
     },
     "Pattern: double_top_breakdown": {
       "n": 1,
@@ -792,14 +780,14 @@
       "win_pct": 0.0
     },
     "Pattern: double_top_forming": {
-      "n": 6,
-      "mean_net_r": 0.232,
+      "n": 8,
+      "mean_net_r": 0.041,
       "win_pct": 50.0
     },
     "Pattern: downtrend_structure": {
-      "n": 7,
-      "mean_net_r": -0.143,
-      "win_pct": 28.6
+      "n": 8,
+      "mean_net_r": -0.183,
+      "win_pct": 25.0
     },
     "Pattern: head_shoulders_forming": {
       "n": 1,
@@ -807,59 +795,59 @@
       "win_pct": 0.0
     },
     "Pattern: inverse_head_shoulders_breakout": {
-      "n": 1,
-      "mean_net_r": -0.184,
-      "win_pct": 0.0
+      "n": 2,
+      "mean_net_r": -0.0,
+      "win_pct": 50.0
     },
     "Pattern: near_resistance": {
-      "n": 14,
-      "mean_net_r": -0.426,
-      "win_pct": 28.6
+      "n": 19,
+      "mean_net_r": -0.476,
+      "win_pct": 31.6
     },
     "Pattern: near_support": {
-      "n": 9,
-      "mean_net_r": -0.388,
-      "win_pct": 22.2
+      "n": 15,
+      "mean_net_r": -0.455,
+      "win_pct": 26.7
     },
     "Pattern: range_breakdown": {
-      "n": 3,
-      "mean_net_r": 0.099,
-      "win_pct": 33.3
+      "n": 5,
+      "mean_net_r": -0.284,
+      "win_pct": 20.0
     },
     "Pattern: range_breakout_up": {
-      "n": 10,
-      "mean_net_r": -0.381,
-      "win_pct": 30.0
+      "n": 14,
+      "mean_net_r": -0.527,
+      "win_pct": 28.6
     },
     "Pattern: tight_consolidation": {
-      "n": 1,
+      "n": 2,
       "mean_net_r": -1.25,
       "win_pct": 0.0
     },
     "Pattern: uptrend_structure": {
-      "n": 16,
-      "mean_net_r": -0.5,
-      "win_pct": 25.0
+      "n": 19,
+      "mean_net_r": -0.619,
+      "win_pct": 21.1
     },
     "Prev-day level: ABOVE_PDH": {
-      "n": 11,
-      "mean_net_r": -0.734,
-      "win_pct": 18.2
+      "n": 17,
+      "mean_net_r": -0.728,
+      "win_pct": 23.5
     },
     "Prev-day level: BELOW_PDL": {
-      "n": 8,
-      "mean_net_r": 0.225,
-      "win_pct": 37.5
+      "n": 10,
+      "mean_net_r": 0.106,
+      "win_pct": 30.0
     },
     "Pro conflicts >= 2": {
-      "n": 13,
-      "mean_net_r": -0.291,
-      "win_pct": 30.8
+      "n": 15,
+      "mean_net_r": -0.419,
+      "win_pct": 26.7
     },
     "Pro confluence 3 of 7": {
-      "n": 1,
-      "mean_net_r": 1.771,
-      "win_pct": 100.0
+      "n": 5,
+      "mean_net_r": -0.296,
+      "win_pct": 40.0
     },
     "Pro confluence <= 2 of 7": {
       "n": 1,
@@ -867,39 +855,39 @@
       "win_pct": 0.0
     },
     "Pro confluence >= 4 of 7": {
-      "n": 31,
-      "mean_net_r": -0.37,
-      "win_pct": 25.8
+      "n": 38,
+      "mean_net_r": -0.447,
+      "win_pct": 23.7
     },
     "RSI < 65": {
-      "n": 46,
-      "mean_net_r": -0.003,
-      "win_pct": 41.3
+      "n": 53,
+      "mean_net_r": -0.074,
+      "win_pct": 39.6
     },
     "RSI >= 65": {
-      "n": 35,
-      "mean_net_r": -0.234,
-      "win_pct": 34.3
+      "n": 39,
+      "mean_net_r": -0.338,
+      "win_pct": 30.8
     },
     "RVOL 1.5-2x": {
-      "n": 11,
-      "mean_net_r": -0.203,
-      "win_pct": 27.3
-    },
-    "RVOL < 2.2x": {
-      "n": 28,
-      "mean_net_r": -0.376,
+      "n": 12,
+      "mean_net_r": -0.29,
       "win_pct": 25.0
     },
+    "RVOL < 2.2x": {
+      "n": 30,
+      "mean_net_r": -0.434,
+      "win_pct": 23.3
+    },
     "RVOL >= 2.2x": {
-      "n": 53,
-      "mean_net_r": 0.041,
-      "win_pct": 45.3
+      "n": 62,
+      "mean_net_r": -0.066,
+      "win_pct": 41.9
     },
     "RVOL >= 2x": {
-      "n": 57,
-      "mean_net_r": -0.049,
-      "win_pct": 42.1
+      "n": 67,
+      "mean_net_r": -0.154,
+      "win_pct": 38.8
     },
     "RVOL below 1.5x": {
       "n": 13,
@@ -907,24 +895,24 @@
       "win_pct": 30.8
     },
     "Session RVOL < 1.5x": {
-      "n": 41,
-      "mean_net_r": -0.24,
-      "win_pct": 36.6
+      "n": 46,
+      "mean_net_r": -0.302,
+      "win_pct": 34.8
     },
     "Session RVOL >= 1.5x": {
-      "n": 40,
-      "mean_net_r": 0.038,
-      "win_pct": 40.0
+      "n": 46,
+      "mean_net_r": -0.071,
+      "win_pct": 37.0
     },
     "SmartMoney: bearish FVG retest": {
-      "n": 4,
-      "mean_net_r": -1.013,
+      "n": 5,
+      "mean_net_r": -0.864,
       "win_pct": 0.0
     },
     "SmartMoney: bullish FVG retest": {
-      "n": 3,
-      "mean_net_r": -0.52,
-      "win_pct": 33.3
+      "n": 4,
+      "mean_net_r": -0.703,
+      "win_pct": 25.0
     },
     "Support/resistance against side": {
       "n": 1,
@@ -932,192 +920,42 @@
       "win_pct": 100.0
     },
     "Support/resistance confirms side": {
-      "n": 23,
-      "mean_net_r": -0.218,
-      "win_pct": 30.4
+      "n": 28,
+      "mean_net_r": -0.351,
+      "win_pct": 28.6
     },
     "VIX NORMAL": {
-      "n": 36,
-      "mean_net_r": -0.236,
-      "win_pct": 30.6
+      "n": 47,
+      "mean_net_r": -0.368,
+      "win_pct": 27.7
     },
     "Value area: Above Value": {
-      "n": 11,
-      "mean_net_r": -0.733,
-      "win_pct": 18.2
+      "n": 15,
+      "mean_net_r": -0.776,
+      "win_pct": 20.0
     },
     "Value area: Below Value": {
-      "n": 5,
-      "mean_net_r": 0.447,
-      "win_pct": 40.0
+      "n": 7,
+      "mean_net_r": 0.103,
+      "win_pct": 28.6
     },
     "Value area: Inside Value": {
-      "n": 17,
-      "mean_net_r": -0.3,
-      "win_pct": 29.4
+      "n": 22,
+      "mean_net_r": -0.401,
+      "win_pct": 27.3
     },
     "Volume profile confirms side": {
-      "n": 30,
-      "mean_net_r": -0.356,
-      "win_pct": 26.7
+      "n": 40,
+      "mean_net_r": -0.456,
+      "win_pct": 25.0
+    },
+    "Wick: upper wick rejection": {
+      "n": 2,
+      "mean_net_r": -0.367,
+      "win_pct": 0.0
     }
   },
   "latest_trade_explanations": [
-    {
-      "date": "2026-11-17",
-      "symbol": "SGMART",
-      "side": "BUY",
-      "result": "T1",
-      "net_r": 2.252,
-      "evidence_tags": [
-        "strong same-time relative volume",
-        "broad session-volume participation",
-        "tight Bollinger compression",
-        "Kronos direction correct",
-        "net-of-cost paper gain; test repeated setup before weight promotion"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "MOLBIO",
-      "side": "BUY",
-      "result": "STOP",
-      "net_r": -1.25,
-      "evidence_tags": [
-        "broad session-volume participation",
-        "Kronos direction wrong",
-        "net-of-cost paper loss; review stop, regime, volume follow-through"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "TEMPSENS",
-      "side": "BUY",
-      "result": "STOP",
-      "net_r": -1.25,
-      "evidence_tags": [
-        "broad session-volume participation",
-        "tight Bollinger compression",
-        "Kronos direction wrong",
-        "net-of-cost paper loss; review stop, regime, volume follow-through"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "RAYMOND",
-      "side": "BUY",
-      "result": "T1",
-      "net_r": 2.25,
-      "evidence_tags": [
-        "broad session-volume participation",
-        "tight Bollinger compression",
-        "peer relative weakness",
-        "shadow setup rejected: legacy_learned_gate:5m RVOL below learned floor 1.2",
-        "net-of-cost paper gain; test repeated setup before weight promotion"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "BOROLTD",
-      "side": "BUY",
-      "result": "STOP",
-      "net_r": -1.194,
-      "evidence_tags": [
-        "broad session-volume participation",
-        "peer relative weakness",
-        "Kronos direction correct",
-        "net-of-cost paper loss; review stop, regime, volume follow-through"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "MOBIKWIK",
-      "side": "BUY",
-      "result": "T1",
-      "net_r": 2.247,
-      "evidence_tags": [
-        "strong same-time relative volume",
-        "sector peer outperformance",
-        "Kronos direction correct",
-        "net-of-cost paper gain; test repeated setup before weight promotion"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "PARACABLES",
-      "side": "BUY",
-      "result": "STOP",
-      "net_r": -1.25,
-      "evidence_tags": [
-        "strong same-time relative volume",
-        "sector peer outperformance",
-        "Kronos direction correct",
-        "net-of-cost paper loss; review stop, regime, volume follow-through"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "63MOONS",
-      "side": "BUY",
-      "result": "STOP",
-      "net_r": -1.25,
-      "evidence_tags": [
-        "broad session-volume participation",
-        "sector peer outperformance",
-        "Kronos direction correct",
-        "net-of-cost paper loss; review stop, regime, volume follow-through"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "PARAGMILK",
-      "side": "BUY",
-      "result": "STOP",
-      "net_r": -1.25,
-      "evidence_tags": [
-        "strong same-time relative volume",
-        "broad session-volume participation",
-        "Kronos direction correct",
-        "net-of-cost paper loss; review stop, regime, volume follow-through"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "AEGISLOG",
-      "side": "SELL",
-      "result": "STOP",
-      "net_r": -1.219,
-      "evidence_tags": [
-        "strong same-time relative volume",
-        "sector peer outperformance",
-        "shadow setup rejected: legacy_learned_gate:blocked bucket window:10AM_TO_1PM",
-        "net-of-cost paper loss; review stop, regime, volume follow-through"
-      ],
-      "paper_only": true
-    },
-    {
-      "date": "2026-11-17",
-      "symbol": "ENGINERSIN",
-      "side": "BUY",
-      "result": "STOP",
-      "net_r": -1.25,
-      "evidence_tags": [
-        "strong same-time relative volume",
-        "sector peer outperformance",
-        "shadow setup rejected: legacy_learned_gate:blocked bucket window:10AM_TO_1PM",
-        "net-of-cost paper loss; review stop, regime, volume follow-through"
-      ],
-      "paper_only": true
-    },
     {
       "date": "2026-11-17",
       "symbol": "ICIL",
@@ -1316,6 +1154,169 @@
         "tight Bollinger compression",
         "shadow setup rejected: legacy_learned_gate:5m RVOL below learned floor 1.2",
         "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "63MOONS",
+      "side": "SELL",
+      "result": "STOP",
+      "net_r": -1.25,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "broad session-volume participation",
+        "sector peer outperformance",
+        "Kronos direction correct",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "SGMART",
+      "side": "BUY",
+      "result": "STOP",
+      "net_r": -1.25,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "broad session-volume participation",
+        "tight Bollinger compression",
+        "Kronos direction wrong",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "LTTS",
+      "side": "SELL",
+      "result": "EOD_LOSS",
+      "net_r": -0.265,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "broad session-volume participation",
+        "sector peer outperformance",
+        "Kronos direction correct",
+        "recent news available; catalyst not independently confirmed",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "KPIGREEN",
+      "side": "BUY",
+      "result": "STOP",
+      "net_r": -1.25,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "shadow setup rejected: legacy_learned_gate:blocked bucket window:10AM_TO_1PM",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "JWL",
+      "side": "SELL",
+      "result": "EOD_LOSS",
+      "net_r": -0.468,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "shadow setup rejected: legacy_learned_gate:blocked bucket window:10AM_TO_1PM",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "KISSHT",
+      "side": "BUY",
+      "result": "STOP",
+      "net_r": -1.25,
+      "evidence_tags": [
+        "broad session-volume participation",
+        "sector peer outperformance",
+        "shadow setup rejected: legacy_learned_gate:blocked bucket window:10AM_TO_1PM",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "MEESHO",
+      "side": "BUY",
+      "result": "STOP",
+      "net_r": -1.25,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "tight Bollinger compression",
+        "sector peer outperformance",
+        "shadow setup rejected: legacy_learned_gate:blocked bucket window:10AM_TO_1PM",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "NETWEB",
+      "side": "BUY",
+      "result": "STOP",
+      "net_r": -1.25,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "tight Bollinger compression",
+        "sector peer outperformance",
+        "Kronos direction correct",
+        "recent news available; catalyst not independently confirmed",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "THELEELA",
+      "side": "BUY",
+      "result": "EOD_WIN",
+      "net_r": 0.5,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "broad session-volume participation",
+        "tight Bollinger compression",
+        "peer relative weakness",
+        "Kronos direction wrong",
+        "net-of-cost paper gain; test repeated setup before weight promotion"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "NEOGEN",
+      "side": "BUY",
+      "result": "STOP",
+      "net_r": -1.25,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "broad session-volume participation",
+        "sector peer outperformance",
+        "shadow setup rejected: legacy_learned_gate:learned edge +0.03R too low",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    },
+    {
+      "date": "2026-11-19",
+      "symbol": "QPOWER",
+      "side": "BUY",
+      "result": "EOD_WIN",
+      "net_r": 0.184,
+      "evidence_tags": [
+        "strong same-time relative volume",
+        "tight Bollinger compression",
+        "sector peer outperformance",
+        "shadow setup rejected: legacy_learned_gate:learned edge +0.03R too low",
+        "net-of-cost paper gain; test repeated setup before weight promotion"
       ],
       "paper_only": true
     }
