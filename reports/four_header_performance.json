@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-19T14:50:12.000576+05:30",
+  "asof": "2026-11-19T14:55:12.000609+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -409,20 +409,20 @@
       },
       "approved_background": {
         "recorded": 157,
-        "closed": 136,
-        "pending": 21,
+        "closed": 137,
+        "pending": 20,
         "no_data": 0,
         "sent": 0,
-        "wins": 84,
+        "wins": 85,
         "losses": 52,
-        "win_rate_pct": 61.76470588235294,
-        "net_r": -15.962196818120262,
-        "mean_net_r": -0.11736909425088436,
-        "profit_factor": 0.45707004938108914,
+        "win_rate_pct": 62.043795620437955,
+        "net_r": -15.895490176053851,
+        "mean_net_r": -0.11602547573761943,
+        "profit_factor": 0.4593389747862663,
         "max_closed_trade_drawdown_r": 20.393503473531812,
-        "ambiguous": 100,
+        "ambiguous": 101,
         "quality": {
-          "GOOD": 77,
+          "GOOD": 78,
           "BAD": 52,
           "GREAT": 7
         }
