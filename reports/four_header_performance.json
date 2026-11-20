@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-20T14:45:12.001142+05:30",
+  "asof": "2026-11-20T14:50:12.000478+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -45,21 +45,21 @@
       },
       "approved_background": {
         "recorded": 373,
-        "closed": 279,
-        "pending": 94,
+        "closed": 280,
+        "pending": 93,
         "no_data": 0,
         "sent": 0,
         "wins": 115,
-        "losses": 164,
-        "win_rate_pct": 41.21863799283154,
-        "net_r": -39.91303289336855,
-        "mean_net_r": -0.14305746556762922,
-        "profit_factor": 0.7558307451983773,
-        "max_closed_trade_drawdown_r": 42.79099984672458,
+        "losses": 165,
+        "win_rate_pct": 41.07142857142857,
+        "net_r": -41.11304646649376,
+        "mean_net_r": -0.1468323088089063,
+        "profit_factor": 0.7503225363699291,
+        "max_closed_trade_drawdown_r": 43.99101341984979,
         "ambiguous": 0,
         "quality": {
           "GREAT": 45,
-          "BAD": 164,
+          "BAD": 165,
           "GOOD": 70
         }
       },
@@ -452,22 +452,22 @@
       },
       "approved_background": {
         "recorded": 235,
-        "closed": 221,
-        "pending": 14,
+        "closed": 222,
+        "pending": 13,
         "no_data": 0,
         "sent": 0,
-        "wins": 126,
+        "wins": 127,
         "losses": 95,
-        "win_rate_pct": 57.01357466063349,
-        "net_r": -34.70759011428471,
-        "mean_net_r": -0.15704791906916157,
-        "profit_factor": 0.3883377194624489,
+        "win_rate_pct": 57.207207207207205,
+        "net_r": -33.506729354791034,
+        "mean_net_r": -0.15093121330986947,
+        "profit_factor": 0.4095008491508352,
         "max_closed_trade_drawdown_r": 35.094662099914515,
-        "ambiguous": 150,
+        "ambiguous": 151,
         "quality": {
           "GOOD": 114,
           "BAD": 95,
-          "GREAT": 12
+          "GREAT": 13
         }
       },
       "rejected_study": {
