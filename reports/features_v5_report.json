@@ -3,7 +3,7 @@
   "features": {
     "renko_trend": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         "UP"
@@ -11,7 +11,7 @@
     },
     "renko_distance_atr": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         2
@@ -19,7 +19,7 @@
     },
     "renko_reversal_within": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "le",
         3
@@ -27,7 +27,7 @@
     },
     "renko_agrees_daily": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         true
@@ -35,7 +35,7 @@
     },
     "bos_recent": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         true
@@ -43,7 +43,7 @@
     },
     "choch_recent": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         true
@@ -51,7 +51,7 @@
     },
     "liquidity_sweep": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         true
@@ -59,7 +59,7 @@
     },
     "equal_highs": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         2
@@ -67,7 +67,7 @@
     },
     "equal_lows": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         2
@@ -75,7 +75,7 @@
     },
     "mitigation_block_near": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         true
@@ -83,7 +83,7 @@
     },
     "premium_discount_zone": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         50
@@ -91,7 +91,7 @@
     },
     "fft_dominant_period_bars": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "le",
         16
@@ -99,7 +99,7 @@
     },
     "fft_cycle_strength": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         1.5
@@ -107,7 +107,7 @@
     },
     "hilbert_phase_deg": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         180
@@ -115,7 +115,7 @@
     },
     "hilbert_amplitude_pct": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         1
@@ -123,7 +123,7 @@
     },
     "hilbert_cycle_direction": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         "UP"
@@ -131,7 +131,7 @@
     },
     "gann_fan_angle_deg": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         45
@@ -139,7 +139,7 @@
     },
     "gann_fan_atr_angle_deg": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         45
@@ -147,7 +147,7 @@
     },
     "gann_retracement_pct": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         50
@@ -155,7 +155,7 @@
     },
     "gann_nearest_retracement_pct": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         50
@@ -163,7 +163,7 @@
     },
     "gann_time_days_from_swing": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "ge",
         30
@@ -171,7 +171,7 @@
     },
     "gann_nearest_cycle_days": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         30
@@ -179,7 +179,7 @@
     },
     "gann_within_cycle": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         true
@@ -187,7 +187,7 @@
     },
     "gann_sq9_nearest_deg": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "eq",
         0
@@ -195,7 +195,7 @@
     },
     "gann_sq9_distance_deg": {
       "status": "collecting",
-      "observed": 17,
+      "observed": 34,
       "condition": [
         "le",
         5
@@ -203,9 +203,9 @@
     }
   },
   "learner": {
-    "at": "2026-11-19T11:02:22.889297",
-    "sessions": 2,
-    "samples": 17,
+    "at": "2026-11-20T11:03:15.217201",
+    "sessions": 3,
+    "samples": 34,
     "positive": {},
     "negative": {},
     "method": "screen on train (singles + pairs), confirm on later holdout with multiple-testing-adjusted t threshold",

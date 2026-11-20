@@ -1,103 +1,128 @@
 {
-  "updated_at": "2026-11-19T16:32:22.855761+05:30",
+  "updated_at": "2026-11-20T16:33:15.163334+05:30",
   "mode": "proven",
-  "total_resolved": 92,
+  "total_resolved": 109,
   "score_bump": 6,
   "min_rvol": 1.2,
   "blocked": {
+    "side:BUY": {
+      "n": 69,
+      "avg_r": -0.205,
+      "win": 30.4
+    },
     "window:10AM_TO_1PM": {
-      "n": 40,
-      "avg_r": -0.371,
-      "win": 22.5
+      "n": 51,
+      "avg_r": -0.426,
+      "win": 21.6
     },
     "side_window:BUY|10AM_TO_1PM": {
-      "n": 27,
-      "avg_r": -0.553,
-      "win": 18.5
+      "n": 32,
+      "avg_r": -0.623,
+      "win": 15.6
+    },
+    "formula:BUY|F1_BB_KELTNER_SQUEEZE_5M": {
+      "n": 54,
+      "avg_r": -0.179,
+      "win": 31.5
+    },
+    "formula:BUY|F3_VWAP_MFI_ACCUMULATION": {
+      "n": 60,
+      "avg_r": -0.225,
+      "win": 30.0
+    },
+    "formula:BUY|F5_MTF_5M_15M_MACD_RSI": {
+      "n": 42,
+      "avg_r": -0.209,
+      "win": 31.0
     },
     "formula:BUY|F6_MULTIDAY_CHANNEL_BREAK": {
-      "n": 46,
-      "avg_r": -0.165,
-      "win": 32.6
+      "n": 54,
+      "avg_r": -0.288,
+      "win": 27.8
     },
     "formula:BUY|F2_ORB_15M_RVOL_IGNITION": {
-      "n": 33,
-      "avg_r": -0.353,
-      "win": 24.2
+      "n": 39,
+      "avg_r": -0.453,
+      "win": 20.5
+    },
+    "formula:BUY|F4_ADX_SUPERTREND_ACCEL": {
+      "n": 31,
+      "avg_r": -0.246,
+      "win": 29.0
     }
   },
   "boosted": {
     "side:SELL": {
-      "n": 31,
-      "avg_r": 0.355,
-      "win": 45.2
+      "n": 40,
+      "avg_r": 0.251,
+      "win": 42.5
     },
     "window:AFTER_2PM": {
-      "n": 13,
-      "avg_r": 0.512,
-      "win": 61.5
+      "n": 15,
+      "avg_r": 0.419,
+      "win": 53.3
     },
     "window:BEFORE_10AM": {
-      "n": 29,
-      "avg_r": 0.346,
-      "win": 41.4
+      "n": 31,
+      "avg_r": 0.259,
+      "win": 38.7
     },
-    "side_window:BUY|BEFORE_10AM": {
-      "n": 21,
-      "avg_r": 0.232,
-      "win": 38.1
+    "window:1PM_TO_2PM": {
+      "n": 12,
+      "avg_r": 0.273,
+      "win": 58.3
     },
     "formula:SELL|F1_BB_KELTNER_SQUEEZE_5M": {
-      "n": 18,
-      "avg_r": 0.392,
-      "win": 44.4
+      "n": 25,
+      "avg_r": 0.283,
+      "win": 44.0
     },
     "formula:SELL|F3_VWAP_MFI_ACCUMULATION": {
-      "n": 22,
-      "avg_r": 0.448,
-      "win": 45.5
+      "n": 31,
+      "avg_r": 0.286,
+      "win": 41.9
     },
     "formula:SELL|F6_MULTIDAY_CHANNEL_BREAK": {
-      "n": 19,
-      "avg_r": 0.677,
-      "win": 52.6
+      "n": 28,
+      "avg_r": 0.424,
+      "win": 46.4
     },
     "formula:SELL|F5_MTF_5M_15M_MACD_RSI": {
-      "n": 13,
-      "avg_r": 0.505,
-      "win": 38.5
+      "n": 16,
+      "avg_r": 0.325,
+      "win": 31.2
     }
   },
   "stats": {
     "side:SELL": {
-      "n": 31,
-      "avg_r": 0.355,
-      "win": 45.2
+      "n": 40,
+      "avg_r": 0.251,
+      "win": 42.5
     },
     "tier:TIER-2": {
-      "n": 18,
-      "avg_r": 0.097,
-      "win": 38.9
+      "n": 20,
+      "avg_r": -0.012,
+      "win": 35.0
     },
     "window:AFTER_2PM": {
-      "n": 13,
-      "avg_r": 0.512,
-      "win": 61.5
+      "n": 15,
+      "avg_r": 0.419,
+      "win": 53.3
     },
     "side_window:SELL|AFTER_2PM": {
-      "n": 7,
-      "avg_r": 0.9,
-      "win": 71.4
+      "n": 9,
+      "avg_r": 0.658,
+      "win": 55.6
     },
     "tier:TIER-1": {
-      "n": 74,
-      "avg_r": 0.042,
-      "win": 37.8
+      "n": 89,
+      "avg_r": -0.044,
+      "win": 34.8
     },
     "side:BUY": {
-      "n": 61,
-      "avg_r": -0.101,
-      "win": 34.4
+      "n": 69,
+      "avg_r": -0.205,
+      "win": 30.4
     },
     "side_window:BUY|AFTER_2PM": {
       "n": 6,
@@ -105,14 +130,14 @@
       "win": 50.0
     },
     "window:BEFORE_10AM": {
-      "n": 29,
-      "avg_r": 0.346,
-      "win": 41.4
+      "n": 31,
+      "avg_r": 0.259,
+      "win": 38.7
     },
     "side_window:BUY|BEFORE_10AM": {
-      "n": 21,
-      "avg_r": 0.232,
-      "win": 38.1
+      "n": 23,
+      "avg_r": 0.125,
+      "win": 34.8
     },
     "side_window:SELL|BEFORE_10AM": {
       "n": 8,
@@ -120,113 +145,113 @@
       "win": 50.0
     },
     "window:10AM_TO_1PM": {
-      "n": 40,
-      "avg_r": -0.371,
-      "win": 22.5
+      "n": 51,
+      "avg_r": -0.426,
+      "win": 21.6
     },
     "side_window:SELL|10AM_TO_1PM": {
-      "n": 13,
-      "avg_r": 0.005,
-      "win": 30.8
+      "n": 19,
+      "avg_r": -0.096,
+      "win": 31.6
     },
     "side_window:BUY|10AM_TO_1PM": {
-      "n": 27,
-      "avg_r": -0.553,
-      "win": 18.5
+      "n": 32,
+      "avg_r": -0.623,
+      "win": 15.6
     },
     "window:1PM_TO_2PM": {
-      "n": 10,
-      "avg_r": 0.301,
-      "win": 60.0
+      "n": 12,
+      "avg_r": 0.273,
+      "win": 58.3
     },
     "side_window:SELL|1PM_TO_2PM": {
-      "n": 3,
-      "avg_r": -0.172,
-      "win": 33.3
+      "n": 4,
+      "avg_r": 0.185,
+      "win": 50.0
     },
     "formula:SELL|F1_BB_KELTNER_SQUEEZE_5M": {
-      "n": 18,
-      "avg_r": 0.392,
-      "win": 44.4
+      "n": 25,
+      "avg_r": 0.283,
+      "win": 44.0
     },
     "formula:SELL|F2_ORB_15M_RVOL_IGNITION": {
-      "n": 13,
-      "avg_r": 0.151,
-      "win": 38.5
+      "n": 19,
+      "avg_r": 0.09,
+      "win": 36.8
     },
     "formula:SELL|F3_VWAP_MFI_ACCUMULATION": {
-      "n": 22,
-      "avg_r": 0.448,
-      "win": 45.5
+      "n": 31,
+      "avg_r": 0.286,
+      "win": 41.9
     },
     "formula:SELL|F6_MULTIDAY_CHANNEL_BREAK": {
-      "n": 19,
-      "avg_r": 0.677,
-      "win": 52.6
+      "n": 28,
+      "avg_r": 0.424,
+      "win": 46.4
     },
     "formula:BUY|F1_BB_KELTNER_SQUEEZE_5M": {
-      "n": 47,
-      "avg_r": -0.057,
-      "win": 36.2
+      "n": 54,
+      "avg_r": -0.179,
+      "win": 31.5
     },
     "formula:BUY|F3_VWAP_MFI_ACCUMULATION": {
-      "n": 53,
-      "avg_r": -0.123,
-      "win": 34.0
+      "n": 60,
+      "avg_r": -0.225,
+      "win": 30.0
     },
     "formula:BUY|F5_MTF_5M_15M_MACD_RSI": {
-      "n": 36,
-      "avg_r": -0.077,
-      "win": 36.1
+      "n": 42,
+      "avg_r": -0.209,
+      "win": 31.0
     },
     "formula:BUY|F6_MULTIDAY_CHANNEL_BREAK": {
-      "n": 46,
-      "avg_r": -0.165,
-      "win": 32.6
+      "n": 54,
+      "avg_r": -0.288,
+      "win": 27.8
     },
     "formula:SELL|F4_ADX_SUPERTREND_ACCEL": {
-      "n": 15,
-      "avg_r": 0.046,
+      "n": 18,
+      "avg_r": -0.003,
       "win": 33.3
     },
     "formula:SELL|F5_MTF_5M_15M_MACD_RSI": {
-      "n": 13,
-      "avg_r": 0.505,
-      "win": 38.5
+      "n": 16,
+      "avg_r": 0.325,
+      "win": 31.2
     },
     "formula:BUY|F2_ORB_15M_RVOL_IGNITION": {
-      "n": 33,
-      "avg_r": -0.353,
-      "win": 24.2
+      "n": 39,
+      "avg_r": -0.453,
+      "win": 20.5
     },
     "formula:BUY|F4_ADX_SUPERTREND_ACCEL": {
-      "n": 27,
-      "avg_r": -0.135,
-      "win": 33.3
+      "n": 31,
+      "avg_r": -0.246,
+      "win": 29.0
     },
     "side_window:BUY|1PM_TO_2PM": {
-      "n": 7,
-      "avg_r": 0.504,
-      "win": 71.4
+      "n": 8,
+      "avg_r": 0.316,
+      "win": 62.5
     }
   },
   "levels": {
     "BUY": {
-      "n": 61,
+      "n": 69,
       "t1_r": 3.0,
-      "sim_expectancy_r": -0.087,
+      "sim_expectancy_r": -0.193,
       "stop_scale": 0.7
     },
     "SELL": {
-      "n": 31,
+      "n": 40,
       "t1_r": 3.0,
-      "sim_expectancy_r": 0.53,
-      "stop_scale": 0.77
+      "sim_expectancy_r": 0.386,
+      "stop_scale": 0.81
     }
   },
   "recent": {
     "n": 20,
-    "avg_r": -0.321,
+    "avg_r": -0.441,
     "win": 25.0
   },
   "changes": [
@@ -291,62 +316,74 @@
         "\u2b50 PROVEN EDGE formula:SELL|F5_MTF_5M_15M_MACD_RSI (n=13, avg +0.51R, win 38.5%)",
         "\ud83d\udcd0 SELL levels: T1 3.0R, stop\u00d70.77 (was T1 3.0R, stop\u00d70.89)"
       ]
+    },
+    {
+      "at": "2026-11-20T16:33:15.163321+05:30",
+      "items": [
+        "\ud83d\udeab BLOCKED side:BUY (n=69, avg -0.20R, win 30.4%)",
+        "\ud83d\udeab BLOCKED formula:BUY|F1_BB_KELTNER_SQUEEZE_5M (n=54, avg -0.18R, win 31.5%)",
+        "\ud83d\udeab BLOCKED formula:BUY|F3_VWAP_MFI_ACCUMULATION (n=60, avg -0.23R, win 30.0%)",
+        "\ud83d\udeab BLOCKED formula:BUY|F5_MTF_5M_15M_MACD_RSI (n=42, avg -0.21R, win 31.0%)",
+        "\ud83d\udeab BLOCKED formula:BUY|F4_ADX_SUPERTREND_ACCEL (n=31, avg -0.25R, win 29.0%)",
+        "\u2b50 PROVEN EDGE window:1PM_TO_2PM (n=12, avg +0.27R, win 58.3%)",
+        "\ud83d\udcd0 SELL levels: T1 3.0R, stop\u00d70.81 (was T1 3.0R, stop\u00d70.77)"
+      ]
     }
   ],
   "failure_modes": {
     "Kronos disagreed": {
-      "count": 42,
+      "count": 53,
       "mean_r": -1.0
     },
     "no peer leadership edge": {
-      "count": 27,
-      "mean_r": -1.0
-    },
-    "chased late (day_move > 2.8%)": {
-      "count": 21,
+      "count": 30,
       "mean_r": -1.0
     },
     "entered on extended bands (>1.8%)": {
-      "count": 21,
+      "count": 25,
+      "mean_r": -1.0
+    },
+    "chased late (day_move > 2.8%)": {
+      "count": 23,
       "mean_r": -1.0
     },
     "weak trend (ADX < 22)": {
-      "count": 13,
+      "count": 17,
       "mean_r": -1.0
     },
     "thin RVOL at entry (<1.6x)": {
-      "count": 9,
+      "count": 12,
       "mean_r": -1.0
     }
   },
   "success_modes": {
     "explosive RVOL (\u22652.2x)": {
-      "count": 16,
-      "mean_r": 2.182
+      "count": 18,
+      "mean_r": 2.074
     },
     "peer leadership confirmed (\u22650.5pp)": {
-      "count": 12,
-      "mean_r": 2.239
+      "count": 14,
+      "mean_r": 2.092
     },
     "tight BB compression (\u22641.6%)": {
-      "count": 8,
-      "mean_r": 2.299
+      "count": 9,
+      "mean_r": 2.184
     },
     "Kronos aligned": {
-      "count": 6,
-      "mean_r": 2.221
+      "count": 7,
+      "mean_r": 2.083
+    },
+    "Trading-R1 aligned": {
+      "count": 3,
+      "mean_r": 1.711
     },
     "worked without flagged cause": {
       "count": 2,
       "mean_r": 2.351
-    },
-    "Trading-R1 aligned": {
-      "count": 2,
-      "mean_r": 1.937
     }
   },
   "mover_capture": {
-    "movers": 140,
-    "caught": 13
+    "movers": 160,
+    "caught": 15
   }
 }
