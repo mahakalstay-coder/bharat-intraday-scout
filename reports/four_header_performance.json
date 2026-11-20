@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-20T14:50:12.000478+05:30",
+  "asof": "2026-11-20T14:55:12.001070+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -45,21 +45,21 @@
       },
       "approved_background": {
         "recorded": 373,
-        "closed": 280,
-        "pending": 93,
+        "closed": 282,
+        "pending": 91,
         "no_data": 0,
         "sent": 0,
         "wins": 115,
-        "losses": 165,
-        "win_rate_pct": 41.07142857142857,
-        "net_r": -41.11304646649376,
-        "mean_net_r": -0.1468323088089063,
-        "profit_factor": 0.7503225363699291,
-        "max_closed_trade_drawdown_r": 43.99101341984979,
+        "losses": 167,
+        "win_rate_pct": 40.780141843971634,
+        "net_r": -43.513390378762956,
+        "mean_net_r": -0.15430280276157077,
+        "profit_factor": 0.7395421069326475,
+        "max_closed_trade_drawdown_r": 46.391357332118986,
         "ambiguous": 0,
         "quality": {
           "GREAT": 45,
-          "BAD": 165,
+          "BAD": 167,
           "GOOD": 70
         }
       },
@@ -252,22 +252,22 @@
       },
       "rejected_study": {
         "recorded": 273,
-        "closed": 208,
-        "pending": 65,
+        "closed": 209,
+        "pending": 64,
         "no_data": 0,
         "sent": 0,
-        "wins": 85,
+        "wins": 86,
         "losses": 123,
-        "win_rate_pct": 40.86538461538461,
-        "net_r": -46.49052630649012,
-        "mean_net_r": -0.2235121457042794,
-        "profit_factor": 0.6163567188748575,
+        "win_rate_pct": 41.14832535885167,
+        "net_r": -45.191867414361845,
+        "mean_net_r": -0.21622903069072652,
+        "profit_factor": 0.6270733486491452,
         "max_closed_trade_drawdown_r": 48.38930357295553,
         "ambiguous": 0,
         "quality": {
           "GOOD": 45,
           "BAD": 123,
-          "GREAT": 40
+          "GREAT": 41
         }
       },
       "by_regime": {
