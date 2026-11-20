@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-20T14:25:12.000544+05:30",
+  "asof": "2026-11-20T14:30:12.000472+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -44,9 +44,9 @@
         }
       },
       "approved_background": {
-        "recorded": 367,
+        "recorded": 369,
         "closed": 275,
-        "pending": 92,
+        "pending": 94,
         "no_data": 0,
         "sent": 0,
         "wins": 115,
@@ -251,9 +251,9 @@
         }
       },
       "rejected_study": {
-        "recorded": 269,
+        "recorded": 270,
         "closed": 206,
-        "pending": 63,
+        "pending": 64,
         "no_data": 0,
         "sent": 0,
         "wins": 85,
@@ -673,21 +673,21 @@
       },
       "approved_background": {
         "recorded": 147,
-        "closed": 129,
-        "pending": 18,
+        "closed": 130,
+        "pending": 17,
         "no_data": 0,
         "sent": 0,
-        "wins": 43,
+        "wins": 44,
         "losses": 86,
-        "win_rate_pct": 33.333333333333336,
-        "net_r": -42.896626063020314,
-        "mean_net_r": -0.3325319849846537,
-        "profit_factor": 0.5145817605702695,
+        "win_rate_pct": 33.84615384615385,
+        "net_r": -41.59510515047279,
+        "mean_net_r": -0.3199623473113292,
+        "profit_factor": 0.5293097717901177,
         "max_closed_trade_drawdown_r": 48.47787504323777,
         "ambiguous": 0,
         "quality": {
           "BAD": 86,
-          "GOOD": 19,
+          "GOOD": 20,
           "GREAT": 24
         }
       },
@@ -856,21 +856,21 @@
   },
   "policies": [],
   "latest_cycle": {
-    "at": "2026-11-20T14:25:12.000544+05:30",
+    "at": "2026-11-20T14:30:12.000472+05:30",
     "candidates": 198,
     "errors": 0,
     "headers": {
       "EARLIER_SETUP": {
-        "approved": 19,
-        "rejected": 179,
+        "approved": 20,
+        "rejected": 178,
         "errors": 0,
         "queued": 0,
         "quota": 2,
         "background": 2
       },
       "LEARNING_SETUP": {
-        "approved": 1,
-        "rejected": 197,
+        "approved": 0,
+        "rejected": 198,
         "errors": 0,
         "queued": 0,
         "quota": 2,
