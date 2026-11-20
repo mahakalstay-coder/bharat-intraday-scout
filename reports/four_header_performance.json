@@ -1,5 +1,5 @@
 {
-  "asof": "2026-11-20T10:25:12.000473+05:30",
+  "asof": "2026-11-20T10:26:52.203337+05:30",
   "paper_only": true,
   "baseline_rules": "original; unchanged",
   "note": "Reference-price studies, not executable fills; correlated trades are not independent. Background samples are capped and are not an exhaustive opportunity set.",
@@ -44,9 +44,9 @@
         }
       },
       "approved_background": {
-        "recorded": 269,
+        "recorded": 271,
         "closed": 225,
-        "pending": 44,
+        "pending": 46,
         "no_data": 0,
         "sent": 0,
         "wins": 101,
@@ -230,9 +230,9 @@
         }
       },
       "approved_background": {
-        "recorded": 215,
+        "recorded": 217,
         "closed": 180,
-        "pending": 35,
+        "pending": 37,
         "no_data": 0,
         "sent": 0,
         "wins": 74,
@@ -450,9 +450,9 @@
         }
       },
       "approved_background": {
-        "recorded": 175,
+        "recorded": 177,
         "closed": 159,
-        "pending": 16,
+        "pending": 18,
         "no_data": 0,
         "sent": 0,
         "wins": 89,
@@ -671,9 +671,9 @@
         }
       },
       "approved_background": {
-        "recorded": 116,
+        "recorded": 118,
         "closed": 97,
-        "pending": 19,
+        "pending": 21,
         "no_data": 0,
         "sent": 0,
         "wins": 29,
@@ -691,9 +691,9 @@
         }
       },
       "rejected_study": {
-        "recorded": 176,
+        "recorded": 177,
         "closed": 151,
-        "pending": 25,
+        "pending": 26,
         "no_data": 0,
         "sent": 0,
         "wins": 59,
@@ -854,7 +854,7 @@
   },
   "policies": [],
   "latest_cycle": {
-    "at": "2026-11-20T10:25:12.000473+05:30",
+    "at": "2026-11-20T10:26:52.203337+05:30",
     "candidates": 199,
     "errors": 0,
     "headers": {
@@ -883,8 +883,8 @@
         "background": 2
       },
       "BEST_SETTING_CALL": {
-        "approved": 51,
-        "rejected": 148,
+        "approved": 52,
+        "rejected": 147,
         "errors": 0,
         "queued": 0,
         "quota": 2,
