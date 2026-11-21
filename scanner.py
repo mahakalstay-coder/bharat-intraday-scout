@@ -1362,9 +1362,14 @@ def deliver_pending_signals(limit: int = 10) -> int:
                 conn.execute('UPDATE signals SET delivered=2 WHERE id=?',(r['id'],));conn.commit()
             continue
         reason = str(v.get('reason') or '')
+        tier = str(p.get('tier') or 'TIER-1')
+        if not reason.startswith('RESEARCH PREVIEW') and tier != 'TIER-1':
+            with db_connect() as conn:
+                conn.execute('UPDATE signals SET delivered=2 WHERE id=?',(r['id'],));conn.commit()
+            continue
         header = ("🔬 RESEARCH PREVIEW — {sym} {side}"
                   if reason.startswith('RESEARCH PREVIEW')
-                  else "🎯 VALIDATED PAPER SETUP — {sym} {side}")
+                  else "🚀 BHARAT PRE-EXPLOSION SCOUT 2.0 [TIER-1] — {sym} {side}")
         drift = p.get('drift_forecast') or {}
         drift_line = (f"Drift forecast {drift['forecast_change_pct']:+.2f}% / {drift['horizon_bars']} candles\n"
                       if drift else "")
@@ -1543,10 +1548,7 @@ def run_scan_cycle() -> Dict[str, Any]:
         LOG.warning("Sector update failed: %s", type(exc).__name__)
     if sector_sent:
         persist_state_to_git()
-    try:
-        LOG.info("FOUR_HEADERS %s", json.dumps(run_four_header_cycle(intraday_all, entries, market, now)))
-    except Exception:
-        LOG.exception("Four-header engine failed; legacy scanner continues")
+    # Four-header engine ([BEST_SETTING_CALL], [90PCT_SETUP_V9], [LEARNING_SETUP], [EARLIER_SETUP]) disabled per user preference.
     if quota_full:
         return {"status": "quota_full_market_updated", "at": now.isoformat()}
     alerted_today = get_today_alerted_symbols()
@@ -1566,19 +1568,8 @@ def run_scan_cycle() -> Dict[str, Any]:
         if signal:
             candidates.append((signal["score"], signal["relative_volume"], signal, frame))
 
+    # TIER-2 disabled per user preference: only RESEARCH WATCH / RESEARCH PREVIEW and TIER-1 are active.
     tier2_triggered = False
-    if not candidates and is_tier2_window(now):
-        tier2_triggered = True
-        for item in early_ignitions[:15]:
-            symbol = item["symbol"]
-            if symbol in alerted_today:
-                continue
-            frame = intraday_all.get(symbol, pd.DataFrame())
-            signal = evaluate_symbol(
-                symbol, frame, daily_map[symbol], now, allow_tier2=True, formula_weights=learned_weights
-            )
-            if signal:
-                candidates.append((signal["score"], signal["relative_volume"], signal, frame))
 
     candidates.sort(key=lambda x: (x[0], x[1]), reverse=True)
     technical_candidates = len(candidates)
@@ -2553,19 +2544,7 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
             LOG.warning("Feature learning failed: %s", type(exc).__name__)
         ml.export_reports(ROOT, conn)
         adaptive_report = aj.export(ROOT, conn, datetime.now(TZ), frames)
-    try:
-        with db_connect() as conn:
-            four_headers.resolve(conn, frames, datetime.now(TZ), DB_PATH)
-            four_report = four_headers.report(conn, ROOT, datetime.now(TZ))
-            if send_telegram:
-                day = datetime.now(TZ).date().isoformat()
-                sent = conn.execute("SELECT value FROM app_state WHERE key='four_digest_day'").fetchone()
-                if not sent or sent[0] != day:
-                    send_long_telegram(four_headers.digest(four_report))
-                    conn.execute("INSERT OR REPLACE INTO app_state VALUES('four_digest_day',?)", (day,))
-                    conn.commit()
-    except Exception:
-        LOG.exception("Four-header daily study failed; legacy daily learning continues")
+    # Four-header daily Telegram digest disabled per user preference.
     LOG.info("Validated paper adaptation: %s", learning["status"])
     persist_state_to_git()
 
@@ -2657,8 +2636,7 @@ def send_morning_brief() -> None:
     lines = [f"🌅 BHARAT SCOUT LIVE — {day} 09:20 IST",
              f"Research/paper mode | graded outcomes: {f.get('total_resolved', 0)} | no guaranteed trades",
              f"Kronos: {kronos_status}"]
-    lines.append("Four research headers enabled: " + " / ".join(four_headers.HEADERS))
-    lines.append("Original strategy rules retained. Each header has its own paper ledger; new settings run as forward paper comparisons.")
+    lines.append("Active Telegram alerts: RESEARCH WATCH / RESEARCH PREVIEW + BHARAT PRE-EXPLOSION SCOUT 2.0 [TIER-1]")
     if f.get("blocked"):
         lines.append("🚫 Blocked today: " + "; ".join(list(f["blocked"].keys())[:6]))
     if f.get("min_rvol"):
