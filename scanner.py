@@ -223,7 +223,8 @@ def persist_state_to_git() -> None:
     if os.getenv("GITHUB_ACTIONS") != "true":
         return
     try:
-        paths = [str(p.relative_to(ROOT)) for p in (DB_PATH, UNIVERSE_CACHE,
+        # DB_PATH (63MB SQLite) is persisted via GitHub Actions Cache/Artifacts, not Git commits.
+        paths = [str(p.relative_to(ROOT)) for p in (UNIVERSE_CACHE,
                  LEARNED_WEIGHTS_PATH, FILTERS_PATH, ROOT / "data/validated_weights.json",
                  ROOT / "data/classifications.json", ROOT / "data/validated_features.json",
                  ROOT / "data/sector_memberships.json", ROOT / "data/ml_calibrator.json",
@@ -1373,13 +1374,16 @@ def deliver_pending_signals(limit: int = 10) -> int:
         drift = p.get('drift_forecast') or {}
         drift_line = (f"Drift forecast {drift['forecast_change_pct']:+.2f}% / {drift['horizon_bars']} candles\n"
                       if drift else "")
+        hm = p.get('heatmap_edge') or {}
+        hm_line = (f"🔥 Heatmap Edge ({hm.get('score_delta', 0):+d} pts): {', '.join(hm.get('tags') or [])}\n"
+                   if hm.get('tags') else "")
         msg=(header.format(sym=p['symbol'], side=p['side']) + "\n"
              f"Reference ₹{p['price']} | stop ₹{p['stop']} | target ₹{p['target']}\n"
              f"Score {p['score']}/100 | 5m RVOL {p.get('relative_volume')}x "
              f"| cum RVOL {p.get('cumulative_relative_volume')}x\n"
              f"Kronos {p.get('forecast',{}).get('forecast_change_pct')}% / "
              f"{p.get('forecast',{}).get('horizon_bars')} candles\n"
-             + drift_line + f"Validation: {reason}\n"
+             + drift_line + hm_line + f"Validation: {reason}\n"
              "Paper research only; not a guaranteed trade and no broker order placed.")
         try:
             send_telegram_message(msg)
@@ -1489,6 +1493,153 @@ def run_four_header_cycle(frames, entries, market, now):
         return result
 
 
+
+def apply_heatmap_advantage(signal: Dict[str, Any], extra_tiles: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    """Wire heatmap_extra.py (RS vs Nifty, ATR compression, Sector RVOL) into signal score & tags."""
+    if not extra_tiles:
+        return {}
+    sym = signal["symbol"]
+    sector = (signal.get("market_context") or {}).get("sector")
+    bonus = 0
+    tags: List[str] = []
+
+    rs_row = next((r for r in (extra_tiles.get("rs_vs_nifty") or []) if r.get("symbol") == sym), None)
+    if rs_row:
+        q = rs_row.get("quadrant")
+        if q == "LEADING":
+            bonus += 4
+            tags.append(f"RS LEADING ({rs_row.get('rs_20d_pct', 0):+.1f}%)")
+        elif q == "IMPROVING":
+            bonus += 2
+            tags.append(f"RS IMPROVING ({rs_row.get('rs_20d_pct', 0):+.1f}%)")
+        elif q == "LAGGING":
+            bonus -= 3
+            tags.append("RS LAGGING")
+
+    atr_row = next((r for r in (extra_tiles.get("atr_compression") or []) if r.get("symbol") == sym), None)
+    if atr_row and float(atr_row.get("atr_pct_rank_20d", 100)) <= 25.0:
+        bonus += 3
+        tags.append(f"Tight ATR Coil (P{int(atr_row['atr_pct_rank_20d'])})")
+
+    sec_rows = sorted(
+        extra_tiles.get("rvol_by_sector") or [],
+        key=lambda r: float(r.get("median_rvol", 0)),
+        reverse=True,
+    )
+    top_sectors = {r.get("sector") for r in sec_rows[:3]}
+    if sector and sector in top_sectors:
+        bonus += 3
+        tags.append(f"Top-3 RVOL Sector ({sector})")
+
+    if bonus != 0:
+        signal["score"] = int(min(100, max(0, int(signal.get("score", 0)) + bonus)))
+    edge = {"score_delta": bonus, "tags": tags}
+    signal["heatmap_edge"] = edge
+    return edge
+
+
+def send_heatmap_digest(extra_tiles: Optional[Dict[str, Any]], now: datetime) -> bool:
+    """Send a compact live Heatmap Digest to Telegram at most once per hour during market hours."""
+    if not extra_tiles or os.getenv("HEATMAP_TELEGRAM_DIGEST", "true").lower() != "true":
+        return False
+    slot_key = f"heatmap_digest_{now.strftime('%Y-%m-%d_%H')}"
+    with db_connect() as conn:
+        if conn.execute("SELECT 1 FROM app_state WHERE key=?", (slot_key,)).fetchone():
+            return False
+    sec_rows = sorted(
+        extra_tiles.get("rvol_by_sector") or [],
+        key=lambda r: float(r.get("median_rvol", 0)),
+        reverse=True,
+    )[:3]
+    rs_map = {r["symbol"]: r for r in (extra_tiles.get("rs_vs_nifty") or [])}
+    coiled_leaders = []
+    for r in (extra_tiles.get("atr_compression") or []):
+        rs = rs_map.get(r["symbol"])
+        if rs and rs.get("quadrant") in ("LEADING", "IMPROVING") and float(r.get("atr_pct_rank_20d", 100)) <= 30.0:
+            coiled_leaders.append((r["symbol"], rs["quadrant"], rs.get("rs_20d_pct", 0), r.get("atr_pct_rank_20d", 0)))
+    if not sec_rows and not coiled_leaders:
+        return False
+    lines = [f"🔥 LIVE HEATMAP EDGE — {now.strftime('%H:%M IST')}"]
+    if sec_rows:
+        lines.append("Top RVOL Sectors: " + " | ".join(f"{r['sector']} ({r['median_rvol']}x)" for r in sec_rows))
+    if coiled_leaders:
+        lines.append("Coiled RS Leaders (Tight 20d ATR):")
+        for sym, q, rs_pct, rk in coiled_leaders[:5]:
+            lines.append(f"• {sym} [{q} {rs_pct:+.1f}% | ATR Rank P{int(rk)}]")
+    try:
+        send_telegram_message("\n".join(lines))
+        with db_connect() as conn:
+            conn.execute("INSERT OR REPLACE INTO app_state(key,value) VALUES(?,?)", (slot_key, now.isoformat()))
+            conn.commit()
+        return True
+    except Exception as exc:
+        LOG.warning("Heatmap digest Telegram failed: %s", exc)
+        return False
+
+
+def scan_news_catalysts(
+    frames: Dict[str, pd.DataFrame],
+    daily_map: Dict[str, Any],
+    alerted_today: set,
+    now: datetime,
+    max_alerts_per_cycle: int = 2,
+) -> int:
+    """Dedicated news-catalyst alert path so breaking-news movers aren't blocked by strict 3/6 technical filters."""
+    if os.getenv("NEWS_CATALYST_ALERTS", "true").lower() != "true":
+        return 0
+    movers = []
+    for sym, raw in frames.items():
+        if sym in alerted_today or raw is None or raw.empty:
+            continue
+        try:
+            df = completed_bars(normalize_intraday(raw), now)
+            if len(df) < 20:
+                continue
+            last_idx = df.index[-1]
+            price = float(df.iloc[-1]["close"])
+            if price <= CFG["PRICE_FLOOR"]:
+                continue
+            day_move, _, _, _ = compute_effective_day_move(df, last_idx, daily_map.get(sym, {}), price)
+            rvol, _ = same_slot_relative_volume(df, last_idx, 3)
+            if abs(day_move) >= 1.5 and rvol >= 1.3:
+                movers.append((abs(day_move) * rvol, sym, "BUY" if day_move > 0 else "SELL", price, day_move, rvol))
+        except Exception:
+            continue
+    movers.sort(reverse=True)
+    sent = 0
+    day_str = now.strftime("%Y-%m-%d")
+    for _, sym, side, price, day_move, rvol in movers[:8]:
+        if sent >= max_alerts_per_cycle:
+            break
+        dedupe_key = f"news_alert_{day_str}_{sym}"
+        with db_connect() as conn:
+            if conn.execute("SELECT 1 FROM app_state WHERE key=?", (dedupe_key,)).fetchone():
+                continue
+        headlines = fetch_stock_news_headlines(sym, max_items=3)
+        items = [{"title": t, "published": None} for t in headlines]
+        if os.getenv("ENABLE_GOOGLE_NEWS", "true").lower() == "true":
+            items += news_events.fetch_google_news(sym, max_items=5)
+        ne = news_events.classify_items(items, now)
+        if ne.get("fresh_count", 0) >= 1 and abs(float(ne.get("score", 0))) >= 2.0 and news_events.confirms_side(ne.get("sentiment", ""), side):
+            top_hl = (items[0]["title"][:120] if items else "Breaking catalyst")
+            tags = ", ".join(ne.get("tags") or []) or "catalyst"
+            msg = (
+                f"📰 NEWS CATALYST — {sym} {side}\n"
+                f"Price ₹{price:.2f} | Day Move {day_move:+.2f}% | 5m RVOL {rvol:.2f}x\n"
+                f"Sentiment: {ne['sentiment']} (score {ne['score']}, fresh {ne['fresh_count']}) | Tags: {tags}\n"
+                f"Headline: {top_hl}\n"
+                "Research news alert only; no broker order placed."
+            )
+            try:
+                send_telegram_message(msg)
+                with db_connect() as conn:
+                    conn.execute("INSERT OR REPLACE INTO app_state(key,value) VALUES(?,?)", (dedupe_key, now.isoformat()))
+                    conn.commit()
+                sent += 1
+            except Exception as exc:
+                LOG.warning("News catalyst alert failed for %s: %s", sym, exc)
+    return sent
+
 def run_scan_cycle() -> Dict[str, Any]:
     started = time.time()
     now = datetime.now(TZ)
@@ -1546,7 +1697,8 @@ def run_scan_cycle() -> Dict[str, Any]:
             sector_sent = research.sector_update(conn, market, now, send_telegram_message)
     except Exception as exc:
         LOG.warning("Sector update failed: %s", type(exc).__name__)
-    if sector_sent:
+    heatmap_digest_sent = send_heatmap_digest(extra_tiles, now)
+    if sector_sent or heatmap_digest_sent:
         persist_state_to_git()
     # Four-header engine ([BEST_SETTING_CALL], [90PCT_SETUP_V9], [LEARNING_SETUP], [EARLIER_SETUP]) disabled per user preference.
     if quota_full:
@@ -1598,6 +1750,7 @@ def run_scan_cycle() -> Dict[str, Any]:
             except Exception:
                 LOG.warning("Optional %s study unavailable", name)
         signal["market_context"] = market["stocks"].get(signal["symbol"], {})
+        apply_heatmap_advantage(signal, extra_tiles)
         signal["sector_context"] = next((x for x in market["sectors"]
             if x["sector"] == signal["market_context"].get("sector")), {})
         if not signal["market_context"]:
@@ -1680,7 +1833,8 @@ def run_scan_cycle() -> Dict[str, Any]:
             inserted += 1
             approved_count += int(approved)
 
-    delivered = delivered_prior + deliver_pending_signals(limit=10)
+    news_alerts_sent = scan_news_catalysts(intraday_all, daily_map, alerted_today, now)
+    delivered = delivered_prior + deliver_pending_signals(limit=10) + news_alerts_sent
     watch_sent = False
     if watch_candidates:
         try:
