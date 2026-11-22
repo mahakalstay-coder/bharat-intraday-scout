@@ -148,9 +148,19 @@ jobs:
             .venv/bin/python -m pip install --upgrade pip
             .venv/bin/python -m pip install --index-url https://download.pytorch.org/whl/cpu 'torch==2.7.1+cpu'
             .venv/bin/python -m pip install -r requirements.txt
+            if [ -f requirements-ml.txt ]; then .venv/bin/python -m pip install -r requirements-ml.txt || true; fi
           else
             echo "Cached .venv verified healthy for Python ${{ steps.setup-python.outputs.python-version }}."
           fi
+
+      - name: Restore SQLite learning database cache (avoids Git bloat)
+        if: steps.task.outputs.skip_outside_hours != 'true'
+        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
+        with:
+          path: runtime/bis20.sqlite3
+          key: bis20-sqlite-${{ github.run_id }}
+          restore-keys: |
+            bis20-sqlite-
 
       - name: Restore Kronos model cache
         if: steps.task.outputs.skip_outside_hours != 'true' && (steps.task.outputs.name == 'scan' || steps.task.outputs.name == 'test-kronos' || steps.task.outputs.name == 'dry-run-v2' || steps.task.outputs.name == 'backtest-learn')
