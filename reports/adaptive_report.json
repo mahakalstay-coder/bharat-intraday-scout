@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-23T16:39:35.330855+05:30",
+  "generated_at": "2026-11-25T16:29:42.258608+05:30",
   "activation": {
     "status": "RESEARCH_ONLY",
     "sessions": 0,
     "completed_costed_trades": 0,
-    "all_costed_research_trades": 0,
+    "all_costed_research_trades": 1,
     "holdout_trades": 0,
     "holdout_mean_net_r": null,
     "holdout_win_rate_pct": null,
@@ -26,18 +26,24 @@
     "notes": "Paper evidence, not certainty. 10-14 trading days is a review milestone, not a guaranteed activation."
   },
   "validated_features": {
-    "at": "2026-11-23T16:39:34.652848+05:30",
-    "sessions": 0,
-    "samples": 0,
+    "at": "2026-11-25T16:29:41.002429+05:30",
+    "sessions": 1,
+    "samples": 1,
     "positive": {},
     "negative": {},
     "method": "screen on train (singles + pairs), confirm on later holdout with multiple-testing-adjusted t threshold",
     "status": "collecting"
   },
   "mirror_study": {
-    "pairs": 0,
+    "pairs": 1,
     "status": "collecting",
     "min_pairs": 30,
+    "original_mean_net_r": -0.818,
+    "mirror_mean_net_r": 0.318,
+    "direction_edge_r": -1.136,
+    "original_beats_mirror_pct": 0.0,
+    "both_stopped_pct": 0.0,
+    "edge_lower_bound_r": null,
     "approved_only": {
       "pairs": 0,
       "status": "collecting"
@@ -45,22 +51,76 @@
   },
   "graded_watch_today": [
     {
-      "symbol": "IGIL",
-      "day": "2026-11-23",
+      "symbol": "FINCABLES",
+      "day": "2026-11-25",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.14
+      "max_favorable_pct": 0.0
     },
     {
-      "symbol": "SMSPHARMA",
-      "day": "2026-11-23",
+      "symbol": "IIFL",
+      "day": "2026-11-25",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.92
+      "max_favorable_pct": 0.71
     },
     {
-      "symbol": "RBA",
-      "day": "2026-11-23",
+      "symbol": "TANLA",
+      "day": "2026-11-25",
       "outcome": "DID_NOT_REACH_2PCT",
-      "max_favorable_pct": 0.53
+      "max_favorable_pct": 0.48
+    },
+    {
+      "symbol": "MARSONS",
+      "day": "2026-11-25",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.62
+    },
+    {
+      "symbol": "AARTIPHARM",
+      "day": "2026-11-25",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.11
+    },
+    {
+      "symbol": "PPLPHARMA",
+      "day": "2026-11-25",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.74
+    },
+    {
+      "symbol": "KROSS",
+      "day": "2026-11-25",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": -0.13
+    },
+    {
+      "symbol": "PDSL",
+      "day": "2026-11-25",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.6
+    },
+    {
+      "symbol": "PNGSREVA",
+      "day": "2026-11-25",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.27
+    },
+    {
+      "symbol": "ENGINERSIN",
+      "day": "2026-11-25",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": -0.1
+    },
+    {
+      "symbol": "DHOOTTRANS",
+      "day": "2026-11-25",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 1.21
+    },
+    {
+      "symbol": "AGIIL",
+      "day": "2026-11-25",
+      "outcome": "DID_NOT_REACH_2PCT",
+      "max_favorable_pct": 0.47
     }
   ],
   "graded_kronos_today": [],
@@ -70,16 +130,216 @@
   "target_hit_study": {
     "status": "collecting",
     "paper_only": true,
-    "samples": 0,
-    "sessions": 0,
+    "samples": 1,
+    "sessions": 1,
     "hits": 0
   },
   "watch_totals": {
-    "PENDING": 7,
-    "DID_NOT_REACH_2PCT": 3
+    "PENDING": 17,
+    "DID_NOT_REACH_2PCT": 15
   },
-  "indicator_scorecard": {},
-  "feature_scorecard": {},
-  "latest_trade_explanations": [],
+  "indicator_scorecard": {
+    "F1_BB_KELTNER_SQUEEZE_5M": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0,
+      "note": "conditional association only; not proof that the formula caused returns"
+    },
+    "F3_VWAP_MFI_ACCUMULATION": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0,
+      "note": "conditional association only; not proof that the formula caused returns"
+    },
+    "F5_MTF_5M_15M_MACD_RSI": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0,
+      "note": "conditional association only; not proof that the formula caused returns"
+    }
+  },
+  "feature_scorecard": {
+    "ADX < 25": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Afternoon setup": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Ahead of industry peers": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "BB compression <= 1.6%": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Body: strong (>= 1.5x avg)": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Candle: inside_bar": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Chart pattern against side": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Chased (day move > 2.8%)": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "EMA trend stack confirms side": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "FVG/Order block against side": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Kronos aligned": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Level: at resistance": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Level: at support": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "MFI < 65": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "News: None": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Nifty UP": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "OBV+VWAP flow confirms side": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Pattern: ascending_triangle": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Pattern: double_top_forming": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Pattern: near_resistance": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Pattern: near_support": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Prev-day level: BELOW_PDL": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Pro conflicts >= 2": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Pro confluence 3 of 7": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "RSI < 65": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "RVOL < 2.2x": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "RVOL below 1.5x": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Session RVOL >= 1.5x": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "SmartMoney: bullish FVG retest": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "SmartMoney: bullish order block retest": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Support/resistance confirms side": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "VIX NORMAL": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    },
+    "Value area: Inside Value": {
+      "n": 1,
+      "mean_net_r": -0.818,
+      "win_pct": 0.0
+    }
+  },
+  "latest_trade_explanations": [
+    {
+      "date": "2026-11-25",
+      "symbol": "WELCORP",
+      "side": "SELL",
+      "result": "EOD_LOSS",
+      "net_r": -0.818,
+      "evidence_tags": [
+        "broad session-volume participation",
+        "tight Bollinger compression",
+        "sector peer outperformance",
+        "net-of-cost paper loss; review stop, regime, volume follow-through"
+      ],
+      "paper_only": true
+    }
+  ],
   "disclaimer": "Research/paper data only. Observed associations do not establish why market prices moved."
 }

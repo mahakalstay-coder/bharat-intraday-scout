@@ -1,12 +1,48 @@
 {
-  "updated_at": "2026-11-23T16:39:34.650809+05:30",
+  "updated_at": "2026-11-25T16:29:40.998531+05:30",
   "mode": "warmup",
-  "total_resolved": 0,
+  "total_resolved": 1,
   "score_bump": 0,
   "min_rvol": 1.2,
   "blocked": {},
   "boosted": {},
-  "stats": {},
+  "stats": {
+    "side:SELL": {
+      "n": 1,
+      "avg_r": -0.568,
+      "win": 0.0
+    },
+    "tier:TIER-2": {
+      "n": 1,
+      "avg_r": -0.568,
+      "win": 0.0
+    },
+    "window:AFTER_2PM": {
+      "n": 1,
+      "avg_r": -0.568,
+      "win": 0.0
+    },
+    "side_window:SELL|AFTER_2PM": {
+      "n": 1,
+      "avg_r": -0.568,
+      "win": 0.0
+    },
+    "formula:SELL|F1_BB_KELTNER_SQUEEZE_5M": {
+      "n": 1,
+      "avg_r": -0.568,
+      "win": 0.0
+    },
+    "formula:SELL|F3_VWAP_MFI_ACCUMULATION": {
+      "n": 1,
+      "avg_r": -0.568,
+      "win": 0.0
+    },
+    "formula:SELL|F5_MTF_5M_15M_MACD_RSI": {
+      "n": 1,
+      "avg_r": -0.568,
+      "win": 0.0
+    }
+  },
   "levels": {},
   "recent": {},
   "changes": [
@@ -99,12 +135,25 @@
         "\ud83d\udd01 MODE proven \u2192 warmup",
         "\ud83c\udf9a Score threshold +0 (was +6)"
       ]
+    },
+    {
+      "at": "2026-11-25T16:29:40.998522+05:30",
+      "items": []
     }
   ],
-  "failure_modes": {},
+  "failure_modes": {
+    "weak trend (ADX < 22)": {
+      "count": 1,
+      "mean_r": -0.568
+    },
+    "thin RVOL at entry (<1.6x)": {
+      "count": 1,
+      "mean_r": -0.568
+    }
+  },
   "success_modes": {},
   "mover_capture": {
-    "movers": 20,
-    "caught": 3
+    "movers": 40,
+    "caught": 7
   }
 }
