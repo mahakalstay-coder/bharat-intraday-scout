@@ -1,6 +1,6 @@
 {
   "_catalog": {
-    "checked_at": "2026-11-18T09:21:45.747184+05:30",
+    "checked_at": "2026-11-25T15:05:59.797958+05:30",
     "pages": {
       "NIFTY AUTO": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-auto",
       "NIFTY BANK": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-bank",
@@ -2246,5 +2246,277 @@
       }
     ],
     "attempted_at": "2026-11-25T09:05:34.350901+05:30"
+  },
+  "NIFTY POWER": {
+    "asof": "2026-11-25T15:05:59.797958+05:30",
+    "source": "https://www.niftyindices.com/IndexConstituent/ind_niftyPower_list.csv",
+    "quote_symbol": null,
+    "members": [
+      {
+        "symbol": "ACMESOLAR",
+        "industry": "Power"
+      },
+      {
+        "symbol": "ADANIENSOL",
+        "industry": "Power"
+      },
+      {
+        "symbol": "ADANIGREEN",
+        "industry": "Power"
+      },
+      {
+        "symbol": "ADANIPOWER",
+        "industry": "Power"
+      },
+      {
+        "symbol": "CESC",
+        "industry": "Power"
+      },
+      {
+        "symbol": "CLEANMAX",
+        "industry": "Power"
+      },
+      {
+        "symbol": "GMRP&UI",
+        "industry": "Power"
+      },
+      {
+        "symbol": "JSWENERGY",
+        "industry": "Power"
+      },
+      {
+        "symbol": "JPPOWER",
+        "industry": "Power"
+      },
+      {
+        "symbol": "KPIGREEN",
+        "industry": "Power"
+      },
+      {
+        "symbol": "NHPC",
+        "industry": "Power"
+      },
+      {
+        "symbol": "NLCINDIA",
+        "industry": "Power"
+      },
+      {
+        "symbol": "NTPCGREEN",
+        "industry": "Power"
+      },
+      {
+        "symbol": "NTPC",
+        "industry": "Power"
+      },
+      {
+        "symbol": "NAVA",
+        "industry": "Power"
+      },
+      {
+        "symbol": "PTC",
+        "industry": "Power"
+      },
+      {
+        "symbol": "POWERGRID",
+        "industry": "Power"
+      },
+      {
+        "symbol": "RTNPOWER",
+        "industry": "Power"
+      },
+      {
+        "symbol": "RPOWER",
+        "industry": "Power"
+      },
+      {
+        "symbol": "SJVN",
+        "industry": "Power"
+      },
+      {
+        "symbol": "TATAPOWER",
+        "industry": "Power"
+      },
+      {
+        "symbol": "TORNTPOWER",
+        "industry": "Power"
+      },
+      {
+        "symbol": "VEDPOWER",
+        "industry": "Power"
+      }
+    ],
+    "attempted_at": "2026-11-25T15:05:59.797958+05:30"
+  },
+  "Nifty REITS & REALTY": {
+    "asof": "2026-11-25T15:05:59.797958+05:30",
+    "source": "https://www.niftyindices.com/IndexConstituent/ind_niftyREITsRealty_list.csv",
+    "quote_symbol": null,
+    "members": [
+      {
+        "symbol": "ABREL",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "ANANTRAJ",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "BAGMANE",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "BRIGADE",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "BIRET",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "DLF",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "EMBASSY",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "GODREJPROP",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "KRT",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "LODHA",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "MINDSPACE",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "NXST",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "OBEROIRLTY",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "PHOENIXLTD",
+        "industry": "Realty"
+      },
+      {
+        "symbol": "PRESTIGE",
+        "industry": "Realty"
+      }
+    ],
+    "attempted_at": "2026-11-25T15:05:59.797958+05:30"
+  },
+  "NIFTY RETAIL": {
+    "asof": "2026-11-25T15:05:59.797958+05:30",
+    "source": "https://www.niftyindices.com/IndexConstituent/ind_niftyRetail_list.csv",
+    "quote_symbol": null,
+    "members": [
+      {
+        "symbol": "ABFRL",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "ABLBL",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "AVL",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "ARVINDFASN",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "DMART",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "FIRSTCRY",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "CARTRADE",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "EMIL",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "ENTERO",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "ETERNAL",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "NYKAA",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "INDIAMART",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "NAUKRI",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "JUSTDIAL",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "LENSKART",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "MEDPLUS",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "MEESHO",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "SWIGGY",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "TRENT",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "URBANCO",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "VMART",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "V2RETAIL",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "MANYAVAR",
+        "industry": "Consumer Services"
+      },
+      {
+        "symbol": "VMM",
+        "industry": "Consumer Services"
+      }
+    ],
+    "attempted_at": "2026-11-25T15:05:59.797958+05:30"
   }
 }
