@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T16:29:40.998531+05:30",
+  "updated_at": "2026-11-26T16:30:09.863440+05:30",
   "mode": "warmup",
   "total_resolved": 1,
   "score_bump": 0,
@@ -139,6 +139,10 @@
     {
       "at": "2026-11-25T16:29:40.998522+05:30",
       "items": []
+    },
+    {
+      "at": "2026-11-26T16:30:09.863427+05:30",
+      "items": []
     }
   ],
   "failure_modes": {
@@ -153,7 +157,7 @@
   },
   "success_modes": {},
   "mover_capture": {
-    "movers": 40,
-    "caught": 7
+    "movers": 60,
+    "caught": 9
   }
 }
