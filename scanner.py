@@ -1323,6 +1323,9 @@ def kronos_forecast(
 
 def send_telegram_message(message: str) -> bool:
     """Telegram bot sender; no order placement. Error if delivery fails."""
+    if not message.startswith("REVERSE-DIRECTION STUDY — "):
+        LOG.info("Non-reverse Telegram message suppressed")
+        return False
     token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
     chat = os.getenv("TELEGRAM_CHAT_ID", "").strip()
     if not token or not chat:
@@ -1349,50 +1352,57 @@ def notify_failure(task: str, exc: BaseException) -> None:
 
 
 def deliver_pending_signals(limit: int = 10) -> int:
-    """Send ONLY approved pending research alerts. Shadow signals have delivered=2."""
-    sent=0
+    """Deliver only the existing mirror of an eligible original paper signal."""
+    sent = 0
+    now = datetime.now(TZ)
+    if not is_entry_window(now):
+        return 0
     with db_connect() as conn:
-        rows=conn.execute('SELECT id,payload FROM signals WHERE delivered=0 ORDER BY id LIMIT ?',
-                          (limit,)).fetchall()
+        mirror_study.ensure(conn)
+        rows = conn.execute(
+            "SELECT s.id,s.payload,s.created_at,m.payload AS mirror_payload "
+            "FROM signals s LEFT JOIN mirror_trades m ON m.signal_id=s.id "
+            "WHERE s.delivered=0 ORDER BY s.id LIMIT ?", (limit,)).fetchall()
     for r in rows:
-        p=json.loads(r['payload'])
-        v=p.get('validation') or {}
-        if not v.get('approved'):
-            # Fail closed on old imported signals; don't send stale/ungated alerts.
-            with db_connect() as conn:
-                conn.execute('UPDATE signals SET delivered=2 WHERE id=?',(r['id'],));conn.commit()
-            continue
+        p = json.loads(r['payload'])
+        v = p.get('validation') or {}
         reason = str(v.get('reason') or '')
-        tier = str(p.get('tier') or 'TIER-1')
-        if not reason.startswith('RESEARCH PREVIEW') and tier != 'TIER-1':
-            with db_connect() as conn:
-                conn.execute('UPDATE signals SET delivered=2 WHERE id=?',(r['id'],));conn.commit()
-            continue
-        header = ("🔬 RESEARCH PREVIEW — {sym} {side}"
-                  if reason.startswith('RESEARCH PREVIEW')
-                  else "🚀 BHARAT PRE-EXPLOSION SCOUT 2.0 [TIER-1] — {sym} {side}")
-        drift = p.get('drift_forecast') or {}
-        drift_line = (f"Drift forecast {drift['forecast_change_pct']:+.2f}% / {drift['horizon_bars']} candles\n"
-                      if drift else "")
-        hm = p.get('heatmap_edge') or {}
-        hm_line = (f"🔥 Heatmap Edge ({hm.get('score_delta', 0):+d} pts): {', '.join(hm.get('tags') or [])}\n"
-                   if hm.get('tags') else "")
-        msg=(header.format(sym=p['symbol'], side=p['side']) + "\n"
-             f"Reference ₹{p['price']} | stop ₹{p['stop']} | target ₹{p['target']}\n"
-             f"Score {p['score']}/100 | 5m RVOL {p.get('relative_volume')}x "
-             f"| cum RVOL {p.get('cumulative_relative_volume')}x\n"
-             f"Kronos {p.get('forecast',{}).get('forecast_change_pct')}% / "
-             f"{p.get('forecast',{}).get('horizon_bars')} candles\n"
-             + drift_line + hm_line + f"Validation: {reason}\n"
-             "Paper research only; not a guaranteed trade and no broker order placed.")
         try:
-            send_telegram_message(msg)
+            created = datetime.fromisoformat(r['created_at'])
+            age = (now - created).total_seconds()
+            candle = datetime.fromisoformat(str(p['candle_time']))
+            candle_age = (now - candle).total_seconds()
+            m = json.loads(r['mirror_payload']) if r['mirror_payload'] else None
+            expected = mirror_study.make_mirror_payload(p)
+            valid = (v.get('approved') and not p.get('shadow_only', True)
+                     and (reason.startswith('RESEARCH PREVIEW') or str(p.get('tier') or 'TIER-1') == 'TIER-1')
+                     and 0 <= age <= 900 and 0 <= candle_age <= 1200
+                     and created.astimezone(TZ).date() == now.date()
+                     and m is not None and expected is not None
+                     and all(m.get(k) == expected.get(k) for k in ('symbol','side','price','stop','target','candle_time')))
+        except (ValueError, TypeError, KeyError):
+            valid = False
+        if not valid:
+            with db_connect() as conn:
+                conn.execute('UPDATE signals SET delivered=2 WHERE id=?', (r['id'],))
+                conn.commit()
+            continue
+        msg = (f"REVERSE-DIRECTION STUDY — {m['symbol']} {m['side']}\n"
+               f"Entry reference: ₹{m['price']}\n"
+               f"Stop loss: ₹{m['stop']} | Target: ₹{m['target']}\n"
+               f"Signal candle: {m['candle_time']}\n"
+               f"Original direction: {p['side']} (internal control)\n"
+               "Experimental paper research only; no broker order placed.")
+        try:
+            if not send_telegram_message(msg):
+                break
         except Exception as exc:
-            LOG.warning("Telegram delivery failed for signal %s: %s",r['id'],exc)
+            LOG.warning("Reverse Telegram delivery failed for signal %s: %s", r['id'], type(exc).__name__)
             break
         with db_connect() as conn:
-            conn.execute('UPDATE signals SET delivered=1 WHERE id=?',(r['id'],));conn.commit()
-        sent+=1
+            conn.execute('UPDATE signals SET delivered=1 WHERE id=?', (r['id'],))
+            conn.commit()
+        sent += 1
     return sent
 
 
@@ -1692,12 +1702,7 @@ def run_scan_cycle() -> Dict[str, Any]:
         ml.export_reports(ROOT, conn, market, extras=extra_tiles)
         activation = aj.mode(conn, now)
     sector_sent = False
-    try:
-        with db_connect() as conn:
-            sector_sent = research.sector_update(conn, market, now, send_telegram_message)
-    except Exception as exc:
-        LOG.warning("Sector update failed: %s", type(exc).__name__)
-    heatmap_digest_sent = send_heatmap_digest(extra_tiles, now)
+    heatmap_digest_sent = False
     if sector_sent or heatmap_digest_sent:
         persist_state_to_git()
     # Four-header engine ([BEST_SETTING_CALL], [90PCT_SETUP_V9], [LEARNING_SETUP], [EARLIER_SETUP]) disabled per user preference.
@@ -1833,15 +1838,10 @@ def run_scan_cycle() -> Dict[str, Any]:
             inserted += 1
             approved_count += int(approved)
 
-    news_alerts_sent = scan_news_catalysts(intraday_all, daily_map, alerted_today, now)
+    news_alerts_sent = 0
     delivered = delivered_prior + deliver_pending_signals(limit=10) + news_alerts_sent
     watch_sent = False
-    if watch_candidates:
-        try:
-            with db_connect() as conn:
-                watch_sent = research.send_research_watch(conn, watch_candidates, now, send_telegram_message)
-        except Exception as exc:
-            LOG.warning("Research watch delivery failed: %s", type(exc).__name__)
+    # Watch candidates remain internal; no Telegram watch messages.
     if inserted > 0 or delivered > 0 or watch_sent:
         persist_state_to_git()
 
@@ -2704,7 +2704,7 @@ def run_daily_learning(send_telegram: bool = True) -> Dict[str, Any]:
 
     report = {"day": str(replay_day), "resolved": len(resolved), "movers": len(movers), "mode": flt["mode"],
               "elapsed_s": round(time.monotonic() - started, 1)}
-    if send_telegram:
+    if False:  # Reverse-direction-only Telegram mode
         try:
             send_long_telegram(format_learning_report(replay_day, resolved, movers, flt))
             send_long_telegram(aj.telegram_digest(adaptive_report))
@@ -2790,7 +2790,7 @@ def send_morning_brief() -> None:
     lines = [f"🌅 BHARAT SCOUT LIVE — {day} 09:20 IST",
              f"Research/paper mode | graded outcomes: {f.get('total_resolved', 0)} | no guaranteed trades",
              f"Kronos: {kronos_status}"]
-    lines.append("Active Telegram alerts: RESEARCH WATCH / RESEARCH PREVIEW + BHARAT PRE-EXPLOSION SCOUT 2.0 [TIER-1]")
+    lines.append("Active Telegram alerts: REVERSE-DIRECTION STUDY only")
     if f.get("blocked"):
         lines.append("🚫 Blocked today: " + "; ".join(list(f["blocked"].keys())[:6]))
     if f.get("min_rvol"):
