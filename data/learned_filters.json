@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-26T16:30:09.863440+05:30",
+  "updated_at": "2026-11-27T16:27:13.515860+05:30",
   "mode": "warmup",
-  "total_resolved": 1,
+  "total_resolved": 2,
   "score_bump": 0,
   "min_rvol": 1.2,
   "blocked": {},
@@ -13,14 +13,14 @@
       "win": 0.0
     },
     "tier:TIER-2": {
-      "n": 1,
-      "avg_r": -0.568,
-      "win": 0.0
+      "n": 2,
+      "avg_r": -0.234,
+      "win": 50.0
     },
     "window:AFTER_2PM": {
-      "n": 1,
-      "avg_r": -0.568,
-      "win": 0.0
+      "n": 2,
+      "avg_r": -0.234,
+      "win": 50.0
     },
     "side_window:SELL|AFTER_2PM": {
       "n": 1,
@@ -41,6 +41,31 @@
       "n": 1,
       "avg_r": -0.568,
       "win": 0.0
+    },
+    "side:BUY": {
+      "n": 1,
+      "avg_r": 0.1,
+      "win": 100.0
+    },
+    "side_window:BUY|AFTER_2PM": {
+      "n": 1,
+      "avg_r": 0.1,
+      "win": 100.0
+    },
+    "formula:BUY|F2_ORB_15M_RVOL_IGNITION": {
+      "n": 1,
+      "avg_r": 0.1,
+      "win": 100.0
+    },
+    "formula:BUY|F3_VWAP_MFI_ACCUMULATION": {
+      "n": 1,
+      "avg_r": 0.1,
+      "win": 100.0
+    },
+    "formula:BUY|F6_MULTIDAY_CHANNEL_BREAK": {
+      "n": 1,
+      "avg_r": 0.1,
+      "win": 100.0
     }
   },
   "levels": {},
@@ -143,6 +168,10 @@
     {
       "at": "2026-11-26T16:30:09.863427+05:30",
       "items": []
+    },
+    {
+      "at": "2026-11-27T16:27:13.515851+05:30",
+      "items": []
     }
   ],
   "failure_modes": {
@@ -157,7 +186,7 @@
   },
   "success_modes": {},
   "mover_capture": {
-    "movers": 60,
-    "caught": 9
+    "movers": 80,
+    "caught": 10
   }
 }
